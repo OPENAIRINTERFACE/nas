@@ -33,6 +33,7 @@ func GetRegistrationRequest(
 	registrationType uint8,
 	mobileIdentity nasType.MobileIdentity5GS,
 	requestedNSSAI *nasType.RequestedNSSAI,
+	networkSlicingIndication *nasType.NetworkSlicingIndication,
 	ueSecurityCapability *nasType.UESecurityCapability,
 	capability5GMM *nasType.Capability5GMM,
 	nasMessageContainer []uint8,
@@ -56,6 +57,7 @@ func GetRegistrationRequest(
 	registrationRequest.UESecurityCapability = ueSecurityCapability
 	registrationRequest.Capability5GMM = capability5GMM
 	registrationRequest.RequestedNSSAI = requestedNSSAI
+	registrationRequest.NetworkSlicingIndication = networkSlicingIndication
 	registrationRequest.UplinkDataStatus = uplinkDataStatus
 
 	if nasMessageContainer != nil {
