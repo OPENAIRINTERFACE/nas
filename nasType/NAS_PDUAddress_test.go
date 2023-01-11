@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewPDUAddress(t *testing.T) {
-	a := nasType.NewPDUAddress(nasMessage.PDUSessionEstablishmentAcceptPDUAddressType)
+	a := nasType.NewPDUAddress(
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypePDUAddressPDUSessionEstablishmentAcceptPDUAddressTypeTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionEstablishmentAcceptPDUAddressType, nasMessage.PDUSessionEstablishmentAcceptPDUAddressType},
+	{
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+	},
 }
 
 func TestNasTypePDUAddressGetSetIei(t *testing.T) {
-	a := nasType.NewPDUAddress(nasMessage.PDUSessionEstablishmentAcceptPDUAddressType)
+	a := nasType.NewPDUAddress(
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+	)
 	for _, table := range nasTypePDUAddressPDUSessionEstablishmentAcceptPDUAddressTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypePDUAddressLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypePDUAddressGetSetLen(t *testing.T) {
-	a := nasType.NewPDUAddress(nasMessage.PDUSessionEstablishmentAcceptPDUAddressType)
+	a := nasType.NewPDUAddress(
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+	)
 	for _, table := range nasTypePDUAddressLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypePDUAddressPDUSessionTypeValueTable = []nasTypePDUAddressPDUSessionTyp
 }
 
 func TestNasTypePDUAddressGetSetPDUSessionTypeValue(t *testing.T) {
-	a := nasType.NewPDUAddress(nasMessage.PDUSessionEstablishmentAcceptPDUAddressType)
+	a := nasType.NewPDUAddress(
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+	)
 	for _, table := range nasTypePDUAddressPDUSessionTypeValueTable {
 		a.SetLen(table.inLen)
 		a.SetPDUSessionTypeValue(table.in)
@@ -70,11 +81,43 @@ type nasTypePDUAddressPDUAddressInformationData struct {
 }
 
 var nasTypePDUAddressPDUAddressInformationTable = []nasTypePDUAddressPDUAddressInformationData{
-	{12, [12]uint8{0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f}, [12]uint8{0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f}},
+	{
+		12,
+		[12]uint8{
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+		},
+		[12]uint8{
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+		},
+	},
 }
 
 func TestNasTypePDUAddressGetSetPDUAddressInformation(t *testing.T) {
-	a := nasType.NewPDUAddress(nasMessage.PDUSessionEstablishmentAcceptPDUAddressType)
+	a := nasType.NewPDUAddress(
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+	)
 	for _, table := range nasTypePDUAddressPDUAddressInformationTable {
 		a.SetLen(table.inLen)
 		a.SetPDUAddressInformation(table.in)
@@ -94,24 +137,92 @@ type testPDUAddressDataTemplate struct {
 }
 
 var testPDUAddressTestTable = []testPDUAddressDataTemplate{
-	{nasMessage.PDUSessionEstablishmentAcceptPDUAddressType, 12, 0x07, [12]uint8{0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f},
-		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType, 12, 0x07, [12]uint8{0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f}},
+	{
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+		12,
+		0x07,
+		[12]uint8{
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+		},
+		nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+		12,
+		0x07,
+		[12]uint8{
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+			0x0f,
+		},
+	},
 }
 
 func TestNasTypePDUAddress(t *testing.T) {
 
 	for i, table := range testPDUAddressTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewPDUAddress(nasMessage.PDUSessionEstablishmentAcceptPDUAddressType)
+		a := nasType.NewPDUAddress(
+			nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+		)
 
 		a.SetIei(table.inIei)
 		a.SetLen(table.inLen)
 		a.SetPDUSessionTypeValue(table.inPDUSessionTypeValue)
 		a.SetPDUAddressInformation(table.inPDUAddressInformation)
 
-		assert.Equalf(t, table.outIei, a.Iei, "in(%v): out %v, actual %x", table.inIei, table.outIei, a.Iei)
-		assert.Equalf(t, table.outLen, a.Len, "in(%v): out %v, actual %x", table.inLen, table.outLen, a.Len)
-		assert.Equalf(t, table.outPDUSessionTypeValue, a.GetPDUSessionTypeValue(), "in(%v): out %v, actual %x", table.inPDUSessionTypeValue, table.outPDUSessionTypeValue, a.GetPDUSessionTypeValue())
-		assert.Equalf(t, table.outPDUAddressInformation, a.GetPDUAddressInformation(), "in(%v): out %v, actual %x", table.inPDUAddressInformation, table.outPDUAddressInformation, a.GetPDUAddressInformation())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.outLen,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.inLen,
+			table.outLen,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.outPDUSessionTypeValue,
+			a.GetPDUSessionTypeValue(),
+			"in(%v): out %v, actual %x",
+			table.inPDUSessionTypeValue,
+			table.outPDUSessionTypeValue,
+			a.GetPDUSessionTypeValue(),
+		)
+		assert.Equalf(
+			t,
+			table.outPDUAddressInformation,
+			a.GetPDUAddressInformation(),
+			"in(%v): out %v, actual %x",
+			table.inPDUAddressInformation,
+			table.outPDUAddressInformation,
+			a.GetPDUAddressInformation(),
+		)
 	}
 }

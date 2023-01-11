@@ -20,7 +20,10 @@ type nasTypeRejectMessageIdentityData struct {
 }
 
 var nasTypeRejectMessageIdentityTable = []nasTypeRejectMessageIdentityData{
-	{nasMessage.PDUSessionEstablishmentRejectEAPMessageType, nasMessage.PDUSessionEstablishmentRejectEAPMessageType},
+	{
+		nasMessage.PDUSessionEstablishmentRejectEAPMessageType,
+		nasMessage.PDUSessionEstablishmentRejectEAPMessageType,
+	},
 }
 
 func TestNasTypeNewAuthenticationRejectMessageIdentity(t *testing.T) {

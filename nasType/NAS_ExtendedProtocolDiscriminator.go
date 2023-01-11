@@ -24,6 +24,8 @@ func (a *ExtendedProtocolDiscriminator) GetExtendedProtocolDiscriminator() (exte
 
 // ExtendedProtocolDiscriminator 9.2
 // ExtendedProtocolDiscriminator Row, sBit, len = [0, 0], 8 , 8
-func (a *ExtendedProtocolDiscriminator) SetExtendedProtocolDiscriminator(extendedProtocolDiscriminator uint8) {
+func (a *ExtendedProtocolDiscriminator) SetExtendedProtocolDiscriminator(
+	extendedProtocolDiscriminator uint8,
+) {
 	a.Octet = extendedProtocolDiscriminator
 }

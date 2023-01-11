@@ -27,7 +27,9 @@ var nasTypeRegistrationRejectMessageIdentityTable = []nasTypeRegistrationRejectM
 	{0x03, 0x03},
 }
 
-func TestNasTypeRegistrationRejectMessageIdentityGetSetMessageType(t *testing.T) {
+func TestNasTypeRegistrationRejectMessageIdentityGetSetMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewRegistrationRejectMessageIdentity()
 	for _, table := range nasTypeRegistrationRejectMessageIdentityTable {
 		a.SetMessageType(table.in)
@@ -49,7 +51,10 @@ var RegistrationRejectMessageIdentityExpectedTestData = []nasType.RegistrationRe
 }
 
 var RegistrationRejectMessageIdentityTable = []RegistrationRejectMessageIdentityTestDataTemplate{
-	{RegistrationRejectMessageIdentityTestData[0], RegistrationRejectMessageIdentityExpectedTestData[0]},
+	{
+		RegistrationRejectMessageIdentityTestData[0],
+		RegistrationRejectMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypeRegistrationRejectMessageIdentity(t *testing.T) {

@@ -20,7 +20,10 @@ type nasTypeDeregistrationRequestMessageIdentityData struct {
 }
 
 var nasTypeDeregistrationRequestMessageIdentityTable = []nasTypeDeregistrationRequestMessageIdentityData{
-	{nas.MsgTypeDeregistrationRequestUETerminatedDeregistration, nas.MsgTypeDeregistrationRequestUETerminatedDeregistration},
+	{
+		nas.MsgTypeDeregistrationRequestUETerminatedDeregistration,
+		nas.MsgTypeDeregistrationRequestUETerminatedDeregistration,
+	},
 }
 
 func TestNasTypeNewDeregistrationRequestMessageIdentity(t *testing.T) {

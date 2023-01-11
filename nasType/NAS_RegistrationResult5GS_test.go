@@ -15,16 +15,23 @@ import (
 )
 
 func TestNasTypeNewRegistrationResult5GS(t *testing.T) {
-	a := nasType.NewRegistrationResult5GS(nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType)
+	a := nasType.NewRegistrationResult5GS(
+		nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+	)
 	assert.NotNil(t, a)
 }
 
 var nasTypeRegistrationAcceptNetworkFeatureSupport5GSTable = []NasTypeIeiData{
-	{nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType, nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType},
+	{
+		nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+		nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+	},
 }
 
 func TestNasTypeRegistrationResult5GSGetSetIei(t *testing.T) {
-	a := nasType.NewRegistrationResult5GS(nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType)
+	a := nasType.NewRegistrationResult5GS(
+		nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+	)
 	for _, table := range nasTypeRegistrationAcceptNetworkFeatureSupport5GSTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -36,7 +43,9 @@ var nasTypeRegistrationAcceptNetworkFeatureSupport5GSLenTable = []NasTypeLenuint
 }
 
 func TestNasTypeRegistrationResult5GSGetSetLen(t *testing.T) {
-	a := nasType.NewRegistrationResult5GS(nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType)
+	a := nasType.NewRegistrationResult5GS(
+		nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+	)
 	for _, table := range nasTypeRegistrationAcceptNetworkFeatureSupport5GSLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -54,7 +63,9 @@ var nasTypeRegistrationResult5GSSMSAllowed = []NasTypeSMSAlloweduint8Data{
 }
 
 func TestNasTypeRegistrationResult5GSGetSetSMSAllowed(t *testing.T) {
-	a := nasType.NewRegistrationResult5GS(nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType)
+	a := nasType.NewRegistrationResult5GS(
+		nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+	)
 	for _, table := range nasTypeRegistrationResult5GSSMSAllowed {
 		a.SetSMSAllowed(table.in)
 		assert.Equal(t, table.out, a.GetSMSAllowed())
@@ -71,8 +82,12 @@ var nasTypeRegistrationResult5GSRegistrationResultValue5GS = []NasTypeRegistrati
 	{0x0, 0x0},
 }
 
-func TestNasTypeRegistrationResult5GSGetSetRegistrationResultValue5GS(t *testing.T) {
-	a := nasType.NewRegistrationResult5GS(nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType)
+func TestNasTypeRegistrationResult5GSGetSetRegistrationResultValue5GS(
+	t *testing.T,
+) {
+	a := nasType.NewRegistrationResult5GS(
+		nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+	)
 	for _, table := range nasTypeRegistrationResult5GSRegistrationResultValue5GS {
 		a.SetRegistrationResultValue5GS(table.in)
 		assert.Equal(t, table.out, a.GetRegistrationResultValue5GS())
@@ -94,12 +109,19 @@ var registrationResult5GSExpectedData = []nasType.RegistrationResult5GS{
 }
 
 var registrationResult5GSDataTestTable = []testRegistrationResult5GSDataTemplate{
-	{0x07, 0x1F, registrationResult5GSTestData[0], registrationResult5GSExpectedData[0]},
+	{
+		0x07,
+		0x1F,
+		registrationResult5GSTestData[0],
+		registrationResult5GSExpectedData[0],
+	},
 }
 
 func TestNasTypeRegistrationResult5GS(t *testing.T) {
 	for _, table := range registrationResult5GSDataTestTable {
-		a := nasType.NewRegistrationResult5GS(nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType)
+		a := nasType.NewRegistrationResult5GS(
+			nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+		)
 		a.SetIei(table.in.Iei)
 		a.SetLen(table.in.Len)
 		a.SetSMSAllowed(table.inSMSAllowed)

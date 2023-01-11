@@ -15,16 +15,23 @@ import (
 )
 
 func TestNasTypeNewAuthorizedQosFlowDescriptions(t *testing.T) {
-	a := nasType.NewAuthorizedQosFlowDescriptions(nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType)
+	a := nasType.NewAuthorizedQosFlowDescriptions(
+		nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+	)
 	assert.NotNil(t, a)
 }
 
 var nasTypePDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType, nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType},
+	{
+		nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+		nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+	},
 }
 
 func TestNasTypeAuthorizedQosFlowDescriptionsGetSetIei(t *testing.T) {
-	a := nasType.NewAuthorizedQosFlowDescriptions(nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType)
+	a := nasType.NewAuthorizedQosFlowDescriptions(
+		nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+	)
 	for _, table := range nasTypePDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -36,7 +43,9 @@ var nasTypePDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsLenTable = 
 }
 
 func TestNasTypeAuthorizedQosFlowDescriptionsGetSetLen(t *testing.T) {
-	a := nasType.NewAuthorizedQosFlowDescriptions(nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType)
+	a := nasType.NewAuthorizedQosFlowDescriptions(
+		nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+	)
 	for _, table := range nasTypePDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -53,12 +62,24 @@ var nasTypeQoSFlowDescriptionTable = []nasTypeQoSFlowDescription{
 	{2, []uint8{0x00, 0x01}, []uint8{0x00, 0x01}},
 }
 
-func TestNasTypeAuthorizedQosFlowDescriptionsGetSetQoSFlowDescription(t *testing.T) {
-	a := nasType.NewAuthorizedQosFlowDescriptions(nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType)
+func TestNasTypeAuthorizedQosFlowDescriptionsGetSetQoSFlowDescription(
+	t *testing.T,
+) {
+	a := nasType.NewAuthorizedQosFlowDescriptions(
+		nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+	)
 	for _, table := range nasTypeQoSFlowDescriptionTable {
 		a.SetLen(table.inLen)
 		a.SetQoSFlowDescriptions(table.in)
-		assert.Equalf(t, table.out, a.GetQoSFlowDescriptions(), "in(%v): out %v, actual %x", table.in, table.out, a.GetQoSFlowDescriptions())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetQoSFlowDescriptions(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetQoSFlowDescriptions(),
+		)
 	}
 }
 
@@ -68,29 +89,66 @@ type testAuthorizedQosFlowDescriptionsDataTemplate struct {
 }
 
 var AuthorizedQosFlowDescriptionsTestData = []nasType.AuthorizedQosFlowDescriptions{
-	{nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType, 2, []uint8{0x00, 0x01}},
+	{
+		nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+		2,
+		[]uint8{0x00, 0x01},
+	},
 }
 
 var AuthorizedQosFlowDescriptionsExpectedTestData = []nasType.AuthorizedQosFlowDescriptions{
-	{nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType, 2, []uint8{0x00, 0x01}},
+	{
+		nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+		2,
+		[]uint8{0x00, 0x01},
+	},
 }
 
 var AuthorizedQosFlowDescriptionsTable = []testAuthorizedQosFlowDescriptionsDataTemplate{
-	{AuthorizedQosFlowDescriptionsTestData[0], AuthorizedQosFlowDescriptionsExpectedTestData[0]},
+	{
+		AuthorizedQosFlowDescriptionsTestData[0],
+		AuthorizedQosFlowDescriptionsExpectedTestData[0],
+	},
 }
 
 func TestNasTypeAuthorizedQosFlowDescriptions(t *testing.T) {
 	for i, table := range AuthorizedQosFlowDescriptionsTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewAuthorizedQosFlowDescriptions(nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType)
+		a := nasType.NewAuthorizedQosFlowDescriptions(
+			nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetLen(table.in.Len)
 		a.SetQoSFlowDescriptions(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 	}
 
 }

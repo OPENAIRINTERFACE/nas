@@ -76,20 +76,40 @@ const (
 )
 
 func (a *RegistrationAccept) EncodeRegistrationAccept(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.RegistrationAcceptMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.RegistrationAcceptMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, a.RegistrationResult5GS.GetLen())
 	binary.Write(buffer, binary.BigEndian, &a.RegistrationResult5GS.Octet)
 	if a.GUTI5G != nil {
 		binary.Write(buffer, binary.BigEndian, a.GUTI5G.GetIei())
 		binary.Write(buffer, binary.BigEndian, a.GUTI5G.GetLen())
-		binary.Write(buffer, binary.BigEndian, a.GUTI5G.Octet[:a.GUTI5G.GetLen()])
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.GUTI5G.Octet[:a.GUTI5G.GetLen()],
+		)
 	}
 	if a.EquivalentPlmns != nil {
 		binary.Write(buffer, binary.BigEndian, a.EquivalentPlmns.GetIei())
 		binary.Write(buffer, binary.BigEndian, a.EquivalentPlmns.GetLen())
-		binary.Write(buffer, binary.BigEndian, a.EquivalentPlmns.Octet[:a.EquivalentPlmns.GetLen()])
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.EquivalentPlmns.Octet[:a.EquivalentPlmns.GetLen()],
+		)
 	}
 	if a.TAIList != nil {
 		binary.Write(buffer, binary.BigEndian, a.TAIList.GetIei())
@@ -112,9 +132,21 @@ func (a *RegistrationAccept) EncodeRegistrationAccept(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.ConfiguredNSSAI.Buffer)
 	}
 	if a.NetworkFeatureSupport5GS != nil {
-		binary.Write(buffer, binary.BigEndian, a.NetworkFeatureSupport5GS.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.NetworkFeatureSupport5GS.GetLen())
-		binary.Write(buffer, binary.BigEndian, a.NetworkFeatureSupport5GS.Octet[:a.NetworkFeatureSupport5GS.GetLen()])
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.NetworkFeatureSupport5GS.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.NetworkFeatureSupport5GS.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.NetworkFeatureSupport5GS.Octet[:a.NetworkFeatureSupport5GS.GetLen()],
+		)
 	}
 	if a.PDUSessionStatus != nil {
 		binary.Write(buffer, binary.BigEndian, a.PDUSessionStatus.GetIei())
@@ -122,14 +154,38 @@ func (a *RegistrationAccept) EncodeRegistrationAccept(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.PDUSessionStatus.Buffer)
 	}
 	if a.PDUSessionReactivationResult != nil {
-		binary.Write(buffer, binary.BigEndian, a.PDUSessionReactivationResult.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.PDUSessionReactivationResult.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.PDUSessionReactivationResult.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.PDUSessionReactivationResult.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.PDUSessionReactivationResult.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.PDUSessionReactivationResult.Buffer,
+		)
 	}
 	if a.PDUSessionReactivationResultErrorCause != nil {
-		binary.Write(buffer, binary.BigEndian, a.PDUSessionReactivationResultErrorCause.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.PDUSessionReactivationResultErrorCause.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.PDUSessionReactivationResultErrorCause.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.PDUSessionReactivationResultErrorCause.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.PDUSessionReactivationResultErrorCause.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.PDUSessionReactivationResultErrorCause.Buffer,
+		)
 	}
 	if a.LADNInformation != nil {
 		binary.Write(buffer, binary.BigEndian, a.LADNInformation.GetIei())
@@ -140,7 +196,11 @@ func (a *RegistrationAccept) EncodeRegistrationAccept(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.MICOIndication.Octet)
 	}
 	if a.NetworkSlicingIndication != nil {
-		binary.Write(buffer, binary.BigEndian, &a.NetworkSlicingIndication.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.NetworkSlicingIndication.Octet,
+		)
 	}
 	if a.ServiceAreaList != nil {
 		binary.Write(buffer, binary.BigEndian, a.ServiceAreaList.GetIei())
@@ -153,9 +213,21 @@ func (a *RegistrationAccept) EncodeRegistrationAccept(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.T3512Value.Octet)
 	}
 	if a.Non3GppDeregistrationTimerValue != nil {
-		binary.Write(buffer, binary.BigEndian, a.Non3GppDeregistrationTimerValue.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.Non3GppDeregistrationTimerValue.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.Non3GppDeregistrationTimerValue.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.Non3GppDeregistrationTimerValue.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.Non3GppDeregistrationTimerValue.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.Non3GppDeregistrationTimerValue.Octet,
+		)
 	}
 	if a.T3502Value != nil {
 		binary.Write(buffer, binary.BigEndian, a.T3502Value.GetIei())
@@ -168,14 +240,38 @@ func (a *RegistrationAccept) EncodeRegistrationAccept(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.EmergencyNumberList.Buffer)
 	}
 	if a.ExtendedEmergencyNumberList != nil {
-		binary.Write(buffer, binary.BigEndian, a.ExtendedEmergencyNumberList.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.ExtendedEmergencyNumberList.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.ExtendedEmergencyNumberList.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedEmergencyNumberList.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedEmergencyNumberList.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.ExtendedEmergencyNumberList.Buffer,
+		)
 	}
 	if a.SORTransparentContainer != nil {
-		binary.Write(buffer, binary.BigEndian, a.SORTransparentContainer.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.SORTransparentContainer.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.SORTransparentContainer.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.SORTransparentContainer.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.SORTransparentContainer.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.SORTransparentContainer.Buffer,
+		)
 	}
 	if a.EAPMessage != nil {
 		binary.Write(buffer, binary.BigEndian, a.EAPMessage.GetIei())
@@ -186,22 +282,54 @@ func (a *RegistrationAccept) EncodeRegistrationAccept(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.NSSAIInclusionMode.Octet)
 	}
 	if a.OperatordefinedAccessCategoryDefinitions != nil {
-		binary.Write(buffer, binary.BigEndian, a.OperatordefinedAccessCategoryDefinitions.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.OperatordefinedAccessCategoryDefinitions.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.OperatordefinedAccessCategoryDefinitions.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.OperatordefinedAccessCategoryDefinitions.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.OperatordefinedAccessCategoryDefinitions.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.OperatordefinedAccessCategoryDefinitions.Buffer,
+		)
 	}
 	if a.NegotiatedDRXParameters != nil {
-		binary.Write(buffer, binary.BigEndian, a.NegotiatedDRXParameters.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.NegotiatedDRXParameters.GetLen())
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.NegotiatedDRXParameters.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.NegotiatedDRXParameters.GetLen(),
+		)
 		binary.Write(buffer, binary.BigEndian, &a.NegotiatedDRXParameters.Octet)
 	}
 }
 
 func (a *RegistrationAccept) DecodeRegistrationAccept(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.RegistrationAcceptMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.RegistrationAcceptMessageIdentity.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.RegistrationResult5GS.Len)
 	a.RegistrationResult5GS.SetLen(a.RegistrationResult5GS.GetLen())
 	binary.Read(buffer, binary.BigEndian, &a.RegistrationResult5GS.Octet)
@@ -221,78 +349,164 @@ func (a *RegistrationAccept) DecodeRegistrationAccept(byteArray *[]byte) {
 			a.GUTI5G = nasType.NewGUTI5G(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.GUTI5G.Len)
 			a.GUTI5G.SetLen(a.GUTI5G.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.GUTI5G.Octet[:a.GUTI5G.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.GUTI5G.Octet[:a.GUTI5G.GetLen()],
+			)
 		case RegistrationAcceptEquivalentPlmnsType:
 			a.EquivalentPlmns = nasType.NewEquivalentPlmns(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EquivalentPlmns.Len)
 			a.EquivalentPlmns.SetLen(a.EquivalentPlmns.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EquivalentPlmns.Octet[:a.EquivalentPlmns.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EquivalentPlmns.Octet[:a.EquivalentPlmns.GetLen()],
+			)
 		case RegistrationAcceptTAIListType:
 			a.TAIList = nasType.NewTAIList(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.TAIList.Len)
 			a.TAIList.SetLen(a.TAIList.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.TAIList.Buffer[:a.TAIList.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.TAIList.Buffer[:a.TAIList.GetLen()],
+			)
 		case RegistrationAcceptAllowedNSSAIType:
 			a.AllowedNSSAI = nasType.NewAllowedNSSAI(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.AllowedNSSAI.Len)
 			a.AllowedNSSAI.SetLen(a.AllowedNSSAI.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.AllowedNSSAI.Buffer[:a.AllowedNSSAI.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.AllowedNSSAI.Buffer[:a.AllowedNSSAI.GetLen()],
+			)
 		case RegistrationAcceptRejectedNSSAIType:
 			a.RejectedNSSAI = nasType.NewRejectedNSSAI(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.RejectedNSSAI.Len)
 			a.RejectedNSSAI.SetLen(a.RejectedNSSAI.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.RejectedNSSAI.Buffer[:a.RejectedNSSAI.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.RejectedNSSAI.Buffer[:a.RejectedNSSAI.GetLen()],
+			)
 		case RegistrationAcceptConfiguredNSSAIType:
 			a.ConfiguredNSSAI = nasType.NewConfiguredNSSAI(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.ConfiguredNSSAI.Len)
 			a.ConfiguredNSSAI.SetLen(a.ConfiguredNSSAI.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ConfiguredNSSAI.Buffer[:a.ConfiguredNSSAI.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ConfiguredNSSAI.Buffer[:a.ConfiguredNSSAI.GetLen()],
+			)
 		case RegistrationAcceptNetworkFeatureSupport5GSType:
-			a.NetworkFeatureSupport5GS = nasType.NewNetworkFeatureSupport5GS(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.NetworkFeatureSupport5GS.Len)
-			a.NetworkFeatureSupport5GS.SetLen(a.NetworkFeatureSupport5GS.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.NetworkFeatureSupport5GS.Octet[:a.NetworkFeatureSupport5GS.GetLen()])
+			a.NetworkFeatureSupport5GS = nasType.NewNetworkFeatureSupport5GS(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.NetworkFeatureSupport5GS.Len,
+			)
+			a.NetworkFeatureSupport5GS.SetLen(
+				a.NetworkFeatureSupport5GS.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.NetworkFeatureSupport5GS.Octet[:a.NetworkFeatureSupport5GS.GetLen()],
+			)
 		case RegistrationAcceptPDUSessionStatusType:
 			a.PDUSessionStatus = nasType.NewPDUSessionStatus(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.PDUSessionStatus.Len)
 			a.PDUSessionStatus.SetLen(a.PDUSessionStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()],
+			)
 		case RegistrationAcceptPDUSessionReactivationResultType:
-			a.PDUSessionReactivationResult = nasType.NewPDUSessionReactivationResult(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.PDUSessionReactivationResult.Len)
-			a.PDUSessionReactivationResult.SetLen(a.PDUSessionReactivationResult.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionReactivationResult.Buffer[:a.PDUSessionReactivationResult.GetLen()])
+			a.PDUSessionReactivationResult = nasType.NewPDUSessionReactivationResult(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.PDUSessionReactivationResult.Len,
+			)
+			a.PDUSessionReactivationResult.SetLen(
+				a.PDUSessionReactivationResult.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionReactivationResult.Buffer[:a.PDUSessionReactivationResult.GetLen()],
+			)
 		case RegistrationAcceptPDUSessionReactivationResultErrorCauseType:
-			a.PDUSessionReactivationResultErrorCause = nasType.NewPDUSessionReactivationResultErrorCause(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.PDUSessionReactivationResultErrorCause.Len)
-			a.PDUSessionReactivationResultErrorCause.SetLen(a.PDUSessionReactivationResultErrorCause.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionReactivationResultErrorCause.Buffer[:a.PDUSessionReactivationResultErrorCause.GetLen()])
+			a.PDUSessionReactivationResultErrorCause = nasType.NewPDUSessionReactivationResultErrorCause(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.PDUSessionReactivationResultErrorCause.Len,
+			)
+			a.PDUSessionReactivationResultErrorCause.SetLen(
+				a.PDUSessionReactivationResultErrorCause.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionReactivationResultErrorCause.Buffer[:a.PDUSessionReactivationResultErrorCause.GetLen()],
+			)
 		case RegistrationAcceptLADNInformationType:
 			a.LADNInformation = nasType.NewLADNInformation(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.LADNInformation.Len)
 			a.LADNInformation.SetLen(a.LADNInformation.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.LADNInformation.Buffer[:a.LADNInformation.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.LADNInformation.Buffer[:a.LADNInformation.GetLen()],
+			)
 		case RegistrationAcceptMICOIndicationType:
 			a.MICOIndication = nasType.NewMICOIndication(ieiN)
 			a.MICOIndication.Octet = ieiN
 		case RegistrationAcceptNetworkSlicingIndicationType:
-			a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(ieiN)
+			a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(
+				ieiN,
+			)
 			a.NetworkSlicingIndication.Octet = ieiN
 		case RegistrationAcceptServiceAreaListType:
 			a.ServiceAreaList = nasType.NewServiceAreaList(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.ServiceAreaList.Len)
 			a.ServiceAreaList.SetLen(a.ServiceAreaList.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ServiceAreaList.Buffer[:a.ServiceAreaList.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ServiceAreaList.Buffer[:a.ServiceAreaList.GetLen()],
+			)
 		case RegistrationAcceptT3512ValueType:
 			a.T3512Value = nasType.NewT3512Value(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.T3512Value.Len)
 			a.T3512Value.SetLen(a.T3512Value.GetLen())
 			binary.Read(buffer, binary.BigEndian, &a.T3512Value.Octet)
 		case RegistrationAcceptNon3GppDeregistrationTimerValueType:
-			a.Non3GppDeregistrationTimerValue = nasType.NewNon3GppDeregistrationTimerValue(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.Non3GppDeregistrationTimerValue.Len)
-			a.Non3GppDeregistrationTimerValue.SetLen(a.Non3GppDeregistrationTimerValue.GetLen())
-			binary.Read(buffer, binary.BigEndian, &a.Non3GppDeregistrationTimerValue.Octet)
+			a.Non3GppDeregistrationTimerValue = nasType.NewNon3GppDeregistrationTimerValue(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.Non3GppDeregistrationTimerValue.Len,
+			)
+			a.Non3GppDeregistrationTimerValue.SetLen(
+				a.Non3GppDeregistrationTimerValue.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.Non3GppDeregistrationTimerValue.Octet,
+			)
 		case RegistrationAcceptT3502ValueType:
 			a.T3502Value = nasType.NewT3502Value(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.T3502Value.Len)
@@ -302,35 +516,83 @@ func (a *RegistrationAccept) DecodeRegistrationAccept(byteArray *[]byte) {
 			a.EmergencyNumberList = nasType.NewEmergencyNumberList(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EmergencyNumberList.Len)
 			a.EmergencyNumberList.SetLen(a.EmergencyNumberList.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EmergencyNumberList.Buffer[:a.EmergencyNumberList.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EmergencyNumberList.Buffer[:a.EmergencyNumberList.GetLen()],
+			)
 		case RegistrationAcceptExtendedEmergencyNumberListType:
-			a.ExtendedEmergencyNumberList = nasType.NewExtendedEmergencyNumberList(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.ExtendedEmergencyNumberList.Len)
-			a.ExtendedEmergencyNumberList.SetLen(a.ExtendedEmergencyNumberList.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ExtendedEmergencyNumberList.Buffer[:a.ExtendedEmergencyNumberList.GetLen()])
+			a.ExtendedEmergencyNumberList = nasType.NewExtendedEmergencyNumberList(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.ExtendedEmergencyNumberList.Len,
+			)
+			a.ExtendedEmergencyNumberList.SetLen(
+				a.ExtendedEmergencyNumberList.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ExtendedEmergencyNumberList.Buffer[:a.ExtendedEmergencyNumberList.GetLen()],
+			)
 		case RegistrationAcceptSORTransparentContainerType:
 			a.SORTransparentContainer = nasType.NewSORTransparentContainer(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.SORTransparentContainer.Len)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.SORTransparentContainer.Len,
+			)
 			a.SORTransparentContainer.SetLen(a.SORTransparentContainer.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.SORTransparentContainer.Buffer[:a.SORTransparentContainer.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.SORTransparentContainer.Buffer[:a.SORTransparentContainer.GetLen()],
+			)
 		case RegistrationAcceptEAPMessageType:
 			a.EAPMessage = nasType.NewEAPMessage(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EAPMessage.Len)
 			a.EAPMessage.SetLen(a.EAPMessage.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EAPMessage.Buffer[:a.EAPMessage.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EAPMessage.Buffer[:a.EAPMessage.GetLen()],
+			)
 		case RegistrationAcceptNSSAIInclusionModeType:
 			a.NSSAIInclusionMode = nasType.NewNSSAIInclusionMode(ieiN)
 			a.NSSAIInclusionMode.Octet = ieiN
 		case RegistrationAcceptOperatordefinedAccessCategoryDefinitionsType:
-			a.OperatordefinedAccessCategoryDefinitions = nasType.NewOperatordefinedAccessCategoryDefinitions(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.OperatordefinedAccessCategoryDefinitions.Len)
-			a.OperatordefinedAccessCategoryDefinitions.SetLen(a.OperatordefinedAccessCategoryDefinitions.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.OperatordefinedAccessCategoryDefinitions.Buffer[:a.OperatordefinedAccessCategoryDefinitions.GetLen()])
+			a.OperatordefinedAccessCategoryDefinitions = nasType.NewOperatordefinedAccessCategoryDefinitions(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.OperatordefinedAccessCategoryDefinitions.Len,
+			)
+			a.OperatordefinedAccessCategoryDefinitions.SetLen(
+				a.OperatordefinedAccessCategoryDefinitions.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.OperatordefinedAccessCategoryDefinitions.Buffer[:a.OperatordefinedAccessCategoryDefinitions.GetLen()],
+			)
 		case RegistrationAcceptNegotiatedDRXParametersType:
 			a.NegotiatedDRXParameters = nasType.NewNegotiatedDRXParameters(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.NegotiatedDRXParameters.Len)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.NegotiatedDRXParameters.Len,
+			)
 			a.NegotiatedDRXParameters.SetLen(a.NegotiatedDRXParameters.GetLen())
-			binary.Read(buffer, binary.BigEndian, &a.NegotiatedDRXParameters.Octet)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.NegotiatedDRXParameters.Octet,
+			)
 		default:
 		}
 	}

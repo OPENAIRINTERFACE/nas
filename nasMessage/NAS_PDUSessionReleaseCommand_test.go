@@ -70,20 +70,30 @@ func TestNasTypeNewPDUSessionReleaseCommandMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONRELEASECOMMANDMessageIdentity.SetMessageType(table.inPDUSessionReleaseCommandMessageIdentity)
+		a.PDUSESSIONRELEASECOMMANDMessageIdentity.SetMessageType(
+			table.inPDUSessionReleaseCommandMessageIdentity,
+		)
 
 		a.Cause5GSM = table.inCause5GSM
 
-		a.BackoffTimerValue = nasType.NewBackoffTimerValue(nasMessage.PDUSessionReleaseCommandBackoffTimerValueType)
+		a.BackoffTimerValue = nasType.NewBackoffTimerValue(
+			nasMessage.PDUSessionReleaseCommandBackoffTimerValueType,
+		)
 		a.BackoffTimerValue = &table.inBackoffTimerValue
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.PDUSessionReleaseCommandEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.PDUSessionReleaseCommandEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionReleaseCommandExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionReleaseCommandExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

@@ -12,7 +12,9 @@ type AlwaysonPDUSessionRequested struct {
 	Octet uint8
 }
 
-func NewAlwaysonPDUSessionRequested(iei uint8) (alwaysonPDUSessionRequested *AlwaysonPDUSessionRequested) {
+func NewAlwaysonPDUSessionRequested(
+	iei uint8,
+) (alwaysonPDUSessionRequested *AlwaysonPDUSessionRequested) {
 	alwaysonPDUSessionRequested = &AlwaysonPDUSessionRequested{}
 	alwaysonPDUSessionRequested.SetIei(iei)
 	return alwaysonPDUSessionRequested

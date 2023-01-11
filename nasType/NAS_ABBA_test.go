@@ -21,7 +21,10 @@ func TestNasTypeNewABBA(t *testing.T) {
 }
 
 var nasTypeAuthenticationResultABBATable = []NasTypeIeiData{
-	{nasMessage.AuthenticationResultABBAType, nasMessage.AuthenticationResultABBAType},
+	{
+		nasMessage.AuthenticationResultABBAType,
+		nasMessage.AuthenticationResultABBAType,
+	},
 }
 
 func TestNasTypeABBAGetSetIei(t *testing.T) {
@@ -66,7 +69,15 @@ func TestNasTypeABBAGetSetContent(t *testing.T) {
 	for _, table := range nasTypeContentTable {
 		a.SetLen(table.inLen)
 		a.SetABBAContents(table.in)
-		assert.Equalf(t, table.out, a.GetABBAContents(), "in(%v): out %v, actual %x", table.in, table.out, a.GetABBAContents())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetABBAContents(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetABBAContents(),
+		)
 	}
 }
 
@@ -97,9 +108,33 @@ func TestNasTypeABBA(t *testing.T) {
 		a.SetLen(table.in.Len)
 		a.SetABBAContents(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

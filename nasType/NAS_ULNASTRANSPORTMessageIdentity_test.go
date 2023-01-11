@@ -49,7 +49,10 @@ var ULNASTRANSPORTMessageIdentityExpectedTestData = []nasType.ULNASTRANSPORTMess
 }
 
 var ULNASTRANSPORTMessageIdentityTable = []ULNASTRANSPORTMessageIdentityTestDataTemplate{
-	{ULNASTRANSPORTMessageIdentityTestData[0], ULNASTRANSPORTMessageIdentityExpectedTestData[0]},
+	{
+		ULNASTRANSPORTMessageIdentityTestData[0],
+		ULNASTRANSPORTMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypeULNASTRANSPORTMessageIdentity(t *testing.T) {

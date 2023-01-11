@@ -27,7 +27,9 @@ var nasTypeDeregistrationTypeAndSpareHalfOctetSwitchOffTable = []nasTypeDeregist
 	{0x01, 0x01},
 }
 
-func TestNasTypeDeregistrationTypeAndSpareHalfOctetGetSetSwitchOff(t *testing.T) {
+func TestNasTypeDeregistrationTypeAndSpareHalfOctetGetSetSwitchOff(
+	t *testing.T,
+) {
 	a := nasType.NewSpareHalfOctetAndDeregistrationType()
 	for _, table := range nasTypeDeregistrationTypeAndSpareHalfOctetSwitchOffTable {
 		a.SetSwitchOff(table.in)
@@ -44,7 +46,9 @@ var nasTypeDeregistrationTypeAndSpareHalfOctetReRegistrationRequiredTable = []na
 	{0x01, 0x01},
 }
 
-func TestNasTypeDeregistrationTypeAndSpareHalfOctetGetSetReRegistrationRequired(t *testing.T) {
+func TestNasTypeDeregistrationTypeAndSpareHalfOctetGetSetReRegistrationRequired(
+	t *testing.T,
+) {
 	a := nasType.NewSpareHalfOctetAndDeregistrationType()
 	for _, table := range nasTypeDeregistrationTypeAndSpareHalfOctetReRegistrationRequiredTable {
 		a.SetReRegistrationRequired(table.in)
@@ -61,7 +65,9 @@ var nasTypeDeregistrationTypeAndSpareHalfOctetAccessTypeTable = []nasTypeDeregis
 	{0x03, 0x3},
 }
 
-func TestNasTypeDeregistrationTypeAndSpareHalfOctetGetSetAccessType(t *testing.T) {
+func TestNasTypeDeregistrationTypeAndSpareHalfOctetGetSetAccessType(
+	t *testing.T,
+) {
 	a := nasType.NewSpareHalfOctetAndDeregistrationType()
 	for _, table := range nasTypeDeregistrationTypeAndSpareHalfOctetAccessTypeTable {
 		a.SetAccessType(table.in)
@@ -86,7 +92,13 @@ var deregistrationTypeAndSpareHalfOctetExpectedData = []nasType.SpareHalfOctetAn
 }
 
 var deregistrationTypeAndSpareHalfOctetTestTable = []testDeregistrationTypeAndSpareHalfOctetDataTemplate{
-	{0x01, 0x01, 0x03, deregistrationTypeAndSpareHalfOctetTestData[0], deregistrationTypeAndSpareHalfOctetExpectedData[0]},
+	{
+		0x01,
+		0x01,
+		0x03,
+		deregistrationTypeAndSpareHalfOctetTestData[0],
+		deregistrationTypeAndSpareHalfOctetExpectedData[0],
+	},
 }
 
 func TestNasTypeDeregistrationTypeAndSpareHalfOctet(t *testing.T) {

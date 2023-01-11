@@ -70,20 +70,34 @@ func TestNasTypeNewServiceRejectMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.ServiceRejectMessageIdentity.SetMessageType(table.inServiceRejectMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.ServiceRejectMessageIdentity.SetMessageType(
+			table.inServiceRejectMessageIdentity,
+		)
 
 		a.Cause5GMM = table.inCause5GMM
 
-		a.PDUSessionStatus = nasType.NewPDUSessionStatus(nasMessage.ServiceRejectPDUSessionStatusType)
+		a.PDUSessionStatus = nasType.NewPDUSessionStatus(
+			nasMessage.ServiceRejectPDUSessionStatusType,
+		)
 		a.PDUSessionStatus = &table.inPDUSessionStatus
 
-		a.T3346Value = nasType.NewT3346Value(nasMessage.ServiceRejectT3346ValueType)
+		a.T3346Value = nasType.NewT3346Value(
+			nasMessage.ServiceRejectT3346ValueType,
+		)
 		a.T3346Value = &table.inT3346Value
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.ServiceRejectEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.ServiceRejectEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
 		buff := new(bytes.Buffer)

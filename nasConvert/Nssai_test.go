@@ -88,19 +88,29 @@ func TestRequestedNssaiToModels(t *testing.T) {
 			nil,
 		},
 	}
-	convey.Convey("Convert type from nasType.RequestedNSSAI to []models.MappingOfSnssai", t, func() {
-		for _, testCase := range testCases {
-			modelNssai, err := nasConvert.RequestedNssaiToModels(&testCase.requestNssai)
+	convey.Convey(
+		"Convert type from nasType.RequestedNSSAI to []models.MappingOfSnssai",
+		t,
+		func() {
+			for _, testCase := range testCases {
+				modelNssai, err := nasConvert.RequestedNssaiToModels(
+					&testCase.requestNssai,
+				)
 
-			convey.Convey(testCase.name, func() {
-				convey.So(modelNssai, convey.ShouldResemble, testCase.expected)
+				convey.Convey(testCase.name, func() {
+					convey.So(
+						modelNssai,
+						convey.ShouldResemble,
+						testCase.expected,
+					)
 
-				if testCase.name == "Test error handling" {
-					convey.So(err, convey.ShouldBeError)
-				} else {
-					convey.So(err, convey.ShouldBeNil)
-				}
-			})
-		}
-	})
+					if testCase.name == "Test error handling" {
+						convey.So(err, convey.ShouldBeError)
+					} else {
+						convey.So(err, convey.ShouldBeNil)
+					}
+				})
+			}
+		},
+	)
 }

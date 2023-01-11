@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewAllowedPDUSessionStatus(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeServiceRequestAllowedPDUSessionStatusTable = []NasTypeIeiData{
-	{nasMessage.ServiceRequestAllowedPDUSessionStatusType, nasMessage.ServiceRequestAllowedPDUSessionStatusType},
+	{
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	},
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetIei(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypeServiceRequestAllowedPDUSessionStatusTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeServiceRequestAllowedPDUSessionStatusLenTable = []NasTypeLenuint8Data
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetLen(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypeServiceRequestAllowedPDUSessionStatusLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypePSI7Table = []nasTypePSI7{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI7(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI7Table {
 		a.SetLen(table.inLen)
 		a.SetPSI7(table.in)
@@ -75,7 +86,9 @@ var nasTypePSI6Table = []nasTypePSI6{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI6(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI6Table {
 		a.SetLen(table.inLen)
 		a.SetPSI6(table.in)
@@ -95,7 +108,9 @@ var nasTypePSI5Table = []nasTypePSI5{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI5(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI5Table {
 		a.SetLen(table.inLen)
 		a.SetPSI5(table.in)
@@ -115,7 +130,9 @@ var nasTypePSI4Table = []nasTypePSI4{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI4(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI4Table {
 		a.SetLen(table.inLen)
 		a.SetPSI4(table.in)
@@ -135,7 +152,9 @@ var nasTypePSI3Table = []nasTypePSI3{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI3(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI3Table {
 		a.SetLen(table.inLen)
 		a.SetPSI3(table.in)
@@ -155,7 +174,9 @@ var nasTypePSI2Table = []nasTypePSI2{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI2(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI2Table {
 		a.SetLen(table.inLen)
 		a.SetPSI2(table.in)
@@ -175,7 +196,9 @@ var nasTypePSI1Table = []nasTypePSI1{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI1(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI1Table {
 		a.SetLen(table.inLen)
 		a.SetPSI1(table.in)
@@ -195,7 +218,9 @@ var nasTypePSI0Table = []nasTypePSI0{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI0(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI0Table {
 		a.SetLen(table.inLen)
 		a.SetPSI0(table.in)
@@ -215,7 +240,9 @@ var nasTypePSI15Table = []nasTypePSI15{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI15(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI15Table {
 		a.SetLen(table.inLen)
 		a.SetPSI15(table.in)
@@ -235,7 +262,9 @@ var nasTypePSI14Table = []nasTypePSI14{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI14(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI14Table {
 		a.SetLen(table.inLen)
 		a.SetPSI14(table.in)
@@ -255,7 +284,9 @@ var nasTypePSI13Table = []nasTypePSI13{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI13(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI13Table {
 		a.SetLen(table.inLen)
 		a.SetPSI13(table.in)
@@ -275,7 +306,9 @@ var nasTypePSI12Table = []nasTypePSI12{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI12(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI12Table {
 		a.SetLen(table.inLen)
 		a.SetPSI12(table.in)
@@ -295,7 +328,9 @@ var nasTypePSI11Table = []nasTypePSI11{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI11(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI11Table {
 		a.SetLen(table.inLen)
 		a.SetPSI11(table.in)
@@ -315,7 +350,9 @@ var nasTypePSI10Table = []nasTypePSI11{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI10(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI10Table {
 		a.SetLen(table.inLen)
 		a.SetPSI10(table.in)
@@ -335,7 +372,9 @@ var nasTypePSI9Table = []nasTypePSI9{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI9(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI9Table {
 		a.SetLen(table.inLen)
 		a.SetPSI9(table.in)
@@ -355,7 +394,9 @@ var nasTypePSI8Table = []nasTypePSI8{
 }
 
 func TestNasTypeAllowedPDUSessionStatusGetSetPSI8(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range nasTypePSI8Table {
 		a.SetLen(table.inLen)
 		a.SetPSI8(table.in)
@@ -370,19 +411,32 @@ type testAllowedPDUSessionStatusDataTemplate struct {
 }
 
 var AllowedPDUSessionStatusTestData = []nasType.AllowedPDUSessionStatus{
-	{nasMessage.ServiceRequestAllowedPDUSessionStatusType, 3, []uint8{0xFF, 0xFF, 0xFF}},
+	{
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+		3,
+		[]uint8{0xFF, 0xFF, 0xFF},
+	},
 }
 
 var AllowedPDUSessionStatusExpectedData = []nasType.AllowedPDUSessionStatus{
-	{nasMessage.ServiceRequestAllowedPDUSessionStatusType, 3, []uint8{0xFF, 0xFF, 0xFF}},
+	{
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+		3,
+		[]uint8{0xFF, 0xFF, 0xFF},
+	},
 }
 
 var allowedPDUSessionStatusTable = []testAllowedPDUSessionStatusDataTemplate{
-	{AllowedPDUSessionStatusTestData[0], AllowedPDUSessionStatusExpectedData[0]},
+	{
+		AllowedPDUSessionStatusTestData[0],
+		AllowedPDUSessionStatusExpectedData[0],
+	},
 }
 
 func TestNasTypeAllowedPDUSessionStatus(t *testing.T) {
-	a := nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+	a := nasType.NewAllowedPDUSessionStatus(
+		nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+	)
 	for _, table := range allowedPDUSessionStatusTable {
 		a.SetLen(table.in.Len)
 		a.SetPSI0(0x01)

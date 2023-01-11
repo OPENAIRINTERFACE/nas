@@ -56,11 +56,15 @@ func TestNasTypeNewStatus5GSMMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID = table.inPDUSessionID
 		a.PTI = table.inPTI
 
-		a.STATUSMessageIdentity5GSM.SetMessageType(table.inStatus5GSMMessageIdentity)
+		a.STATUSMessageIdentity5GSM.SetMessageType(
+			table.inStatus5GSMMessageIdentity,
+		)
 
 		a.Cause5GSM = table.inCause5GSM
 

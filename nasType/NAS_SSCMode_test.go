@@ -15,7 +15,9 @@ import (
 )
 
 func TestNasTypeNewSSCMode(t *testing.T) {
-	a := nasType.NewSSCMode(nasMessage.PDUSessionEstablishmentRequestSSCModeType)
+	a := nasType.NewSSCMode(
+		nasMessage.PDUSessionEstablishmentRequestSSCModeType,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -24,7 +26,9 @@ var nasTypeSSCModeIeiTable = []NasTypeIeiData{
 }
 
 func TestNasTypeSSCModeGetSetIei(t *testing.T) {
-	a := nasType.NewSSCMode(nasMessage.PDUSessionEstablishmentRequestSSCModeType)
+	a := nasType.NewSSCMode(
+		nasMessage.PDUSessionEstablishmentRequestSSCModeType,
+	)
 	assert.NotNil(t, a)
 	for _, table := range nasTypeSSCModeIeiTable {
 		a.SetIei(table.in)
@@ -42,7 +46,9 @@ var nasTypeSSCModeSpareTable = []nasTypeRequestSpareType{
 }
 
 func TestNasTypeSSCModeGetSetSpare(t *testing.T) {
-	a := nasType.NewSSCMode(nasMessage.PDUSessionEstablishmentRequestSSCModeType)
+	a := nasType.NewSSCMode(
+		nasMessage.PDUSessionEstablishmentRequestSSCModeType,
+	)
 	for _, table := range nasTypeSSCModeSpareTable {
 		a.SetSpare(table.in)
 		assert.Equal(t, table.out, a.GetSpare())
@@ -59,7 +65,9 @@ var nasTypeSSCModeSSCModeTable = []nasTypeRequestSSCModeType{
 }
 
 func TestNasTypeSSCModeGetSetSSCMode(t *testing.T) {
-	a := nasType.NewSSCMode(nasMessage.PDUSessionEstablishmentRequestSSCModeType)
+	a := nasType.NewSSCMode(
+		nasMessage.PDUSessionEstablishmentRequestSSCModeType,
+	)
 	for _, table := range nasTypeSSCModeSSCModeTable {
 		a.SetSSCMode(table.in)
 		assert.Equal(t, table.out, a.GetSSCMode())
@@ -87,7 +95,9 @@ func TestNasTypeSSCMode(t *testing.T) {
 
 	for _, table := range SSCModeTable {
 
-		a := nasType.NewSSCMode(nasMessage.PDUSessionEstablishmentRequestSSCModeType)
+		a := nasType.NewSSCMode(
+			nasMessage.PDUSessionEstablishmentRequestSSCModeType,
+		)
 		a.SetIei(0x01)
 		a.SetSpare(0x01)
 		a.SetSSCMode(0x01)

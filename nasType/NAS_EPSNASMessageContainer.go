@@ -13,7 +13,9 @@ type EPSNASMessageContainer struct {
 	Buffer []uint8
 }
 
-func NewEPSNASMessageContainer(iei uint8) (ePSNASMessageContainer *EPSNASMessageContainer) {
+func NewEPSNASMessageContainer(
+	iei uint8,
+) (ePSNASMessageContainer *EPSNASMessageContainer) {
 	ePSNASMessageContainer = &EPSNASMessageContainer{}
 	ePSNASMessageContainer.SetIei(iei)
 	return ePSNASMessageContainer
@@ -54,6 +56,8 @@ func (a *EPSNASMessageContainer) GetEPANASMessageContainer() (ePANASMessageConta
 
 // EPSNASMessageContainer 9.11.3.24
 // EPANASMessageContainer Row, sBit, len = [0, 0], 8 , INF
-func (a *EPSNASMessageContainer) SetEPANASMessageContainer(ePANASMessageContainer []uint8) {
+func (a *EPSNASMessageContainer) SetEPANASMessageContainer(
+	ePANASMessageContainer []uint8,
+) {
 	copy(a.Buffer, ePANASMessageContainer)
 }

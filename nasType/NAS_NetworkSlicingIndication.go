@@ -13,7 +13,9 @@ type NetworkSlicingIndication struct {
 	Octet uint8
 }
 
-func NewNetworkSlicingIndication(iei uint8) (networkSlicingIndication *NetworkSlicingIndication) {
+func NewNetworkSlicingIndication(
+	iei uint8,
+) (networkSlicingIndication *NetworkSlicingIndication) {
 	networkSlicingIndication = &NetworkSlicingIndication{}
 	networkSlicingIndication.SetIei(iei)
 	return networkSlicingIndication

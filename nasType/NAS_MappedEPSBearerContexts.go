@@ -13,7 +13,9 @@ type MappedEPSBearerContexts struct {
 	Buffer []uint8
 }
 
-func NewMappedEPSBearerContexts(iei uint8) (mappedEPSBearerContexts *MappedEPSBearerContexts) {
+func NewMappedEPSBearerContexts(
+	iei uint8,
+) (mappedEPSBearerContexts *MappedEPSBearerContexts) {
 	mappedEPSBearerContexts = &MappedEPSBearerContexts{}
 	mappedEPSBearerContexts.SetIei(iei)
 	return mappedEPSBearerContexts
@@ -54,6 +56,8 @@ func (a *MappedEPSBearerContexts) GetMappedEPSBearerContext() (mappedEPSBearerCo
 
 // MappedEPSBearerContexts 9.11.4.8
 // MappedEPSBearerContext Row, sBit, len = [0, 0], 8 , INF
-func (a *MappedEPSBearerContexts) SetMappedEPSBearerContext(mappedEPSBearerContext []uint8) {
+func (a *MappedEPSBearerContexts) SetMappedEPSBearerContext(
+	mappedEPSBearerContext []uint8,
+) {
 	copy(a.Buffer, mappedEPSBearerContext)
 }

@@ -13,7 +13,9 @@ type SelectedNASSecurityAlgorithms struct {
 	Octet uint8
 }
 
-func NewSelectedNASSecurityAlgorithms(iei uint8) (selectedNASSecurityAlgorithms *SelectedNASSecurityAlgorithms) {
+func NewSelectedNASSecurityAlgorithms(
+	iei uint8,
+) (selectedNASSecurityAlgorithms *SelectedNASSecurityAlgorithms) {
 	selectedNASSecurityAlgorithms = &SelectedNASSecurityAlgorithms{}
 	selectedNASSecurityAlgorithms.SetIei(iei)
 	return selectedNASSecurityAlgorithms
@@ -39,7 +41,9 @@ func (a *SelectedNASSecurityAlgorithms) GetTypeOfCipheringAlgorithm() (typeOfCip
 
 // SelectedNASSecurityAlgorithms 9.11.3.34
 // TypeOfCipheringAlgorithm Row, sBit, len = [0, 0], 8 , 4
-func (a *SelectedNASSecurityAlgorithms) SetTypeOfCipheringAlgorithm(typeOfCipheringAlgorithm uint8) {
+func (a *SelectedNASSecurityAlgorithms) SetTypeOfCipheringAlgorithm(
+	typeOfCipheringAlgorithm uint8,
+) {
 	a.Octet = (a.Octet & 15) + ((typeOfCipheringAlgorithm & 15) << 4)
 }
 
@@ -51,6 +55,8 @@ func (a *SelectedNASSecurityAlgorithms) GetTypeOfIntegrityProtectionAlgorithm() 
 
 // SelectedNASSecurityAlgorithms 9.11.3.34
 // TypeOfIntegrityProtectionAlgorithm Row, sBit, len = [0, 0], 4 , 4
-func (a *SelectedNASSecurityAlgorithms) SetTypeOfIntegrityProtectionAlgorithm(typeOfIntegrityProtectionAlgorithm uint8) {
+func (a *SelectedNASSecurityAlgorithms) SetTypeOfIntegrityProtectionAlgorithm(
+	typeOfIntegrityProtectionAlgorithm uint8,
+) {
 	a.Octet = (a.Octet & 240) + (typeOfIntegrityProtectionAlgorithm & 15)
 }

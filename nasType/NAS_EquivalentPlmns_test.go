@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewEquivalentPlmns(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeRegistrationRequestEquivalentPlmnsIeiTable = []NasTypeIeiData{
-	{nasMessage.RegistrationAcceptEquivalentPlmnsType, nasMessage.RegistrationAcceptEquivalentPlmnsType},
+	{
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	},
 }
 
 func TestNasTypeEquivalentPlmnsGetSetIei(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeRegistrationRequestEquivalentPlmnsIeiTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeEquivalentPlmnsLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeEquivalentPlmnsGetSetLen(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,11 +64,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN1Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN1(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN1Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN1(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN1(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN1())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN1(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN1(),
+		)
 	}
 }
 
@@ -74,11 +93,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN1Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN1(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN1Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN1(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN1(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN1())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN1(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN1(),
+		)
 	}
 }
 
@@ -93,11 +122,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN1Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN1(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN1Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN1(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN1(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN1())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN1(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN1(),
+		)
 	}
 }
 
@@ -112,11 +151,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN1Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN1(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN1Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN1(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN1(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN1())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN1(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN1(),
+		)
 	}
 }
 
@@ -131,11 +180,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN1Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN1(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN1Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN1(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN1(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN1())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN1(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN1(),
+		)
 	}
 }
 
@@ -150,11 +209,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN1Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN1(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN1Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN1(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN1(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN1())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN1(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN1(),
+		)
 	}
 }
 
@@ -169,11 +238,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN2Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN2(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN2Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN2(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN2(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN2())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN2(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN2(),
+		)
 	}
 }
 
@@ -188,11 +267,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN2Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN2(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN2Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN2(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN2(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN2())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN2(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN2(),
+		)
 	}
 }
 
@@ -207,11 +296,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN2Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN2(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN2Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN2(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN2(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN2())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN2(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN2(),
+		)
 	}
 }
 
@@ -226,11 +325,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN2Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN2(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN2Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN2(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN2(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN2())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN2(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN2(),
+		)
 	}
 }
 
@@ -245,11 +354,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN2Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN2(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN2Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN2(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN2(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN2())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN2(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN2(),
+		)
 	}
 }
 
@@ -264,11 +383,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN2Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN2(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN2Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN2(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN2(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN2())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN2(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN2(),
+		)
 	}
 }
 
@@ -283,11 +412,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN3Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN3(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN3Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN3(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN3(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN3())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN3(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN3(),
+		)
 	}
 }
 
@@ -302,11 +441,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN3Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN3(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN3Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN3(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN3(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN3())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN3(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN3(),
+		)
 	}
 }
 
@@ -321,11 +470,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN3Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN3(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN3Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN3(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN3(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN3())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN3(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN3(),
+		)
 	}
 }
 
@@ -340,11 +499,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN3Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN3(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN3Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN3(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN3(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN3())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN3(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN3(),
+		)
 	}
 }
 
@@ -359,11 +528,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN3Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN3(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN3Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN3(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN3(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN3())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN3(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN3(),
+		)
 	}
 }
 
@@ -378,11 +557,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN3Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN3(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN3Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN3(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN3(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN3())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN3(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN3(),
+		)
 	}
 }
 
@@ -397,11 +586,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN4Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN4(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN4Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN4(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN4(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN4())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN4(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN4(),
+		)
 	}
 }
 
@@ -416,11 +615,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN4Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN4(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN4Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN4(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN4(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN4())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN4(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN4(),
+		)
 	}
 }
 
@@ -435,11 +644,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN4Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN4(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN4Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN4(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN4(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN4())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN4(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN4(),
+		)
 	}
 }
 
@@ -454,11 +673,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN4Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN4(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN4Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN4(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN4(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN4())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN4(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN4(),
+		)
 	}
 }
 
@@ -473,11 +702,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN4Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN4(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN4Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN4(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN4(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN4())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN4(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN4(),
+		)
 	}
 }
 
@@ -492,11 +731,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN4Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN4(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN4Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN4(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN4(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN4())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN4(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN4(),
+		)
 	}
 }
 
@@ -511,11 +760,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN5Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN5(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN5Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN5(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN5(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN5())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN5(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN5(),
+		)
 	}
 }
 
@@ -530,11 +789,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN5Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN5(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN5Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN5(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN5(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN5())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN5(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN5(),
+		)
 	}
 }
 
@@ -549,11 +818,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN5Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN5(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN5Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN5(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN5(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN5())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN5(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN5(),
+		)
 	}
 }
 
@@ -568,11 +847,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN5Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN5(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN5Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN5(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN5(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN5())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN5(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN5(),
+		)
 	}
 }
 
@@ -587,11 +876,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN5Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN5(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN5Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN5(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN5(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN5())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN5(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN5(),
+		)
 	}
 }
 
@@ -606,11 +905,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN5Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN5(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN5Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN5(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN5(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN5())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN5(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN5(),
+		)
 	}
 }
 
@@ -625,11 +934,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN6Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN6(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN6Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN6(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN6(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN6())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN6(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN6(),
+		)
 	}
 }
 
@@ -644,11 +963,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN6Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN6(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN6Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN6(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN6(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN6())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN6(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN6(),
+		)
 	}
 }
 
@@ -663,11 +992,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN6Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN6(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN6Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN6(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN6(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN6())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN6(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN6(),
+		)
 	}
 }
 
@@ -682,11 +1021,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN6Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN6(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN6Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN6(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN6(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN6())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN6(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN6(),
+		)
 	}
 }
 
@@ -701,11 +1050,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN6Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN6(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN6Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN6(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN6(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN6())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN6(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN6(),
+		)
 	}
 }
 
@@ -720,11 +1079,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN6Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN6(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN6Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN6(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN6(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN6())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN6(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN6(),
+		)
 	}
 }
 
@@ -739,11 +1108,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN7Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN7(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN7Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN7(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN7(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN7())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN7(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN7(),
+		)
 	}
 }
 
@@ -758,11 +1137,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN7Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN7(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN7Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN7(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN7(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN7())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN7(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN7(),
+		)
 	}
 }
 
@@ -777,11 +1166,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN7Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN7(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN7Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN7(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN7(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN7())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN7(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN7(),
+		)
 	}
 }
 
@@ -796,11 +1195,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN7Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN7(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN7Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN7(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN7(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN7())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN7(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN7(),
+		)
 	}
 }
 
@@ -815,11 +1224,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN7Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN7(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN7Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN7(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN7(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN7())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN7(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN7(),
+		)
 	}
 }
 
@@ -834,11 +1253,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN7Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN7(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN7Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN7(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN7(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN7())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN7(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN7(),
+		)
 	}
 }
 
@@ -853,11 +1282,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN8Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN8(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN8Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN8(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN8(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN8())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN8(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN8(),
+		)
 	}
 }
 
@@ -872,11 +1311,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN8Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN8(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN8Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN8(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN8(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN8())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN8(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN8(),
+		)
 	}
 }
 
@@ -891,11 +1340,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN8Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN8(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN8Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN8(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN8(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN8())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN8(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN8(),
+		)
 	}
 }
 
@@ -910,11 +1369,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN8Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN8(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN8Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN8(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN8(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN8())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN8(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN8(),
+		)
 	}
 }
 
@@ -929,11 +1398,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN8Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN8(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN8Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN8(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN8(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN8())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN8(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN8(),
+		)
 	}
 }
 
@@ -948,11 +1427,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN8Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN8(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN8Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN8(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN8(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN8())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN8(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN8(),
+		)
 	}
 }
 
@@ -967,11 +1456,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN9Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN9(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN9Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN9(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN9(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN9())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN9(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN9(),
+		)
 	}
 }
 
@@ -986,11 +1485,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN9Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN9(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN9Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN9(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN9(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN9())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN9(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN9(),
+		)
 	}
 }
 
@@ -1005,11 +1514,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN9Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN9(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN9Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN9(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN9(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN9())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN9(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN9(),
+		)
 	}
 }
 
@@ -1024,11 +1543,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN9Table = []nasTypeEquivalentPlmnsMCCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN9(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN9Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN9(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN9(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN9())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN9(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN9(),
+		)
 	}
 }
 
@@ -1043,11 +1572,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN9Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN9(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN9Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN9(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN9(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN9())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN9(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN9(),
+		)
 	}
 }
 
@@ -1062,11 +1601,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN9Table = []nasTypeEquivalentPlmnsMNCDigit
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN9(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN9Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN9(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN9(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN9())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN9(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN9(),
+		)
 	}
 }
 
@@ -1081,11 +1630,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN10Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN10(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN10Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN10(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN10(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN10())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN10(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN10(),
+		)
 	}
 }
 
@@ -1100,11 +1659,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN10Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN10(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN10Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN10(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN10(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN10())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN10(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN10(),
+		)
 	}
 }
 
@@ -1119,11 +1688,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN10Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN10(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN10Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN10(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN10(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN10())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN10(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN10(),
+		)
 	}
 }
 
@@ -1138,11 +1717,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN10Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN10(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN10Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN10(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN10(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN10())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN10(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN10(),
+		)
 	}
 }
 
@@ -1157,11 +1746,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN10Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN10(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN10Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN10(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN10(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN10())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN10(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN10(),
+		)
 	}
 }
 
@@ -1176,11 +1775,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN10Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN10(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN10Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN10(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN10(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN10())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN10(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN10(),
+		)
 	}
 }
 
@@ -1195,11 +1804,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN11Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN11(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN11Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN11(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN11(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN11())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN11(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN11(),
+		)
 	}
 }
 
@@ -1214,11 +1833,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN11Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN11(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN11Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN11(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN11(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN11())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN11(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN11(),
+		)
 	}
 }
 
@@ -1233,11 +1862,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN11Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN11(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN11Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN11(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN11(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN11())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN11(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN11(),
+		)
 	}
 }
 
@@ -1252,11 +1891,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN11Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN11(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN11Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN11(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN11(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN11())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN11(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN11(),
+		)
 	}
 }
 
@@ -1271,11 +1920,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN11Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN11(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN11Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN11(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN11(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN11())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN11(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN11(),
+		)
 	}
 }
 
@@ -1290,11 +1949,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN11Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN11(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN11Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN11(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN11(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN11())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN11(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN11(),
+		)
 	}
 }
 
@@ -1309,11 +1978,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN12Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN12(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN12Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN12(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN12(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN12())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN12(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN12(),
+		)
 	}
 }
 
@@ -1328,11 +2007,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN12Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN12(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN12Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN12(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN12(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN12())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN12(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN12(),
+		)
 	}
 }
 
@@ -1347,11 +2036,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN12Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN12(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN12Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN12(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN12(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN12())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN12(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN12(),
+		)
 	}
 }
 
@@ -1366,11 +2065,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN12Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN12(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN12Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN12(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN12(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN12())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN12(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN12(),
+		)
 	}
 }
 
@@ -1385,11 +2094,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN12Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN12(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN12Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN12(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN12(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN12())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN12(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN12(),
+		)
 	}
 }
 
@@ -1404,11 +2123,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN12Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN12(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN12Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN12(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN12(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN12())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN12(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN12(),
+		)
 	}
 }
 
@@ -1423,11 +2152,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN13Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN13(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN13Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN13(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN13(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN13())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN13(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN13(),
+		)
 	}
 }
 
@@ -1442,11 +2181,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN13Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN13(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN13Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN13(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN13(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN13())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN13(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN13(),
+		)
 	}
 }
 
@@ -1461,11 +2210,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN13Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN13(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN13Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN13(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN13(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN13())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN13(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN13(),
+		)
 	}
 }
 
@@ -1480,11 +2239,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN13Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN13(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN13Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN13(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN13(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN13())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN13(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN13(),
+		)
 	}
 }
 
@@ -1499,11 +2268,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN13Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN13(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN13Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN13(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN13(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN13())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN13(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN13(),
+		)
 	}
 }
 
@@ -1518,11 +2297,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN13Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN13(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN13Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN13(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN13(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN13())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN13(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN13(),
+		)
 	}
 }
 
@@ -1537,11 +2326,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN14Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN14(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN14Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN14(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN14(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN14())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN14(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN14(),
+		)
 	}
 }
 
@@ -1556,11 +2355,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN14Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN14(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN14Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN14(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN14(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN14())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN14(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN14(),
+		)
 	}
 }
 
@@ -1575,11 +2384,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN14Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN14(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN14Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN14(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN14(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN14())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN14(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN14(),
+		)
 	}
 }
 
@@ -1594,11 +2413,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN14Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN14(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN14Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN14(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN14(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN14())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN14(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN14(),
+		)
 	}
 }
 
@@ -1613,11 +2442,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN14Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN14(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN14Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN14(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN14(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN14())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN14(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN14(),
+		)
 	}
 }
 
@@ -1632,11 +2471,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN14Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN14(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN14Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN14(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN14(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN14())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN14(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN14(),
+		)
 	}
 }
 
@@ -1651,11 +2500,21 @@ var nasTypeEquivalentPlmnsMCCDigit2PLMN15Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit2PLMN15(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit2PLMN15Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit2PLMN15(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit2PLMN15(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit2PLMN15())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit2PLMN15(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit2PLMN15(),
+		)
 	}
 }
 
@@ -1670,11 +2529,21 @@ var nasTypeEquivalentPlmnsMCCDigit1PLMN15Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit1PLMN15(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit1PLMN15Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit1PLMN15(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit1PLMN15(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit1PLMN15())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit1PLMN15(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit1PLMN15(),
+		)
 	}
 }
 
@@ -1689,11 +2558,21 @@ var nasTypeEquivalentPlmnsMNCDigit3PLMN15Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit3PLMN15(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit3PLMN15Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit3PLMN15(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit3PLMN15(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit3PLMN15())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit3PLMN15(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit3PLMN15(),
+		)
 	}
 }
 
@@ -1708,11 +2587,21 @@ var nasTypeEquivalentPlmnsMCCDigit3PLMN15Table = []nasTypeEquivalentPlmnsMCCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMCCDigit3PLMN15(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMCCDigit3PLMN15Table {
 		a.SetLen(table.inLen)
 		a.SetMCCDigit3PLMN15(table.in)
-		assert.Equalf(t, table.out, a.GetMCCDigit3PLMN15(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMCCDigit3PLMN15())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMCCDigit3PLMN15(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMCCDigit3PLMN15(),
+		)
 	}
 }
 
@@ -1727,11 +2616,21 @@ var nasTypeEquivalentPlmnsMNCDigit2PLMN15Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit2PLMN15(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit2PLMN15Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit2PLMN15(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit2PLMN15(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit2PLMN15())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit2PLMN15(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit2PLMN15(),
+		)
 	}
 }
 
@@ -1746,11 +2645,21 @@ var nasTypeEquivalentPlmnsMNCDigit1PLMN15Table = []nasTypeEquivalentPlmnsMNCDigi
 }
 
 func TestNasTypeEquivalentPlmnsGetSetMNCDigit1PLMN15(t *testing.T) {
-	a := nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+	a := nasType.NewEquivalentPlmns(
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+	)
 	for _, table := range nasTypeEquivalentPlmnsMNCDigit1PLMN15Table {
 		a.SetLen(table.inLen)
 		a.SetMNCDigit1PLMN15(table.in)
-		assert.Equalf(t, table.out, a.GetMNCDigit1PLMN15(), "in(%v): out %v, actual %x", table.in, table.out, a.GetMNCDigit1PLMN15())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetMNCDigit1PLMN15(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetMNCDigit1PLMN15(),
+		)
 	}
 }
 
@@ -1850,15 +2759,208 @@ type testEquivalentPlmnsDataTemplate struct {
 }
 
 var equivalentPlmnsTestData = []nasType.EquivalentPlmns{
-	{nasMessage.RegistrationAcceptEquivalentPlmnsType, 3, [45]byte{0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11}},
+	{
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+		3,
+		[45]byte{
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+		},
+	},
 }
 
 var equivalentPlmnsExpectedData = []nasType.EquivalentPlmns{
-	{nasMessage.RegistrationAcceptEquivalentPlmnsType, 3, [45]byte{0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11}},
+	{
+		nasMessage.RegistrationAcceptEquivalentPlmnsType,
+		3,
+		[45]byte{
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+			0x11,
+		},
+	},
 }
 
 var equivalentPlmnsTestTable = []testEquivalentPlmnsDataTemplate{
-	{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, equivalentPlmnsTestData[0], equivalentPlmnsExpectedData[0]},
+	{
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		equivalentPlmnsTestData[0],
+		equivalentPlmnsExpectedData[0],
+	},
 }
 
 func TestNasTypeEquivalentPlmns(t *testing.T) {
@@ -1974,9 +3076,33 @@ func TestNasTypeEquivalentPlmns(t *testing.T) {
 		a.SetMNCDigit2PLMN15(table.inMNCDigit2PLMN15)
 		a.SetMNCDigit1PLMN15(table.inMNCDigit1PLMN15)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Octet, a.Octet, "in(%v): out %v, actual %x", table.in.Octet, table.out.Octet, a.Octet)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Octet,
+			a.Octet,
+			"in(%v): out %v, actual %x",
+			table.in.Octet,
+			table.out.Octet,
+			a.Octet,
+		)
 
 	}
 }

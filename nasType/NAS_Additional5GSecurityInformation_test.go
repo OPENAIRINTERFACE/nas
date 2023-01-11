@@ -14,7 +14,9 @@ import (
 )
 
 func TestNasTypeNewAdditional5GSecurityInformation(t *testing.T) {
-	a := nasType.NewAdditional5GSecurityInformation(0x36) // security mode command message
+	a := nasType.NewAdditional5GSecurityInformation(
+		0x36,
+	) // security mode command message
 	assert.NotNil(t, a)
 }
 

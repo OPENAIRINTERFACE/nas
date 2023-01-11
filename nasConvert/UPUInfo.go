@@ -13,7 +13,7 @@ import (
 	"github.com/omec-project/openapi/models"
 )
 
-//  subclause 9.11.3.53A in 3GPP TS 24.501.
+// subclause 9.11.3.53A in 3GPP TS 24.501.
 func UpuInfoToNas(upuInfo models.UpuInfo) []uint8 {
 	var buf []uint8
 
@@ -37,7 +37,10 @@ func UpuInfoToNas(upuInfo models.UpuInfo) []uint8 {
 		if data.SecPacket != "" {
 			buf = append(buf, 0x01)
 			if byteArrayTmp, err := hex.DecodeString(data.SecPacket); err != nil {
-				logger.ConvertLog.Warnf("Decode data.SecPacket failed: %+v", err)
+				logger.ConvertLog.Warnf(
+					"Decode data.SecPacket failed: %+v",
+					err,
+				)
 			} else {
 				byteArray = byteArrayTmp
 			}

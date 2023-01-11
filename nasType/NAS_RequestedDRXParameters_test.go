@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewRequestedDRXParameters(t *testing.T) {
-	a := nasType.NewRequestedDRXParameters(nasMessage.RegistrationRequestRequestedDRXParametersType)
+	a := nasType.NewRequestedDRXParameters(
+		nasMessage.RegistrationRequestRequestedDRXParametersType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeRequestedDRXParametersServiceRejectT3346ValueTypeTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestRequestedDRXParametersType, nasMessage.RegistrationRequestRequestedDRXParametersType},
+	{
+		nasMessage.RegistrationRequestRequestedDRXParametersType,
+		nasMessage.RegistrationRequestRequestedDRXParametersType,
+	},
 }
 
 func TestNasTypeRequestedDRXParametersGetSetIei(t *testing.T) {
-	a := nasType.NewRequestedDRXParameters(nasMessage.RegistrationRequestRequestedDRXParametersType)
+	a := nasType.NewRequestedDRXParameters(
+		nasMessage.RegistrationRequestRequestedDRXParametersType,
+	)
 	for _, table := range nasTypeRequestedDRXParametersServiceRejectT3346ValueTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeRequestedDRXParametersLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeRequestedDRXParametersGetSetLen(t *testing.T) {
-	a := nasType.NewRequestedDRXParameters(nasMessage.RegistrationRequestRequestedDRXParametersType)
+	a := nasType.NewRequestedDRXParameters(
+		nasMessage.RegistrationRequestRequestedDRXParametersType,
+	)
 	for _, table := range nasTypeRequestedDRXParametersLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -54,7 +63,9 @@ var nasTypeRequestedDRXParametersDRXValueTable = []nasTypeRequestedDRXParameters
 }
 
 func TestNasTypeRequestedDRXParametersGetSetGPRSTimer2Value(t *testing.T) {
-	a := nasType.NewRequestedDRXParameters(nasMessage.RegistrationRequestRequestedDRXParametersType)
+	a := nasType.NewRequestedDRXParameters(
+		nasMessage.RegistrationRequestRequestedDRXParametersType,
+	)
 	for _, table := range nasTypeRequestedDRXParametersDRXValueTable {
 		a.SetDRXValue(table.in)
 		assert.Equal(t, table.out, a.GetDRXValue())
@@ -79,14 +90,40 @@ func TestNasTypeRequestedDRXParameters(t *testing.T) {
 
 	for i, table := range testRequestedDRXParametersTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewRequestedDRXParameters(nasMessage.RegistrationRequestRequestedDRXParametersType)
+		a := nasType.NewRequestedDRXParameters(
+			nasMessage.RegistrationRequestRequestedDRXParametersType,
+		)
 
 		a.SetIei(table.inIei)
 		a.SetLen(table.inLen)
 		a.SetDRXValue(table.inDRXValue)
 
-		assert.Equalf(t, table.outIei, a.Iei, "in(%v): out %v, actual %x", table.inIei, table.outIei, a.Iei)
-		assert.Equalf(t, table.outLen, a.Len, "in(%v): out %v, actual %x", table.inLen, table.outLen, a.Len)
-		assert.Equalf(t, table.outDRXValue, a.GetDRXValue(), "in(%v): out %v, actual %x", table.inDRXValue, table.outDRXValue, a.GetDRXValue())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.outLen,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.inLen,
+			table.outLen,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.outDRXValue,
+			a.GetDRXValue(),
+			"in(%v): out %v, actual %x",
+			table.inDRXValue,
+			table.outDRXValue,
+			a.GetDRXValue(),
+		)
 	}
 }

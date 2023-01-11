@@ -54,6 +54,8 @@ func (a *RejectedNSSAI) GetRejectedNSSAIContents() (rejectedNSSAIContents []uint
 
 // RejectedNSSAI 9.11.3.46
 // RejectedNSSAIContents Row, sBit, len = [0, 0], 0 , INF
-func (a *RejectedNSSAI) SetRejectedNSSAIContents(rejectedNSSAIContents []uint8) {
+func (a *RejectedNSSAI) SetRejectedNSSAIContents(
+	rejectedNSSAIContents []uint8,
+) {
 	copy(a.Buffer, rejectedNSSAIContents)
 }

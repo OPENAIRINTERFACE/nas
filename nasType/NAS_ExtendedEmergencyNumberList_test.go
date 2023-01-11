@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewExtendedEmergencyNumberList(t *testing.T) {
-	a := nasType.NewExtendedEmergencyNumberList(nasMessage.RegistrationAcceptExtendedEmergencyNumberListType)
+	a := nasType.NewExtendedEmergencyNumberList(
+		nasMessage.RegistrationAcceptExtendedEmergencyNumberListType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeRegistrationAcceptExtendedEmergencyNumberListIeiTable = []NasTypeIeiData{
-	{nasMessage.RegistrationAcceptExtendedEmergencyNumberListType, nasMessage.RegistrationAcceptExtendedEmergencyNumberListType},
+	{
+		nasMessage.RegistrationAcceptExtendedEmergencyNumberListType,
+		nasMessage.RegistrationAcceptExtendedEmergencyNumberListType,
+	},
 }
 
 func TestNasTypeExtendedEmergencyNumberListGetSetIei(t *testing.T) {
-	a := nasType.NewExtendedEmergencyNumberList(nasMessage.RegistrationAcceptExtendedEmergencyNumberListType)
+	a := nasType.NewExtendedEmergencyNumberList(
+		nasMessage.RegistrationAcceptExtendedEmergencyNumberListType,
+	)
 	for _, table := range nasTypeRegistrationAcceptExtendedEmergencyNumberListIeiTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeExtendedEmergencyNumberListLenTable = []NasTypeLenUint16Data{
 }
 
 func TestNasTypeExtendedEmergencyNumberListGetSetLen(t *testing.T) {
-	a := nasType.NewExtendedEmergencyNumberList(nasMessage.RegistrationAcceptExtendedEmergencyNumberListType)
+	a := nasType.NewExtendedEmergencyNumberList(
+		nasMessage.RegistrationAcceptExtendedEmergencyNumberListType,
+	)
 	for _, table := range nasTypeExtendedEmergencyNumberListLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,11 +64,21 @@ var nasTypeExtendedEmergencyNumberListEENLTable = []nasTypetExtendedEmergencyNum
 }
 
 func TestNasTypeExtendedEmergencyNumberListGetSetEENL(t *testing.T) {
-	a := nasType.NewExtendedEmergencyNumberList(nasMessage.RegistrationAcceptExtendedEmergencyNumberListType)
+	a := nasType.NewExtendedEmergencyNumberList(
+		nasMessage.RegistrationAcceptExtendedEmergencyNumberListType,
+	)
 	for _, table := range nasTypeExtendedEmergencyNumberListEENLTable {
 		a.SetLen(table.inLen)
 		a.SetEENL(table.in)
-		assert.Equalf(t, table.out, a.GetEENL(), "in(%v): out %v, actual %x", table.in, table.out, a.GetEENL())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetEENL(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetEENL(),
+		)
 	}
 }
 
@@ -73,12 +92,30 @@ var nasTypeExtendedEmergencyNumberListEmergencyInformationTable = []nasTypetExte
 	{3, []uint8{0x00, 0x00, 0x01}, []uint8{0x00, 0x00, 0x01}},
 }
 
-func TestNasTypeExtendedEmergencyNumberListGetSetExtendedEmergencyNumberList(t *testing.T) {
+func TestNasTypeExtendedEmergencyNumberListGetSetExtendedEmergencyNumberList(
+	t *testing.T,
+) {
 	a := nasType.NewExtendedEmergencyNumberList(0)
 	for _, table := range nasTypeExtendedEmergencyNumberListEmergencyInformationTable {
 		a.SetLen(table.inLen)
 		a.SetEmergencyInformation(table.in)
-		assert.Equalf(t, table.out, a.GetEmergencyInformation(), "in(%v): out %v, actual %x", table.in, table.out, a.GetEmergencyInformation())
-		assert.Equalf(t, table.out, a.Buffer, "in(%v): out %v, actual %x", table.in, table.out, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetEmergencyInformation(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetEmergencyInformation(),
+		)
+		assert.Equalf(
+			t,
+			table.out,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.Buffer,
+		)
 	}
 }

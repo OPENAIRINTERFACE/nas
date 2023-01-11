@@ -39,7 +39,9 @@ func (a *NgksiAndRegistrationType5GS) GetNasKeySetIdentifiler() (nasKeySetIdenti
 
 // NgksiAndRegistrationType5GS 9.11.3.7 9.11.3.32
 // NasKeySetIdentifiler Row, sBit, len = [0, 0], 7 , 3
-func (a *NgksiAndRegistrationType5GS) SetNasKeySetIdentifiler(nasKeySetIdentifiler uint8) {
+func (a *NgksiAndRegistrationType5GS) SetNasKeySetIdentifiler(
+	nasKeySetIdentifiler uint8,
+) {
 	a.Octet = (a.Octet & 143) + ((nasKeySetIdentifiler & 7) << 4)
 }
 
@@ -63,6 +65,8 @@ func (a *NgksiAndRegistrationType5GS) GetRegistrationType5GS() (registrationType
 
 // NgksiAndRegistrationType5GS 9.11.3.7 9.11.3.32
 // RegistrationType5GS Row, sBit, len = [0, 0], 3 , 3
-func (a *NgksiAndRegistrationType5GS) SetRegistrationType5GS(registrationType5GS uint8) {
+func (a *NgksiAndRegistrationType5GS) SetRegistrationType5GS(
+	registrationType5GS uint8,
+) {
 	a.Octet = (a.Octet & 248) + (registrationType5GS & 7)
 }

@@ -65,7 +65,10 @@ func SuciToString(buf []byte) (suci string, plmnId string) {
 	}
 
 	// Protection Scheme
-	protectionScheme = fmt.Sprintf("%x", buf[6]) // convert byte to hex string without leading 0s
+	protectionScheme = fmt.Sprintf(
+		"%x",
+		buf[6],
+	) // convert byte to hex string without leading 0s
 
 	// Home Network Public Key Indentifier
 	homeNetworkPublicKeyIdentifier = fmt.Sprintf("%d", buf[7])
@@ -85,8 +88,19 @@ func SuciToString(buf []byte) (suci string, plmnId string) {
 		schemeOutput = hex.EncodeToString(buf[8:])
 	}
 
-	suci = strings.Join([]string{"suci", "0", mcc, mnc, routingInd, protectionScheme, homeNetworkPublicKeyIdentifier,
-		schemeOutput}, "-")
+	suci = strings.Join(
+		[]string{
+			"suci",
+			"0",
+			mcc,
+			mnc,
+			routingInd,
+			protectionScheme,
+			homeNetworkPublicKeyIdentifier,
+			schemeOutput,
+		},
+		"-",
+	)
 	return suci, plmnId
 }
 

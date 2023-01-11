@@ -38,7 +38,11 @@ func TestNasTypeGetSetNgksiAndServiceType(t *testing.T) {
 		assert.Equal(t, table.outTsc, a.GetTSC())
 		// a.SetTSC(0)
 		a.SetNasKeySetIdentifiler(table.inNASKeySetIdentifier)
-		assert.Equal(t, table.outNASKeySetIdentifier, a.GetNasKeySetIdentifiler())
+		assert.Equal(
+			t,
+			table.outNASKeySetIdentifier,
+			a.GetNasKeySetIdentifiler(),
+		)
 
 		a.SetServiceTypeValue(table.inServiceTypeValue)
 		assert.Equal(t, table.outServiceTypeValue, a.GetServiceTypeValue())

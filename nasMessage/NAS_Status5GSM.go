@@ -26,7 +26,11 @@ func NewStatus5GSM(iei uint8) (status5GSM *Status5GSM) {
 }
 
 func (a *Status5GSM) EncodeStatus5GSM(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.PTI.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.STATUSMessageIdentity5GSM.Octet)
@@ -35,7 +39,11 @@ func (a *Status5GSM) EncodeStatus5GSM(buffer *bytes.Buffer) {
 
 func (a *Status5GSM) DecodeStatus5GSM(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.PTI.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.STATUSMessageIdentity5GSM.Octet)

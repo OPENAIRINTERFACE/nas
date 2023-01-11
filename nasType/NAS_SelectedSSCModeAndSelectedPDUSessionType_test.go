@@ -27,7 +27,9 @@ var nasTypeSelectedSSCModeAndSelectedPDUSessionTypeSSCModeTable = []nasTypeSelec
 	{0x01, 0x01},
 }
 
-func TestNasTypeSelectedSSCModeAndSelectedPDUSessionTypeGetSetSSCMode(t *testing.T) {
+func TestNasTypeSelectedSSCModeAndSelectedPDUSessionTypeGetSetSSCMode(
+	t *testing.T,
+) {
 	a := nasType.NewSelectedSSCModeAndSelectedPDUSessionType()
 	for _, table := range nasTypeSelectedSSCModeAndSelectedPDUSessionTypeSSCModeTable {
 		a.SetSSCMode(table.in)
@@ -44,7 +46,9 @@ var nasTypeSelectedPDUSessionTypeAndSelectedPDUSessionTypePDUSessionTypeTable = 
 	{0x01, 0x01},
 }
 
-func TestNasTypeSelectedPDUSessionTypeAndSelectedPDUSessionTypeGetSetPDUSessionType(t *testing.T) {
+func TestNasTypeSelectedPDUSessionTypeAndSelectedPDUSessionTypeGetSetPDUSessionType(
+	t *testing.T,
+) {
 	a := nasType.NewSelectedSSCModeAndSelectedPDUSessionType()
 	for _, table := range nasTypeSelectedPDUSessionTypeAndSelectedPDUSessionTypePDUSessionTypeTable {
 		a.SetPDUSessionType(table.in)
@@ -66,7 +70,10 @@ var SelectedSSCModeAndSelectedPDUSessionTypeExpectedTestData = []nasType.Selecte
 }
 
 var SelectedSSCModeAndSelectedPDUSessionTypeTable = []SelectedSSCModeAndSelectedPDUSessionTypeTestDataTemplate{
-	{SelectedSSCModeAndSelectedPDUSessionTypeTestData[0], SelectedSSCModeAndSelectedPDUSessionTypeExpectedTestData[0]},
+	{
+		SelectedSSCModeAndSelectedPDUSessionTypeTestData[0],
+		SelectedSSCModeAndSelectedPDUSessionTypeExpectedTestData[0],
+	},
 }
 
 func TestNasTypeSelectedSSCModeAndSelectedPDUSessionType(t *testing.T) {

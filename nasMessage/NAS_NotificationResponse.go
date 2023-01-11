@@ -19,7 +19,9 @@ type NotificationResponse struct {
 	*nasType.PDUSessionStatus
 }
 
-func NewNotificationResponse(iei uint8) (notificationResponse *NotificationResponse) {
+func NewNotificationResponse(
+	iei uint8,
+) (notificationResponse *NotificationResponse) {
 	notificationResponse = &NotificationResponse{}
 	return notificationResponse
 }
@@ -28,10 +30,24 @@ const (
 	NotificationResponsePDUSessionStatusType uint8 = 0x50
 )
 
-func (a *NotificationResponse) EncodeNotificationResponse(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.NotificationResponseMessageIdentity.Octet)
+func (a *NotificationResponse) EncodeNotificationResponse(
+	buffer *bytes.Buffer,
+) {
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.NotificationResponseMessageIdentity.Octet,
+	)
 	if a.PDUSessionStatus != nil {
 		binary.Write(buffer, binary.BigEndian, a.PDUSessionStatus.GetIei())
 		binary.Write(buffer, binary.BigEndian, a.PDUSessionStatus.GetLen())
@@ -41,9 +57,21 @@ func (a *NotificationResponse) EncodeNotificationResponse(buffer *bytes.Buffer) 
 
 func (a *NotificationResponse) DecodeNotificationResponse(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.NotificationResponseMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.NotificationResponseMessageIdentity.Octet,
+	)
 	for buffer.Len() > 0 {
 		var ieiN uint8
 		var tmpIeiN uint8
@@ -60,7 +88,11 @@ func (a *NotificationResponse) DecodeNotificationResponse(byteArray *[]byte) {
 			a.PDUSessionStatus = nasType.NewPDUSessionStatus(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.PDUSessionStatus.Len)
 			a.PDUSessionStatus.SetLen(a.PDUSessionStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()],
+			)
 		default:
 		}
 	}

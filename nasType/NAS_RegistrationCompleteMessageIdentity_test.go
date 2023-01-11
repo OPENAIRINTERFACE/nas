@@ -27,7 +27,9 @@ var nasTypeRegistrationCompleteMessageIdentityTable = []nasTypeRegistrationCompl
 	{0x03, 0x03},
 }
 
-func TestNasTypeRegistrationCompleteMessageIdentityGetSetMessageType(t *testing.T) {
+func TestNasTypeRegistrationCompleteMessageIdentityGetSetMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewRegistrationCompleteMessageIdentity()
 	for _, table := range nasTypeRegistrationCompleteMessageIdentityTable {
 		a.SetMessageType(table.in)
@@ -49,7 +51,10 @@ var RegistrationCompleteMessageIdentityExpectedTestData = []nasType.Registration
 }
 
 var RegistrationCompleteMessageIdentityTable = []RegistrationCompleteMessageIdentityTestDataTemplate{
-	{RegistrationCompleteMessageIdentityTestData[0], RegistrationCompleteMessageIdentityExpectedTestData[0]},
+	{
+		RegistrationCompleteMessageIdentityTestData[0],
+		RegistrationCompleteMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypeRegistrationCompleteMessageIdentity(t *testing.T) {

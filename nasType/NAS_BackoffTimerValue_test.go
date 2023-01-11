@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewBackoffTimerValue(t *testing.T) {
-	a := nasType.NewBackoffTimerValue(nasMessage.RegistrationAcceptT3512ValueType)
+	a := nasType.NewBackoffTimerValue(
+		nasMessage.RegistrationAcceptT3512ValueType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeAuthenticationRequestBackoffTimerValueIeiTable = []NasTypeIeiData{
-	{nasMessage.RegistrationAcceptT3512ValueType, nasMessage.RegistrationAcceptT3512ValueType},
+	{
+		nasMessage.RegistrationAcceptT3512ValueType,
+		nasMessage.RegistrationAcceptT3512ValueType,
+	},
 }
 
 func TestNasTypeBackoffTimerValueGetSetIei(t *testing.T) {
-	a := nasType.NewBackoffTimerValue(nasMessage.RegistrationAcceptT3512ValueType)
+	a := nasType.NewBackoffTimerValue(
+		nasMessage.RegistrationAcceptT3512ValueType,
+	)
 	for _, table := range nasTypeAuthenticationRequestBackoffTimerValueIeiTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeBackoffTimerValueLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeBackoffTimerValueGetSetLen(t *testing.T) {
-	a := nasType.NewBackoffTimerValue(nasMessage.RegistrationAcceptT3512ValueType)
+	a := nasType.NewBackoffTimerValue(
+		nasMessage.RegistrationAcceptT3512ValueType,
+	)
 	for _, table := range nasTypeBackoffTimerValueLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -54,7 +63,9 @@ var nasTypeBackoffTimerValueUintTimerValueTable = []nasTypeBackoffTimerValueUint
 }
 
 func TestNasTypeBackoffTimerValueGetSetUintTimerValue(t *testing.T) {
-	a := nasType.NewBackoffTimerValue(nasMessage.RegistrationAcceptT3512ValueType)
+	a := nasType.NewBackoffTimerValue(
+		nasMessage.RegistrationAcceptT3512ValueType,
+	)
 	for _, table := range nasTypeBackoffTimerValueUintTimerValueTable {
 		a.SetUnitTimerValue(table.in)
 		assert.Equal(t, table.out, a.GetUnitTimerValue())
@@ -71,7 +82,9 @@ var nasTypeBackoffTimerValueTimerValueTable = []nasTypeBackoffTimerValueTimerVal
 }
 
 func TestNasTypeBackoffTimerValueGetSetTimerValue(t *testing.T) {
-	a := nasType.NewBackoffTimerValue(nasMessage.RegistrationAcceptT3512ValueType)
+	a := nasType.NewBackoffTimerValue(
+		nasMessage.RegistrationAcceptT3512ValueType,
+	)
 	for _, table := range nasTypeBackoffTimerValueTimerValueTable {
 		a.SetTimerValue(table.in)
 		assert.Equal(t, table.out, a.GetTimerValue())
@@ -93,12 +106,19 @@ var BackoffTimerValueExpectedData = []nasType.BackoffTimerValue{
 }
 
 var BackoffTimerValueDataTestTable = []testBackoffTimerValueDataTemplate{
-	{0x07, 0x1F, BackoffTimerValueTestData[0], BackoffTimerValueExpectedData[0]},
+	{
+		0x07,
+		0x1F,
+		BackoffTimerValueTestData[0],
+		BackoffTimerValueExpectedData[0],
+	},
 }
 
 func TestNasTypeBackoffTimer(t *testing.T) {
 	for _, table := range BackoffTimerValueDataTestTable {
-		a := nasType.NewBackoffTimerValue(nasMessage.RegistrationAcceptT3512ValueType)
+		a := nasType.NewBackoffTimerValue(
+			nasMessage.RegistrationAcceptT3512ValueType,
+		)
 		a.SetIei(table.in.Iei)
 		a.SetLen(table.in.Len)
 		a.SetUnitTimerValue(table.inUnitTimerValue)

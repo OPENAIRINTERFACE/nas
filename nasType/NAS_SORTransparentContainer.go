@@ -13,7 +13,9 @@ type SORTransparentContainer struct {
 	Buffer []uint8
 }
 
-func NewSORTransparentContainer(iei uint8) (sORTransparentContainer *SORTransparentContainer) {
+func NewSORTransparentContainer(
+	iei uint8,
+) (sORTransparentContainer *SORTransparentContainer) {
 	sORTransparentContainer = &SORTransparentContainer{}
 	sORTransparentContainer.SetIei(iei)
 	return sORTransparentContainer

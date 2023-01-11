@@ -20,7 +20,10 @@ type nasTypeResultMessageIdentityData struct {
 }
 
 var nasTypeResultMessageIdentityTable = []nasTypeResultMessageIdentityData{
-	{nasMessage.PDUSessionAuthenticationResultEAPMessageType, nasMessage.PDUSessionAuthenticationResultEAPMessageType},
+	{
+		nasMessage.PDUSessionAuthenticationResultEAPMessageType,
+		nasMessage.PDUSessionAuthenticationResultEAPMessageType,
+	},
 }
 
 func TestNasTypeNewAuthenticationResultMessageIdentity(t *testing.T) {

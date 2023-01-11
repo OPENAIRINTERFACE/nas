@@ -54,12 +54,22 @@ func TestNasTypeNewRegistrationCompleteMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.RegistrationCompleteMessageIdentity.SetMessageType(table.inRegistrationCompleteMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.RegistrationCompleteMessageIdentity.SetMessageType(
+			table.inRegistrationCompleteMessageIdentity,
+		)
 
-		a.SORTransparentContainer = nasType.NewSORTransparentContainer(nasMessage.RegistrationCompleteSORTransparentContainerType)
+		a.SORTransparentContainer = nasType.NewSORTransparentContainer(
+			nasMessage.RegistrationCompleteSORTransparentContainerType,
+		)
 		a.SORTransparentContainer = &table.inSORTransparentContainer
 
 		buff := new(bytes.Buffer)

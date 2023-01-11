@@ -49,7 +49,10 @@ var accessTypeAndSpareHalfOctetExpectedTestData = []nasType.SpareHalfOctetAndAcc
 }
 
 var accessTypeAndSpareHalfOctetTable = []AccessTypeAndSpareHalfOctetTestDataTemplate{
-	{accessTypeAndSpareHalfOctetTestData[0], accessTypeAndSpareHalfOctetExpectedTestData[0]},
+	{
+		accessTypeAndSpareHalfOctetTestData[0],
+		accessTypeAndSpareHalfOctetExpectedTestData[0],
+	},
 }
 
 func TestNasTypeAccessTypeAndSpareHalfOctet(t *testing.T) {

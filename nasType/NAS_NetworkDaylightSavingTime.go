@@ -13,7 +13,9 @@ type NetworkDaylightSavingTime struct {
 	Octet uint8
 }
 
-func NewNetworkDaylightSavingTime(iei uint8) (networkDaylightSavingTime *NetworkDaylightSavingTime) {
+func NewNetworkDaylightSavingTime(
+	iei uint8,
+) (networkDaylightSavingTime *NetworkDaylightSavingTime) {
 	networkDaylightSavingTime = &NetworkDaylightSavingTime{}
 	networkDaylightSavingTime.SetIei(iei)
 	return networkDaylightSavingTime

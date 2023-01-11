@@ -13,7 +13,9 @@ type AuthenticationResponseParameter struct {
 	Octet [16]uint8
 }
 
-func NewAuthenticationResponseParameter(iei uint8) (authenticationResponseParameter *AuthenticationResponseParameter) {
+func NewAuthenticationResponseParameter(
+	iei uint8,
+) (authenticationResponseParameter *AuthenticationResponseParameter) {
 	authenticationResponseParameter = &AuthenticationResponseParameter{}
 	authenticationResponseParameter.SetIei(iei)
 	return authenticationResponseParameter

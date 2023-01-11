@@ -27,7 +27,9 @@ var nasTypePayloadContainerTypeAndSparePayloadContainerTypeTable = []nasTypePayl
 	{0x0f, 0x0f},
 }
 
-func TestNasTypeGetSetPayloadSpareHalfOctetAndPayloadContainerType(t *testing.T) {
+func TestNasTypeGetSetPayloadSpareHalfOctetAndPayloadContainerType(
+	t *testing.T,
+) {
 	a := nasType.NewSpareHalfOctetAndPayloadContainerType()
 	for _, table := range nasTypePayloadContainerTypeAndSparePayloadContainerTypeTable {
 		a.SetPayloadContainerType(table.in)

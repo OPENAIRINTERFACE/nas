@@ -21,7 +21,10 @@ func TestNasTypeNewIMEISV(t *testing.T) {
 }
 
 var nasTypeSecurityModeCompleteIMEISVTypeTable = []NasTypeIeiData{
-	{nasMessage.SecurityModeCompleteIMEISVType, nasMessage.SecurityModeCompleteIMEISVType},
+	{
+		nasMessage.SecurityModeCompleteIMEISVType,
+		nasMessage.SecurityModeCompleteIMEISVType,
+	},
 }
 
 func TestNasTypeIMEISVGetSetIei(t *testing.T) {
@@ -176,13 +179,69 @@ func TestNasTypeIMEISV(t *testing.T) {
 		a.SetIdentityDigitP_1(table.inIdentityDigitP_1)
 		a.SetIdentityDigitP(table.inIdentityDigitP)
 
-		assert.Equalf(t, table.outIei, a.GetIei(), "in(%v): out %v, actual %x", table.inIei, table.outIei, a.GetIei())
-		assert.Equalf(t, table.outLen, a.GetLen(), "in(%v): out %v, actual %x", table.inLen, table.outLen, a.GetLen())
-		assert.Equalf(t, table.outIdentityDigit1, a.GetIdentityDigit1(), "in(%v): out %v, actual %x", table.inIdentityDigit1, table.outIdentityDigit1, a.GetIdentityDigit1())
-		assert.Equalf(t, table.outOddEvenIdic, a.GetOddEvenIdic(), "in(%v): out %v, actual %x", table.inOddEvenIdic, table.outOddEvenIdic, a.GetOddEvenIdic())
-		assert.Equalf(t, table.outTypeOfIdentity, a.GetTypeOfIdentity(), "in(%v): out %v, actual %x", table.inTypeOfIdentity, table.outTypeOfIdentity, a.GetTypeOfIdentity())
-		assert.Equalf(t, table.outIdentityDigitP_1, a.GetIdentityDigitP_1(), "in(%v): out %v, actual %x", table.inIdentityDigitP_1, table.outIdentityDigitP_1, a.GetIdentityDigitP_1())
-		assert.Equalf(t, table.outIdentityDigitP, a.GetIdentityDigitP(), "in(%v): out %v, actual %x", table.inIdentityDigitP, table.outIdentityDigitP, a.GetIdentityDigitP())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.GetIei(),
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.GetIei(),
+		)
+		assert.Equalf(
+			t,
+			table.outLen,
+			a.GetLen(),
+			"in(%v): out %v, actual %x",
+			table.inLen,
+			table.outLen,
+			a.GetLen(),
+		)
+		assert.Equalf(
+			t,
+			table.outIdentityDigit1,
+			a.GetIdentityDigit1(),
+			"in(%v): out %v, actual %x",
+			table.inIdentityDigit1,
+			table.outIdentityDigit1,
+			a.GetIdentityDigit1(),
+		)
+		assert.Equalf(
+			t,
+			table.outOddEvenIdic,
+			a.GetOddEvenIdic(),
+			"in(%v): out %v, actual %x",
+			table.inOddEvenIdic,
+			table.outOddEvenIdic,
+			a.GetOddEvenIdic(),
+		)
+		assert.Equalf(
+			t,
+			table.outTypeOfIdentity,
+			a.GetTypeOfIdentity(),
+			"in(%v): out %v, actual %x",
+			table.inTypeOfIdentity,
+			table.outTypeOfIdentity,
+			a.GetTypeOfIdentity(),
+		)
+		assert.Equalf(
+			t,
+			table.outIdentityDigitP_1,
+			a.GetIdentityDigitP_1(),
+			"in(%v): out %v, actual %x",
+			table.inIdentityDigitP_1,
+			table.outIdentityDigitP_1,
+			a.GetIdentityDigitP_1(),
+		)
+		assert.Equalf(
+			t,
+			table.outIdentityDigitP,
+			a.GetIdentityDigitP(),
+			"in(%v): out %v, actual %x",
+			table.inIdentityDigitP,
+			table.outIdentityDigitP,
+			a.GetIdentityDigitP(),
+		)
 
 	}
 }

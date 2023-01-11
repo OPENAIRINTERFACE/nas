@@ -13,7 +13,9 @@ type ConfigurationUpdateIndication struct {
 	Octet uint8
 }
 
-func NewConfigurationUpdateIndication(iei uint8) (configurationUpdateIndication *ConfigurationUpdateIndication) {
+func NewConfigurationUpdateIndication(
+	iei uint8,
+) (configurationUpdateIndication *ConfigurationUpdateIndication) {
 	configurationUpdateIndication = &ConfigurationUpdateIndication{}
 	configurationUpdateIndication.SetIei(iei)
 	return configurationUpdateIndication

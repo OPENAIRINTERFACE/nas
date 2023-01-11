@@ -37,9 +37,21 @@ const (
 )
 
 func (a *ServiceRequest) EncodeServiceRequest(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.ServiceRequestMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ServiceRequestMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.ServiceTypeAndNgksi.Octet)
 	binary.Write(buffer, binary.BigEndian, a.TMSI5GS.GetLen())
 	binary.Write(buffer, binary.BigEndian, &a.TMSI5GS.Octet)
@@ -54,9 +66,21 @@ func (a *ServiceRequest) EncodeServiceRequest(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.PDUSessionStatus.Buffer)
 	}
 	if a.AllowedPDUSessionStatus != nil {
-		binary.Write(buffer, binary.BigEndian, a.AllowedPDUSessionStatus.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.AllowedPDUSessionStatus.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.AllowedPDUSessionStatus.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.AllowedPDUSessionStatus.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.AllowedPDUSessionStatus.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.AllowedPDUSessionStatus.Buffer,
+		)
 	}
 	if a.NASMessageContainer != nil {
 		binary.Write(buffer, binary.BigEndian, a.NASMessageContainer.GetIei())
@@ -67,9 +91,21 @@ func (a *ServiceRequest) EncodeServiceRequest(buffer *bytes.Buffer) {
 
 func (a *ServiceRequest) DecodeServiceRequest(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.ServiceRequestMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ServiceRequestMessageIdentity.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.ServiceTypeAndNgksi.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.TMSI5GS.Len)
 	a.TMSI5GS.SetLen(a.TMSI5GS.GetLen())
@@ -90,22 +126,42 @@ func (a *ServiceRequest) DecodeServiceRequest(byteArray *[]byte) {
 			a.UplinkDataStatus = nasType.NewUplinkDataStatus(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.UplinkDataStatus.Len)
 			a.UplinkDataStatus.SetLen(a.UplinkDataStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.UplinkDataStatus.Buffer[:a.UplinkDataStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.UplinkDataStatus.Buffer[:a.UplinkDataStatus.GetLen()],
+			)
 		case ServiceRequestPDUSessionStatusType:
 			a.PDUSessionStatus = nasType.NewPDUSessionStatus(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.PDUSessionStatus.Len)
 			a.PDUSessionStatus.SetLen(a.PDUSessionStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()],
+			)
 		case ServiceRequestAllowedPDUSessionStatusType:
 			a.AllowedPDUSessionStatus = nasType.NewAllowedPDUSessionStatus(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.AllowedPDUSessionStatus.Len)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.AllowedPDUSessionStatus.Len,
+			)
 			a.AllowedPDUSessionStatus.SetLen(a.AllowedPDUSessionStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.AllowedPDUSessionStatus.Buffer[:a.AllowedPDUSessionStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.AllowedPDUSessionStatus.Buffer[:a.AllowedPDUSessionStatus.GetLen()],
+			)
 		case ServiceRequestNASMessageContainerType:
 			a.NASMessageContainer = nasType.NewNASMessageContainer(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.NASMessageContainer.Len)
 			a.NASMessageContainer.SetLen(a.NASMessageContainer.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.NASMessageContainer.Buffer[:a.NASMessageContainer.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.NASMessageContainer.Buffer[:a.NASMessageContainer.GetLen()],
+			)
 		default:
 		}
 	}

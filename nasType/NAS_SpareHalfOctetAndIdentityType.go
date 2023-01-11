@@ -24,6 +24,8 @@ func (a *SpareHalfOctetAndIdentityType) GetTypeOfIdentity() (typeOfIdentity uint
 
 // SpareHalfOctetAndIdentityType 9.11.3.3 9.5
 // TypeOfIdentity Row, sBit, len = [0, 0], 3 , 3
-func (a *SpareHalfOctetAndIdentityType) SetTypeOfIdentity(typeOfIdentity uint8) {
+func (a *SpareHalfOctetAndIdentityType) SetTypeOfIdentity(
+	typeOfIdentity uint8,
+) {
 	a.Octet = (a.Octet & 248) + (typeOfIdentity & 7)
 }

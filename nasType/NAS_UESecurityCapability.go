@@ -45,7 +45,9 @@ type UESecurityCapability struct {
 	Buffer []uint8
 }
 
-func NewUESecurityCapability(iei uint8) (uESecurityCapability *UESecurityCapability) {
+func NewUESecurityCapability(
+	iei uint8,
+) (uESecurityCapability *UESecurityCapability) {
 	uESecurityCapability = &UESecurityCapability{}
 	uESecurityCapability.SetIei(iei)
 	return uESecurityCapability

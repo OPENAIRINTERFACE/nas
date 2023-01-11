@@ -9,8 +9,8 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"net"
 	"github.com/omec-project/nas/nasType"
+	"net"
 )
 
 type DLNASTransport struct {
@@ -39,10 +39,26 @@ const (
 )
 
 func (a *DLNASTransport) EncodeDLNASTransport(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.DLNASTRANSPORTMessageIdentity.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndPayloadContainerType.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.DLNASTRANSPORTMessageIdentity.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndPayloadContainerType.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, a.PayloadContainer.GetLen())
 	binary.Write(buffer, binary.BigEndian, &a.PayloadContainer.Buffer)
 	if a.PduSessionID2Value != nil {
@@ -68,10 +84,26 @@ func (a *DLNASTransport) EncodeDLNASTransport(buffer *bytes.Buffer) {
 func (a *DLNASTransport) DecodeDLNASTransport(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
 	//fmt.Println("a  before ", a)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.DLNASTRANSPORTMessageIdentity.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndPayloadContainerType.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.DLNASTRANSPORTMessageIdentity.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndPayloadContainerType.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.PayloadContainer.Len)
 	a.PayloadContainer.SetLen(a.PayloadContainer.GetLen())
 	binary.Read(buffer, binary.BigEndian, &a.PayloadContainer.Buffer)
@@ -157,7 +189,11 @@ func (a *DLNASTransport) DecodeDLNASTransport(byteArray *[]byte) {
 			a.AdditionalInformation = nasType.NewAdditionalInformation(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.AdditionalInformation.Len)
 			a.AdditionalInformation.SetLen(a.AdditionalInformation.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.AdditionalInformation.Buffer[:a.AdditionalInformation.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.AdditionalInformation.Buffer[:a.AdditionalInformation.GetLen()],
+			)
 		case DLNASTransportCause5GMMType:
 			a.Cause5GMM = nasType.NewCause5GMM(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.Cause5GMM.Octet)

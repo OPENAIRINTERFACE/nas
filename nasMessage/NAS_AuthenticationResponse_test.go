@@ -36,8 +36,33 @@ var nasMessageAuthenticationResponseTable = []nasMessageAuthenticationResponseDa
 		inSecurityHeader:                        0x08,
 		inSpareHalfOctet:                        0x01,
 		inAuthenticationResponseMessageIdentity: 0x01,
-		inAuthenticationResponseParameter:       nasType.AuthenticationResponseParameter{nasMessage.AuthenticationResponseAuthenticationResponseParameterType, 16, [16]uint8{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}},
-		inEAPMessage:                            nasType.EAPMessage{nasMessage.AuthenticationResponseEAPMessageType, 2, []uint8{0x01, 0x01}},
+		inAuthenticationResponseParameter: nasType.AuthenticationResponseParameter{
+			nasMessage.AuthenticationResponseAuthenticationResponseParameterType,
+			16,
+			[16]uint8{
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+			},
+		},
+		inEAPMessage: nasType.EAPMessage{
+			nasMessage.AuthenticationResponseEAPMessageType,
+			2,
+			[]uint8{0x01, 0x01},
+		},
 	},
 }
 
@@ -47,7 +72,9 @@ func TestNasTypeNewAuthenticationResponse(t *testing.T) {
 }
 
 func TestNasTypeNewAuthenticationResponseMessage(t *testing.T) {
-	logger.NasMsgLog.Infoln("---Test NAS Message: AuthenticationResponseMessage---")
+	logger.NasMsgLog.Infoln(
+		"---Test NAS Message: AuthenticationResponseMessage---",
+	)
 	for i, table := range nasMessageAuthenticationResponseTable {
 		logger.NasMsgLog.Infoln("Test Cnt:", i)
 		a := nasMessage.NewAuthenticationResponse(0)
@@ -55,15 +82,27 @@ func TestNasTypeNewAuthenticationResponseMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.AuthenticationResponseMessageIdentity.SetMessageType(table.inAuthenticationResponseMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.AuthenticationResponseMessageIdentity.SetMessageType(
+			table.inAuthenticationResponseMessageIdentity,
+		)
 
-		a.AuthenticationResponseParameter = nasType.NewAuthenticationResponseParameter(nasMessage.AuthenticationResponseAuthenticationResponseParameterType)
+		a.AuthenticationResponseParameter = nasType.NewAuthenticationResponseParameter(
+			nasMessage.AuthenticationResponseAuthenticationResponseParameterType,
+		)
 		a.AuthenticationResponseParameter = &table.inAuthenticationResponseParameter
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.AuthenticationResponseEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.AuthenticationResponseEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
 		buff := new(bytes.Buffer)

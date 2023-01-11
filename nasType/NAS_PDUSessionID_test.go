@@ -21,7 +21,10 @@ func TestNasTypeNewPDUSessionID(t *testing.T) {
 }
 
 var nasTypePDUSessionIDULNASTransportOldPDUSessionIDTypeTable = []NasTypeIeiData{
-	{nasMessage.ULNASTransportOldPDUSessionIDType, nasMessage.ULNASTransportOldPDUSessionIDType},
+	{
+		nasMessage.ULNASTransportOldPDUSessionIDType,
+		nasMessage.ULNASTransportOldPDUSessionIDType,
+	},
 }
 
 func TestNasTypePDUSessionIDGetSetIei(t *testing.T) {
@@ -65,6 +68,14 @@ func TestNasTypePDUSessionID(t *testing.T) {
 		a := nasType.NewPDUSessionID()
 		a.SetPDUSessionID(table.inPduSessionIdentity2Value)
 
-		assert.Equalf(t, table.outPduSessionIdentity2Value, a.GetPDUSessionID(), "in(%v): out %v, actual %x", table.inPduSessionIdentity2Value, table.outPduSessionIdentity2Value, a.GetPDUSessionID())
+		assert.Equalf(
+			t,
+			table.outPduSessionIdentity2Value,
+			a.GetPDUSessionID(),
+			"in(%v): out %v, actual %x",
+			table.inPduSessionIdentity2Value,
+			table.outPduSessionIdentity2Value,
+			a.GetPDUSessionID(),
+		)
 	}
 }

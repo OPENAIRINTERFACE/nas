@@ -49,7 +49,10 @@ var ServiceRejectMessageIdentityExpectedTestData = []nasType.ServiceRejectMessag
 }
 
 var ServiceRejectMessageIdentityTable = []ServiceRejectMessageIdentityTestDataTemplate{
-	{ServiceRejectMessageIdentityTestData[0], ServiceRejectMessageIdentityExpectedTestData[0]},
+	{
+		ServiceRejectMessageIdentityTestData[0],
+		ServiceRejectMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypeServiceRejectMessageIdentity(t *testing.T) {

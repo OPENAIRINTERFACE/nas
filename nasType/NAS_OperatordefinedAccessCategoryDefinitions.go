@@ -13,7 +13,9 @@ type OperatordefinedAccessCategoryDefinitions struct {
 	Buffer []uint8
 }
 
-func NewOperatordefinedAccessCategoryDefinitions(iei uint8) (operatordefinedAccessCategoryDefinitions *OperatordefinedAccessCategoryDefinitions) {
+func NewOperatordefinedAccessCategoryDefinitions(
+	iei uint8,
+) (operatordefinedAccessCategoryDefinitions *OperatordefinedAccessCategoryDefinitions) {
 	operatordefinedAccessCategoryDefinitions = &OperatordefinedAccessCategoryDefinitions{}
 	operatordefinedAccessCategoryDefinitions.SetIei(iei)
 	return operatordefinedAccessCategoryDefinitions
@@ -54,6 +56,8 @@ func (a *OperatordefinedAccessCategoryDefinitions) GetOperatorDefinedAccessCateg
 
 // OperatordefinedAccessCategoryDefinitions 9.11.3.38
 // OperatorDefinedAccessCategoryDefintiion Row, sBit, len = [0, 0], 8 , INF
-func (a *OperatordefinedAccessCategoryDefinitions) SetOperatorDefinedAccessCategoryDefintiion(operatorDefinedAccessCategoryDefintiion []uint8) {
+func (a *OperatordefinedAccessCategoryDefinitions) SetOperatorDefinedAccessCategoryDefintiion(
+	operatorDefinedAccessCategoryDefintiion []uint8,
+) {
 	copy(a.Buffer, operatorDefinedAccessCategoryDefintiion)
 }

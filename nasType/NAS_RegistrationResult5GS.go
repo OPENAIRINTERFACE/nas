@@ -14,7 +14,9 @@ type RegistrationResult5GS struct {
 	Octet uint8
 }
 
-func NewRegistrationResult5GS(iei uint8) (registrationResult5GS *RegistrationResult5GS) {
+func NewRegistrationResult5GS(
+	iei uint8,
+) (registrationResult5GS *RegistrationResult5GS) {
 	registrationResult5GS = &RegistrationResult5GS{}
 	registrationResult5GS.SetIei(iei)
 	return registrationResult5GS
@@ -64,6 +66,8 @@ func (a *RegistrationResult5GS) GetRegistrationResultValue5GS() (registrationRes
 
 // RegistrationResult5GS 9.11.3.6
 // RegistrationResultValue5GS Row, sBit, len = [0, 0], 3 , 3
-func (a *RegistrationResult5GS) SetRegistrationResultValue5GS(registrationResultValue5GS uint8) {
+func (a *RegistrationResult5GS) SetRegistrationResultValue5GS(
+	registrationResultValue5GS uint8,
+) {
 	a.Octet = (a.Octet & 248) + (registrationResultValue5GS & 7)
 }

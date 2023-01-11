@@ -20,7 +20,10 @@ type nasTypeConfigurationUpdateCompleteMessageIdentityData struct {
 }
 
 var nasTypeConfigurationUpdateCompleteMessageIdentityTable = []nasTypeConfigurationUpdateCompleteMessageIdentityData{
-	{nas.MsgTypeConfigurationUpdateComplete, nas.MsgTypeConfigurationUpdateComplete},
+	{
+		nas.MsgTypeConfigurationUpdateComplete,
+		nas.MsgTypeConfigurationUpdateComplete,
+	},
 }
 
 func TestNasTypeNewConfigurationUpdateCompleteMessageIdentity(t *testing.T) {

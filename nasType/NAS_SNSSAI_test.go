@@ -21,7 +21,10 @@ func TestNasTypeNewSNSSAI(t *testing.T) {
 }
 
 var nasTypeServiceRequestSNSSAITable = []NasTypeIeiData{
-	{nasMessage.PDUSessionEstablishmentAcceptSNSSAIType, nasMessage.PDUSessionEstablishmentAcceptSNSSAIType},
+	{
+		nasMessage.PDUSessionEstablishmentAcceptSNSSAIType,
+		nasMessage.PDUSessionEstablishmentAcceptSNSSAIType,
+	},
 }
 
 func TestNasTypeSNSSAIGetSetIei(t *testing.T) {
@@ -134,7 +137,11 @@ var SNSSAITestData = []nasType.SNSSAI{
 }
 
 var SNSSAIExpectedData = []nasType.SNSSAI{
-	{nasMessage.PDUSessionEstablishmentAcceptSNSSAIType, 8, [8]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01}},
+	{
+		nasMessage.PDUSessionEstablishmentAcceptSNSSAIType,
+		8,
+		[8]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01},
+	},
 }
 
 var SNSSAITable = []testSNSSAIDataTemplate{

@@ -49,7 +49,10 @@ var ServiceRequestMessageIdentityExpectedTestData = []nasType.ServiceRequestMess
 }
 
 var ServiceRequestMessageIdentityTable = []ServiceRequestMessageIdentityTestDataTemplate{
-	{ServiceRequestMessageIdentityTestData[0], ServiceRequestMessageIdentityExpectedTestData[0]},
+	{
+		ServiceRequestMessageIdentityTestData[0],
+		ServiceRequestMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypeServiceRequestMessageIdentity(t *testing.T) {

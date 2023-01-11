@@ -20,23 +20,45 @@ type SecurityProtected5GSNASMessage struct {
 	nasType.Plain5GSNASMessage
 }
 
-func NewSecurityProtected5GSNASMessage(iei uint8) (securityProtected5GSNASMessage *SecurityProtected5GSNASMessage) {
+func NewSecurityProtected5GSNASMessage(
+	iei uint8,
+) (securityProtected5GSNASMessage *SecurityProtected5GSNASMessage) {
 	securityProtected5GSNASMessage = &SecurityProtected5GSNASMessage{}
 	return securityProtected5GSNASMessage
 }
 
-func (a *SecurityProtected5GSNASMessage) EncodeSecurityProtected5GSNASMessage(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
+func (a *SecurityProtected5GSNASMessage) EncodeSecurityProtected5GSNASMessage(
+	buffer *bytes.Buffer,
+) {
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.MessageAuthenticationCode.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.SequenceNumber.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.Plain5GSNASMessage)
 }
 
-func (a *SecurityProtected5GSNASMessage) DecodeSecurityProtected5GSNASMessage(byteArray *[]byte) {
+func (a *SecurityProtected5GSNASMessage) DecodeSecurityProtected5GSNASMessage(
+	byteArray *[]byte,
+) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.MessageAuthenticationCode.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.SequenceNumber.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.Plain5GSNASMessage)

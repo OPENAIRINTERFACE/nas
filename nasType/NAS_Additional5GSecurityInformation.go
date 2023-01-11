@@ -14,7 +14,9 @@ type Additional5GSecurityInformation struct {
 	Octet uint8
 }
 
-func NewAdditional5GSecurityInformation(iei uint8) (additional5GSecurityInformation *Additional5GSecurityInformation) {
+func NewAdditional5GSecurityInformation(
+	iei uint8,
+) (additional5GSecurityInformation *Additional5GSecurityInformation) {
 	additional5GSecurityInformation = &Additional5GSecurityInformation{}
 	additional5GSecurityInformation.SetIei(iei)
 	return additional5GSecurityInformation

@@ -54,6 +54,8 @@ func (a *MobileIdentity5GS) GetMobileIdentity5GSContents() (mobileIdentity5GSCon
 
 // MobileIdentity5GS 9.11.3.4
 // MobileIdentity5GSContents Row, sBit, len = [0, 0], 8 , INF
-func (a *MobileIdentity5GS) SetMobileIdentity5GSContents(mobileIdentity5GSContents []uint8) {
+func (a *MobileIdentity5GS) SetMobileIdentity5GSContents(
+	mobileIdentity5GSContents []uint8,
+) {
 	copy(a.Buffer, mobileIdentity5GSContents)
 }

@@ -16,7 +16,9 @@ import (
 var ConfigurationUpdateCommandMICOIndicationTypeIeiInput uint8 = 0x0B
 
 func TestNasTypeNewMICOIndication(t *testing.T) {
-	a := nasType.NewMICOIndication(ConfigurationUpdateCommandMICOIndicationTypeIeiInput)
+	a := nasType.NewMICOIndication(
+		ConfigurationUpdateCommandMICOIndicationTypeIeiInput,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -25,7 +27,9 @@ var nasTypeConfigurationUpdateCommandMICOIndicationTable = []NasTypeIeiData{
 }
 
 func TestNasTypeMICOIndicationGetSetIei(t *testing.T) {
-	a := nasType.NewMICOIndication(ConfigurationUpdateCommandMICOIndicationTypeIeiInput)
+	a := nasType.NewMICOIndication(
+		ConfigurationUpdateCommandMICOIndicationTypeIeiInput,
+	)
 	for _, table := range nasTypeConfigurationUpdateCommandMICOIndicationTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -42,7 +46,9 @@ var nasTypeMICOIndicationRAAITable = []nasTypeMICOIndicationRAAI{
 }
 
 func TestNasTypeMICOIndicationGetSetRAAI(t *testing.T) {
-	a := nasType.NewMICOIndication(ConfigurationUpdateCommandMICOIndicationTypeIeiInput)
+	a := nasType.NewMICOIndication(
+		ConfigurationUpdateCommandMICOIndicationTypeIeiInput,
+	)
 	for _, table := range nasTypeMICOIndicationRAAITable {
 		a.SetRAAI(table.in)
 		assert.Equal(t, table.out, a.GetRAAI())
@@ -70,7 +76,9 @@ var mICOIndicationTestTable = []testMICOIndicationDataTemplate{
 func TestNasTypeMICOIndication(t *testing.T) {
 
 	for _, table := range mICOIndicationTestTable {
-		a := nasType.NewMICOIndication(ConfigurationUpdateCommandMICOIndicationTypeIeiInput)
+		a := nasType.NewMICOIndication(
+			ConfigurationUpdateCommandMICOIndicationTypeIeiInput,
+		)
 
 		a.SetIei(ConfigurationUpdateCommandMICOIndicationTypeIeiInput)
 		a.SetRAAI(table.inRAAI)

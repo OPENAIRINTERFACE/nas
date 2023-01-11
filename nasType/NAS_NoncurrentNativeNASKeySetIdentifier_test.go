@@ -16,7 +16,9 @@ import (
 var RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput uint8 = 0x0C
 
 func TestNasTypeNewNoncurrentNativeNASKeySetIdentifier(t *testing.T) {
-	a := nasType.NewNoncurrentNativeNASKeySetIdentifier(RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput)
+	a := nasType.NewNoncurrentNativeNASKeySetIdentifier(
+		RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -25,7 +27,9 @@ var nasTypeConfigurationUpdateCommandNoncurrentNativeNASKeySetIdentifierTable = 
 }
 
 func TestNasTypeNoncurrentNativeNASKeySetIdentifierGetSetIei(t *testing.T) {
-	a := nasType.NewNoncurrentNativeNASKeySetIdentifier(RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput)
+	a := nasType.NewNoncurrentNativeNASKeySetIdentifier(
+		RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput,
+	)
 	for _, table := range nasTypeConfigurationUpdateCommandNoncurrentNativeNASKeySetIdentifierTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -42,18 +46,30 @@ type nasTypeNoncurrentNativeNASKeySetIdentifier struct {
 }
 
 var nasTypeNoncurrentNativeNASKeySetIdentifierTable = []nasTypeNoncurrentNativeNASKeySetIdentifier{
-	{RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput, 0x01, 0x01,
-		0x0C, 0x01, 0x01},
+	{
+		RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput,
+		0x01,
+		0x01,
+		0x0C,
+		0x01,
+		0x01,
+	},
 }
 
 func TestNasTypeNoncurrentNativeNASKeySetIdentifier(t *testing.T) {
-	a := nasType.NewNoncurrentNativeNASKeySetIdentifier(RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput)
+	a := nasType.NewNoncurrentNativeNASKeySetIdentifier(
+		RegistrationRequestNoncurrentNativeNASKeySetIdentifierTypeIeiInput,
+	)
 	for _, table := range nasTypeNoncurrentNativeNASKeySetIdentifierTable {
 		a.SetTsc(table.inTsc)
 		a.SetNasKeySetIdentifiler(table.inNasKeySetIdentifiler)
 
 		assert.Equal(t, table.outIei, a.GetIei())
 		assert.Equal(t, table.outTsc, a.GetTsc())
-		assert.Equal(t, table.outNasKeySetIdentifiler, a.GetNasKeySetIdentifiler())
+		assert.Equal(
+			t,
+			table.outNasKeySetIdentifiler,
+			a.GetNasKeySetIdentifiler(),
+		)
 	}
 }

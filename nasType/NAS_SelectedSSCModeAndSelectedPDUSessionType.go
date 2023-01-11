@@ -37,6 +37,8 @@ func (a *SelectedSSCModeAndSelectedPDUSessionType) GetPDUSessionType() (pDUSessi
 
 // SelectedSSCModeAndSelectedPDUSessionType 9.11.4.11 9.11.4.16
 // PDUSessionType Row, sBit, len = [0, 0], 3 , 3
-func (a *SelectedSSCModeAndSelectedPDUSessionType) SetPDUSessionType(pDUSessionType uint8) {
+func (a *SelectedSSCModeAndSelectedPDUSessionType) SetPDUSessionType(
+	pDUSessionType uint8,
+) {
 	a.Octet = (a.Octet & 248) + (pDUSessionType & 7)
 }

@@ -91,33 +91,53 @@ func TestNasTypeNewPDUSessionModificationCommandMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONMODIFICATIONCOMMANDMessageIdentity.SetMessageType(table.inPDUSESSIONMODIFICATIONCOMMANDMessageIdentity)
+		a.PDUSESSIONMODIFICATIONCOMMANDMessageIdentity.SetMessageType(
+			table.inPDUSESSIONMODIFICATIONCOMMANDMessageIdentity,
+		)
 
-		a.Cause5GSM = nasType.NewCause5GSM(nasMessage.PDUSessionModificationCommandCause5GSMType)
+		a.Cause5GSM = nasType.NewCause5GSM(
+			nasMessage.PDUSessionModificationCommandCause5GSMType,
+		)
 		a.Cause5GSM = &table.inCause5GSM
 
-		a.SessionAMBR = nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+		a.SessionAMBR = nasType.NewSessionAMBR(
+			nasMessage.PDUSessionModificationCommandSessionAMBRType,
+		)
 		a.SessionAMBR = &table.inSessionAMBR
 
-		a.RQTimerValue = nasType.NewRQTimerValue(nasMessage.PDUSessionModificationCommandRQTimerValueType)
+		a.RQTimerValue = nasType.NewRQTimerValue(
+			nasMessage.PDUSessionModificationCommandRQTimerValueType,
+		)
 		a.RQTimerValue = &table.inRQTimerValue
 
-		a.AlwaysonPDUSessionIndication = nasType.NewAlwaysonPDUSessionIndication(nasMessage.PDUSessionModificationCommandAlwaysonPDUSessionIndicationType)
+		a.AlwaysonPDUSessionIndication = nasType.NewAlwaysonPDUSessionIndication(
+			nasMessage.PDUSessionModificationCommandAlwaysonPDUSessionIndicationType,
+		)
 		a.AlwaysonPDUSessionIndication = &table.inAlwaysonPDUSessionIndication
 
-		a.AuthorizedQosRules = nasType.NewAuthorizedQosRules(nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType)
+		a.AuthorizedQosRules = nasType.NewAuthorizedQosRules(
+			nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType,
+		)
 		a.AuthorizedQosRules = &table.inAuthorizedQosRules
 
-		a.MappedEPSBearerContexts = nasType.NewMappedEPSBearerContexts(nasMessage.PDUSessionModificationCommandMappedEPSBearerContextsType)
+		a.MappedEPSBearerContexts = nasType.NewMappedEPSBearerContexts(
+			nasMessage.PDUSessionModificationCommandMappedEPSBearerContextsType,
+		)
 		a.MappedEPSBearerContexts = &table.inMappedEPSBearerContexts
 
-		a.AuthorizedQosFlowDescriptions = nasType.NewAuthorizedQosFlowDescriptions(nasMessage.PDUSessionModificationCommandAuthorizedQosFlowDescriptionsType)
+		a.AuthorizedQosFlowDescriptions = nasType.NewAuthorizedQosFlowDescriptions(
+			nasMessage.PDUSessionModificationCommandAuthorizedQosFlowDescriptionsType,
+		)
 		a.AuthorizedQosFlowDescriptions = &table.inAuthorizedQosFlowDescriptions
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionModificationCommandExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionModificationCommandExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

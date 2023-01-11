@@ -30,7 +30,12 @@ func TestSetterGetter(t *testing.T) {
 		count.Set(testCase.overflow, testCase.sqn)
 		expected := (uint32(testCase.overflow) << 8) + uint32(testCase.sqn)
 		assert.Equal(t, expected, count.Get(), "Get() Failed")
-		assert.Equal(t, testCase.overflow, count.Overflow(), "Overflow() Failed")
+		assert.Equal(
+			t,
+			testCase.overflow,
+			count.Overflow(),
+			"Overflow() Failed",
+		)
 		assert.Equal(t, testCase.sqn, count.SQN(), "SQN() Failed")
 	}
 

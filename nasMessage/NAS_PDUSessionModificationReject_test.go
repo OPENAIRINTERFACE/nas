@@ -64,17 +64,25 @@ func TestNasTypeNewPDUSessionModificationRejectMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONMODIFICATIONREJECTMessageIdentity.SetMessageType(table.inPDUSESSIONMODIFICATIONREJECTMessageIdentity)
+		a.PDUSESSIONMODIFICATIONREJECTMessageIdentity.SetMessageType(
+			table.inPDUSESSIONMODIFICATIONREJECTMessageIdentity,
+		)
 
 		a.Cause5GSM = table.inCause5GSM
 
-		a.BackoffTimerValue = nasType.NewBackoffTimerValue(nasMessage.PDUSessionModificationRejectBackoffTimerValueType)
+		a.BackoffTimerValue = nasType.NewBackoffTimerValue(
+			nasMessage.PDUSessionModificationRejectBackoffTimerValueType,
+		)
 		a.BackoffTimerValue = &table.inBackoffTimerValue
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionModificationRejectExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionModificationRejectExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

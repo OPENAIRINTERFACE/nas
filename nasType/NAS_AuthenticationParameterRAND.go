@@ -12,7 +12,9 @@ type AuthenticationParameterRAND struct {
 	Octet [16]uint8
 }
 
-func NewAuthenticationParameterRAND(iei uint8) (authenticationParameterRAND *AuthenticationParameterRAND) {
+func NewAuthenticationParameterRAND(
+	iei uint8,
+) (authenticationParameterRAND *AuthenticationParameterRAND) {
 	authenticationParameterRAND = &AuthenticationParameterRAND{}
 	authenticationParameterRAND.SetIei(iei)
 	return authenticationParameterRAND

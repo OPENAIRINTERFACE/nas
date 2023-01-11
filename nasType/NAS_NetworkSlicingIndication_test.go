@@ -16,7 +16,9 @@ import (
 var ConfigurationUpdateCommandNetworkSlicingIndicationTypeIeiInput uint8 = 0x09
 
 func TestNasTypeNewNetworkSlicingIndication(t *testing.T) {
-	a := nasType.NewNetworkSlicingIndication(ConfigurationUpdateCommandNetworkSlicingIndicationTypeIeiInput)
+	a := nasType.NewNetworkSlicingIndication(
+		ConfigurationUpdateCommandNetworkSlicingIndicationTypeIeiInput,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -25,7 +27,9 @@ var nasTypeConfigurationUpdateCommandNetworkSlicingIndicationTable = []NasTypeIe
 }
 
 func TestNasTypeNetworkSlicingIndicationGetSetIei(t *testing.T) {
-	a := nasType.NewNetworkSlicingIndication(ConfigurationUpdateCommandNetworkSlicingIndicationTypeIeiInput)
+	a := nasType.NewNetworkSlicingIndication(
+		ConfigurationUpdateCommandNetworkSlicingIndicationTypeIeiInput,
+	)
 	for _, table := range nasTypeConfigurationUpdateCommandNetworkSlicingIndicationTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -45,7 +49,9 @@ var nasTypeNetworkSlicingIndicationTable = []nasTypeNetworkSlicingIndication{
 }
 
 func TestNasTypeNetworkSlicingIndication(t *testing.T) {
-	a := nasType.NewNetworkSlicingIndication(ConfigurationUpdateCommandNetworkSlicingIndicationTypeIeiInput)
+	a := nasType.NewNetworkSlicingIndication(
+		ConfigurationUpdateCommandNetworkSlicingIndicationTypeIeiInput,
+	)
 	for _, table := range nasTypeNetworkSlicingIndicationTable {
 		a.SetDCNI(table.inDCNI)
 		a.SetNSSCI(table.inNSSCI)

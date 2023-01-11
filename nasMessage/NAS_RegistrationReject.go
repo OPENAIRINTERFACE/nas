@@ -34,9 +34,21 @@ const (
 )
 
 func (a *RegistrationReject) EncodeRegistrationReject(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.RegistrationRejectMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.RegistrationRejectMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.Cause5GMM.Octet)
 	if a.T3346Value != nil {
 		binary.Write(buffer, binary.BigEndian, a.T3346Value.GetIei())
@@ -57,9 +69,21 @@ func (a *RegistrationReject) EncodeRegistrationReject(buffer *bytes.Buffer) {
 
 func (a *RegistrationReject) DecodeRegistrationReject(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.RegistrationRejectMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.RegistrationRejectMessageIdentity.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.Cause5GMM.Octet)
 	for buffer.Len() > 0 {
 		var ieiN uint8
@@ -87,7 +111,11 @@ func (a *RegistrationReject) DecodeRegistrationReject(byteArray *[]byte) {
 			a.EAPMessage = nasType.NewEAPMessage(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EAPMessage.Len)
 			a.EAPMessage.SetLen(a.EAPMessage.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EAPMessage.Buffer[:a.EAPMessage.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EAPMessage.Buffer[:a.EAPMessage.GetLen()],
+			)
 		default:
 		}
 	}

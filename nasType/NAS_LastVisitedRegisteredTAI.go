@@ -18,7 +18,9 @@ type LastVisitedRegisteredTAI struct {
 	Octet [6]uint8
 }
 
-func NewLastVisitedRegisteredTAI(iei uint8) (lastVisitedRegisteredTAI *LastVisitedRegisteredTAI) {
+func NewLastVisitedRegisteredTAI(
+	iei uint8,
+) (lastVisitedRegisteredTAI *LastVisitedRegisteredTAI) {
 	lastVisitedRegisteredTAI = &LastVisitedRegisteredTAI{}
 	lastVisitedRegisteredTAI.SetIei(iei)
 	return lastVisitedRegisteredTAI

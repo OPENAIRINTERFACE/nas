@@ -29,7 +29,9 @@ type AllowedPDUSessionStatus struct {
 	Buffer []uint8
 }
 
-func NewAllowedPDUSessionStatus(iei uint8) (allowedPDUSessionStatus *AllowedPDUSessionStatus) {
+func NewAllowedPDUSessionStatus(
+	iei uint8,
+) (allowedPDUSessionStatus *AllowedPDUSessionStatus) {
 	allowedPDUSessionStatus = &AllowedPDUSessionStatus{}
 	allowedPDUSessionStatus.SetIei(iei)
 	return allowedPDUSessionStatus

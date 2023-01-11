@@ -17,17 +17,24 @@ import (
 var pDUSessionEstablishmentRejectAllowedSSCModeIeiInput uint8 = 0xf
 
 func TestNasTypeNewAllowedSSCMode(t *testing.T) {
-	a := nasType.NewAllowedSSCMode(nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType)
+	a := nasType.NewAllowedSSCMode(
+		nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType,
+	)
 	assert.NotNil(t, a)
 }
 
-//var nasTypePDUSessionEstablishmentRejectAllowedSSCModeOut = (nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType & 15) << 4
+// var nasTypePDUSessionEstablishmentRejectAllowedSSCModeOut = (nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType & 15) << 4
 var nasTypePDUSessionEstablishmentRejectAllowedSSCModeTable = []NasTypeIeiData{
-	{pDUSessionEstablishmentRejectAllowedSSCModeIeiInput, pDUSessionEstablishmentRejectAllowedSSCModeIeiInput},
+	{
+		pDUSessionEstablishmentRejectAllowedSSCModeIeiInput,
+		pDUSessionEstablishmentRejectAllowedSSCModeIeiInput,
+	},
 }
 
 func TestNasTypeAllowedSSCModeGetSetIei(t *testing.T) {
-	a := nasType.NewAllowedSSCMode(nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType)
+	a := nasType.NewAllowedSSCMode(
+		nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType,
+	)
 	for _, table := range nasTypePDUSessionEstablishmentRejectAllowedSSCModeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -39,7 +46,9 @@ var AllowedSSCModeSSC1Table = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeAllowedSSCModeGetSetSSC1(t *testing.T) {
-	a := nasType.NewAllowedSSCMode(nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType)
+	a := nasType.NewAllowedSSCMode(
+		nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType,
+	)
 	for _, table := range AllowedSSCModeSSC1Table {
 		a.SetSSC1(table.in)
 		assert.Equal(t, table.out, a.GetSSC1())
@@ -51,7 +60,9 @@ var AllowedSSCModeSSC2Table = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeAllowedSSCModeGetSetSSC2(t *testing.T) {
-	a := nasType.NewAllowedSSCMode(nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType)
+	a := nasType.NewAllowedSSCMode(
+		nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType,
+	)
 	for _, table := range AllowedSSCModeSSC2Table {
 		a.SetSSC2(table.in)
 		assert.Equal(t, table.out, a.GetSSC2())
@@ -63,7 +74,9 @@ var AllowedSSCModeSSC3Table = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeAllowedSSCModeGetSetSSC3(t *testing.T) {
-	a := nasType.NewAllowedSSCMode(nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType)
+	a := nasType.NewAllowedSSCMode(
+		nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType,
+	)
 	for _, table := range AllowedSSCModeSSC3Table {
 		a.SetSSC3(table.in)
 		assert.Equal(t, table.out, a.GetSSC3())
@@ -90,7 +103,9 @@ var allowedSSCModeTestTable = []testAllowedSSCModeDataTemplate{
 func TestNasTypeAllowedSSCMode(t *testing.T) {
 
 	for _, table := range allowedSSCModeTestTable {
-		a := nasType.NewAllowedSSCMode(pDUSessionEstablishmentRejectAllowedSSCModeIeiInput)
+		a := nasType.NewAllowedSSCMode(
+			pDUSessionEstablishmentRejectAllowedSSCModeIeiInput,
+		)
 
 		a.SetIei(pDUSessionEstablishmentRejectAllowedSSCModeIeiInput)
 		a.SetSSC3(0x01)

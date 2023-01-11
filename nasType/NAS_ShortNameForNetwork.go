@@ -17,7 +17,9 @@ type ShortNameForNetwork struct {
 	Buffer []uint8
 }
 
-func NewShortNameForNetwork(iei uint8) (shortNameForNetwork *ShortNameForNetwork) {
+func NewShortNameForNetwork(
+	iei uint8,
+) (shortNameForNetwork *ShortNameForNetwork) {
 	shortNameForNetwork = &ShortNameForNetwork{}
 	shortNameForNetwork.SetIei(iei)
 	return shortNameForNetwork
@@ -92,7 +94,9 @@ func (a *ShortNameForNetwork) GetNumberOfSpareBitsInLastOctet() (numberOfSpareBi
 
 // ShortNameForNetwork 9.11.3.35
 // NumberOfSpareBitsInLastOctet Row, sBit, len = [0, 0], 3 , 3
-func (a *ShortNameForNetwork) SetNumberOfSpareBitsInLastOctet(numberOfSpareBitsInLastOctet uint8) {
+func (a *ShortNameForNetwork) SetNumberOfSpareBitsInLastOctet(
+	numberOfSpareBitsInLastOctet uint8,
+) {
 	a.Buffer[0] = (a.Buffer[0] & 248) + (numberOfSpareBitsInLastOctet & 7)
 }
 

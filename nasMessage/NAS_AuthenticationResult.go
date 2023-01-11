@@ -21,7 +21,9 @@ type AuthenticationResult struct {
 	*nasType.ABBA
 }
 
-func NewAuthenticationResult(iei uint8) (authenticationResult *AuthenticationResult) {
+func NewAuthenticationResult(
+	iei uint8,
+) (authenticationResult *AuthenticationResult) {
 	authenticationResult = &AuthenticationResult{}
 	return authenticationResult
 }
@@ -30,10 +32,24 @@ const (
 	AuthenticationResultABBAType uint8 = 0x38
 )
 
-func (a *AuthenticationResult) EncodeAuthenticationResult(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.AuthenticationResultMessageIdentity.Octet)
+func (a *AuthenticationResult) EncodeAuthenticationResult(
+	buffer *bytes.Buffer,
+) {
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.AuthenticationResultMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndNgksi.Octet)
 	binary.Write(buffer, binary.BigEndian, a.EAPMessage.GetLen())
 	binary.Write(buffer, binary.BigEndian, &a.EAPMessage.Buffer)
@@ -46,9 +62,21 @@ func (a *AuthenticationResult) EncodeAuthenticationResult(buffer *bytes.Buffer) 
 
 func (a *AuthenticationResult) DecodeAuthenticationResult(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.AuthenticationResultMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.AuthenticationResultMessageIdentity.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndNgksi.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.EAPMessage.Len)
 	a.EAPMessage.SetLen(a.EAPMessage.GetLen())
@@ -69,7 +97,11 @@ func (a *AuthenticationResult) DecodeAuthenticationResult(byteArray *[]byte) {
 			a.ABBA = nasType.NewABBA(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.ABBA.Len)
 			a.ABBA.SetLen(a.ABBA.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ABBA.Buffer[:a.ABBA.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ABBA.Buffer[:a.ABBA.GetLen()],
+			)
 		default:
 		}
 	}

@@ -21,7 +21,10 @@ func TestNasTypeNewTAIList(t *testing.T) {
 }
 
 var nasTypeTAIListTable = []NasTypeIeiData{
-	{nasMessage.RegistrationAcceptTAIListType, nasMessage.RegistrationAcceptTAIListType},
+	{
+		nasMessage.RegistrationAcceptTAIListType,
+		nasMessage.RegistrationAcceptTAIListType,
+	},
 }
 
 func TestNasTypeTAIListGetSetIei(t *testing.T) {
@@ -59,7 +62,15 @@ func TestNasTypeTAIListGetSetPartialTrackingAreaIdentityList(t *testing.T) {
 	for _, table := range nasTypeTAIListPartialTrackingAreaIdentityListTable {
 		a.SetLen(table.inLen) // fix it, set input length
 		a.SetPartialTrackingAreaIdentityList(table.in)
-		assert.Equalf(t, table.out, a.GetPartialTrackingAreaIdentityList(), "in(%v): out %v, actual %x", table.in, table.out, a.GetPartialTrackingAreaIdentityList())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetPartialTrackingAreaIdentityList(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetPartialTrackingAreaIdentityList(),
+		)
 	}
 }
 
@@ -90,9 +101,33 @@ func TestNasTypeTAIList(t *testing.T) {
 		a.SetLen(table.in.Len)
 		a.SetPartialTrackingAreaIdentityList([]uint8{0x01, 0x01})
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

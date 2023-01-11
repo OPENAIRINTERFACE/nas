@@ -25,16 +25,32 @@ func NewNotification(iei uint8) (notification *Notification) {
 }
 
 func (a *Notification) EncodeNotification(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.NotificationMessageIdentity.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndAccessType.Octet)
 }
 
 func (a *Notification) DecodeNotification(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.NotificationMessageIdentity.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndAccessType.Octet)
 	for buffer.Len() > 0 {

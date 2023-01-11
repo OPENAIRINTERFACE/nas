@@ -27,7 +27,9 @@ var nasTypePDUSESSIONRELEASECOMMANDMessageIdentityTable = []nasTypePDUSESSIONREL
 	{0x03, 0x03},
 }
 
-func TestNasTypePDUSESSIONRELEASECOMMANDMessageIdentityGetSetMessageType(t *testing.T) {
+func TestNasTypePDUSESSIONRELEASECOMMANDMessageIdentityGetSetMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONRELEASECOMMANDMessageIdentity()
 	for _, table := range nasTypePDUSESSIONRELEASECOMMANDMessageIdentityTable {
 		a.SetMessageType(table.in)
@@ -49,7 +51,10 @@ var pDUSESSIONRELEASECOMMANDMessageIdentityExpectedTestData = []nasType.PDUSESSI
 }
 
 var pDUSESSIONRELEASECOMMANDMessageIdentityTable = []PDUSESSIONRELEASECOMMANDMessageIdentityTestDataTemplate{
-	{pDUSESSIONRELEASECOMMANDMessageIdentityTestData[0], pDUSESSIONRELEASECOMMANDMessageIdentityExpectedTestData[0]},
+	{
+		pDUSESSIONRELEASECOMMANDMessageIdentityTestData[0],
+		pDUSESSIONRELEASECOMMANDMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypePDUSESSIONRELEASECOMMANDMessageIdentity(t *testing.T) {

@@ -41,10 +41,57 @@ var nasMessageAuthenticationRequestTable = []nasMessageAuthenticationRequestData
 		inTsc:                                  0x01,
 		inNASKeySetIdentifier:                  0x07,
 		inSpareHalfOctet2:                      0x07,
-		inABBA:                                 nasType.ABBA{0, 2, []byte{0x00, 0x00}},
-		inAuthenticationParameterRAND:          nasType.AuthenticationParameterRAND{nasMessage.AuthenticationRequestAuthenticationParameterRANDType, [16]uint8{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}},
-		inAuthenticationParameterAUTN:          nasType.AuthenticationParameterAUTN{nasMessage.AuthenticationRequestAuthenticationParameterAUTNType, 16, [16]uint8{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}},
-		inEAPMessage:                           nasType.EAPMessage{nasMessage.AuthenticationRequestEAPMessageType, 2, []byte{0x00, 0x00}},
+		inABBA: nasType.ABBA{
+			0,
+			2,
+			[]byte{0x00, 0x00},
+		},
+		inAuthenticationParameterRAND: nasType.AuthenticationParameterRAND{
+			nasMessage.AuthenticationRequestAuthenticationParameterRANDType,
+			[16]uint8{
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+			},
+		},
+		inAuthenticationParameterAUTN: nasType.AuthenticationParameterAUTN{
+			nasMessage.AuthenticationRequestAuthenticationParameterAUTNType,
+			16,
+			[16]uint8{
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+			},
+		},
+		inEAPMessage: nasType.EAPMessage{
+			nasMessage.AuthenticationRequestEAPMessageType,
+			2,
+			[]byte{0x00, 0x00},
+		},
 	},
 }
 
@@ -54,7 +101,9 @@ func TestNasTypeNewAuthenticationRequest(t *testing.T) {
 }
 
 func TestNasTypeNewAuthenticationRequestMessage(t *testing.T) {
-	logger.NasMsgLog.Infoln("---Test NAS Message: AuthenticationRequestMessage---")
+	logger.NasMsgLog.Infoln(
+		"---Test NAS Message: AuthenticationRequestMessage---",
+	)
 	for i, table := range nasMessageAuthenticationRequestTable {
 		t.Logf("Test Cnt:%d", i)
 		a := nasMessage.NewAuthenticationRequest(0)
@@ -62,20 +111,34 @@ func TestNasTypeNewAuthenticationRequestMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet1)
-		a.AuthenticationRequestMessageIdentity.SetMessageType(table.inAuthenticationRequestMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet1,
+		)
+		a.AuthenticationRequestMessageIdentity.SetMessageType(
+			table.inAuthenticationRequestMessageIdentity,
+		)
 
 		a.ABBA = table.inABBA
 
-		a.AuthenticationParameterRAND = nasType.NewAuthenticationParameterRAND(nasMessage.AuthenticationRequestAuthenticationParameterRANDType)
+		a.AuthenticationParameterRAND = nasType.NewAuthenticationParameterRAND(
+			nasMessage.AuthenticationRequestAuthenticationParameterRANDType,
+		)
 		a.AuthenticationParameterRAND = &table.inAuthenticationParameterRAND
 
-		a.AuthenticationParameterAUTN = nasType.NewAuthenticationParameterAUTN(nasMessage.AuthenticationRequestAuthenticationParameterAUTNType)
+		a.AuthenticationParameterAUTN = nasType.NewAuthenticationParameterAUTN(
+			nasMessage.AuthenticationRequestAuthenticationParameterAUTNType,
+		)
 		a.AuthenticationParameterAUTN = &table.inAuthenticationParameterAUTN
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.AuthenticationRequestEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.AuthenticationRequestEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
 		buff := new(bytes.Buffer)

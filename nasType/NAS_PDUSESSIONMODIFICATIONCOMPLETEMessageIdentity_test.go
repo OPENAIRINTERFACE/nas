@@ -25,10 +25,15 @@ type nasTypePDUSESSIONMODIFICATIONCOMPLETEMessageIdentityMessageType struct {
 }
 
 var nasTypePDUSESSIONMODIFICATIONCOMPLETEMessageIdentityMessageTypeTable = []nasTypePDUSESSIONMODIFICATIONCOMPLETEMessageIdentityMessageType{
-	{nas.MsgTypePDUSessionModificationComplete, nas.MsgTypePDUSessionModificationComplete},
+	{
+		nas.MsgTypePDUSessionModificationComplete,
+		nas.MsgTypePDUSessionModificationComplete,
+	},
 }
 
-func TestNasTypeGetSetPDUSESSIONMODIFICATIONCOMPLETEMessageIdentityMessageType(t *testing.T) {
+func TestNasTypeGetSetPDUSESSIONMODIFICATIONCOMPLETEMessageIdentityMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONMODIFICATIONCOMPLETEMessageIdentity()
 	for _, table := range nasTypePDUSESSIONMODIFICATIONCOMPLETEMessageIdentityMessageTypeTable {
 		a.SetMessageType(table.in)

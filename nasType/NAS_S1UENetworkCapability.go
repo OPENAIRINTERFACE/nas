@@ -69,7 +69,9 @@ type S1UENetworkCapability struct {
 	Buffer []uint8
 }
 
-func NewS1UENetworkCapability(iei uint8) (s1UENetworkCapability *S1UENetworkCapability) {
+func NewS1UENetworkCapability(
+	iei uint8,
+) (s1UENetworkCapability *S1UENetworkCapability) {
 	s1UENetworkCapability = &S1UENetworkCapability{}
 	s1UENetworkCapability.SetIei(iei)
 	return s1UENetworkCapability

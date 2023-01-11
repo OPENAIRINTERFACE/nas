@@ -21,7 +21,9 @@ type PDUSessionModificationCommandReject struct {
 	*nasType.ExtendedProtocolConfigurationOptions
 }
 
-func NewPDUSessionModificationCommandReject(iei uint8) (pDUSessionModificationCommandReject *PDUSessionModificationCommandReject) {
+func NewPDUSessionModificationCommandReject(
+	iei uint8,
+) (pDUSessionModificationCommandReject *PDUSessionModificationCommandReject) {
 	pDUSessionModificationCommandReject = &PDUSessionModificationCommandReject{}
 	return pDUSessionModificationCommandReject
 }
@@ -30,25 +32,57 @@ const (
 	PDUSessionModificationCommandRejectExtendedProtocolConfigurationOptionsType uint8 = 0x7B
 )
 
-func (a *PDUSessionModificationCommandReject) EncodePDUSessionModificationCommandReject(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+func (a *PDUSessionModificationCommandReject) EncodePDUSessionModificationCommandReject(
+	buffer *bytes.Buffer,
+) {
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.PTI.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.PDUSESSIONMODIFICATIONCOMMANDREJECTMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.PDUSESSIONMODIFICATIONCOMMANDREJECTMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.Cause5GSM.Octet)
 	if a.ExtendedProtocolConfigurationOptions != nil {
-		binary.Write(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolConfigurationOptions.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedProtocolConfigurationOptions.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedProtocolConfigurationOptions.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.ExtendedProtocolConfigurationOptions.Buffer,
+		)
 	}
 }
 
-func (a *PDUSessionModificationCommandReject) DecodePDUSessionModificationCommandReject(byteArray *[]byte) {
+func (a *PDUSessionModificationCommandReject) DecodePDUSessionModificationCommandReject(
+	byteArray *[]byte,
+) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.PTI.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.PDUSESSIONMODIFICATIONCOMMANDREJECTMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.PDUSESSIONMODIFICATIONCOMMANDREJECTMessageIdentity.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.Cause5GSM.Octet)
 	for buffer.Len() > 0 {
 		var ieiN uint8
@@ -63,10 +97,22 @@ func (a *PDUSessionModificationCommandReject) DecodePDUSessionModificationComman
 		// fmt.Println("type", tmpIeiN)
 		switch tmpIeiN {
 		case PDUSessionModificationCommandRejectExtendedProtocolConfigurationOptionsType:
-			a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolConfigurationOptions.Len)
-			a.ExtendedProtocolConfigurationOptions.SetLen(a.ExtendedProtocolConfigurationOptions.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.Buffer[:a.ExtendedProtocolConfigurationOptions.GetLen()])
+			a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.ExtendedProtocolConfigurationOptions.Len,
+			)
+			a.ExtendedProtocolConfigurationOptions.SetLen(
+				a.ExtendedProtocolConfigurationOptions.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ExtendedProtocolConfigurationOptions.Buffer[:a.ExtendedProtocolConfigurationOptions.GetLen()],
+			)
 		default:
 		}
 	}

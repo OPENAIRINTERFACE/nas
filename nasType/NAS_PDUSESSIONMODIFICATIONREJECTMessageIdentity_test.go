@@ -25,10 +25,15 @@ type nasTypePDUSESSIONMODIFICATIONREJECTMessageIdentityMessageType struct {
 }
 
 var nasTypePDUSESSIONMODIFICATIONREJECTMessageIdentityMessageTypeTable = []nasTypePDUSESSIONMODIFICATIONREJECTMessageIdentityMessageType{
-	{nas.MsgTypePDUSessionModificationReject, nas.MsgTypePDUSessionModificationReject},
+	{
+		nas.MsgTypePDUSessionModificationReject,
+		nas.MsgTypePDUSessionModificationReject,
+	},
 }
 
-func TestNasTypeGetSetPDUSESSIONMODIFICATIONREJECTMessageIdentityMessageType(t *testing.T) {
+func TestNasTypeGetSetPDUSESSIONMODIFICATIONREJECTMessageIdentityMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONMODIFICATIONREJECTMessageIdentity()
 	for _, table := range nasTypePDUSESSIONMODIFICATIONREJECTMessageIdentityMessageTypeTable {
 		a.SetMessageType(table.in)

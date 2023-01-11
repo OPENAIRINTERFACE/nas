@@ -92,7 +92,9 @@ func (a *FullNameForNetwork) GetNumberOfSpareBitsInLastOctet() (numberOfSpareBit
 
 // FullNameForNetwork 9.11.3.35
 // NumberOfSpareBitsInLastOctet Row, sBit, len = [0, 0], 3 , 3
-func (a *FullNameForNetwork) SetNumberOfSpareBitsInLastOctet(numberOfSpareBitsInLastOctet uint8) {
+func (a *FullNameForNetwork) SetNumberOfSpareBitsInLastOctet(
+	numberOfSpareBitsInLastOctet uint8,
+) {
 	a.Buffer[0] = (a.Buffer[0] & 248) + (numberOfSpareBitsInLastOctet & 7)
 }
 

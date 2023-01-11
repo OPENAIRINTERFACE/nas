@@ -13,7 +13,9 @@ type IntegrityProtectionMaximumDataRate struct {
 	Octet [2]uint8
 }
 
-func NewIntegrityProtectionMaximumDataRate(iei uint8) (integrityProtectionMaximumDataRate *IntegrityProtectionMaximumDataRate) {
+func NewIntegrityProtectionMaximumDataRate(
+	iei uint8,
+) (integrityProtectionMaximumDataRate *IntegrityProtectionMaximumDataRate) {
 	integrityProtectionMaximumDataRate = &IntegrityProtectionMaximumDataRate{}
 	integrityProtectionMaximumDataRate.SetIei(iei)
 	return integrityProtectionMaximumDataRate
@@ -39,7 +41,9 @@ func (a *IntegrityProtectionMaximumDataRate) GetMaximumDataRatePerUEForUserPlane
 
 // IntegrityProtectionMaximumDataRate 9.11.4.7
 // MaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink Row, sBit, len = [0, 0], 8 , 8
-func (a *IntegrityProtectionMaximumDataRate) SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(maximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink uint8) {
+func (a *IntegrityProtectionMaximumDataRate) SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(
+	maximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink uint8,
+) {
 	a.Octet[0] = maximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink
 }
 
@@ -51,6 +55,8 @@ func (a *IntegrityProtectionMaximumDataRate) GetMaximumDataRatePerUEForUserPlane
 
 // IntegrityProtectionMaximumDataRate 9.11.4.7
 // MaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink Row, sBit, len = [1, 1], 8 , 8
-func (a *IntegrityProtectionMaximumDataRate) SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(maximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink uint8) {
+func (a *IntegrityProtectionMaximumDataRate) SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(
+	maximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink uint8,
+) {
 	a.Octet[1] = maximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink
 }

@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewLocalTimeZone(t *testing.T) {
-	a := nasType.NewLocalTimeZone(nasMessage.ConfigurationUpdateCommandLocalTimeZoneType)
+	a := nasType.NewLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandLocalTimeZoneType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeConfigurationUpdateCommandLocalTimeZoneTable = []NasTypeIeiData{
-	{nasMessage.ConfigurationUpdateCommandLocalTimeZoneType, nasMessage.ConfigurationUpdateCommandLocalTimeZoneType},
+	{
+		nasMessage.ConfigurationUpdateCommandLocalTimeZoneType,
+		nasMessage.ConfigurationUpdateCommandLocalTimeZoneType,
+	},
 }
 
 func TestNasTypeLocalTimeZoneGetSetIei(t *testing.T) {
-	a := nasType.NewLocalTimeZone(nasMessage.ConfigurationUpdateCommandLocalTimeZoneType)
+	a := nasType.NewLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandLocalTimeZoneType,
+	)
 	for _, table := range nasTypeConfigurationUpdateCommandLocalTimeZoneTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -42,7 +49,9 @@ var nasTypeLocalTimeZoneOctetTable = []nasTypeLocalTimeZoneTimeZoneData{
 }
 
 func TestNasTypeLocalTimeZoneGetSetTimeZone(t *testing.T) {
-	a := nasType.NewLocalTimeZone(nasMessage.ConfigurationUpdateCommandLocalTimeZoneType)
+	a := nasType.NewLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandLocalTimeZoneType,
+	)
 	for _, table := range nasTypeLocalTimeZoneOctetTable {
 		a.SetTimeZone(table.in)
 		assert.Equal(t, table.out, a.GetTimeZone())
@@ -70,13 +79,31 @@ func TestNasTypeLocalTimeZone(t *testing.T) {
 
 	for i, table := range LocalTimeZoneTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewLocalTimeZone(nasMessage.ConfigurationUpdateCommandLocalTimeZoneType)
+		a := nasType.NewLocalTimeZone(
+			nasMessage.ConfigurationUpdateCommandLocalTimeZoneType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetTimeZone(table.in.Octet)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Octet, a.Octet, "in(%v): out %v, actual %x", table.in.Octet, table.out.Octet, a.Octet)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Octet,
+			a.Octet,
+			"in(%v): out %v, actual %x",
+			table.in.Octet,
+			table.out.Octet,
+			a.Octet,
+		)
 
 	}
 }

@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewSessionAMBR(t *testing.T) {
-	a := nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+	a := nasType.NewSessionAMBR(
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeSessionAMBRPDUSessionEstablishmentAcceptSessionAMBRTypeTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionModificationCommandSessionAMBRType, nasMessage.PDUSessionModificationCommandSessionAMBRType},
+	{
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+	},
 }
 
 func TestNasTypeSessionAMBRGetSetIei(t *testing.T) {
-	a := nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+	a := nasType.NewSessionAMBR(
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+	)
 	for _, table := range nasTypeSessionAMBRPDUSessionEstablishmentAcceptSessionAMBRTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeSessionAMBRLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeSessionAMBRGetSetLen(t *testing.T) {
-	a := nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+	a := nasType.NewSessionAMBR(
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+	)
 	for _, table := range nasTypeSessionAMBRLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypeSessionAMBRUnitForSessionAMBRForDownlinkValueTable = []nasTypeSession
 }
 
 func TestNasTypeSessionAMBRGetSetUnitForSessionAMBRForDownlink(t *testing.T) {
-	a := nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+	a := nasType.NewSessionAMBR(
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+	)
 	for _, table := range nasTypeSessionAMBRUnitForSessionAMBRForDownlinkValueTable {
 		a.SetLen(table.inLen)
 		a.SetUnitForSessionAMBRForDownlink(table.in)
@@ -74,7 +85,9 @@ var nasTypeSessionAMBRSessionAMBRForDownlinkTable = []nasTypeSessionAMBRSessionA
 }
 
 func TestNasTypeSessionAMBRGetSetSessionAMBRForDownlink(t *testing.T) {
-	a := nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+	a := nasType.NewSessionAMBR(
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+	)
 	for _, table := range nasTypeSessionAMBRSessionAMBRForDownlinkTable {
 		a.SetLen(table.inLen)
 		a.SetSessionAMBRForDownlink(table.in)
@@ -93,7 +106,9 @@ var nasTypeSessionAMBRUnitForSessionAMBRForUplinkValueTable = []nasTypeSessionAM
 }
 
 func TestNasTypeSessionAMBRGetSetUnitForSessionAMBRForUplink(t *testing.T) {
-	a := nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+	a := nasType.NewSessionAMBR(
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+	)
 	for _, table := range nasTypeSessionAMBRUnitForSessionAMBRForUplinkValueTable {
 		a.SetLen(table.inLen)
 		a.SetUnitForSessionAMBRForUplink(table.in)
@@ -112,7 +127,9 @@ var nasTypeSessionAMBRSessionAMBRForUplinkTable = []nasTypeSessionAMBRSessionAMB
 }
 
 func TestNasTypeSessionAMBRGetSetSessionAMBRForUplink(t *testing.T) {
-	a := nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+	a := nasType.NewSessionAMBR(
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+	)
 	for _, table := range nasTypeSessionAMBRSessionAMBRForUplinkTable {
 		a.SetLen(table.inLen)
 		a.SetSessionAMBRForUplink(table.in)
@@ -130,7 +147,11 @@ var sessionAMBRTestData = []nasType.SessionAMBR{
 }
 
 var sessionAMBRExpectedTestData = []nasType.SessionAMBR{
-	{nasMessage.PDUSessionModificationCommandSessionAMBRType, 6, [6]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01}},
+	{
+		nasMessage.PDUSessionModificationCommandSessionAMBRType,
+		6,
+		[6]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01},
+	},
 }
 
 var sessionAMBRTable = []testSessionAMBRDataTemplate{
@@ -141,7 +162,9 @@ func TestNasTypeSessionAMBR(t *testing.T) {
 
 	for i, table := range sessionAMBRTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewSessionAMBR(nasMessage.PDUSessionModificationCommandSessionAMBRType)
+		a := nasType.NewSessionAMBR(
+			nasMessage.PDUSessionModificationCommandSessionAMBRType,
+		)
 
 		a.SetIei(table.in.Iei)
 		a.SetLen(table.in.Len)
@@ -150,8 +173,31 @@ func TestNasTypeSessionAMBR(t *testing.T) {
 		a.SetUnitForSessionAMBRForUplink(0x01)
 		a.SetSessionAMBRForUplink([2]uint8{0x01, 0x01})
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Octet, a.Octet, "out %v, actual %x", table.out.Octet, a.Octet)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Octet,
+			a.Octet,
+			"out %v, actual %x",
+			table.out.Octet,
+			a.Octet,
+		)
 	}
 }

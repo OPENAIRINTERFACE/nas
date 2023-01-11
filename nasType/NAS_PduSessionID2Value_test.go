@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewPduSessionID2Value(t *testing.T) {
-	a := nasType.NewPduSessionID2Value(nasMessage.ULNASTransportPduSessionID2ValueType)
+	a := nasType.NewPduSessionID2Value(
+		nasMessage.ULNASTransportPduSessionID2ValueType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypePDUSessionIDULNASTransportPduSessionID2ValueTypeTypeTable = []NasTypeIeiData{
-	{nasMessage.ULNASTransportPduSessionID2ValueType, nasMessage.ULNASTransportPduSessionID2ValueType},
+	{
+		nasMessage.ULNASTransportPduSessionID2ValueType,
+		nasMessage.ULNASTransportPduSessionID2ValueType,
+	},
 }
 
 func TestNasTypePduSessionID2ValueGetSetIei(t *testing.T) {
-	a := nasType.NewPduSessionID2Value(nasMessage.ULNASTransportPduSessionID2ValueType)
+	a := nasType.NewPduSessionID2Value(
+		nasMessage.ULNASTransportPduSessionID2ValueType,
+	)
 	for _, table := range nasTypePDUSessionIDULNASTransportPduSessionID2ValueTypeTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -42,7 +49,9 @@ var nasTypePduSessionIdentity2ValueTable = []nasTypePDUSessionIDPduSessionID2Val
 }
 
 func TestNasTypeGetSetPduSessionIdentity2Value(t *testing.T) {
-	a := nasType.NewPduSessionID2Value(nasMessage.ULNASTransportPduSessionID2ValueType)
+	a := nasType.NewPduSessionID2Value(
+		nasMessage.ULNASTransportPduSessionID2ValueType,
+	)
 	for _, table := range nasTypePduSessionIdentity2ValueTable {
 		a.SetPduSessionID2Value((table.in))
 		assert.Equal(t, table.out, a.GetPduSessionID2Value())
@@ -65,11 +74,29 @@ func TestNasTypePDUSessionID2Value(t *testing.T) {
 
 	for i, table := range testPduSessionIdentity2ValueTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewPduSessionID2Value(nasMessage.ULNASTransportPduSessionID2ValueType)
+		a := nasType.NewPduSessionID2Value(
+			nasMessage.ULNASTransportPduSessionID2ValueType,
+		)
 		a.SetIei(table.inIei)
 		a.SetPduSessionID2Value(table.inPduSessionIdentity2Value)
 
-		assert.Equalf(t, table.outIei, a.Iei, "in(%v): out %v, actual %x", table.inIei, table.outIei, a.Iei)
-		assert.Equalf(t, table.outPduSessionIdentity2Value, a.GetPduSessionID2Value(), "in(%v): out %v, actual %x", table.inPduSessionIdentity2Value, table.outPduSessionIdentity2Value, a.GetPduSessionID2Value())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.outPduSessionIdentity2Value,
+			a.GetPduSessionID2Value(),
+			"in(%v): out %v, actual %x",
+			table.inPduSessionIdentity2Value,
+			table.outPduSessionIdentity2Value,
+			a.GetPduSessionID2Value(),
+		)
 	}
 }

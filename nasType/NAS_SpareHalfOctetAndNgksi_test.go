@@ -37,7 +37,11 @@ func TestNasTypeGetSetSpareHalfOctetAndNgksi(t *testing.T) {
 		a.SetTSC(table.inTsc)
 		assert.Equal(t, table.outTsc, a.GetTSC())
 		a.SetNasKeySetIdentifiler(table.inNASKeySetIdentifier)
-		assert.Equal(t, table.outNASKeySetIdentifier, a.GetNasKeySetIdentifiler())
+		assert.Equal(
+			t,
+			table.outNASKeySetIdentifier,
+			a.GetNasKeySetIdentifiler(),
+		)
 
 		a.SetSpareHalfOctet(table.inSpareHalfOctet)
 		assert.Equal(t, table.outSpareHalfOctet, a.GetSpareHalfOctet())

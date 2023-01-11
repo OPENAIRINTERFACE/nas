@@ -35,7 +35,9 @@ type ConfigurationUpdateCommand struct {
 	*nasType.SMSIndication
 }
 
-func NewConfigurationUpdateCommand(iei uint8) (configurationUpdateCommand *ConfigurationUpdateCommand) {
+func NewConfigurationUpdateCommand(
+	iei uint8,
+) (configurationUpdateCommand *ConfigurationUpdateCommand) {
 	configurationUpdateCommand = &ConfigurationUpdateCommand{}
 	return configurationUpdateCommand
 }
@@ -60,17 +62,39 @@ const (
 	ConfigurationUpdateCommandSMSIndicationType                            uint8 = 0x0F
 )
 
-func (a *ConfigurationUpdateCommand) EncodeConfigurationUpdateCommand(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.ConfigurationUpdateCommandMessageIdentity.Octet)
+func (a *ConfigurationUpdateCommand) EncodeConfigurationUpdateCommand(
+	buffer *bytes.Buffer,
+) {
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ConfigurationUpdateCommandMessageIdentity.Octet,
+	)
 	if a.ConfigurationUpdateIndication != nil {
-		binary.Write(buffer, binary.BigEndian, &a.ConfigurationUpdateIndication.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.ConfigurationUpdateIndication.Octet,
+		)
 	}
 	if a.GUTI5G != nil {
 		binary.Write(buffer, binary.BigEndian, a.GUTI5G.GetIei())
 		binary.Write(buffer, binary.BigEndian, a.GUTI5G.GetLen())
-		binary.Write(buffer, binary.BigEndian, a.GUTI5G.Octet[:a.GUTI5G.GetLen()])
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.GUTI5G.Octet[:a.GUTI5G.GetLen()],
+		)
 	}
 	if a.TAIList != nil {
 		binary.Write(buffer, binary.BigEndian, a.TAIList.GetIei())
@@ -102,13 +126,33 @@ func (a *ConfigurationUpdateCommand) EncodeConfigurationUpdateCommand(buffer *by
 		binary.Write(buffer, binary.BigEndian, &a.LocalTimeZone.Octet)
 	}
 	if a.UniversalTimeAndLocalTimeZone != nil {
-		binary.Write(buffer, binary.BigEndian, a.UniversalTimeAndLocalTimeZone.GetIei())
-		binary.Write(buffer, binary.BigEndian, &a.UniversalTimeAndLocalTimeZone.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.UniversalTimeAndLocalTimeZone.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.UniversalTimeAndLocalTimeZone.Octet,
+		)
 	}
 	if a.NetworkDaylightSavingTime != nil {
-		binary.Write(buffer, binary.BigEndian, a.NetworkDaylightSavingTime.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.NetworkDaylightSavingTime.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.NetworkDaylightSavingTime.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.NetworkDaylightSavingTime.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.NetworkDaylightSavingTime.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.NetworkDaylightSavingTime.Octet,
+		)
 	}
 	if a.LADNInformation != nil {
 		binary.Write(buffer, binary.BigEndian, a.LADNInformation.GetIei())
@@ -119,7 +163,11 @@ func (a *ConfigurationUpdateCommand) EncodeConfigurationUpdateCommand(buffer *by
 		binary.Write(buffer, binary.BigEndian, &a.MICOIndication.Octet)
 	}
 	if a.NetworkSlicingIndication != nil {
-		binary.Write(buffer, binary.BigEndian, &a.NetworkSlicingIndication.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.NetworkSlicingIndication.Octet,
+		)
 	}
 	if a.ConfiguredNSSAI != nil {
 		binary.Write(buffer, binary.BigEndian, a.ConfiguredNSSAI.GetIei())
@@ -132,20 +180,46 @@ func (a *ConfigurationUpdateCommand) EncodeConfigurationUpdateCommand(buffer *by
 		binary.Write(buffer, binary.BigEndian, &a.RejectedNSSAI.Buffer)
 	}
 	if a.OperatordefinedAccessCategoryDefinitions != nil {
-		binary.Write(buffer, binary.BigEndian, a.OperatordefinedAccessCategoryDefinitions.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.OperatordefinedAccessCategoryDefinitions.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.OperatordefinedAccessCategoryDefinitions.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.OperatordefinedAccessCategoryDefinitions.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.OperatordefinedAccessCategoryDefinitions.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.OperatordefinedAccessCategoryDefinitions.Buffer,
+		)
 	}
 	if a.SMSIndication != nil {
 		binary.Write(buffer, binary.BigEndian, &a.SMSIndication.Octet)
 	}
 }
 
-func (a *ConfigurationUpdateCommand) DecodeConfigurationUpdateCommand(byteArray *[]byte) {
+func (a *ConfigurationUpdateCommand) DecodeConfigurationUpdateCommand(
+	byteArray *[]byte,
+) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.ConfigurationUpdateCommandMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ConfigurationUpdateCommandMessageIdentity.Octet,
+	)
 	for buffer.Len() > 0 {
 		var ieiN uint8
 		var tmpIeiN uint8
@@ -159,75 +233,145 @@ func (a *ConfigurationUpdateCommand) DecodeConfigurationUpdateCommand(byteArray 
 		// fmt.Println("type", tmpIeiN)
 		switch tmpIeiN {
 		case ConfigurationUpdateCommandConfigurationUpdateIndicationType:
-			a.ConfigurationUpdateIndication = nasType.NewConfigurationUpdateIndication(ieiN)
+			a.ConfigurationUpdateIndication = nasType.NewConfigurationUpdateIndication(
+				ieiN,
+			)
 			a.ConfigurationUpdateIndication.Octet = ieiN
 		case ConfigurationUpdateCommandGUTI5GType:
 			a.GUTI5G = nasType.NewGUTI5G(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.GUTI5G.Len)
 			a.GUTI5G.SetLen(a.GUTI5G.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.GUTI5G.Octet[:a.GUTI5G.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.GUTI5G.Octet[:a.GUTI5G.GetLen()],
+			)
 		case ConfigurationUpdateCommandTAIListType:
 			a.TAIList = nasType.NewTAIList(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.TAIList.Len)
 			a.TAIList.SetLen(a.TAIList.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.TAIList.Buffer[:a.TAIList.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.TAIList.Buffer[:a.TAIList.GetLen()],
+			)
 		case ConfigurationUpdateCommandAllowedNSSAIType:
 			a.AllowedNSSAI = nasType.NewAllowedNSSAI(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.AllowedNSSAI.Len)
 			a.AllowedNSSAI.SetLen(a.AllowedNSSAI.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.AllowedNSSAI.Buffer[:a.AllowedNSSAI.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.AllowedNSSAI.Buffer[:a.AllowedNSSAI.GetLen()],
+			)
 		case ConfigurationUpdateCommandServiceAreaListType:
 			a.ServiceAreaList = nasType.NewServiceAreaList(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.ServiceAreaList.Len)
 			a.ServiceAreaList.SetLen(a.ServiceAreaList.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ServiceAreaList.Buffer[:a.ServiceAreaList.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ServiceAreaList.Buffer[:a.ServiceAreaList.GetLen()],
+			)
 		case ConfigurationUpdateCommandFullNameForNetworkType:
 			a.FullNameForNetwork = nasType.NewFullNameForNetwork(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.FullNameForNetwork.Len)
 			a.FullNameForNetwork.SetLen(a.FullNameForNetwork.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.FullNameForNetwork.Buffer[:a.FullNameForNetwork.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.FullNameForNetwork.Buffer[:a.FullNameForNetwork.GetLen()],
+			)
 		case ConfigurationUpdateCommandShortNameForNetworkType:
 			a.ShortNameForNetwork = nasType.NewShortNameForNetwork(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.ShortNameForNetwork.Len)
 			a.ShortNameForNetwork.SetLen(a.ShortNameForNetwork.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ShortNameForNetwork.Buffer[:a.ShortNameForNetwork.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ShortNameForNetwork.Buffer[:a.ShortNameForNetwork.GetLen()],
+			)
 		case ConfigurationUpdateCommandLocalTimeZoneType:
 			a.LocalTimeZone = nasType.NewLocalTimeZone(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.LocalTimeZone.Octet)
 		case ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType:
-			a.UniversalTimeAndLocalTimeZone = nasType.NewUniversalTimeAndLocalTimeZone(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.UniversalTimeAndLocalTimeZone.Octet)
+			a.UniversalTimeAndLocalTimeZone = nasType.NewUniversalTimeAndLocalTimeZone(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.UniversalTimeAndLocalTimeZone.Octet,
+			)
 		case ConfigurationUpdateCommandNetworkDaylightSavingTimeType:
-			a.NetworkDaylightSavingTime = nasType.NewNetworkDaylightSavingTime(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.NetworkDaylightSavingTime.Len)
-			a.NetworkDaylightSavingTime.SetLen(a.NetworkDaylightSavingTime.GetLen())
-			binary.Read(buffer, binary.BigEndian, &a.NetworkDaylightSavingTime.Octet)
+			a.NetworkDaylightSavingTime = nasType.NewNetworkDaylightSavingTime(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.NetworkDaylightSavingTime.Len,
+			)
+			a.NetworkDaylightSavingTime.SetLen(
+				a.NetworkDaylightSavingTime.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.NetworkDaylightSavingTime.Octet,
+			)
 		case ConfigurationUpdateCommandLADNInformationType:
 			a.LADNInformation = nasType.NewLADNInformation(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.LADNInformation.Len)
 			a.LADNInformation.SetLen(a.LADNInformation.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.LADNInformation.Buffer[:a.LADNInformation.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.LADNInformation.Buffer[:a.LADNInformation.GetLen()],
+			)
 		case ConfigurationUpdateCommandMICOIndicationType:
 			a.MICOIndication = nasType.NewMICOIndication(ieiN)
 			a.MICOIndication.Octet = ieiN
 		case ConfigurationUpdateCommandNetworkSlicingIndicationType:
-			a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(ieiN)
+			a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(
+				ieiN,
+			)
 			a.NetworkSlicingIndication.Octet = ieiN
 		case ConfigurationUpdateCommandConfiguredNSSAIType:
 			a.ConfiguredNSSAI = nasType.NewConfiguredNSSAI(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.ConfiguredNSSAI.Len)
 			a.ConfiguredNSSAI.SetLen(a.ConfiguredNSSAI.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ConfiguredNSSAI.Buffer[:a.ConfiguredNSSAI.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ConfiguredNSSAI.Buffer[:a.ConfiguredNSSAI.GetLen()],
+			)
 		case ConfigurationUpdateCommandRejectedNSSAIType:
 			a.RejectedNSSAI = nasType.NewRejectedNSSAI(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.RejectedNSSAI.Len)
 			a.RejectedNSSAI.SetLen(a.RejectedNSSAI.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.RejectedNSSAI.Buffer[:a.RejectedNSSAI.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.RejectedNSSAI.Buffer[:a.RejectedNSSAI.GetLen()],
+			)
 		case ConfigurationUpdateCommandOperatordefinedAccessCategoryDefinitionsType:
-			a.OperatordefinedAccessCategoryDefinitions = nasType.NewOperatordefinedAccessCategoryDefinitions(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.OperatordefinedAccessCategoryDefinitions.Len)
-			a.OperatordefinedAccessCategoryDefinitions.SetLen(a.OperatordefinedAccessCategoryDefinitions.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.OperatordefinedAccessCategoryDefinitions.Buffer[:a.OperatordefinedAccessCategoryDefinitions.GetLen()])
+			a.OperatordefinedAccessCategoryDefinitions = nasType.NewOperatordefinedAccessCategoryDefinitions(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.OperatordefinedAccessCategoryDefinitions.Len,
+			)
+			a.OperatordefinedAccessCategoryDefinitions.SetLen(
+				a.OperatordefinedAccessCategoryDefinitions.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.OperatordefinedAccessCategoryDefinitions.Buffer[:a.OperatordefinedAccessCategoryDefinitions.GetLen()],
+			)
 		case ConfigurationUpdateCommandSMSIndicationType:
 			a.SMSIndication = nasType.NewSMSIndication(ieiN)
 			a.SMSIndication.Octet = ieiN

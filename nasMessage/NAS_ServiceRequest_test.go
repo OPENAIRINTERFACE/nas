@@ -77,23 +77,39 @@ func TestNasTypeNewServiceRequestMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.ServiceRequestMessageIdentity.SetMessageType(table.inServiceRequestMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.ServiceRequestMessageIdentity.SetMessageType(
+			table.inServiceRequestMessageIdentity,
+		)
 
 		a.TMSI5GS = table.inTMSI5GS
 
-		a.UplinkDataStatus = nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+		a.UplinkDataStatus = nasType.NewUplinkDataStatus(
+			nasMessage.ServiceRequestUplinkDataStatusType,
+		)
 		a.UplinkDataStatus = &table.inUplinkDataStatus
 
-		a.PDUSessionStatus = nasType.NewPDUSessionStatus(nasMessage.ServiceRequestPDUSessionStatusType)
+		a.PDUSessionStatus = nasType.NewPDUSessionStatus(
+			nasMessage.ServiceRequestPDUSessionStatusType,
+		)
 		a.PDUSessionStatus = &table.inPDUSessionStatus
 
-		a.AllowedPDUSessionStatus = nasType.NewAllowedPDUSessionStatus(nasMessage.ServiceRequestAllowedPDUSessionStatusType)
+		a.AllowedPDUSessionStatus = nasType.NewAllowedPDUSessionStatus(
+			nasMessage.ServiceRequestAllowedPDUSessionStatusType,
+		)
 		a.AllowedPDUSessionStatus = &table.inAllowedPDUSessionStatus
 
-		a.NASMessageContainer = nasType.NewNASMessageContainer(nasMessage.ServiceRequestNASMessageContainerType)
+		a.NASMessageContainer = nasType.NewNASMessageContainer(
+			nasMessage.ServiceRequestNASMessageContainerType,
+		)
 		a.NASMessageContainer = &table.inNASMessageContainer
 
 		buff := new(bytes.Buffer)

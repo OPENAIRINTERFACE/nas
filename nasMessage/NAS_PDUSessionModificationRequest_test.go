@@ -96,36 +96,58 @@ func TestNasTypeNewPDUSessionModificationRequestMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONMODIFICATIONREQUESTMessageIdentity.SetMessageType(table.inPDUSessionModificationRequestMessageIdentity)
+		a.PDUSESSIONMODIFICATIONREQUESTMessageIdentity.SetMessageType(
+			table.inPDUSessionModificationRequestMessageIdentity,
+		)
 
-		a.Capability5GSM = nasType.NewCapability5GSM(nasMessage.PDUSessionModificationRequestCapability5GSMType)
+		a.Capability5GSM = nasType.NewCapability5GSM(
+			nasMessage.PDUSessionModificationRequestCapability5GSMType,
+		)
 		a.Capability5GSM = &table.inCapability5GSM
 
-		a.Cause5GSM = nasType.NewCause5GSM(nasMessage.PDUSessionModificationRequestCause5GSMType)
+		a.Cause5GSM = nasType.NewCause5GSM(
+			nasMessage.PDUSessionModificationRequestCause5GSMType,
+		)
 		a.Cause5GSM = &table.inCause5GSM
 
-		a.MaximumNumberOfSupportedPacketFilters = nasType.NewMaximumNumberOfSupportedPacketFilters(nasMessage.PDUSessionModificationRequestMaximumNumberOfSupportedPacketFiltersType)
+		a.MaximumNumberOfSupportedPacketFilters = nasType.NewMaximumNumberOfSupportedPacketFilters(
+			nasMessage.PDUSessionModificationRequestMaximumNumberOfSupportedPacketFiltersType,
+		)
 		a.MaximumNumberOfSupportedPacketFilters = &table.inMaximumNumberOfSupportedPacketFilters
 
-		a.AlwaysonPDUSessionRequested = nasType.NewAlwaysonPDUSessionRequested(nasMessage.PDUSessionModificationRequestAlwaysonPDUSessionRequestedType)
+		a.AlwaysonPDUSessionRequested = nasType.NewAlwaysonPDUSessionRequested(
+			nasMessage.PDUSessionModificationRequestAlwaysonPDUSessionRequestedType,
+		)
 		a.AlwaysonPDUSessionRequested = &table.inAlwaysonPDUSessionRequested
 
-		a.IntegrityProtectionMaximumDataRate = nasType.NewIntegrityProtectionMaximumDataRate(nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType)
+		a.IntegrityProtectionMaximumDataRate = nasType.NewIntegrityProtectionMaximumDataRate(
+			nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+		)
 		a.IntegrityProtectionMaximumDataRate = &table.inIntegrityProtectionMaximumDataRate
 
-		a.RequestedQosRules = nasType.NewRequestedQosRules(nasMessage.PDUSessionModificationRequestRequestedQosRulesType)
+		a.RequestedQosRules = nasType.NewRequestedQosRules(
+			nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+		)
 		a.RequestedQosRules = &table.inRequestedQosRules
 
-		a.RequestedQosFlowDescriptions = nasType.NewRequestedQosFlowDescriptions(nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType)
+		a.RequestedQosFlowDescriptions = nasType.NewRequestedQosFlowDescriptions(
+			nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+		)
 		a.RequestedQosFlowDescriptions = &table.inRequestedQosFlowDescriptions
 
-		a.MappedEPSBearerContexts = nasType.NewMappedEPSBearerContexts(nasMessage.PDUSessionModificationRequestMappedEPSBearerContextsType)
+		a.MappedEPSBearerContexts = nasType.NewMappedEPSBearerContexts(
+			nasMessage.PDUSessionModificationRequestMappedEPSBearerContextsType,
+		)
 		a.MappedEPSBearerContexts = &table.inMappedEPSBearerContexts
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionModificationRequestExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionModificationRequestExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

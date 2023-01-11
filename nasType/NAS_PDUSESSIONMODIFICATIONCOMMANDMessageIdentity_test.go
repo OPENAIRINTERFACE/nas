@@ -25,10 +25,15 @@ type nasTypePDUSESSIONMODIFICATIONCOMMANDMessageIdentityMessageType struct {
 }
 
 var nasTypePDUSESSIONMODIFICATIONCOMMANDMessageIdentityMessageTypeTable = []nasTypePDUSESSIONMODIFICATIONCOMMANDMessageIdentityMessageType{
-	{nas.MsgTypePDUSessionModificationCommand, nas.MsgTypePDUSessionModificationCommand},
+	{
+		nas.MsgTypePDUSessionModificationCommand,
+		nas.MsgTypePDUSessionModificationCommand,
+	},
 }
 
-func TestNasTypeGetSetPDUSESSIONMODIFICATIONCOMMANDMessageIdentityMessageType(t *testing.T) {
+func TestNasTypeGetSetPDUSESSIONMODIFICATIONCOMMANDMessageIdentityMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONMODIFICATIONCOMMANDMessageIdentity()
 	for _, table := range nasTypePDUSESSIONMODIFICATIONCOMMANDMessageIdentityMessageTypeTable {
 		a.SetMessageType(table.in)

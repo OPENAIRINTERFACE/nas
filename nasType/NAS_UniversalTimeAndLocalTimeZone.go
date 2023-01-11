@@ -18,7 +18,9 @@ type UniversalTimeAndLocalTimeZone struct {
 	Octet [7]uint8
 }
 
-func NewUniversalTimeAndLocalTimeZone(iei uint8) (universalTimeAndLocalTimeZone *UniversalTimeAndLocalTimeZone) {
+func NewUniversalTimeAndLocalTimeZone(
+	iei uint8,
+) (universalTimeAndLocalTimeZone *UniversalTimeAndLocalTimeZone) {
 	universalTimeAndLocalTimeZone = &UniversalTimeAndLocalTimeZone{}
 	universalTimeAndLocalTimeZone.SetIei(iei)
 	return universalTimeAndLocalTimeZone

@@ -15,7 +15,9 @@ import (
 )
 
 func TestNasTypeNewSMSIndication(t *testing.T) {
-	a := nasType.NewSMSIndication(nasMessage.ConfigurationUpdateCommandSMSIndicationType)
+	a := nasType.NewSMSIndication(
+		nasMessage.ConfigurationUpdateCommandSMSIndicationType,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -24,7 +26,9 @@ var nasTypeSMSIndicationIeiTable = []NasTypeIeiData{
 }
 
 func TestNasTypeSMSIndicationGetSetIei(t *testing.T) {
-	a := nasType.NewSMSIndication(nasMessage.ConfigurationUpdateCommandSMSIndicationType)
+	a := nasType.NewSMSIndication(
+		nasMessage.ConfigurationUpdateCommandSMSIndicationType,
+	)
 	assert.NotNil(t, a)
 	for _, table := range nasTypeSMSIndicationIeiTable {
 		a.SetIei(table.in)
@@ -42,7 +46,9 @@ var nasTypeSMSIndicationSAITable = []nasTypeSMSIndicationSAIType{
 }
 
 func TestNasTypeSMSIndicationGetSetSAI(t *testing.T) {
-	a := nasType.NewSMSIndication(nasMessage.ConfigurationUpdateCommandSMSIndicationType)
+	a := nasType.NewSMSIndication(
+		nasMessage.ConfigurationUpdateCommandSMSIndicationType,
+	)
 	for _, table := range nasTypeSMSIndicationSAITable {
 		a.SetSAI(table.in)
 		assert.Equal(t, table.out, a.GetSAI())
@@ -70,7 +76,9 @@ func TestNasTypeSMSIndication(t *testing.T) {
 
 	for _, table := range SMSIndicationTable {
 
-		a := nasType.NewSMSIndication(nasMessage.ConfigurationUpdateCommandSMSIndicationType)
+		a := nasType.NewSMSIndication(
+			nasMessage.ConfigurationUpdateCommandSMSIndicationType,
+		)
 		a.SetIei(0x01)
 		a.SetSAI(0x01)
 

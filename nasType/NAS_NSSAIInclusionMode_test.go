@@ -16,7 +16,9 @@ import (
 var RegistrationAcceptNSSAIInclusionModeTypeIeiInput uint8 = 0x0A
 
 func TestNasTypeNewNSSAIInclusionMode(t *testing.T) {
-	a := nasType.NewNSSAIInclusionMode(RegistrationAcceptNSSAIInclusionModeTypeIeiInput)
+	a := nasType.NewNSSAIInclusionMode(
+		RegistrationAcceptNSSAIInclusionModeTypeIeiInput,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -25,7 +27,9 @@ var nasTypeNSSAIInclusionModeRegistrationAcceptNSSAIInclusionModeTypeTable = []N
 }
 
 func TestNasTypeNSSAIInclusionModeGetSetIei(t *testing.T) {
-	a := nasType.NewNSSAIInclusionMode(RegistrationAcceptNSSAIInclusionModeTypeIeiInput)
+	a := nasType.NewNSSAIInclusionMode(
+		RegistrationAcceptNSSAIInclusionModeTypeIeiInput,
+	)
 	for _, table := range nasTypeNSSAIInclusionModeRegistrationAcceptNSSAIInclusionModeTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -45,7 +49,9 @@ var nasTypeNSSAIInclusionModeTable = []nasTypeNSSAIInclusionMode{
 }
 
 func TestNasTypeNSSAIInclusionMode(t *testing.T) {
-	a := nasType.NewNSSAIInclusionMode(RegistrationAcceptNSSAIInclusionModeTypeIeiInput)
+	a := nasType.NewNSSAIInclusionMode(
+		RegistrationAcceptNSSAIInclusionModeTypeIeiInput,
+	)
 	for _, table := range nasTypeNSSAIInclusionModeTable {
 
 		a.SetNSSAIInclusionMode(table.inNSSAIInclusionMode)

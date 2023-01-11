@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewSORTransparentContainer(t *testing.T) {
-	a := nasType.NewSORTransparentContainer(nasMessage.RegistrationAcceptSORTransparentContainerType)
+	a := nasType.NewSORTransparentContainer(
+		nasMessage.RegistrationAcceptSORTransparentContainerType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeSORTransparentContainerTable = []NasTypeIeiData{
-	{nasMessage.RegistrationAcceptSORTransparentContainerType, nasMessage.RegistrationAcceptSORTransparentContainerType},
+	{
+		nasMessage.RegistrationAcceptSORTransparentContainerType,
+		nasMessage.RegistrationAcceptSORTransparentContainerType,
+	},
 }
 
 func TestNasTypeSORTransparentContainerGetSetIei(t *testing.T) {
-	a := nasType.NewSORTransparentContainer(nasMessage.RegistrationAcceptSORTransparentContainerType)
+	a := nasType.NewSORTransparentContainer(
+		nasMessage.RegistrationAcceptSORTransparentContainerType,
+	)
 	for _, table := range nasTypeSORTransparentContainerTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -42,7 +49,9 @@ var nasTypeSORTransparentContainerLenTable = []nasTypeSORTransparentContainerLen
 }
 
 func TestNasTypeSORTransparentContainerGetSetLen(t *testing.T) {
-	a := nasType.NewSORTransparentContainer(nasMessage.RegistrationAcceptSORTransparentContainerType)
+	a := nasType.NewSORTransparentContainer(
+		nasMessage.RegistrationAcceptSORTransparentContainerType,
+	)
 	for _, table := range nasTypeSORTransparentContainerLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -60,11 +69,21 @@ var nasTypeSORTransparentContainerSORContentTable = []nasTypeSORTransparentConta
 }
 
 func TestNasTypeSORTransparentContainerGetSetSORContent(t *testing.T) {
-	a := nasType.NewSORTransparentContainer(nasMessage.RegistrationAcceptSORTransparentContainerType)
+	a := nasType.NewSORTransparentContainer(
+		nasMessage.RegistrationAcceptSORTransparentContainerType,
+	)
 	for _, table := range nasTypeSORTransparentContainerSORContentTable {
 		a.SetLen(table.inLen)
 		a.SetSORContent(table.in)
-		assert.Equalf(t, table.out, a.GetSORContent(), "in(%v): out %v, actual %x", table.in, table.out, a.GetSORContent())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetSORContent(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetSORContent(),
+		)
 	}
 }
 
@@ -78,26 +97,59 @@ var SORTransparentContainerTestData = []nasType.SORTransparentContainer{
 }
 
 var SORTransparentContainerExpectedTestData = []nasType.SORTransparentContainer{
-	{nasMessage.RegistrationAcceptSORTransparentContainerType, 2, []uint8{0x01, 0x01}},
+	{
+		nasMessage.RegistrationAcceptSORTransparentContainerType,
+		2,
+		[]uint8{0x01, 0x01},
+	},
 }
 
 var SORTransparentContainerTestTable = []testSORTransparentContainerDataTemplate{
-	{SORTransparentContainerTestData[0], SORTransparentContainerExpectedTestData[0]},
+	{
+		SORTransparentContainerTestData[0],
+		SORTransparentContainerExpectedTestData[0],
+	},
 }
 
 func TestNasTypeSORTransparentContainer(t *testing.T) {
 
 	for i, table := range SORTransparentContainerTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewSORTransparentContainer(nasMessage.RegistrationAcceptSORTransparentContainerType)
+		a := nasType.NewSORTransparentContainer(
+			nasMessage.RegistrationAcceptSORTransparentContainerType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetLen(table.in.Len)
 		a.SetSORContent([]uint8{0x01, 0x01})
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

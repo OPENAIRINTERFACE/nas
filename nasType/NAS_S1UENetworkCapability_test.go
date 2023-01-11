@@ -15,16 +15,23 @@ import (
 )
 
 func TestNasTypeNewS1UENetworkCapability(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	assert.NotNil(t, a)
 }
 
 var nasTypeServiceS1UENetworkCapabilityTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestS1UENetworkCapabilityType, nasMessage.RegistrationRequestS1UENetworkCapabilityType},
+	{
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	},
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetIei(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeServiceS1UENetworkCapabilityTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -36,7 +43,9 @@ var nasTypeServiceS1UENetworkCapabilityLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetLen(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeServiceS1UENetworkCapabilityLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -54,7 +63,9 @@ var nasTypeS1UENetworkCapabilityEEA0Table = []nasTypeS1UENetworkCapabilityEEA0{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEEA0(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEEA0Table {
 		a.SetLen(table.inLen)
 		a.SetEEA0(table.in)
@@ -74,7 +85,9 @@ var nasTypeS1UENetworkCapabilityEEA1_128Table = []nasTypeS1UENetworkCapabilityEE
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEEA1_128(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEEA1_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA1_128(table.in)
@@ -94,7 +107,9 @@ var nasTypeS1UENetworkCapabilityEEA2_128Table = []nasTypeS1UENetworkCapabilityEE
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEEA2_128(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEEA2_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA2_128(table.in)
@@ -114,7 +129,9 @@ var nasTypeS1UENetworkCapabilityEEA3_128Table = []nasTypeS1UENetworkCapabilityEE
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEEA3_128(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEEA3_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA3_128(table.in)
@@ -134,7 +151,9 @@ var nasTypeS1UENetworkCapabilityEEA4Table = []nasTypeS1UENetworkCapabilityEEA4{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEEA4(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEEA4Table {
 		a.SetLen(table.inLen)
 		a.SetEEA4(table.in)
@@ -154,7 +173,9 @@ var nasTypeS1UENetworkCapabilityEEA5Table = []nasTypeS1UENetworkCapabilityEEA5{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEEA5(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEEA5Table {
 		a.SetLen(table.inLen)
 		a.SetEEA5(table.in)
@@ -174,7 +195,9 @@ var nasTypeS1UENetworkCapabilityEEA6Table = []nasTypeS1UENetworkCapabilityEEA6{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEEA6(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEEA6Table {
 		a.SetLen(table.inLen)
 		a.SetEEA6(table.in)
@@ -194,7 +217,9 @@ var nasTypeS1UENetworkCapabilityEEA7Table = []nasTypeS1UENetworkCapabilityEEA7{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEEA7(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEEA7Table {
 		a.SetLen(table.inLen)
 		a.SetEEA7(table.in)
@@ -214,7 +239,9 @@ var nasTypeS1UENetworkCapabilityEIA0Table = []nasTypeS1UENetworkCapabilityEIA0{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEIA0(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEIA0Table {
 		a.SetLen(table.inLen)
 		a.SetEIA0(table.in)
@@ -234,7 +261,9 @@ var nasTypeS1UENetworkCapabilityEIA1_128Table = []nasTypeS1UENetworkCapabilityEI
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEIA1_128(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEIA1_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA1_128(table.in)
@@ -254,7 +283,9 @@ var nasTypeS1UENetworkCapabilityEIA2_128Table = []nasTypeS1UENetworkCapabilityEI
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEIA2_128(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEIA2_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA2_128(table.in)
@@ -274,7 +305,9 @@ var nasTypeS1UENetworkCapabilityEIA3_128Table = []nasTypeS1UENetworkCapabilityEI
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEIA3_128(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEIA3_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA3_128(table.in)
@@ -294,7 +327,9 @@ var nasTypeS1UENetworkCapabilityEIA4Table = []nasTypeS1UENetworkCapabilityEIA4{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEIA4(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEIA4Table {
 		a.SetLen(table.inLen)
 		a.SetEIA4(table.in)
@@ -314,7 +349,9 @@ var nasTypeS1UENetworkCapabilityEIA5Table = []nasTypeS1UENetworkCapabilityEIA4{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEIA5(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEIA5Table {
 		a.SetLen(table.inLen)
 		a.SetEIA5(table.in)
@@ -334,7 +371,9 @@ var nasTypeS1UENetworkCapabilityEIA6Table = []nasTypeS1UENetworkCapabilityEIA6{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEIA6(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEIA6Table {
 		a.SetLen(table.inLen)
 		a.SetEIA6(table.in)
@@ -354,7 +393,9 @@ var nasTypeS1UENetworkCapabilityEIA7Table = []nasTypeS1UENetworkCapabilityEIA7{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEIA7(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEIA7Table {
 		a.SetLen(table.inLen)
 		a.SetEIA7(table.in)
@@ -374,7 +415,9 @@ var nasTypeS1UENetworkCapabilityUEA0Table = []nasTypeS1UENetworkCapabilityUEA0{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUEA0(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUEA0Table {
 		a.SetLen(table.inLen)
 		a.SetUEA0(0x01)
@@ -394,7 +437,9 @@ var nasTypeS1UENetworkCapabilityUEA1Table = []nasTypeS1UENetworkCapabilityUEA1{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUEA1(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUEA1Table {
 		a.SetLen(table.inLen)
 		a.SetUEA1(table.in)
@@ -414,7 +459,9 @@ var nasTypeS1UENetworkCapabilityUEA2Table = []nasTypeS1UENetworkCapabilityUEA2{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUEA2(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUEA2Table {
 		a.SetLen(table.inLen)
 		a.SetUEA2(table.in)
@@ -434,7 +481,9 @@ var nasTypeS1UENetworkCapabilityUEA3Table = []nasTypeS1UENetworkCapabilityUEA3{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUEA3(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUEA3Table {
 		a.SetLen(table.inLen)
 		a.SetUEA3(table.in)
@@ -454,7 +503,9 @@ var nasTypeS1UENetworkCapabilityUEA4Table = []nasTypeS1UENetworkCapabilityUEA4{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUEA4(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUEA4Table {
 		a.SetLen(table.inLen)
 		a.SetUEA4(table.in)
@@ -474,7 +525,9 @@ var nasTypeS1UENetworkCapabilityUEA5Table = []nasTypeS1UENetworkCapabilityUEA4{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUEA5(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUEA5Table {
 		a.SetLen(table.inLen)
 		a.SetUEA5(table.in)
@@ -494,7 +547,9 @@ var nasTypeS1UENetworkCapabilityUEA6Table = []nasTypeS1UENetworkCapabilityUEA6{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUEA6(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUEA6Table {
 		a.SetLen(table.inLen)
 		a.SetUEA6(table.in)
@@ -514,7 +569,9 @@ var nasTypeS1UENetworkCapabilityUEA7Table = []nasTypeS1UENetworkCapabilityUEA7{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUEA7(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUEA7Table {
 		a.SetLen(table.inLen)
 		a.SetUEA7(table.in)
@@ -534,7 +591,9 @@ var nasTypeS1UENetworkCapabilityUCS2Table = []nasTypeS1UENetworkCapabilityUCS2{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUCS2(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUCS2Table {
 		a.SetLen(table.inLen)
 		a.SetUCS2(table.in)
@@ -554,7 +613,9 @@ var nasTypeS1UENetworkCapabilityUIA1Table = []nasTypeS1UENetworkCapabilityUIA1{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUIA1(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUIA1Table {
 		a.SetLen(table.inLen)
 		a.SetUIA1(table.in)
@@ -574,7 +635,9 @@ var nasTypeS1UENetworkCapabilityUIA2Table = []nasTypeS1UENetworkCapabilityUIA2{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUIA2(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUIA2Table {
 		a.SetLen(table.inLen)
 		a.SetUIA2(table.in)
@@ -594,7 +657,9 @@ var nasTypeS1UENetworkCapabilityUIA3Table = []nasTypeS1UENetworkCapabilityUIA3{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUIA3(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUIA3Table {
 		a.SetLen(table.inLen)
 		a.SetUIA3(table.in)
@@ -614,7 +679,9 @@ var nasTypeS1UENetworkCapabilityUIA4Table = []nasTypeS1UENetworkCapabilityUIA4{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUIA4(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUIA4Table {
 		a.SetLen(table.inLen)
 		a.SetUIA4(table.in)
@@ -634,7 +701,9 @@ var nasTypeS1UENetworkCapabilityUIA5Table = []nasTypeS1UENetworkCapabilityUIA4{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUIA5(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUIA5Table {
 		a.SetLen(table.inLen)
 		a.SetUIA5(table.in)
@@ -654,7 +723,9 @@ var nasTypeS1UENetworkCapabilityUIA6Table = []nasTypeS1UENetworkCapabilityUIA6{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUIA6(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUIA6Table {
 		a.SetLen(table.inLen)
 		a.SetUIA6(table.in)
@@ -674,7 +745,9 @@ var nasTypeS1UENetworkCapabilityUIA7Table = []nasTypeS1UENetworkCapabilityUIA7{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUIA7(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUIA7Table {
 		a.SetLen(table.inLen)
 		a.SetUIA7(table.in)
@@ -694,7 +767,9 @@ var nasTypeS1UENetworkCapabilityProSeddTable = []nasTypeS1UENetworkCapabilityPro
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetProSedd(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityProSeddTable {
 		a.SetLen(table.inLen)
 		a.SetProSedd(table.in)
@@ -714,7 +789,9 @@ var nasTypeS1UENetworkCapabilityProSeTable = []nasTypeS1UENetworkCapabilityProSe
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetProSe(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityProSeTable {
 		a.SetLen(table.inLen)
 		a.SetProSe(table.in)
@@ -734,7 +811,9 @@ var nasTypeS1UENetworkCapabilityH245ASHTable = []nasTypeS1UENetworkCapabilityH24
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetH245ASH(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityH245ASHTable {
 		a.SetLen(table.inLen)
 		a.SetH245ASH(table.in)
@@ -754,7 +833,9 @@ var nasTypeS1UENetworkCapabilityACCCSFBTable = []nasTypeS1UENetworkCapabilityACC
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetACCCSFB(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityACCCSFBTable {
 		a.SetLen(table.inLen)
 		a.SetACCCSFB(table.in)
@@ -774,7 +855,9 @@ var nasTypeS1UENetworkCapabilityLPPTable = []nasTypeS1UENetworkCapabilityACCCSFB
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetLPP(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityLPPTable {
 		a.SetLen(table.inLen)
 		a.SetLPP(table.in)
@@ -794,7 +877,9 @@ var nasTypeS1UENetworkCapabilityLCSTable = []nasTypeS1UENetworkCapabilityLCS{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetLCS(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityLCSTable {
 		a.SetLen(table.inLen)
 		a.SetLCS(table.in)
@@ -814,7 +899,9 @@ var nasTypeS1UENetworkCapabilityxSRVCCTable = []nasTypeS1UENetworkCapabilityxSRV
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetxSRVCC(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityxSRVCCTable {
 		a.SetLen(table.inLen)
 		a.SetxSRVCC(table.in)
@@ -834,7 +921,9 @@ var nasTypeS1UENetworkCapabilityNFTable = []nasTypeS1UENetworkCapabilityNF{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetNF(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityNFTable {
 		a.SetLen(table.inLen)
 		a.SetNF(table.in)
@@ -854,7 +943,9 @@ var nasTypeS1UENetworkCapabilityEPCOTable = []nasTypeS1UENetworkCapabilityEPCO{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetEPCO(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityEPCOTable {
 		a.SetLen(table.inLen)
 		a.SetEPCO(table.in)
@@ -874,7 +965,9 @@ var nasTypeS1UENetworkCapabilityHCCPCIOTTable = []nasTypeS1UENetworkCapabilityHC
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetHCCPCIOT(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityHCCPCIOTTable {
 		a.SetLen(table.inLen)
 		a.SetHCCPCIOT(table.in)
@@ -894,7 +987,9 @@ var nasTypeS1UENetworkCapabilityERwoPDNTable = []nasTypeS1UENetworkCapabilityERw
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetERwoPDN(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityERwoPDNTable {
 		a.SetLen(table.inLen)
 		a.SetERwoPDN(table.in)
@@ -914,7 +1009,9 @@ var nasTypeS1UENetworkCapabilityS1UDataTable = []nasTypeS1UENetworkCapabilityERw
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetS1UData(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityS1UDataTable {
 		a.SetLen(table.inLen)
 		a.SetS1UData(table.in)
@@ -934,7 +1031,9 @@ var nasTypeS1UENetworkCapabilityUPCIotTable = []nasTypeS1UENetworkCapabilityUPCI
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetUPCIot(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityUPCIotTable {
 		a.SetLen(table.inLen)
 		a.SetUPCIot(table.in)
@@ -954,7 +1053,9 @@ var nasTypeS1UENetworkCapabilityCPCIotTable = []nasTypeS1UENetworkCapabilityCPCI
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetCPCIot(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityCPCIotTable {
 		a.SetLen(table.inLen)
 		a.SetCPCIot(table.in)
@@ -974,7 +1075,9 @@ var nasTypeS1UENetworkCapabilityProserelayTable = []nasTypeS1UENetworkCapability
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetProserelay(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityProserelayTable {
 		a.SetLen(table.inLen)
 		a.SetProserelay(table.in)
@@ -994,7 +1097,9 @@ var nasTypeS1UENetworkCapabilityProSedcTable = []nasTypeS1UENetworkCapabilityPro
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetProSedc(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityProSedcTable {
 		a.SetLen(table.inLen)
 		a.SetProSedc(table.in)
@@ -1014,7 +1119,9 @@ var nasTypeS1UENetworkCapabilityBearer15Table = []nasTypeS1UENetworkCapabilityBe
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetBearer15(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityBearer15Table {
 		a.SetLen(table.inLen)
 		a.SetBearer15(table.in)
@@ -1034,7 +1141,9 @@ var nasTypeS1UENetworkCapabilitySGCTable = []nasTypeS1UENetworkCapabilitySGC{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetSGC(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilitySGCTable {
 		a.SetLen(table.inLen)
 		a.SetSGC(table.in)
@@ -1054,7 +1163,9 @@ var nasTypeS1UENetworkCapabilityN1modeTable = []nasTypeS1UENetworkCapabilitySGC{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetN1mode(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityN1modeTable {
 		a.SetLen(table.inLen)
 		a.SetN1mode(table.in)
@@ -1074,7 +1185,9 @@ var nasTypeS1UENetworkCapabilityDCNRTable = []nasTypeS1UENetworkCapabilityDCNR{
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetDCNR(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityDCNRTable {
 		a.SetLen(table.inLen)
 		a.SetDCNR(table.in)
@@ -1094,7 +1207,9 @@ var nasTypeS1UENetworkCapabilityCPbackoffTable = []nasTypeS1UENetworkCapabilityC
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetCPbackoff(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityCPbackoffTable {
 		a.SetLen(table.inLen)
 		a.SetCPbackoff(table.in)
@@ -1114,7 +1229,9 @@ var nasTypeS1UENetworkCapabilityRestrictECTable = []nasTypeS1UENetworkCapability
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetRestrictEC(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityRestrictECTable {
 		a.SetLen(table.inLen)
 		a.SetRestrictEC(table.in)
@@ -1134,7 +1251,9 @@ var nasTypeS1UENetworkCapabilityV2XPC5Table = []nasTypeS1UENetworkCapabilityV2XP
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetV2XPC5(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityV2XPC5Table {
 		a.SetLen(table.inLen)
 		a.SetV2XPC5(table.in)
@@ -1154,7 +1273,9 @@ var nasTypeS1UENetworkCapabilityMulitpeDRBTable = []nasTypeS1UENetworkCapability
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetMulitpeDRB(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilityMulitpeDRBTable {
 		a.SetLen(table.inLen)
 		a.SetMulitpeDRB(table.in)
@@ -1174,7 +1295,9 @@ var nasTypeS1UENetworkCapabilitySpareTable = []nasTypeS1UENetworkCapabilitySpare
 }
 
 func TestNasTypeS1UENetworkCapabilityGetSetSpare(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range nasTypeS1UENetworkCapabilitySpareTable {
 		a.SetLen(table.inLen)
 		a.SetSpare(table.in)
@@ -1193,7 +1316,11 @@ var S1UENetworkCapabilityTestData = []nasType.S1UENetworkCapability{
 }
 
 var S1UENetworkCapabilityExpectedData = []nasType.S1UENetworkCapability{
-	{nasMessage.RegistrationRequestS1UENetworkCapabilityType, 9, []uint8{0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x01, 0x01}},
+	{
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+		9,
+		[]uint8{0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x01, 0x01},
+	},
 }
 
 var S1UENetworkCapabilityTable = []testS1UENetworkCapabilityDataTemplate{
@@ -1201,7 +1328,9 @@ var S1UENetworkCapabilityTable = []testS1UENetworkCapabilityDataTemplate{
 }
 
 func TestNasTypeS1UENetworkCapability(t *testing.T) {
-	a := nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+	a := nasType.NewS1UENetworkCapability(
+		nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+	)
 	for _, table := range S1UENetworkCapabilityTable {
 		a.SetLen(table.in.Len)
 		a.SetEEA0(0x01)

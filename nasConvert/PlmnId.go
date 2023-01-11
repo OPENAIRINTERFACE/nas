@@ -72,7 +72,11 @@ func PlmnIDToString(nasBuf []byte) string {
 	mncDigit2 := (nasBuf[2] & 0xf0) >> 4
 	mncDigit3 := (nasBuf[1] & 0xf0) >> 4
 
-	tmpBytes := []byte{(mccDigit1 << 4) | mccDigit2, (mccDigit3 << 4) | mncDigit1, (mncDigit2 << 4) | mncDigit3}
+	tmpBytes := []byte{
+		(mccDigit1 << 4) | mccDigit2,
+		(mccDigit3 << 4) | mncDigit1,
+		(mncDigit2 << 4) | mncDigit3,
+	}
 
 	plmnID := hex.EncodeToString(tmpBytes)
 	if plmnID[5] == 'f' {

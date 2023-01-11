@@ -39,7 +39,9 @@ func LocalTimeZoneToNas(timezone string) (nasTimezone nasType.LocalTimeZone) {
 	return
 }
 
-func DaylightSavingTimeToNas(timezone string) (nasDaylightSavingTimeToNas nasType.NetworkDaylightSavingTime) {
+func DaylightSavingTimeToNas(
+	timezone string,
+) (nasDaylightSavingTimeToNas nasType.NetworkDaylightSavingTime) {
 
 	value := 0
 

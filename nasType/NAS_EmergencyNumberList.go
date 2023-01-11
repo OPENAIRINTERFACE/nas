@@ -15,7 +15,9 @@ type EmergencyNumberList struct {
 	Buffer []uint8
 }
 
-func NewEmergencyNumberList(iei uint8) (emergencyNumberList *EmergencyNumberList) {
+func NewEmergencyNumberList(
+	iei uint8,
+) (emergencyNumberList *EmergencyNumberList) {
 	emergencyNumberList = &EmergencyNumberList{}
 	emergencyNumberList.SetIei(iei)
 	return emergencyNumberList
@@ -54,7 +56,9 @@ func (a *EmergencyNumberList) GetLengthof1EmergencyNumberInformation() (lengthof
 
 // EmergencyNumberList 9.11.3.23
 // Lengthof1EmergencyNumberInformation Row, sBit, len = [0, 0], 8 , 8
-func (a *EmergencyNumberList) SetLengthof1EmergencyNumberInformation(lengthof1EmergencyNumberInformation uint8) {
+func (a *EmergencyNumberList) SetLengthof1EmergencyNumberInformation(
+	lengthof1EmergencyNumberInformation uint8,
+) {
 	a.Buffer[0] = lengthof1EmergencyNumberInformation
 }
 
@@ -66,7 +70,9 @@ func (a *EmergencyNumberList) GetEmergencyServiceCategoryValue() (emergencyServi
 
 // EmergencyNumberList 9.11.3.23
 // EmergencyServiceCategoryValue Row, sBit, len = [1, 1], 5 , 5
-func (a *EmergencyNumberList) SetEmergencyServiceCategoryValue(emergencyServiceCategoryValue uint8) {
+func (a *EmergencyNumberList) SetEmergencyServiceCategoryValue(
+	emergencyServiceCategoryValue uint8,
+) {
 	a.Buffer[1] = (a.Buffer[1] & 224) + (emergencyServiceCategoryValue & 31)
 }
 
@@ -80,6 +86,8 @@ func (a *EmergencyNumberList) GetEmergencyInformation() (emergencyInformation []
 
 // EmergencyNumberList 9.11.3.23
 // EmergencyInformation Row, sBit, len = [0, 0], 8 , INF
-func (a *EmergencyNumberList) SetEmergencyInformation(emergencyInformation []uint8) {
+func (a *EmergencyNumberList) SetEmergencyInformation(
+	emergencyInformation []uint8,
+) {
 	copy(a.Buffer, emergencyInformation)
 }

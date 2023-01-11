@@ -5,7 +5,9 @@
 
 package nasConvert
 
-func PDUSessionReactivationResultErrorCauseToBuf(errPduSessionId, errCause []uint8) (buf []uint8) {
+func PDUSessionReactivationResultErrorCauseToBuf(
+	errPduSessionId, errCause []uint8,
+) (buf []uint8) {
 	if errPduSessionId == nil || len(errPduSessionId) != len(errCause) {
 		return
 	}

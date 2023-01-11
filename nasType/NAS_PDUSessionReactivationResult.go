@@ -29,7 +29,9 @@ type PDUSessionReactivationResult struct {
 	Buffer []uint8
 }
 
-func NewPDUSessionReactivationResult(iei uint8) (pDUSessionReactivationResult *PDUSessionReactivationResult) {
+func NewPDUSessionReactivationResult(
+	iei uint8,
+) (pDUSessionReactivationResult *PDUSessionReactivationResult) {
 	pDUSessionReactivationResult = &PDUSessionReactivationResult{}
 	pDUSessionReactivationResult.SetIei(iei)
 	return pDUSessionReactivationResult

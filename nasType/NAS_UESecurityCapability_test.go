@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewUESecurityCapability(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeServiceRequestUESecurityCapabilityTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestUESecurityCapabilityType, nasMessage.RegistrationRequestUESecurityCapabilityType},
+	{
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	},
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIei(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeServiceRequestUESecurityCapabilityTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeServiceRequestUESecurityCapabilityLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetLen(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeServiceRequestUESecurityCapabilityLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypeUESecurityCapabilityEA0_5GTable = []nasTypeUESecurityCapabilityEA0{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEA0_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEA0_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA0_5G(table.in)
@@ -75,7 +86,9 @@ var nasTypeUESecurityCapabilityEA1_128_5GTable = []nasTypeUESecurityCapabilityEA
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEA1_128_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEA1_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA1_128_5G(table.in)
@@ -95,7 +108,9 @@ var nasTypeUESecurityCapabilityEA2_128_5GTable = []nasTypeUESecurityCapabilityEA
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEA2_128_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEA2_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA2_128_5G(table.in)
@@ -115,7 +130,9 @@ var nasTypeUESecurityCapabilityEA3_128_5GTable = []nasTypeUESecurityCapabilityEA
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEA3_128_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEA3_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA3_128_5G(table.in)
@@ -135,7 +152,9 @@ var nasTypeUESecurityCapabilityEA4_5GTable = []nasTypeUESecurityCapabilityEA4_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEA4_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEA4_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA4_5G(table.in)
@@ -155,7 +174,9 @@ var nasTypeUESecurityCapabilityEA5_5GTable = []nasTypeUESecurityCapabilityEA4_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEA5_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEA5_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA5_5G(table.in)
@@ -175,7 +196,9 @@ var nasTypeUESecurityCapabilityEA6_5GTable = []nasTypeUESecurityCapabilityEA6_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEA6_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEA6_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA6_5G(table.in)
@@ -195,7 +218,9 @@ var nasTypeUESecurityCapabilityEA7_5GTable = []nasTypeUESecurityCapabilityEA7_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEA7_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEA7_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA7_5G(table.in)
@@ -215,7 +240,9 @@ var nasTypeUESecurityCapabilityIA0_5GTable = []nasTypeUESecurityCapabilityIA0_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIA0_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityIA0_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA0_5G(table.in)
@@ -235,7 +262,9 @@ var nasTypeUESecurityCapabilityIA1_128_5GTable = []nasTypeUESecurityCapabilityIA
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIA1_128_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityIA1_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA1_128_5G(table.in)
@@ -255,7 +284,9 @@ var nasTypeUESecurityCapabilityIA2_128_5GTable = []nasTypeUESecurityCapabilityIA
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIA2_128_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityIA2_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA2_128_5G(table.in)
@@ -275,7 +306,9 @@ var nasTypeUESecurityCapabilityIA3_128_5GTable = []nasTypeUESecurityCapabilityIA
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIA3_128_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityIA3_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA3_128_5G(table.in)
@@ -295,7 +328,9 @@ var nasTypeUESecurityCapabilityIA4_5GTable = []nasTypeUESecurityCapabilityIA4_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIA4_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityIA4_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA4_5G(table.in)
@@ -315,7 +350,9 @@ var nasTypeUESecurityCapabilityIA5_5GTable = []nasTypeUESecurityCapabilityIA4_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIA5_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityIA5_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA5_5G(table.in)
@@ -335,7 +372,9 @@ var nasTypeUESecurityCapabilityIA6_5GTable = []nasTypeUESecurityCapabilityIA6_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIA6_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityIA6_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA6_5G(table.in)
@@ -355,7 +394,9 @@ var nasTypeUESecurityCapabilityIA7_5GTable = []nasTypeUESecurityCapabilityIA7_5G
 }
 
 func TestNasTypeUESecurityCapabilityGetSetIA7_5G(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityIA7_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA7_5G(table.in)
@@ -375,7 +416,9 @@ var nasTypeUESecurityCapabilityEEA0Table = []nasTypeUESecurityCapabilityEEA0{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEEA0(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEEA0Table {
 		a.SetLen(table.inLen)
 		a.SetEEA0(table.in)
@@ -395,7 +438,9 @@ var nasTypeUESecurityCapabilityEEA1_128Table = []nasTypeUESecurityCapabilityEEA1
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEEA1_128(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEEA1_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA1_128(table.in)
@@ -415,7 +460,9 @@ var nasTypeUESecurityCapabilityEEA2_128Table = []nasTypeUESecurityCapabilityEEA2
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEEA2_128(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEEA2_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA2_128(table.in)
@@ -435,7 +482,9 @@ var nasTypeUESecurityCapabilityEEA3_128Table = []nasTypeUESecurityCapabilityEEA3
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEEA3_128(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEEA3_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA3_128(table.in)
@@ -455,7 +504,9 @@ var nasTypeUESecurityCapabilityEEA4Table = []nasTypeUESecurityCapabilityEEA4{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEEA4(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEEA4Table {
 		a.SetLen(table.inLen)
 		a.SetEEA4(table.in)
@@ -475,7 +526,9 @@ var nasTypeUESecurityCapabilityEEA5Table = []nasTypeUESecurityCapabilityEEA5{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEEA5(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEEA5Table {
 		a.SetLen(table.inLen)
 		a.SetEEA5(table.in)
@@ -495,7 +548,9 @@ var nasTypeUESecurityCapabilityEEA6Table = []nasTypeUESecurityCapabilityEEA6{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEEA6(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEEA6Table {
 		a.SetLen(table.inLen)
 		a.SetEEA6(table.in)
@@ -515,7 +570,9 @@ var nasTypeUESecurityCapabilityEEA7Table = []nasTypeUESecurityCapabilityEEA7{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEEA7(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEEA7Table {
 		a.SetLen(table.inLen)
 		a.SetEEA7(table.in)
@@ -535,7 +592,9 @@ var nasTypeUESecurityCapabilityEIA0Table = []nasTypeUESecurityCapabilityEIA0{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEIA0(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEIA0Table {
 		a.SetLen(table.inLen)
 		a.SetEIA0(table.in)
@@ -555,7 +614,9 @@ var nasTypeUESecurityCapabilityEIA1_128Table = []nasTypeUESecurityCapabilityEIA1
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEIA1_128(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEIA1_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA1_128(table.in)
@@ -575,7 +636,9 @@ var nasTypeUESecurityCapabilityEIA2_128Table = []nasTypeUESecurityCapabilityEIA2
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEIA2_128(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEIA2_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA2_128(table.in)
@@ -595,7 +658,9 @@ var nasTypeUESecurityCapabilityEIA3_128Table = []nasTypeUESecurityCapabilityEIA3
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEIA3_128(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEIA3_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA3_128(table.in)
@@ -615,7 +680,9 @@ var nasTypeUESecurityCapabilityEIA4Table = []nasTypeUESecurityCapabilityEIA4{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEIA4(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEIA4Table {
 		a.SetLen(table.inLen)
 		a.SetEIA4(table.in)
@@ -635,7 +702,9 @@ var nasTypeUESecurityCapabilityEIA5Table = []nasTypeUESecurityCapabilityEIA4{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEIA5(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEIA5Table {
 		a.SetLen(table.inLen)
 		a.SetEIA5(table.in)
@@ -655,7 +724,9 @@ var nasTypeUESecurityCapabilityEIA6Table = []nasTypeUESecurityCapabilityEIA6{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEIA6(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEIA6Table {
 		a.SetLen(table.inLen)
 		a.SetEIA6(table.in)
@@ -675,7 +746,9 @@ var nasTypeUESecurityCapabilityEIA7Table = []nasTypeUESecurityCapabilityEIA7{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetEIA7(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilityEIA7Table {
 		a.SetLen(table.inLen)
 		a.SetEIA7(table.in)
@@ -694,7 +767,9 @@ var nasTypeUESecurityCapabilitySpareTable = []nasTypeUESecurityCapabilitySpare{
 }
 
 func TestNasTypeUESecurityCapabilityGetSetSpare(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range nasTypeUESecurityCapabilitySpareTable {
 		a.SetLen(8)
 		a.SetSpare(table.in)
@@ -708,11 +783,19 @@ type testUESecurityCapabilityDataTemplate struct {
 }
 
 var UESecurityCapabilityTestData = []nasType.UESecurityCapability{
-	{nasMessage.RegistrationRequestUESecurityCapabilityType, 8, []uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01}},
+	{
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+		8,
+		[]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01},
+	},
 }
 
 var UESecurityCapabilityExpectedData = []nasType.UESecurityCapability{
-	{nasMessage.RegistrationRequestUESecurityCapabilityType, 8, []uint8{0xff, 0xff, 0xff, 0xff, 0x11, 0x12, 0x13, 0x14}},
+	{
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+		8,
+		[]uint8{0xff, 0xff, 0xff, 0xff, 0x11, 0x12, 0x13, 0x14},
+	},
 }
 
 var UESecurityCapabilityTable = []testUESecurityCapabilityDataTemplate{
@@ -720,7 +803,9 @@ var UESecurityCapabilityTable = []testUESecurityCapabilityDataTemplate{
 }
 
 func TestNasTypeUESecurityCapability(t *testing.T) {
-	a := nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+	a := nasType.NewUESecurityCapability(
+		nasMessage.RegistrationRequestUESecurityCapabilityType,
+	)
 	for _, table := range UESecurityCapabilityTable {
 		a.SetLen(table.in.Len)
 		a.SetEA0_5G(0x01)

@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewAuthorizedQosRules(t *testing.T) {
-	a := nasType.NewAuthorizedQosRules(nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType)
+	a := nasType.NewAuthorizedQosRules(
+		nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeAuthenticationRequestAuthorizedQosRulesIeiTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType, nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType},
+	{
+		nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType,
+		nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType,
+	},
 }
 
 func TestNasTypeAuthorizedQosRulesGetSetIei(t *testing.T) {
-	a := nasType.NewAuthorizedQosRules(nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType)
+	a := nasType.NewAuthorizedQosRules(
+		nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType,
+	)
 	for _, table := range nasTypeAuthenticationRequestAuthorizedQosRulesIeiTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeAuthorizedQosRulesLenTable = []NasTypeLenUint16Data{
 }
 
 func TestNasTypeAuthorizedQosRulesGetSetLen(t *testing.T) {
-	a := nasType.NewAuthorizedQosRules(nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType)
+	a := nasType.NewAuthorizedQosRules(
+		nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType,
+	)
 	for _, table := range nasTypeAuthorizedQosRulesLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -59,7 +68,15 @@ func TestNasTypeAuthorizedQosRulesGetSetAuthorizedQosRules(t *testing.T) {
 	for _, table := range nasTypeAuthorizedQosRulesTable {
 		a.SetLen(table.inLen)
 		a.SetQosRule(table.in)
-		assert.Equalf(t, table.out, a.GetQosRule(), "in(%v): out %v, actual %x", table.in, table.out, a.GetQosRule())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetQosRule(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetQosRule(),
+		)
 	}
 }
 
@@ -69,11 +86,19 @@ type testAuthorizedQosRulesDataTemplate struct {
 }
 
 var AuthorizedQosRulesTestData = []nasType.AuthorizedQosRules{
-	{nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType, 2, []byte{0x00, 0x00}}, //AuthenticationResult
+	{
+		nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType,
+		2,
+		[]byte{0x00, 0x00},
+	}, //AuthenticationResult
 }
 
 var AuthorizedQosRulesExpectedData = []nasType.AuthorizedQosRules{
-	{nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType, 2, []byte{0x00, 0x00}}, //AuthenticationResult
+	{
+		nasMessage.PDUSessionModificationCommandAuthorizedQosRulesType,
+		2,
+		[]byte{0x00, 0x00},
+	}, //AuthenticationResult
 }
 
 var AuthorizedQosRulesTestTable = []testAuthorizedQosRulesDataTemplate{
@@ -90,9 +115,33 @@ func TestNasTypeAuthorizedQosRules(t *testing.T) {
 		a.SetLen(table.in.Len)
 		a.SetQosRule(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

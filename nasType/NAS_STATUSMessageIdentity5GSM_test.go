@@ -49,7 +49,10 @@ var STATUSMessageIdentity5GSMExpectedTestData = []nasType.STATUSMessageIdentity5
 }
 
 var STATUSMessageIdentity5GSMTable = []STATUSMessageIdentity5GSMTestDataTemplate{
-	{STATUSMessageIdentity5GSMTestData[0], STATUSMessageIdentity5GSMExpectedTestData[0]},
+	{
+		STATUSMessageIdentity5GSMTestData[0],
+		STATUSMessageIdentity5GSMExpectedTestData[0],
+	},
 }
 
 func TestNasTypeSTATUSMessageIdentity5GSM(t *testing.T) {

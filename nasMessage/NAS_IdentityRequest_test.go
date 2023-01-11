@@ -55,10 +55,18 @@ func TestNasTypeNewIdentityRequestMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet1)
-		a.IdentityRequestMessageIdentity.SetMessageType(table.inIdentityRequestMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet1,
+		)
+		a.IdentityRequestMessageIdentity.SetMessageType(
+			table.inIdentityRequestMessageIdentity,
+		)
 		a.SpareHalfOctetAndIdentityType.SetTypeOfIdentity(table.inIdentityType)
 
 		buff := new(bytes.Buffer)

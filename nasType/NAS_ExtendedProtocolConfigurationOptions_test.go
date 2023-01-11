@@ -58,6 +58,14 @@ func TestNasTypeExtendedProtocolConfigurationOptionsGetSetEENL(t *testing.T) {
 	for _, table := range nasTypeExtendedProtocolConfigurationOptionsExtendedProtocolConfigurationOptionsContentsTable {
 		a.SetLen(table.inLen)
 		a.SetExtendedProtocolConfigurationOptionsContents(table.in)
-		assert.Equalf(t, table.out, a.GetExtendedProtocolConfigurationOptionsContents(), "in(%v): out %v, actual %x", table.in, table.out, a.GetExtendedProtocolConfigurationOptionsContents())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetExtendedProtocolConfigurationOptionsContents(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetExtendedProtocolConfigurationOptionsContents(),
+		)
 	}
 }

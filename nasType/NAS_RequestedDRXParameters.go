@@ -13,7 +13,9 @@ type RequestedDRXParameters struct {
 	Octet uint8
 }
 
-func NewRequestedDRXParameters(iei uint8) (requestedDRXParameters *RequestedDRXParameters) {
+func NewRequestedDRXParameters(
+	iei uint8,
+) (requestedDRXParameters *RequestedDRXParameters) {
 	requestedDRXParameters = &RequestedDRXParameters{}
 	requestedDRXParameters.SetIei(iei)
 	return requestedDRXParameters

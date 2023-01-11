@@ -11,7 +11,9 @@ import (
 	"github.com/omec-project/openapi/models"
 )
 
-func SpareHalfOctetAndNgksiToModels(ngKsiNas nasType.SpareHalfOctetAndNgksi) (ngKsiModels models.NgKsi) {
+func SpareHalfOctetAndNgksiToModels(
+	ngKsiNas nasType.SpareHalfOctetAndNgksi,
+) (ngKsiModels models.NgKsi) {
 
 	switch ngKsiNas.GetTSC() {
 	case nasMessage.TypeOfSecurityContextFlagNative:
@@ -24,7 +26,9 @@ func SpareHalfOctetAndNgksiToModels(ngKsiNas nasType.SpareHalfOctetAndNgksi) (ng
 	return
 }
 
-func SpareHalfOctetAndNgksiToNas(ngKsiModels models.NgKsi) (ngKsiNas nasType.SpareHalfOctetAndNgksi) {
+func SpareHalfOctetAndNgksiToNas(
+	ngKsiModels models.NgKsi,
+) (ngKsiNas nasType.SpareHalfOctetAndNgksi) {
 
 	switch ngKsiModels.Tsc {
 	case models.ScType_NATIVE:

@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewPDUSessionReactivationResult(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypePDUSessionReactivationResultServiceAcceptPDUSessionReactivationResultTypeTable = []NasTypeIeiData{
-	{nasMessage.ServiceAcceptPDUSessionReactivationResultType, nasMessage.ServiceAcceptPDUSessionReactivationResultType},
+	{
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	},
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetIei(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultServiceAcceptPDUSessionReactivationResultTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeServiceRequestPDUSessionReactivationResultLenTable = []NasTypeLenuint
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetLen(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypeServiceRequestPDUSessionReactivationResultLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypePDUSessionReactivationResultPSI7Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI7(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI7Table {
 		a.SetLen(table.inLen)
 		a.SetPSI7(table.in)
@@ -75,7 +86,9 @@ var nasTypePDUSessionReactivationResultPSI6Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI6(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI6Table {
 		a.SetLen(table.inLen)
 		a.SetPSI6(table.in)
@@ -95,7 +108,9 @@ var nasTypePDUSessionReactivationResultPSI5Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI5(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI5Table {
 		a.SetLen(table.inLen)
 		a.SetPSI5(table.in)
@@ -115,7 +130,9 @@ var nasTypePDUSessionReactivationResultPSI4Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI4(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI4Table {
 		a.SetLen(table.inLen)
 		a.SetPSI4(table.in)
@@ -135,7 +152,9 @@ var nasTypePDUSessionReactivationResultPSI3Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI3(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI3Table {
 		a.SetLen(table.inLen)
 		a.SetPSI3(table.in)
@@ -155,7 +174,9 @@ var nasTypePDUSessionReactivationResultPSI2Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI2(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI2Table {
 		a.SetLen(table.inLen)
 		a.SetPSI2(table.in)
@@ -175,7 +196,9 @@ var nasTypePDUSessionReactivationResultPSI1Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI1(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI1Table {
 		a.SetLen(table.inLen)
 		a.SetPSI1(table.in)
@@ -195,7 +218,9 @@ var nasTypePDUSessionReactivationResultPSI0Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI0(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI0Table {
 		a.SetLen(table.inLen)
 		a.SetPSI0(table.in)
@@ -215,7 +240,9 @@ var nasTypePDUSessionReactivationResultPSI15Table = []nasTypePDUSessionReactivat
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI15(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI15Table {
 		a.SetLen(table.inLen)
 		a.SetPSI15(table.in)
@@ -235,7 +262,9 @@ var nasTypePDUSessionReactivationResultPSI14Table = []nasTypePDUSessionReactivat
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI14(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI14Table {
 		a.SetLen(table.inLen)
 		a.SetPSI14(table.in)
@@ -255,7 +284,9 @@ var nasTypePDUSessionReactivationResultPSI13Table = []nasTypePDUSessionReactivat
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI13(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI13Table {
 		a.SetLen(table.inLen)
 		a.SetPSI13(table.in)
@@ -275,7 +306,9 @@ var nasTypePDUSessionReactivationResultPSI12Table = []nasTypePDUSessionReactivat
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI12(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI12Table {
 		a.SetLen(table.inLen)
 		a.SetPSI12(table.in)
@@ -295,7 +328,9 @@ var nasTypePDUSessionReactivationResultPSI11Table = []nasTypePDUSessionReactivat
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI11(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI11Table {
 		a.SetLen(table.inLen)
 		a.SetPSI11(table.in)
@@ -315,7 +350,9 @@ var nasTypePDUSessionReactivationResultPSI10Table = []nasTypePDUSessionReactivat
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI10(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI10Table {
 		a.SetLen(table.inLen)
 		a.SetPSI10(table.in)
@@ -335,7 +372,9 @@ var nasTypePDUSessionReactivationResultPSI9Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI9(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI9Table {
 		a.SetLen(table.inLen)
 		a.SetPSI9(table.in)
@@ -355,7 +394,9 @@ var nasTypePDUSessionReactivationResultPSI8Table = []nasTypePDUSessionReactivati
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetPSI8(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultPSI8Table {
 		a.SetLen(table.inLen)
 		a.SetPSI8(table.in)
@@ -375,7 +416,9 @@ var nasTypePDUSessionReactivationResultSpareTable = []nasTypePDUSessionReactivat
 }
 
 func TestNasTypePDUSessionReactivationResultGetSetSpare(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range nasTypePDUSessionReactivationResultSpareTable {
 		a.SetLen(table.inLen)
 		a.SetSpare(table.in)
@@ -426,12 +469,52 @@ type testPDUSessionReactivationResultDataTemplate struct {
 }
 
 var PDUSessionReactivationResultTable = []testPDUSessionReactivationResultDataTemplate{
-	{nasMessage.ServiceAcceptPDUSessionReactivationResultType, 5, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, []uint8{0xff, 0xff, 0xff},
-		nasMessage.ServiceAcceptPDUSessionReactivationResultType, 5, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, []uint8{0xff, 0xff, 0xff}},
+	{
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+		5,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		[]uint8{0xff, 0xff, 0xff},
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+		5,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		[]uint8{0xff, 0xff, 0xff},
+	},
 }
 
 func TestNasTypePDUSessionReactivationResult(t *testing.T) {
-	a := nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+	a := nasType.NewPDUSessionReactivationResult(
+		nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+	)
 	for _, table := range PDUSessionReactivationResultTable {
 		a.SetLen(table.inIei)
 		a.SetLen(table.inLen)
