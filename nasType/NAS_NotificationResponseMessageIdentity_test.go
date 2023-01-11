@@ -28,7 +28,9 @@ var nasTypeNotificationResponseMessageIdentityMessageTypeTable = []nasTypeNotifi
 	{nas.MsgTypeNotificationResponse, nas.MsgTypeNotificationResponse},
 }
 
-func TestNasTypeGetSetNotificationResponseMessageIdentityMessageType(t *testing.T) {
+func TestNasTypeGetSetNotificationResponseMessageIdentityMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewNotificationResponseMessageIdentity()
 	for _, table := range nasTypeNotificationResponseMessageIdentityMessageTypeTable {
 		a.SetMessageType(table.in)

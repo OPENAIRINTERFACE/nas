@@ -24,6 +24,8 @@ func (a *SpareHalfOctetAndPayloadContainerType) GetPayloadContainerType() (paylo
 
 // SpareHalfOctetAndPayloadContainerType 9.11.3.40 9.5
 // PayloadContainerType Row, sBit, len = [0, 0], 4 , 4
-func (a *SpareHalfOctetAndPayloadContainerType) SetPayloadContainerType(payloadContainerType uint8) {
+func (a *SpareHalfOctetAndPayloadContainerType) SetPayloadContainerType(
+	payloadContainerType uint8,
+) {
 	a.Octet = (a.Octet & 240) + (payloadContainerType & 15)
 }

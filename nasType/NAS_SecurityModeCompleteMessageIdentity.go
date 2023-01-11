@@ -24,6 +24,8 @@ func (a *SecurityModeCompleteMessageIdentity) GetMessageType() (messageType uint
 
 // SecurityModeCompleteMessageIdentity 9.6
 // MessageType Row, sBit, len = [0, 0], 8 , 8
-func (a *SecurityModeCompleteMessageIdentity) SetMessageType(messageType uint8) {
+func (a *SecurityModeCompleteMessageIdentity) SetMessageType(
+	messageType uint8,
+) {
 	a.Octet = messageType
 }

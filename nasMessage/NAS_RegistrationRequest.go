@@ -40,7 +40,9 @@ type RegistrationRequest struct {
 	*nasType.NASMessageContainer
 }
 
-func NewRegistrationRequest(iei uint8) (registrationRequest *RegistrationRequest) {
+func NewRegistrationRequest(
+	iei uint8,
+) (registrationRequest *RegistrationRequest) {
 	registrationRequest = &RegistrationRequest{}
 	return registrationRequest
 }
@@ -69,19 +71,39 @@ const (
 )
 
 func (a *RegistrationRequest) EncodeRegistrationRequest(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.RegistrationRequestMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.RegistrationRequestMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.NgksiAndRegistrationType5GS.Octet)
 	binary.Write(buffer, binary.BigEndian, a.MobileIdentity5GS.GetLen())
 	binary.Write(buffer, binary.BigEndian, &a.MobileIdentity5GS.Buffer)
 	if a.NoncurrentNativeNASKeySetIdentifier != nil {
-		binary.Write(buffer, binary.BigEndian, &a.NoncurrentNativeNASKeySetIdentifier.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.NoncurrentNativeNASKeySetIdentifier.Octet,
+		)
 	}
 	if a.Capability5GMM != nil {
 		binary.Write(buffer, binary.BigEndian, a.Capability5GMM.GetIei())
 		binary.Write(buffer, binary.BigEndian, a.Capability5GMM.GetLen())
-		binary.Write(buffer, binary.BigEndian, a.Capability5GMM.Octet[:a.Capability5GMM.GetLen()])
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.Capability5GMM.Octet[:a.Capability5GMM.GetLen()],
+		)
 	}
 	if a.UESecurityCapability != nil {
 		binary.Write(buffer, binary.BigEndian, a.UESecurityCapability.GetIei())
@@ -94,8 +116,16 @@ func (a *RegistrationRequest) EncodeRegistrationRequest(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.RequestedNSSAI.Buffer)
 	}
 	if a.LastVisitedRegisteredTAI != nil {
-		binary.Write(buffer, binary.BigEndian, a.LastVisitedRegisteredTAI.GetIei())
-		binary.Write(buffer, binary.BigEndian, &a.LastVisitedRegisteredTAI.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.LastVisitedRegisteredTAI.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.LastVisitedRegisteredTAI.Octet,
+		)
 	}
 	if a.S1UENetworkCapability != nil {
 		binary.Write(buffer, binary.BigEndian, a.S1UENetworkCapability.GetIei())
@@ -123,12 +153,28 @@ func (a *RegistrationRequest) EncodeRegistrationRequest(buffer *bytes.Buffer) {
 	if a.AdditionalGUTI != nil {
 		binary.Write(buffer, binary.BigEndian, a.AdditionalGUTI.GetIei())
 		binary.Write(buffer, binary.BigEndian, a.AdditionalGUTI.GetLen())
-		binary.Write(buffer, binary.BigEndian, a.AdditionalGUTI.Octet[:a.AdditionalGUTI.GetLen()])
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.AdditionalGUTI.Octet[:a.AdditionalGUTI.GetLen()],
+		)
 	}
 	if a.AllowedPDUSessionStatus != nil {
-		binary.Write(buffer, binary.BigEndian, a.AllowedPDUSessionStatus.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.AllowedPDUSessionStatus.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.AllowedPDUSessionStatus.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.AllowedPDUSessionStatus.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.AllowedPDUSessionStatus.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.AllowedPDUSessionStatus.Buffer,
+		)
 	}
 	if a.UesUsageSetting != nil {
 		binary.Write(buffer, binary.BigEndian, a.UesUsageSetting.GetIei())
@@ -136,13 +182,29 @@ func (a *RegistrationRequest) EncodeRegistrationRequest(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.UesUsageSetting.Octet)
 	}
 	if a.RequestedDRXParameters != nil {
-		binary.Write(buffer, binary.BigEndian, a.RequestedDRXParameters.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.RequestedDRXParameters.GetLen())
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.RequestedDRXParameters.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.RequestedDRXParameters.GetLen(),
+		)
 		binary.Write(buffer, binary.BigEndian, &a.RequestedDRXParameters.Octet)
 	}
 	if a.EPSNASMessageContainer != nil {
-		binary.Write(buffer, binary.BigEndian, a.EPSNASMessageContainer.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.EPSNASMessageContainer.GetLen())
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.EPSNASMessageContainer.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.EPSNASMessageContainer.GetLen(),
+		)
 		binary.Write(buffer, binary.BigEndian, &a.EPSNASMessageContainer.Buffer)
 	}
 	if a.LADNIndication != nil {
@@ -156,7 +218,11 @@ func (a *RegistrationRequest) EncodeRegistrationRequest(buffer *bytes.Buffer) {
 		binary.Write(buffer, binary.BigEndian, &a.PayloadContainer.Buffer)
 	}
 	if a.NetworkSlicingIndication != nil {
-		binary.Write(buffer, binary.BigEndian, &a.NetworkSlicingIndication.Octet)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.NetworkSlicingIndication.Octet,
+		)
 	}
 	if a.UpdateType5GS != nil {
 		binary.Write(buffer, binary.BigEndian, a.UpdateType5GS.GetIei())
@@ -172,9 +238,21 @@ func (a *RegistrationRequest) EncodeRegistrationRequest(buffer *bytes.Buffer) {
 
 func (a *RegistrationRequest) DecodeRegistrationRequest(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.RegistrationRequestMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.RegistrationRequestMessageIdentity.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.NgksiAndRegistrationType5GS.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.MobileIdentity5GS.Len)
 	a.MobileIdentity5GS.SetLen(a.MobileIdentity5GS.GetLen())
@@ -192,41 +270,73 @@ func (a *RegistrationRequest) DecodeRegistrationRequest(byteArray *[]byte) {
 		// fmt.Println("type", tmpIeiN)
 		switch tmpIeiN {
 		case RegistrationRequestNoncurrentNativeNASKeySetIdentifierType:
-			a.NoncurrentNativeNASKeySetIdentifier = nasType.NewNoncurrentNativeNASKeySetIdentifier(ieiN)
+			a.NoncurrentNativeNASKeySetIdentifier = nasType.NewNoncurrentNativeNASKeySetIdentifier(
+				ieiN,
+			)
 			a.NoncurrentNativeNASKeySetIdentifier.Octet = ieiN
 		case RegistrationRequestCapability5GMMType:
 			a.Capability5GMM = nasType.NewCapability5GMM(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.Capability5GMM.Len)
 			a.Capability5GMM.SetLen(a.Capability5GMM.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.Capability5GMM.Octet[:a.Capability5GMM.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.Capability5GMM.Octet[:a.Capability5GMM.GetLen()],
+			)
 		case RegistrationRequestUESecurityCapabilityType:
 			a.UESecurityCapability = nasType.NewUESecurityCapability(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.UESecurityCapability.Len)
 			a.UESecurityCapability.SetLen(a.UESecurityCapability.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.UESecurityCapability.Buffer[:a.UESecurityCapability.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.UESecurityCapability.Buffer[:a.UESecurityCapability.GetLen()],
+			)
 		case RegistrationRequestRequestedNSSAIType:
 			a.RequestedNSSAI = nasType.NewRequestedNSSAI(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.RequestedNSSAI.Len)
 			a.RequestedNSSAI.SetLen(a.RequestedNSSAI.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.RequestedNSSAI.Buffer[:a.RequestedNSSAI.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.RequestedNSSAI.Buffer[:a.RequestedNSSAI.GetLen()],
+			)
 		case RegistrationRequestLastVisitedRegisteredTAIType:
-			a.LastVisitedRegisteredTAI = nasType.NewLastVisitedRegisteredTAI(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.LastVisitedRegisteredTAI.Octet)
+			a.LastVisitedRegisteredTAI = nasType.NewLastVisitedRegisteredTAI(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.LastVisitedRegisteredTAI.Octet,
+			)
 		case RegistrationRequestS1UENetworkCapabilityType:
 			a.S1UENetworkCapability = nasType.NewS1UENetworkCapability(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.S1UENetworkCapability.Len)
 			a.S1UENetworkCapability.SetLen(a.S1UENetworkCapability.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.S1UENetworkCapability.Buffer[:a.S1UENetworkCapability.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.S1UENetworkCapability.Buffer[:a.S1UENetworkCapability.GetLen()],
+			)
 		case RegistrationRequestUplinkDataStatusType:
 			a.UplinkDataStatus = nasType.NewUplinkDataStatus(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.UplinkDataStatus.Len)
 			a.UplinkDataStatus.SetLen(a.UplinkDataStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.UplinkDataStatus.Buffer[:a.UplinkDataStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.UplinkDataStatus.Buffer[:a.UplinkDataStatus.GetLen()],
+			)
 		case RegistrationRequestPDUSessionStatusType:
 			a.PDUSessionStatus = nasType.NewPDUSessionStatus(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.PDUSessionStatus.Len)
 			a.PDUSessionStatus.SetLen(a.PDUSessionStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()],
+			)
 		case RegistrationRequestMICOIndicationType:
 			a.MICOIndication = nasType.NewMICOIndication(ieiN)
 			a.MICOIndication.Octet = ieiN
@@ -239,12 +349,24 @@ func (a *RegistrationRequest) DecodeRegistrationRequest(byteArray *[]byte) {
 			a.AdditionalGUTI = nasType.NewAdditionalGUTI(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.AdditionalGUTI.Len)
 			a.AdditionalGUTI.SetLen(a.AdditionalGUTI.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.AdditionalGUTI.Octet[:a.AdditionalGUTI.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.AdditionalGUTI.Octet[:a.AdditionalGUTI.GetLen()],
+			)
 		case RegistrationRequestAllowedPDUSessionStatusType:
 			a.AllowedPDUSessionStatus = nasType.NewAllowedPDUSessionStatus(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.AllowedPDUSessionStatus.Len)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.AllowedPDUSessionStatus.Len,
+			)
 			a.AllowedPDUSessionStatus.SetLen(a.AllowedPDUSessionStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.AllowedPDUSessionStatus.Buffer[:a.AllowedPDUSessionStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.AllowedPDUSessionStatus.Buffer[:a.AllowedPDUSessionStatus.GetLen()],
+			)
 		case RegistrationRequestUesUsageSettingType:
 			a.UesUsageSetting = nasType.NewUesUsageSetting(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.UesUsageSetting.Len)
@@ -254,24 +376,42 @@ func (a *RegistrationRequest) DecodeRegistrationRequest(byteArray *[]byte) {
 			a.RequestedDRXParameters = nasType.NewRequestedDRXParameters(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.RequestedDRXParameters.Len)
 			a.RequestedDRXParameters.SetLen(a.RequestedDRXParameters.GetLen())
-			binary.Read(buffer, binary.BigEndian, &a.RequestedDRXParameters.Octet)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.RequestedDRXParameters.Octet,
+			)
 		case RegistrationRequestEPSNASMessageContainerType:
 			a.EPSNASMessageContainer = nasType.NewEPSNASMessageContainer(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EPSNASMessageContainer.Len)
 			a.EPSNASMessageContainer.SetLen(a.EPSNASMessageContainer.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EPSNASMessageContainer.Buffer[:a.EPSNASMessageContainer.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EPSNASMessageContainer.Buffer[:a.EPSNASMessageContainer.GetLen()],
+			)
 		case RegistrationRequestLADNIndicationType:
 			a.LADNIndication = nasType.NewLADNIndication(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.LADNIndication.Len)
 			a.LADNIndication.SetLen(a.LADNIndication.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.LADNIndication.Buffer[:a.LADNIndication.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.LADNIndication.Buffer[:a.LADNIndication.GetLen()],
+			)
 		case RegistrationRequestPayloadContainerType:
 			a.PayloadContainer = nasType.NewPayloadContainer(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.PayloadContainer.Len)
 			a.PayloadContainer.SetLen(a.PayloadContainer.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PayloadContainer.Buffer[:a.PayloadContainer.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PayloadContainer.Buffer[:a.PayloadContainer.GetLen()],
+			)
 		case RegistrationRequestNetworkSlicingIndicationType:
-			a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(ieiN)
+			a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(
+				ieiN,
+			)
 			a.NetworkSlicingIndication.Octet = ieiN
 		case RegistrationRequestUpdateType5GSType:
 			a.UpdateType5GS = nasType.NewUpdateType5GS(ieiN)
@@ -282,7 +422,11 @@ func (a *RegistrationRequest) DecodeRegistrationRequest(byteArray *[]byte) {
 			a.NASMessageContainer = nasType.NewNASMessageContainer(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.NASMessageContainer.Len)
 			a.NASMessageContainer.SetLen(a.NASMessageContainer.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.NASMessageContainer.Buffer[:a.NASMessageContainer.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.NASMessageContainer.Buffer[:a.NASMessageContainer.GetLen()],
+			)
 		default:
 		}
 	}

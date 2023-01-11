@@ -70,20 +70,34 @@ func TestNasTypeNewRegistrationRejectMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.RegistrationRejectMessageIdentity.SetMessageType(table.inRegistrationRejectMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.RegistrationRejectMessageIdentity.SetMessageType(
+			table.inRegistrationRejectMessageIdentity,
+		)
 
 		a.Cause5GMM = table.inCause5GMM
 
-		a.T3346Value = nasType.NewT3346Value(nasMessage.RegistrationRejectT3346ValueType)
+		a.T3346Value = nasType.NewT3346Value(
+			nasMessage.RegistrationRejectT3346ValueType,
+		)
 		a.T3346Value = &table.inT3346Value
 
-		a.T3502Value = nasType.NewT3502Value(nasMessage.RegistrationRejectT3502ValueType)
+		a.T3502Value = nasType.NewT3502Value(
+			nasMessage.RegistrationRejectT3502ValueType,
+		)
 		a.T3502Value = &table.inT3502Value
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.RegistrationRejectEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.RegistrationRejectEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
 		buff := new(bytes.Buffer)

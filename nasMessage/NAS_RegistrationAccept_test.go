@@ -61,9 +61,21 @@ var nasMessageRegistrationAcceptTable = []nasMessageRegistrationAcceptData{
 			Octet: 0x01,
 		},
 		inGUTI5G: nasType.GUTI5G{
-			Iei:   nasMessage.RegistrationAcceptGUTI5GType,
-			Len:   11,
-			Octet: [11]uint8{0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B},
+			Iei: nasMessage.RegistrationAcceptGUTI5GType,
+			Len: 11,
+			Octet: [11]uint8{
+				0x01,
+				0x02,
+				0x03,
+				0x04,
+				0x05,
+				0x06,
+				0x07,
+				0x08,
+				0x09,
+				0x0A,
+				0x0B,
+			},
 		},
 		inEquivalentPlmns: nasType.EquivalentPlmns{
 			Iei:   nasMessage.RegistrationAcceptEquivalentPlmnsType,
@@ -191,86 +203,138 @@ func TestNasTypeNewRegistrationAcceptMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.RegistrationAcceptMessageIdentity.SetMessageType(table.inRegistrationAcceptMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.RegistrationAcceptMessageIdentity.SetMessageType(
+			table.inRegistrationAcceptMessageIdentity,
+		)
 
 		a.RegistrationResult5GS = table.inRegistrationResult5GS
 
 		a.GUTI5G = nasType.NewGUTI5G(nasMessage.RegistrationAcceptGUTI5GType)
 		a.GUTI5G = &table.inGUTI5G
 
-		a.EquivalentPlmns = nasType.NewEquivalentPlmns(nasMessage.RegistrationAcceptEquivalentPlmnsType)
+		a.EquivalentPlmns = nasType.NewEquivalentPlmns(
+			nasMessage.RegistrationAcceptEquivalentPlmnsType,
+		)
 		a.EquivalentPlmns = &table.inEquivalentPlmns
 
 		a.TAIList = nasType.NewTAIList(nasMessage.RegistrationAcceptTAIListType)
 		a.TAIList = &table.inTAIList
 
-		a.AllowedNSSAI = nasType.NewAllowedNSSAI(nasMessage.RegistrationAcceptAllowedNSSAIType)
+		a.AllowedNSSAI = nasType.NewAllowedNSSAI(
+			nasMessage.RegistrationAcceptAllowedNSSAIType,
+		)
 		a.AllowedNSSAI = &table.inAllowedNSSAI
 
-		a.RejectedNSSAI = nasType.NewRejectedNSSAI(nasMessage.RegistrationAcceptRejectedNSSAIType)
+		a.RejectedNSSAI = nasType.NewRejectedNSSAI(
+			nasMessage.RegistrationAcceptRejectedNSSAIType,
+		)
 		a.RejectedNSSAI = &table.inRejectedNSSAI
 
-		a.ConfiguredNSSAI = nasType.NewConfiguredNSSAI(nasMessage.RegistrationAcceptConfiguredNSSAIType)
+		a.ConfiguredNSSAI = nasType.NewConfiguredNSSAI(
+			nasMessage.RegistrationAcceptConfiguredNSSAIType,
+		)
 		a.ConfiguredNSSAI = &table.inConfiguredNSSAI
 
-		a.NetworkFeatureSupport5GS = nasType.NewNetworkFeatureSupport5GS(nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType)
+		a.NetworkFeatureSupport5GS = nasType.NewNetworkFeatureSupport5GS(
+			nasMessage.RegistrationAcceptNetworkFeatureSupport5GSType,
+		)
 		a.NetworkFeatureSupport5GS = &table.inNetworkFeatureSupport5GS
 
-		a.PDUSessionStatus = nasType.NewPDUSessionStatus(nasMessage.RegistrationAcceptPDUSessionStatusType)
+		a.PDUSessionStatus = nasType.NewPDUSessionStatus(
+			nasMessage.RegistrationAcceptPDUSessionStatusType,
+		)
 		a.PDUSessionStatus = &table.inPDUSessionStatus
 
 		a.GUTI5G = nasType.NewGUTI5G(nasMessage.RegistrationAcceptGUTI5GType)
 		a.GUTI5G = &table.inGUTI5G
 
-		a.PDUSessionReactivationResult = nasType.NewPDUSessionReactivationResult(nasMessage.RegistrationAcceptPDUSessionReactivationResultType)
+		a.PDUSessionReactivationResult = nasType.NewPDUSessionReactivationResult(
+			nasMessage.RegistrationAcceptPDUSessionReactivationResultType,
+		)
 		a.PDUSessionReactivationResult = &table.inPDUSessionReactivationResult
 
-		a.PDUSessionReactivationResultErrorCause = nasType.NewPDUSessionReactivationResultErrorCause(nasMessage.RegistrationAcceptPDUSessionReactivationResultErrorCauseType)
+		a.PDUSessionReactivationResultErrorCause = nasType.NewPDUSessionReactivationResultErrorCause(
+			nasMessage.RegistrationAcceptPDUSessionReactivationResultErrorCauseType,
+		)
 		a.PDUSessionReactivationResultErrorCause = &table.inPDUSessionReactivationResultErrorCause
 
-		a.LADNInformation = nasType.NewLADNInformation(nasMessage.RegistrationAcceptLADNInformationType)
+		a.LADNInformation = nasType.NewLADNInformation(
+			nasMessage.RegistrationAcceptLADNInformationType,
+		)
 		a.LADNInformation = &table.inLADNInformation
 
-		a.MICOIndication = nasType.NewMICOIndication(nasMessage.RegistrationAcceptMICOIndicationType)
+		a.MICOIndication = nasType.NewMICOIndication(
+			nasMessage.RegistrationAcceptMICOIndicationType,
+		)
 		a.MICOIndication = &table.inMICOIndication
 
-		a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(nasMessage.RegistrationAcceptNetworkSlicingIndicationType)
+		a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(
+			nasMessage.RegistrationAcceptNetworkSlicingIndicationType,
+		)
 		a.NetworkSlicingIndication = &table.inNetworkSlicingIndication
 
-		a.ServiceAreaList = nasType.NewServiceAreaList(nasMessage.RegistrationAcceptServiceAreaListType)
+		a.ServiceAreaList = nasType.NewServiceAreaList(
+			nasMessage.RegistrationAcceptServiceAreaListType,
+		)
 		a.ServiceAreaList = &table.inServiceAreaList
 
-		a.T3512Value = nasType.NewT3512Value(nasMessage.RegistrationAcceptT3512ValueType)
+		a.T3512Value = nasType.NewT3512Value(
+			nasMessage.RegistrationAcceptT3512ValueType,
+		)
 		a.T3512Value = &table.inT3512Value
 
-		a.Non3GppDeregistrationTimerValue = nasType.NewNon3GppDeregistrationTimerValue(nasMessage.RegistrationAcceptNon3GppDeregistrationTimerValueType)
+		a.Non3GppDeregistrationTimerValue = nasType.NewNon3GppDeregistrationTimerValue(
+			nasMessage.RegistrationAcceptNon3GppDeregistrationTimerValueType,
+		)
 		a.Non3GppDeregistrationTimerValue = &table.inNon3GppDeregistrationTimerValue
 
-		a.T3502Value = nasType.NewT3502Value(nasMessage.RegistrationAcceptT3502ValueType)
+		a.T3502Value = nasType.NewT3502Value(
+			nasMessage.RegistrationAcceptT3502ValueType,
+		)
 		a.T3502Value = &table.inT3502Value
 
-		a.EmergencyNumberList = nasType.NewEmergencyNumberList(nasMessage.RegistrationAcceptEmergencyNumberListType)
+		a.EmergencyNumberList = nasType.NewEmergencyNumberList(
+			nasMessage.RegistrationAcceptEmergencyNumberListType,
+		)
 		a.EmergencyNumberList = &table.inEmergencyNumberList
 
-		a.ExtendedEmergencyNumberList = nasType.NewExtendedEmergencyNumberList(nasMessage.RegistrationAcceptExtendedEmergencyNumberListType)
+		a.ExtendedEmergencyNumberList = nasType.NewExtendedEmergencyNumberList(
+			nasMessage.RegistrationAcceptExtendedEmergencyNumberListType,
+		)
 		a.ExtendedEmergencyNumberList = &table.inExtendedEmergencyNumberList
 
-		a.SORTransparentContainer = nasType.NewSORTransparentContainer(nasMessage.RegistrationAcceptSORTransparentContainerType)
+		a.SORTransparentContainer = nasType.NewSORTransparentContainer(
+			nasMessage.RegistrationAcceptSORTransparentContainerType,
+		)
 		a.SORTransparentContainer = &table.inSORTransparentContainer
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.RegistrationAcceptEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.RegistrationAcceptEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
-		a.NSSAIInclusionMode = nasType.NewNSSAIInclusionMode(nasMessage.RegistrationAcceptNSSAIInclusionModeType)
+		a.NSSAIInclusionMode = nasType.NewNSSAIInclusionMode(
+			nasMessage.RegistrationAcceptNSSAIInclusionModeType,
+		)
 		a.NSSAIInclusionMode = &table.inNSSAIInclusionMode
 
-		a.OperatordefinedAccessCategoryDefinitions = nasType.NewOperatordefinedAccessCategoryDefinitions(nasMessage.RegistrationAcceptOperatordefinedAccessCategoryDefinitionsType)
+		a.OperatordefinedAccessCategoryDefinitions = nasType.NewOperatordefinedAccessCategoryDefinitions(
+			nasMessage.RegistrationAcceptOperatordefinedAccessCategoryDefinitionsType,
+		)
 		a.OperatordefinedAccessCategoryDefinitions = &table.inOperatordefinedAccessCategoryDefinitions
 
-		a.NegotiatedDRXParameters = nasType.NewNegotiatedDRXParameters(nasMessage.RegistrationAcceptNegotiatedDRXParametersType)
+		a.NegotiatedDRXParameters = nasType.NewNegotiatedDRXParameters(
+			nasMessage.RegistrationAcceptNegotiatedDRXParametersType,
+		)
 		a.NegotiatedDRXParameters = &table.inNegotiatedDRXParameters
 
 		buff := new(bytes.Buffer)

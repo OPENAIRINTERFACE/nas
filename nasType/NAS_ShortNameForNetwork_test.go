@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewShortNameForNetwork(t *testing.T) {
-	a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+	a := nasType.NewShortNameForNetwork(
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeShortNameForNetworkTable = []NasTypeIeiData{
-	{nasMessage.ConfigurationUpdateCommandShortNameForNetworkType, nasMessage.ConfigurationUpdateCommandShortNameForNetworkType},
+	{
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	},
 }
 
 func TestNasTypeShortNameForNetworkGetSetIei(t *testing.T) {
-	a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+	a := nasType.NewShortNameForNetwork(
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	)
 	for _, table := range nasTypeShortNameForNetworkTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeShortNameForNetworkLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeShortNameForNetworkGetSetLen(t *testing.T) {
-	a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+	a := nasType.NewShortNameForNetwork(
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	)
 	for _, table := range nasTypeShortNameForNetworkLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,11 +64,21 @@ var nasTypeShortNameForNetworkExtTable = []nasTypeShortNameForNetworkExtData{
 }
 
 func TestNasTypeShortNameForNetworkGetSetExt(t *testing.T) {
-	a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+	a := nasType.NewShortNameForNetwork(
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	)
 	for _, table := range nasTypeShortNameForNetworkExtTable {
 		a.SetLen(table.inLen) // fix it, set input length
 		a.SetExt(table.in)
-		assert.Equalf(t, table.out, a.GetExt(), "in(%v): out %v, actual %x", table.in, table.out, a.GetExt())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetExt(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetExt(),
+		)
 	}
 }
 
@@ -74,11 +93,21 @@ var nasTypeShortNameForNetworkCodingSchemeTable = []nasTypeShortNameForNetworkCo
 }
 
 func TestNasTypeShortNameForNetworkGetSetCodingScheme(t *testing.T) {
-	a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+	a := nasType.NewShortNameForNetwork(
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	)
 	for _, table := range nasTypeShortNameForNetworkCodingSchemeTable {
 		a.SetLen(table.inLen)
 		a.SetCodingScheme(table.in)
-		assert.Equalf(t, table.out, a.GetCodingScheme(), "in(%v): out %v, actual %x", table.in, table.out, a.GetCodingScheme())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetCodingScheme(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetCodingScheme(),
+		)
 	}
 }
 
@@ -93,11 +122,21 @@ var nasTypeShortNameForNetworkAddCITable = []nasTypeShortNameForNetworkAddCIData
 }
 
 func TestNasTypeShortNameForNetworkGetSetAddCI(t *testing.T) {
-	a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+	a := nasType.NewShortNameForNetwork(
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	)
 	for _, table := range nasTypeShortNameForNetworkAddCITable {
 		a.SetLen(table.inLen)
 		a.SetAddCI(table.in)
-		assert.Equalf(t, table.out, a.GetAddCI(), "in(%v): out %v, actual %x", table.in, table.out, a.GetAddCI())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetAddCI(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetAddCI(),
+		)
 	}
 }
 
@@ -111,12 +150,24 @@ var nasTypeShortNameForNetworkNumberOfSpareBitsInLastOctetTable = []nasTypeShort
 	{2, 0x01, 0x01},
 }
 
-func TestNasTypeShortNameForNetworkGetSetNumberOfSpareBitsInLastOctet(t *testing.T) {
-	a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+func TestNasTypeShortNameForNetworkGetSetNumberOfSpareBitsInLastOctet(
+	t *testing.T,
+) {
+	a := nasType.NewShortNameForNetwork(
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	)
 	for _, table := range nasTypeShortNameForNetworkNumberOfSpareBitsInLastOctetTable {
 		a.SetLen(table.inLen)
 		a.SetNumberOfSpareBitsInLastOctet(table.in)
-		assert.Equalf(t, table.out, a.GetNumberOfSpareBitsInLastOctet(), "in(%v): out %v, actual %x", table.in, table.out, a.GetNumberOfSpareBitsInLastOctet())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetNumberOfSpareBitsInLastOctet(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetNumberOfSpareBitsInLastOctet(),
+		)
 	}
 }
 
@@ -131,11 +182,21 @@ var nasTypeShortNameForNetworkTextStringTable = []nasTypeShortNameForNetworkText
 }
 
 func TestNasTypeShortNameForNetworkGetSetTextString(t *testing.T) {
-	a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+	a := nasType.NewShortNameForNetwork(
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+	)
 	for _, table := range nasTypeShortNameForNetworkTextStringTable {
 		a.SetLen(table.inLen)
 		a.SetTextString(table.in)
-		assert.Equalf(t, table.out, a.GetTextString(), "in(%v): out %v, actual %x", table.in, table.out, a.GetTextString())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetTextString(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetTextString(),
+		)
 	}
 }
 
@@ -145,11 +206,19 @@ type testShortNameForNetworkDataTemplate struct {
 }
 
 var ShortNameForNetworkTestData = []nasType.ShortNameForNetwork{
-	{nasMessage.ConfigurationUpdateCommandShortNameForNetworkType, 3, []uint8{}},
+	{
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+		3,
+		[]uint8{},
+	},
 }
 
 var ShortNameForNetworkExpectedTestData = []nasType.ShortNameForNetwork{
-	{nasMessage.ConfigurationUpdateCommandShortNameForNetworkType, 3, []uint8{0x99, 0x01, 0x01}},
+	{
+		nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+		3,
+		[]uint8{0x99, 0x01, 0x01},
+	},
 }
 
 var ShortNameForNetworkTestTable = []testShortNameForNetworkDataTemplate{
@@ -160,7 +229,9 @@ func TestNasTypeShortNameForNetwork(t *testing.T) {
 
 	for i, table := range ShortNameForNetworkTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewShortNameForNetwork(nasMessage.ConfigurationUpdateCommandShortNameForNetworkType)
+		a := nasType.NewShortNameForNetwork(
+			nasMessage.ConfigurationUpdateCommandShortNameForNetworkType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetLen(table.in.Len)
@@ -170,9 +241,33 @@ func TestNasTypeShortNameForNetwork(t *testing.T) {
 		a.SetNumberOfSpareBitsInLastOctet(0x01)
 		a.SetTextString([]uint8{0x01, 0x01})
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

@@ -15,16 +15,23 @@ import (
 )
 
 func TestNasTypeNewUesUsageSetting(t *testing.T) {
-	a := nasType.NewUesUsageSetting(nasMessage.RegistrationRequestUesUsageSettingType)
+	a := nasType.NewUesUsageSetting(
+		nasMessage.RegistrationRequestUesUsageSettingType,
+	)
 	assert.NotNil(t, a)
 }
 
 var nasTypeUesUsageSettingIeiTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestUesUsageSettingType, nasMessage.RegistrationRequestUesUsageSettingType},
+	{
+		nasMessage.RegistrationRequestUesUsageSettingType,
+		nasMessage.RegistrationRequestUesUsageSettingType,
+	},
 }
 
 func TestNasTypeUesUsageSettingGetSetIei(t *testing.T) {
-	a := nasType.NewUesUsageSetting(nasMessage.RegistrationRequestUesUsageSettingType)
+	a := nasType.NewUesUsageSetting(
+		nasMessage.RegistrationRequestUesUsageSettingType,
+	)
 	for _, table := range nasTypeRegistrationAcceptNetworkFeatureSupport5GSTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -36,7 +43,9 @@ var nasTypeUesUsageSettingLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeUesUsageSettingGetSetLen(t *testing.T) {
-	a := nasType.NewUesUsageSetting(nasMessage.RegistrationRequestUesUsageSettingType)
+	a := nasType.NewUesUsageSetting(
+		nasMessage.RegistrationRequestUesUsageSettingType,
+	)
 	for _, table := range nasTypeRegistrationAcceptNetworkFeatureSupport5GSLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -53,7 +62,9 @@ var nasTypeUesUsageSettingUesUsageSettingTable = []NasTypeUesUsageSettingUesUsag
 }
 
 func TestNasTypeUesUsageSettingGetSetUesUsageSetting(t *testing.T) {
-	a := nasType.NewUesUsageSetting(nasMessage.RegistrationRequestUesUsageSettingType)
+	a := nasType.NewUesUsageSetting(
+		nasMessage.RegistrationRequestUesUsageSettingType,
+	)
 	for _, table := range nasTypeUesUsageSettingUesUsageSettingTable {
 		a.SetUesUsageSetting(table.in)
 		assert.Equal(t, table.out, a.GetUesUsageSetting())
@@ -78,7 +89,9 @@ var UesUsageSettingDataTestTable = []testUesUsageSettingDataTemplate{
 
 func TestNasTypeUesUsageSetting(t *testing.T) {
 	for _, table := range UesUsageSettingDataTestTable {
-		a := nasType.NewUesUsageSetting(nasMessage.RegistrationRequestUesUsageSettingType)
+		a := nasType.NewUesUsageSetting(
+			nasMessage.RegistrationRequestUesUsageSettingType,
+		)
 		a.SetIei(table.in.Iei)
 		a.SetLen(table.in.Len)
 		a.SetUesUsageSetting(0x05)

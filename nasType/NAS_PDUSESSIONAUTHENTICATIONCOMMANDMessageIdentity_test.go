@@ -14,7 +14,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNasTypeNewPDUSESSIONAUTHENTICATIONCOMMANDMessageIdentity(t *testing.T) {
+func TestNasTypeNewPDUSESSIONAUTHENTICATIONCOMMANDMessageIdentity(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONAUTHENTICATIONCOMMANDMessageIdentity()
 	assert.NotNil(t, a)
 }
@@ -25,10 +27,15 @@ type nasTypePDUSESSIONAUTHENTICATIONCOMMANDMessageIdentityMessageType struct {
 }
 
 var nasTypePDUSESSIONAUTHENTICATIONCOMMANDMessageIdentityMessageTypeTable = []nasTypePDUSESSIONAUTHENTICATIONCOMMANDMessageIdentityMessageType{
-	{nas.MsgTypePDUSessionAuthenticationCommand, nas.MsgTypePDUSessionAuthenticationCommand},
+	{
+		nas.MsgTypePDUSessionAuthenticationCommand,
+		nas.MsgTypePDUSessionAuthenticationCommand,
+	},
 }
 
-func TestNasTypeGetSetPDUSESSIONAUTHENTICATIONCOMMANDMessageIdentityMessageType(t *testing.T) {
+func TestNasTypeGetSetPDUSESSIONAUTHENTICATIONCOMMANDMessageIdentityMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONAUTHENTICATIONCOMMANDMessageIdentity()
 	for _, table := range nasTypePDUSESSIONAUTHENTICATIONCOMMANDMessageIdentityMessageTypeTable {
 		a.SetMessageType(table.in)

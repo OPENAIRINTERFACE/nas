@@ -87,31 +87,49 @@ func TestNasTypeNewPDUSessionEstablishmentRequestMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONESTABLISHMENTREQUESTMessageIdentity.SetMessageType(table.inPDUSESSIONESTABLISHMENTREQUESTMessageIdentity)
+		a.PDUSESSIONESTABLISHMENTREQUESTMessageIdentity.SetMessageType(
+			table.inPDUSESSIONESTABLISHMENTREQUESTMessageIdentity,
+		)
 		a.IntegrityProtectionMaximumDataRate = table.inIntegrityProtectionMaximumDataRate
 
-		a.PDUSessionType = nasType.NewPDUSessionType(nasMessage.PDUSessionEstablishmentRequestPDUSessionTypeType)
+		a.PDUSessionType = nasType.NewPDUSessionType(
+			nasMessage.PDUSessionEstablishmentRequestPDUSessionTypeType,
+		)
 		a.PDUSessionType = &table.inPDUSessionType
 
-		a.SSCMode = nasType.NewSSCMode(nasMessage.PDUSessionEstablishmentRequestSSCModeType)
+		a.SSCMode = nasType.NewSSCMode(
+			nasMessage.PDUSessionEstablishmentRequestSSCModeType,
+		)
 		a.SSCMode = &table.inSSCMode
 
-		a.Capability5GSM = nasType.NewCapability5GSM(nasMessage.PDUSessionEstablishmentRequestCapability5GSMType)
+		a.Capability5GSM = nasType.NewCapability5GSM(
+			nasMessage.PDUSessionEstablishmentRequestCapability5GSMType,
+		)
 		a.Capability5GSM = &table.inCapability5GSM
 
-		a.MaximumNumberOfSupportedPacketFilters = nasType.NewMaximumNumberOfSupportedPacketFilters(nasMessage.PDUSessionEstablishmentRequestMaximumNumberOfSupportedPacketFiltersType)
+		a.MaximumNumberOfSupportedPacketFilters = nasType.NewMaximumNumberOfSupportedPacketFilters(
+			nasMessage.PDUSessionEstablishmentRequestMaximumNumberOfSupportedPacketFiltersType,
+		)
 		a.MaximumNumberOfSupportedPacketFilters = &table.inMaximumNumberOfSupportedPacketFilters
 
-		a.AlwaysonPDUSessionRequested = nasType.NewAlwaysonPDUSessionRequested(nasMessage.PDUSessionEstablishmentRequestAlwaysonPDUSessionRequestedType)
+		a.AlwaysonPDUSessionRequested = nasType.NewAlwaysonPDUSessionRequested(
+			nasMessage.PDUSessionEstablishmentRequestAlwaysonPDUSessionRequestedType,
+		)
 		a.AlwaysonPDUSessionRequested = &table.inAlwaysonPDUSessionRequested
 
-		a.SMPDUDNRequestContainer = nasType.NewSMPDUDNRequestContainer(nasMessage.PDUSessionEstablishmentRequestSMPDUDNRequestContainerType)
+		a.SMPDUDNRequestContainer = nasType.NewSMPDUDNRequestContainer(
+			nasMessage.PDUSessionEstablishmentRequestSMPDUDNRequestContainerType,
+		)
 		a.SMPDUDNRequestContainer = &table.inSMPDUDNRequestContainer
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionEstablishmentRequestExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionEstablishmentRequestExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

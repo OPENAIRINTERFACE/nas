@@ -17,16 +17,23 @@ import (
 var PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput uint8 = 0x08
 
 func TestNasTypeNewAlwaysonPDUSessionIndication(t *testing.T) {
-	a := nasType.NewAlwaysonPDUSessionIndication(PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput)
+	a := nasType.NewAlwaysonPDUSessionIndication(
+		PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput,
+	)
 	assert.NotNil(t, a)
 }
 
 var nasTypePDUSessionEstablishmentRequestAlwaysonPDUSessionIndicationTable = []NasTypeIeiData{
-	{PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput, 0x08},
+	{
+		PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput,
+		0x08,
+	},
 }
 
 func TestNasTypeAlwaysonPDUSessionIndicationGetSetIei(t *testing.T) {
-	a := nasType.NewAlwaysonPDUSessionIndication(nasMessage.PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationType)
+	a := nasType.NewAlwaysonPDUSessionIndication(
+		nasMessage.PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationType,
+	)
 	for _, table := range nasTypePDUSessionEstablishmentRequestAlwaysonPDUSessionIndicationTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -43,7 +50,9 @@ var nasTypeAlwaysonPDUSessionIndicationAPSITable = []nasTypeAlwaysonPDUSessionIn
 }
 
 func TestNasTypeAlwaysonPDUSessionIndicationGetSetAPSI(t *testing.T) {
-	a := nasType.NewAlwaysonPDUSessionIndication(nasMessage.PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationType)
+	a := nasType.NewAlwaysonPDUSessionIndication(
+		nasMessage.PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationType,
+	)
 	for _, table := range nasTypeAlwaysonPDUSessionIndicationAPSITable {
 		a.SetAPSI(table.in)
 		assert.Equal(t, table.out, a.GetAPSI())
@@ -64,15 +73,22 @@ var alwaysonPDUSessionIndicationExpectedTestData = []nasType.AlwaysonPDUSessionI
 }
 
 var alwaysonPDUSessionIndicationTestTable = []testAlwaysonPDUSessionIndicationDataTemplate{
-	{alwaysonPDUSessionIndicationTestData[0], alwaysonPDUSessionIndicationExpectedTestData[0]},
+	{
+		alwaysonPDUSessionIndicationTestData[0],
+		alwaysonPDUSessionIndicationExpectedTestData[0],
+	},
 }
 
 func TestNasTypeAlwaysonPDUSessionIndication(t *testing.T) {
 
 	for _, table := range alwaysonPDUSessionIndicationTestTable {
-		a := nasType.NewAlwaysonPDUSessionIndication(PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput)
+		a := nasType.NewAlwaysonPDUSessionIndication(
+			PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput,
+		)
 
-		a.SetIei(PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput)
+		a.SetIei(
+			PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationTypeIeiInput,
+		)
 		a.SetAPSI(table.in.GetAPSI())
 
 		assert.Equal(t, table.out.Octet, a.Octet)

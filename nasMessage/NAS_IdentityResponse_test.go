@@ -58,10 +58,18 @@ func TestNasTypeNewIdentityResponseMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.IdentityResponseMessageIdentity.SetMessageType(table.inIdentityResponseMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.IdentityResponseMessageIdentity.SetMessageType(
+			table.inIdentityResponseMessageIdentity,
+		)
 
 		a.MobileIdentity = table.inMobileIdentity
 

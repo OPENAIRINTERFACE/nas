@@ -13,7 +13,9 @@ type AuthenticationFailureParameter struct {
 	Octet [14]uint8
 }
 
-func NewAuthenticationFailureParameter(iei uint8) (authenticationFailureParameter *AuthenticationFailureParameter) {
+func NewAuthenticationFailureParameter(
+	iei uint8,
+) (authenticationFailureParameter *AuthenticationFailureParameter) {
 	authenticationFailureParameter = &AuthenticationFailureParameter{}
 	authenticationFailureParameter.SetIei(iei)
 	return authenticationFailureParameter
@@ -52,6 +54,8 @@ func (a *AuthenticationFailureParameter) GetAuthenticationFailureParameter() (au
 
 // AuthenticationFailureParameter 9.11.3.14
 // AuthenticationFailureParameter Row, sBit, len = [0, 13], 8 , 112
-func (a *AuthenticationFailureParameter) SetAuthenticationFailureParameter(authenticationFailureParameter [14]uint8) {
+func (a *AuthenticationFailureParameter) SetAuthenticationFailureParameter(
+	authenticationFailureParameter [14]uint8,
+) {
 	copy(a.Octet[0:14], authenticationFailureParameter[:])
 }

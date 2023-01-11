@@ -27,7 +27,9 @@ var nasTypeSecurityModeRejectMessageIdentityTable = []nasTypeSecurityModeRejectM
 	{0x03, 0x03},
 }
 
-func TestNasTypeSecurityModeRejectMessageIdentityGetSetMessageType(t *testing.T) {
+func TestNasTypeSecurityModeRejectMessageIdentityGetSetMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewSecurityModeRejectMessageIdentity()
 	for _, table := range nasTypeSecurityModeRejectMessageIdentityTable {
 		a.SetMessageType(table.in)
@@ -49,7 +51,10 @@ var SecurityModeRejectMessageIdentityExpectedTestData = []nasType.SecurityModeRe
 }
 
 var SecurityModeRejectMessageIdentityTable = []SecurityModeRejectMessageIdentityTestDataTemplate{
-	{SecurityModeRejectMessageIdentityTestData[0], SecurityModeRejectMessageIdentityExpectedTestData[0]},
+	{
+		SecurityModeRejectMessageIdentityTestData[0],
+		SecurityModeRejectMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypeSecurityModeRejectMessageIdentity(t *testing.T) {

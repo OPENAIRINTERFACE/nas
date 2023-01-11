@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewRequestedQosFlowDescriptions(t *testing.T) {
-	a := nasType.NewRequestedQosFlowDescriptions(nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType)
+	a := nasType.NewRequestedQosFlowDescriptions(
+		nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeAuthenticationResultRequestedQosFlowDescriptionsTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType, nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType},
+	{
+		nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+		nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+	},
 }
 
 func TestNasTypeRequestedQosFlowDescriptionsGetSetIei(t *testing.T) {
-	a := nasType.NewRequestedQosFlowDescriptions(nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType)
+	a := nasType.NewRequestedQosFlowDescriptions(
+		nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+	)
 	for _, table := range nasTypeAuthenticationResultRequestedQosFlowDescriptionsTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeAuthenticationResultRequestedQosFlowDescriptionsLenTable = []NasTypeL
 }
 
 func TestNasTypeRequestedQosFlowDescriptionsGetSetLen(t *testing.T) {
-	a := nasType.NewRequestedQosFlowDescriptions(nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType)
+	a := nasType.NewRequestedQosFlowDescriptions(
+		nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+	)
 	for _, table := range nasTypeAuthenticationResultRequestedQosFlowDescriptionsLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,11 +64,21 @@ var nasTypeRequestedQosFlowDescriptionsTable = []nasTypeRequestedQosFlowDescript
 }
 
 func TestNasTypeRequestedQosFlowDescriptionsGetSetContent(t *testing.T) {
-	a := nasType.NewRequestedQosFlowDescriptions(nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType)
+	a := nasType.NewRequestedQosFlowDescriptions(
+		nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+	)
 	for _, table := range nasTypeRequestedQosFlowDescriptionsTable {
 		a.SetLen(table.inLen)
 		a.SetQoSFlowDescriptions(table.in)
-		assert.Equalf(t, table.out, a.GetQoSFlowDescriptions(), "in(%v): out %v, actual %x", table.in, table.out, a.GetQoSFlowDescriptions())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetQoSFlowDescriptions(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetQoSFlowDescriptions(),
+		)
 	}
 }
 
@@ -69,30 +88,67 @@ type testRequestedQosFlowDescriptionsDataTemplate struct {
 }
 
 var RequestedQosFlowDescriptionsTestData = []nasType.RequestedQosFlowDescriptions{
-	{nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType, 2, []byte{0x01, 0x02}},
+	{
+		nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+		2,
+		[]byte{0x01, 0x02},
+	},
 }
 
 var RequestedQosFlowDescriptionsExpectedTestData = []nasType.RequestedQosFlowDescriptions{
-	{nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType, 2, []byte{0x01, 0x02}},
+	{
+		nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+		2,
+		[]byte{0x01, 0x02},
+	},
 }
 
 var RequestedQosFlowDescriptionsTestTable = []testRequestedQosFlowDescriptionsDataTemplate{
-	{RequestedQosFlowDescriptionsTestData[0], RequestedQosFlowDescriptionsExpectedTestData[0]},
+	{
+		RequestedQosFlowDescriptionsTestData[0],
+		RequestedQosFlowDescriptionsExpectedTestData[0],
+	},
 }
 
 func TestNasTypeRequestedQosFlowDescriptions(t *testing.T) {
 
 	for i, table := range RequestedQosFlowDescriptionsTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewRequestedQosFlowDescriptions(nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType)
+		a := nasType.NewRequestedQosFlowDescriptions(
+			nasMessage.PDUSessionModificationRequestRequestedQosFlowDescriptionsType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetLen(table.in.Len)
 		a.SetQoSFlowDescriptions(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

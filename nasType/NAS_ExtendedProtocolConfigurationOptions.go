@@ -13,7 +13,9 @@ type ExtendedProtocolConfigurationOptions struct {
 	Buffer []uint8
 }
 
-func NewExtendedProtocolConfigurationOptions(iei uint8) (extendedProtocolConfigurationOptions *ExtendedProtocolConfigurationOptions) {
+func NewExtendedProtocolConfigurationOptions(
+	iei uint8,
+) (extendedProtocolConfigurationOptions *ExtendedProtocolConfigurationOptions) {
 	extendedProtocolConfigurationOptions = &ExtendedProtocolConfigurationOptions{}
 	extendedProtocolConfigurationOptions.SetIei(iei)
 	return extendedProtocolConfigurationOptions
@@ -54,6 +56,8 @@ func (a *ExtendedProtocolConfigurationOptions) GetExtendedProtocolConfigurationO
 
 // ExtendedProtocolConfigurationOptions 9.11.4.6
 // ExtendedProtocolConfigurationOptionsContents Row, sBit, len = [0, 0], 8 , INF
-func (a *ExtendedProtocolConfigurationOptions) SetExtendedProtocolConfigurationOptionsContents(extendedProtocolConfigurationOptionsContents []uint8) {
+func (a *ExtendedProtocolConfigurationOptions) SetExtendedProtocolConfigurationOptionsContents(
+	extendedProtocolConfigurationOptionsContents []uint8,
+) {
 	copy(a.Buffer, extendedProtocolConfigurationOptionsContents)
 }

@@ -25,18 +25,42 @@ func NewIdentityResponse(iei uint8) (identityResponse *IdentityResponse) {
 }
 
 func (a *IdentityResponse) EncodeIdentityResponse(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.IdentityResponseMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.IdentityResponseMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, a.MobileIdentity.GetLen())
 	binary.Write(buffer, binary.BigEndian, &a.MobileIdentity.Buffer)
 }
 
 func (a *IdentityResponse) DecodeIdentityResponse(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.IdentityResponseMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.IdentityResponseMessageIdentity.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.MobileIdentity.Len)
 	a.MobileIdentity.SetLen(a.MobileIdentity.GetLen())
 	binary.Read(buffer, binary.BigEndian, &a.MobileIdentity.Buffer)

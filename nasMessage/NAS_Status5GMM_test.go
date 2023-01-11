@@ -52,11 +52,19 @@ func TestNasTypeNewStatus5GMMMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
 
-		a.STATUSMessageIdentity5GMM.SetMessageType(table.inStatus5GMMMessageIdentity)
+		a.STATUSMessageIdentity5GMM.SetMessageType(
+			table.inStatus5GMMMessageIdentity,
+		)
 
 		a.Cause5GMM = table.inCause5GMM
 

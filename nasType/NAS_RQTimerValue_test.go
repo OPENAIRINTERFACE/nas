@@ -15,16 +15,23 @@ import (
 )
 
 func TestNasTypeNewRQTimerValue(t *testing.T) {
-	a := nasType.NewRQTimerValue(nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType)
+	a := nasType.NewRQTimerValue(
+		nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType,
+	)
 	assert.NotNil(t, a)
 }
 
 var nasTypePDUSessionReleaseCompleteRQTimerValueTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType, nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType},
+	{
+		nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType,
+		nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType,
+	},
 }
 
 func TestNasTypeRQTimerValueGetSetIei(t *testing.T) {
-	a := nasType.NewRQTimerValue(nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType)
+	a := nasType.NewRQTimerValue(
+		nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType,
+	)
 	for _, table := range nasTypePDUSessionReleaseCompleteRQTimerValueTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -36,7 +43,9 @@ var nasTypeRQTimerValueUintTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeRQTimerValueGetSetUint(t *testing.T) {
-	a := nasType.NewRQTimerValue(nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType)
+	a := nasType.NewRQTimerValue(
+		nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType,
+	)
 	for _, table := range nasTypeRQTimerValueUintTable {
 		a.SetUnit(table.in)
 		assert.Equal(t, table.out, a.GetUnit())
@@ -53,7 +62,9 @@ var nasTypeRQTimerValueTimerValueTable = []nasTypeRQTimerValueTimerValueData{
 }
 
 func TestNasTypeRQTimerValueGetSetTimerValue(t *testing.T) {
-	a := nasType.NewRQTimerValue(nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType)
+	a := nasType.NewRQTimerValue(
+		nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType,
+	)
 	for _, table := range nasTypeRQTimerValueTimerValueTable {
 		a.SetTimerValue(table.in)
 		assert.Equal(t, table.out, a.GetTimerValue())
@@ -82,14 +93,32 @@ var rQTimerValueTestTable = []testRQTimerValueDataTemplate{
 func TestNasTypeRQTimerValue(t *testing.T) {
 
 	for _, table := range rQTimerValueTestTable {
-		a := nasType.NewRQTimerValue(nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType)
+		a := nasType.NewRQTimerValue(
+			nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetUnit(table.inUnit)
 		a.SetTimerValue(table.inTimerValue)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Octet, a.Octet, "in(%v): out %v, actual %x", table.in.Octet, table.out.Octet, a.Octet)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Octet,
+			a.Octet,
+			"in(%v): out %v, actual %x",
+			table.in.Octet,
+			table.out.Octet,
+			a.Octet,
+		)
 
 	}
 }

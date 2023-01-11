@@ -48,12 +48,16 @@ var nasMessageDeregistrationRequestUETerminatedDeregistrationTable = []nasMessag
 	},
 }
 
-func TestNasTypeNewDeregistrationRequestUETerminatedDeregistration(t *testing.T) {
+func TestNasTypeNewDeregistrationRequestUETerminatedDeregistration(
+	t *testing.T,
+) {
 	a := nasMessage.NewDeregistrationRequestUETerminatedDeregistration(0)
 	assert.NotNil(t, a)
 }
 
-func TestNasTypeNewDeregistrationRequestUETerminatedDeregistrationMessage(t *testing.T) {
+func TestNasTypeNewDeregistrationRequestUETerminatedDeregistrationMessage(
+	t *testing.T,
+) {
 
 	for i, table := range nasMessageDeregistrationRequestUETerminatedDeregistrationTable {
 		logger.NasMsgLog.Infoln("Test Cnt:", i)
@@ -62,17 +66,29 @@ func TestNasTypeNewDeregistrationRequestUETerminatedDeregistrationMessage(t *tes
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeaderType)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet1)
-		a.DeregistrationRequestMessageIdentity.SetMessageType(table.inDeregistrationRequestMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeaderType,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet1,
+		)
+		a.DeregistrationRequestMessageIdentity.SetMessageType(
+			table.inDeregistrationRequestMessageIdentity,
+		)
 
 		a.SpareHalfOctetAndDeregistrationType = table.inSpareHalfOctetAndDeregistrationType
 
-		a.Cause5GMM = nasType.NewCause5GMM(nasMessage.DeregistrationRequestUETerminatedDeregistrationCause5GMMType)
+		a.Cause5GMM = nasType.NewCause5GMM(
+			nasMessage.DeregistrationRequestUETerminatedDeregistrationCause5GMMType,
+		)
 		a.Cause5GMM = &table.inCause5GMM
 
-		a.T3346Value = nasType.NewT3346Value(nasMessage.DeregistrationRequestUETerminatedDeregistrationT3346ValueType)
+		a.T3346Value = nasType.NewT3346Value(
+			nasMessage.DeregistrationRequestUETerminatedDeregistrationT3346ValueType,
+		)
 		a.T3346Value = &table.inT3346Value
 
 		buff := new(bytes.Buffer)

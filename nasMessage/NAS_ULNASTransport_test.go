@@ -89,22 +89,36 @@ func TestNasTypeNewULNASTransportMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.ULNASTRANSPORTMessageIdentity.SetMessageType(table.inULNASTRANSPORTMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.ULNASTRANSPORTMessageIdentity.SetMessageType(
+			table.inULNASTRANSPORTMessageIdentity,
+		)
 
 		a.SpareHalfOctetAndPayloadContainerType = table.inSpareHalfOctetAndPayloadContainerType
 
 		a.PayloadContainer = table.inPayloadContainer
 
-		a.PduSessionID2Value = nasType.NewPduSessionID2Value(nasMessage.ULNASTransportPduSessionID2ValueType)
+		a.PduSessionID2Value = nasType.NewPduSessionID2Value(
+			nasMessage.ULNASTransportPduSessionID2ValueType,
+		)
 		a.PduSessionID2Value = &table.inPduSessionID2Value
 
-		a.OldPDUSessionID = nasType.NewOldPDUSessionID(nasMessage.ULNASTransportOldPDUSessionIDType)
+		a.OldPDUSessionID = nasType.NewOldPDUSessionID(
+			nasMessage.ULNASTransportOldPDUSessionIDType,
+		)
 		a.OldPDUSessionID = &table.inOldPDUSessionID
 
-		a.RequestType = nasType.NewRequestType(nasMessage.ULNASTransportRequestTypeType)
+		a.RequestType = nasType.NewRequestType(
+			nasMessage.ULNASTransportRequestTypeType,
+		)
 		a.RequestType = &table.inRequestType
 
 		a.SNSSAI = nasType.NewSNSSAI(nasMessage.ULNASTransportSNSSAIType)
@@ -113,7 +127,9 @@ func TestNasTypeNewULNASTransportMessage(t *testing.T) {
 		a.DNN = nasType.NewDNN(nasMessage.ULNASTransportDNNType)
 		a.DNN = &table.inDNN
 
-		a.AdditionalInformation = nasType.NewAdditionalInformation(nasMessage.ULNASTransportAdditionalInformationType)
+		a.AdditionalInformation = nasType.NewAdditionalInformation(
+			nasMessage.ULNASTransportAdditionalInformationType,
+		)
 		a.AdditionalInformation = &table.inAdditionalInformation
 
 		buff := new(bytes.Buffer)

@@ -30,7 +30,11 @@ type nasMessageAuthenticationResultData struct {
 }
 
 var aBBATestData = []nasType.ABBA{
-	{Iei: nasMessage.AuthenticationResultABBAType, Len: 2, Buffer: []byte{0x00, 0x00}},
+	{
+		Iei:    nasMessage.AuthenticationResultABBAType,
+		Len:    2,
+		Buffer: []byte{0x00, 0x00},
+	},
 	//{Iei: 0x81, Len: 2, Buffer: []byte{0x00, 0x00}},
 }
 
@@ -67,11 +71,19 @@ func TestNasTypeNewAuthenticationResultMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeaderType)
-		a.AuthenticationResultMessageIdentity.SetMessageType(table.inMessageType)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeaderType,
+		)
+		a.AuthenticationResultMessageIdentity.SetMessageType(
+			table.inMessageType,
+		)
 		a.SpareHalfOctetAndNgksi.SetTSC(table.inTsc)
-		a.SpareHalfOctetAndNgksi.SetNasKeySetIdentifiler(table.inNASKeySetIdentifier)
+		a.SpareHalfOctetAndNgksi.SetNasKeySetIdentifiler(
+			table.inNASKeySetIdentifier,
+		)
 		a.EAPMessage.SetLen(table.inEAPLen)
 		a.EAPMessage.SetEAPMessage(table.inEAPMessage)
 

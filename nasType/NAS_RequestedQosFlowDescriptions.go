@@ -13,7 +13,9 @@ type RequestedQosFlowDescriptions struct {
 	Buffer []uint8
 }
 
-func NewRequestedQosFlowDescriptions(iei uint8) (requestedQosFlowDescriptions *RequestedQosFlowDescriptions) {
+func NewRequestedQosFlowDescriptions(
+	iei uint8,
+) (requestedQosFlowDescriptions *RequestedQosFlowDescriptions) {
 	requestedQosFlowDescriptions = &RequestedQosFlowDescriptions{}
 	requestedQosFlowDescriptions.SetIei(iei)
 	return requestedQosFlowDescriptions
@@ -54,6 +56,8 @@ func (a *RequestedQosFlowDescriptions) GetQoSFlowDescriptions() (qoSFlowDescript
 
 // RequestedQosFlowDescriptions 9.11.4.12
 // QoSFlowDescriptions Row, sBit, len = [0, 0], 8 , INF
-func (a *RequestedQosFlowDescriptions) SetQoSFlowDescriptions(qoSFlowDescriptions []uint8) {
+func (a *RequestedQosFlowDescriptions) SetQoSFlowDescriptions(
+	qoSFlowDescriptions []uint8,
+) {
 	copy(a.Buffer, qoSFlowDescriptions)
 }

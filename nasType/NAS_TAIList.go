@@ -54,6 +54,8 @@ func (a *TAIList) GetPartialTrackingAreaIdentityList() (partialTrackingAreaIdent
 
 // TAIList 9.11.3.9
 // PartialTrackingAreaIdentityList Row, sBit, len = [0, 0], 8 , INF
-func (a *TAIList) SetPartialTrackingAreaIdentityList(partialTrackingAreaIdentityList []uint8) {
+func (a *TAIList) SetPartialTrackingAreaIdentityList(
+	partialTrackingAreaIdentityList []uint8,
+) {
 	copy(a.Buffer, partialTrackingAreaIdentityList)
 }

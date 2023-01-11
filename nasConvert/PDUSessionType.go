@@ -10,7 +10,9 @@ import (
 	"github.com/omec-project/openapi/models"
 )
 
-func PDUSessionTypeToModels(nasPduSessType uint8) (pduSessType models.PduSessionType) {
+func PDUSessionTypeToModels(
+	nasPduSessType uint8,
+) (pduSessType models.PduSessionType) {
 	switch nasPduSessType {
 	case nasMessage.PDUSessionTypeIPv4:
 		pduSessType = models.PduSessionType_IPV4
@@ -27,7 +29,9 @@ func PDUSessionTypeToModels(nasPduSessType uint8) (pduSessType models.PduSession
 	return
 }
 
-func ModelsToPDUSessionType(pduSessType models.PduSessionType) (nasPduSessType uint8) {
+func ModelsToPDUSessionType(
+	pduSessType models.PduSessionType,
+) (nasPduSessType uint8) {
 	switch pduSessType {
 	case models.PduSessionType_IPV4:
 		nasPduSessType = nasMessage.PDUSessionTypeIPv4

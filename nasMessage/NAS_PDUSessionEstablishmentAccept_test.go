@@ -62,9 +62,22 @@ var nasMessagePDUSessionEstablishmentAcceptTable = []nasMessagePDUSessionEstabli
 			Octet: 0x01,
 		},
 		inPDUAddress: nasType.PDUAddress{
-			Iei:   nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
-			Len:   13,
-			Octet: [13]uint8{0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C},
+			Iei: nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+			Len: 13,
+			Octet: [13]uint8{
+				0x01,
+				0x02,
+				0x03,
+				0x04,
+				0x05,
+				0x06,
+				0x07,
+				0x08,
+				0x09,
+				0x0A,
+				0x0B,
+				0x0C,
+			},
 		},
 		inRQTimerValue: nasType.RQTimerValue{
 			Iei:   nasMessage.PDUSessionEstablishmentAcceptRQTimerValueType,
@@ -120,39 +133,61 @@ func TestNasTypeNewPDUSessionEstablishmentAcceptMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONESTABLISHMENTACCEPTMessageIdentity.SetMessageType(table.inPDUSESSIONESTABLISHMENTACCEPTMessageIdentity)
+		a.PDUSESSIONESTABLISHMENTACCEPTMessageIdentity.SetMessageType(
+			table.inPDUSESSIONESTABLISHMENTACCEPTMessageIdentity,
+		)
 		a.SelectedSSCModeAndSelectedPDUSessionType = table.inSelectedSSCModeAndSelectedPDUSessionType
 		a.AuthorizedQosRules = table.inAuthorizedQosRules
 		a.SessionAMBR = table.inSessionAMBR
 
-		a.Cause5GSM = nasType.NewCause5GSM(nasMessage.PDUSessionEstablishmentAcceptCause5GSMType)
+		a.Cause5GSM = nasType.NewCause5GSM(
+			nasMessage.PDUSessionEstablishmentAcceptCause5GSMType,
+		)
 		a.Cause5GSM = &table.inCause5GSM
 
-		a.PDUAddress = nasType.NewPDUAddress(nasMessage.PDUSessionEstablishmentAcceptPDUAddressType)
+		a.PDUAddress = nasType.NewPDUAddress(
+			nasMessage.PDUSessionEstablishmentAcceptPDUAddressType,
+		)
 		a.PDUAddress = &table.inPDUAddress
 
-		a.RQTimerValue = nasType.NewRQTimerValue(nasMessage.PDUSessionEstablishmentAcceptSNSSAIType)
+		a.RQTimerValue = nasType.NewRQTimerValue(
+			nasMessage.PDUSessionEstablishmentAcceptSNSSAIType,
+		)
 		a.RQTimerValue = &table.inRQTimerValue
 
-		a.SNSSAI = nasType.NewSNSSAI(nasMessage.PDUSessionEstablishmentAcceptSNSSAIType)
+		a.SNSSAI = nasType.NewSNSSAI(
+			nasMessage.PDUSessionEstablishmentAcceptSNSSAIType,
+		)
 		a.SNSSAI = &table.inSNSSAI
 
-		a.AlwaysonPDUSessionIndication = nasType.NewAlwaysonPDUSessionIndication(nasMessage.PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationType)
+		a.AlwaysonPDUSessionIndication = nasType.NewAlwaysonPDUSessionIndication(
+			nasMessage.PDUSessionEstablishmentAcceptAlwaysonPDUSessionIndicationType,
+		)
 		a.AlwaysonPDUSessionIndication = &table.inAlwaysonPDUSessionIndication
 
-		a.MappedEPSBearerContexts = nasType.NewMappedEPSBearerContexts(nasMessage.PDUSessionEstablishmentAcceptMappedEPSBearerContextsType)
+		a.MappedEPSBearerContexts = nasType.NewMappedEPSBearerContexts(
+			nasMessage.PDUSessionEstablishmentAcceptMappedEPSBearerContextsType,
+		)
 		a.MappedEPSBearerContexts = &table.inMappedEPSBearerContexts
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.PDUSessionEstablishmentAcceptEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.PDUSessionEstablishmentAcceptEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
-		a.AuthorizedQosFlowDescriptions = nasType.NewAuthorizedQosFlowDescriptions(nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType)
+		a.AuthorizedQosFlowDescriptions = nasType.NewAuthorizedQosFlowDescriptions(
+			nasMessage.PDUSessionEstablishmentAcceptAuthorizedQosFlowDescriptionsType,
+		)
 		a.AuthorizedQosFlowDescriptions = &table.inAuthorizedQosFlowDescriptions
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionEstablishmentAcceptExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionEstablishmentAcceptExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		a.DNN = nasType.NewDNN(nasMessage.PDUSessionEstablishmentAcceptDNNType)

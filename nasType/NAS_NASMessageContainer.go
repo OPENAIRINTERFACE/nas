@@ -13,7 +13,9 @@ type NASMessageContainer struct {
 	Buffer []uint8
 }
 
-func NewNASMessageContainer(iei uint8) (nASMessageContainer *NASMessageContainer) {
+func NewNASMessageContainer(
+	iei uint8,
+) (nASMessageContainer *NASMessageContainer) {
 	nASMessageContainer = &NASMessageContainer{}
 	nASMessageContainer.SetIei(iei)
 	return nASMessageContainer
@@ -54,6 +56,8 @@ func (a *NASMessageContainer) GetNASMessageContainerContents() (nASMessageContai
 
 // NASMessageContainer 9.11.3.33
 // NASMessageContainerContents Row, sBit, len = [0, 0], 8 , INF
-func (a *NASMessageContainer) SetNASMessageContainerContents(nASMessageContainerContents []uint8) {
+func (a *NASMessageContainer) SetNASMessageContainerContents(
+	nASMessageContainerContents []uint8,
+) {
 	copy(a.Buffer, nASMessageContainerContents)
 }

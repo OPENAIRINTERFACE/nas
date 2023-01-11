@@ -57,14 +57,20 @@ func TestNasTypeNewPDUSessionReleaseRejectMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONRELEASEREJECTMessageIdentity.SetMessageType(table.inPDUSESSIONRELEASEREJECTMessageIdentity)
+		a.PDUSESSIONRELEASEREJECTMessageIdentity.SetMessageType(
+			table.inPDUSESSIONRELEASEREJECTMessageIdentity,
+		)
 
 		a.Cause5GSM = table.inCause5GSM
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionReleaseRejectExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionReleaseRejectExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

@@ -58,15 +58,23 @@ func TestNasTypeNewPDUSessionReleaseCompleteMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONRELEASECOMPLETEMessageIdentity.SetMessageType(table.inPDUSESSIONRELEASECOMPLETEMessageIdentity)
+		a.PDUSESSIONRELEASECOMPLETEMessageIdentity.SetMessageType(
+			table.inPDUSESSIONRELEASECOMPLETEMessageIdentity,
+		)
 
-		a.Cause5GSM = nasType.NewCause5GSM(nasMessage.PDUSessionReleaseCompleteCause5GSMType)
+		a.Cause5GSM = nasType.NewCause5GSM(
+			nasMessage.PDUSessionReleaseCompleteCause5GSMType,
+		)
 		a.Cause5GSM = &table.inCause5GSM
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionReleaseCompleteExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionReleaseCompleteExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

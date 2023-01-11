@@ -13,7 +13,9 @@ type Non3GppDeregistrationTimerValue struct {
 	Octet uint8
 }
 
-func NewNon3GppDeregistrationTimerValue(iei uint8) (non3GppDeregistrationTimerValue *Non3GppDeregistrationTimerValue) {
+func NewNon3GppDeregistrationTimerValue(
+	iei uint8,
+) (non3GppDeregistrationTimerValue *Non3GppDeregistrationTimerValue) {
 	non3GppDeregistrationTimerValue = &Non3GppDeregistrationTimerValue{}
 	non3GppDeregistrationTimerValue.SetIei(iei)
 	return non3GppDeregistrationTimerValue
@@ -51,6 +53,8 @@ func (a *Non3GppDeregistrationTimerValue) GetGPRSTimer2Value() (gPRSTimer2Value 
 
 // Non3GppDeregistrationTimerValue 9.11.2.4
 // GPRSTimer2Value Row, sBit, len = [0, 0], 8 , 8
-func (a *Non3GppDeregistrationTimerValue) SetGPRSTimer2Value(gPRSTimer2Value uint8) {
+func (a *Non3GppDeregistrationTimerValue) SetGPRSTimer2Value(
+	gPRSTimer2Value uint8,
+) {
 	a.Octet = gPRSTimer2Value
 }

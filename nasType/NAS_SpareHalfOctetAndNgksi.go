@@ -50,6 +50,8 @@ func (a *SpareHalfOctetAndNgksi) GetNasKeySetIdentifiler() (nasKeySetIdentifiler
 
 // SpareHalfOctetAndNgksi 9.11.3.32 9.5
 // NasKeySetIdentifiler Row, sBit, len = [0, 0], 3 , 3
-func (a *SpareHalfOctetAndNgksi) SetNasKeySetIdentifiler(nasKeySetIdentifiler uint8) {
+func (a *SpareHalfOctetAndNgksi) SetNasKeySetIdentifiler(
+	nasKeySetIdentifiler uint8,
+) {
 	a.Octet = (a.Octet & 248) + (nasKeySetIdentifiler & 7)
 }

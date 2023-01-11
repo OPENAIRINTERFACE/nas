@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewUniversalTimeAndLocalTimeZone(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeServiceRequestUniversalTimeAndLocalTimeZoneTable = []NasTypeIeiData{
-	{nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType, nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType},
+	{
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	},
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZoneGetSetIei(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range nasTypeServiceRequestUniversalTimeAndLocalTimeZoneTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -43,7 +50,9 @@ var nasTypeUniversalTimeAndLocalTimeZoneYearTable = []nasTypeUniversalTimeAndLoc
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZoneGetSetYear(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range nasTypeUniversalTimeAndLocalTimeZoneYearTable {
 
 		a.SetYear(table.in)
@@ -63,7 +72,9 @@ var nasTypeUniversalTimeAndLocalTimeZoneMonthTable = []nasTypeUniversalTimeAndLo
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZoneGetSetMonth(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range nasTypeUniversalTimeAndLocalTimeZoneMonthTable {
 		a.SetMonth(table.in)
 
@@ -82,7 +93,9 @@ var nasTypeUniversalTimeAndLocalTimeZoneDayTable = []nasTypeUniversalTimeAndLoca
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZoneGetSetDay(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range nasTypeUniversalTimeAndLocalTimeZoneDayTable {
 		a.SetDay(table.in)
 
@@ -101,7 +114,9 @@ var nasTypeUniversalTimeAndLocalTimeZoneHourTable = []nasTypeUniversalTimeAndLoc
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZoneGetSetHour(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range nasTypeUniversalTimeAndLocalTimeZoneHourTable {
 		a.SetHour(table.in)
 
@@ -120,7 +135,9 @@ var nasTypeUniversalTimeAndLocalTimeZoneMinuteTable = []nasTypeUniversalTimeAndL
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZoneGetSetMinute(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range nasTypeUniversalTimeAndLocalTimeZoneMinuteTable {
 
 		a.SetMinute(table.in)
@@ -140,7 +157,9 @@ var nasTypeUniversalTimeAndLocalTimeZoneSecondTable = []nasTypeUniversalTimeAndL
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZoneGetSetSecond(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range nasTypeUniversalTimeAndLocalTimeZoneSecondTable {
 
 		a.SetSecond(table.in)
@@ -160,7 +179,9 @@ var nasTypeUniversalTimeAndLocalTimeZoneTimeZoneTable = []nasTypeUniversalTimeAn
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZoneGetSetTimeZone(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range nasTypeUniversalTimeAndLocalTimeZoneTimeZoneTable {
 
 		a.SetTimeZone(table.in)
@@ -175,19 +196,30 @@ type testUniversalTimeAndLocalTimeZoneDataTemplate struct {
 }
 
 var UniversalTimeAndLocalTimeZoneTestData = []nasType.UniversalTimeAndLocalTimeZone{
-	{nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType, [7]uint8{}},
+	{
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+		[7]uint8{},
+	},
 }
 
 var UniversalTimeAndLocalTimeZoneExpectedData = []nasType.UniversalTimeAndLocalTimeZone{
-	{nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType, [7]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01}},
+	{
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+		[7]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01},
+	},
 }
 
 var UniversalTimeAndLocalTimeZoneTable = []testUniversalTimeAndLocalTimeZoneDataTemplate{
-	{UniversalTimeAndLocalTimeZoneTestData[0], UniversalTimeAndLocalTimeZoneExpectedData[0]},
+	{
+		UniversalTimeAndLocalTimeZoneTestData[0],
+		UniversalTimeAndLocalTimeZoneExpectedData[0],
+	},
 }
 
 func TestNasTypeUniversalTimeAndLocalTimeZone(t *testing.T) {
-	a := nasType.NewUniversalTimeAndLocalTimeZone(nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType)
+	a := nasType.NewUniversalTimeAndLocalTimeZone(
+		nasMessage.ConfigurationUpdateCommandUniversalTimeAndLocalTimeZoneType,
+	)
 	for _, table := range UniversalTimeAndLocalTimeZoneTable {
 		a.SetYear(0x01)
 		a.SetMonth(0x01)

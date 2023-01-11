@@ -25,7 +25,9 @@ func (a *SpareHalfOctetAndSecurityHeaderType) GetSpareHalfOctet() (spareHalfOcte
 
 // SpareHalfOctetAndSecurityHeaderType 9.3 9.5
 // SpareHalfOctet Row, sBit, len = [0, 0], 8 , 4
-func (a *SpareHalfOctetAndSecurityHeaderType) SetSpareHalfOctet(spareHalfOctet uint8) {
+func (a *SpareHalfOctetAndSecurityHeaderType) SetSpareHalfOctet(
+	spareHalfOctet uint8,
+) {
 	a.Octet = (a.Octet & 15) + ((spareHalfOctet & 15) << 4)
 }
 
@@ -37,6 +39,8 @@ func (a *SpareHalfOctetAndSecurityHeaderType) GetSecurityHeaderType() (securityH
 
 // SpareHalfOctetAndSecurityHeaderType 9.3 9.5
 // SecurityHeaderType Row, sBit, len = [0, 0], 4 , 4
-func (a *SpareHalfOctetAndSecurityHeaderType) SetSecurityHeaderType(securityHeaderType uint8) {
+func (a *SpareHalfOctetAndSecurityHeaderType) SetSecurityHeaderType(
+	securityHeaderType uint8,
+) {
 	a.Octet = (a.Octet & 240) + (securityHeaderType & 15)
 }

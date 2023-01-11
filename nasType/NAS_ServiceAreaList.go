@@ -54,6 +54,8 @@ func (a *ServiceAreaList) GetPartialServiceAreaList() (partialServiceAreaList []
 
 // ServiceAreaList 9.11.3.49
 // PartialServiceAreaList Row, sBit, len = [0, 0], 8 , INF
-func (a *ServiceAreaList) SetPartialServiceAreaList(partialServiceAreaList []uint8) {
+func (a *ServiceAreaList) SetPartialServiceAreaList(
+	partialServiceAreaList []uint8,
+) {
 	copy(a.Buffer, partialServiceAreaList)
 }

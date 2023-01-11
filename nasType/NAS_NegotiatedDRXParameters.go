@@ -13,7 +13,9 @@ type NegotiatedDRXParameters struct {
 	Octet uint8
 }
 
-func NewNegotiatedDRXParameters(iei uint8) (negotiatedDRXParameters *NegotiatedDRXParameters) {
+func NewNegotiatedDRXParameters(
+	iei uint8,
+) (negotiatedDRXParameters *NegotiatedDRXParameters) {
 	negotiatedDRXParameters = &NegotiatedDRXParameters{}
 	negotiatedDRXParameters.SetIei(iei)
 	return negotiatedDRXParameters

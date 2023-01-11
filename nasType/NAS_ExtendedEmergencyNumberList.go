@@ -14,7 +14,9 @@ type ExtendedEmergencyNumberList struct {
 	Buffer []uint8
 }
 
-func NewExtendedEmergencyNumberList(iei uint8) (extendedEmergencyNumberList *ExtendedEmergencyNumberList) {
+func NewExtendedEmergencyNumberList(
+	iei uint8,
+) (extendedEmergencyNumberList *ExtendedEmergencyNumberList) {
 	extendedEmergencyNumberList = &ExtendedEmergencyNumberList{}
 	extendedEmergencyNumberList.SetIei(iei)
 	return extendedEmergencyNumberList
@@ -67,6 +69,8 @@ func (a *ExtendedEmergencyNumberList) GetEmergencyInformation() (emergencyInform
 
 // ExtendedEmergencyNumberList 9.11.3.26
 // EmergencyInformation Row, sBit, len = [0, 0], 8 , INF
-func (a *ExtendedEmergencyNumberList) SetEmergencyInformation(emergencyInformation []uint8) {
+func (a *ExtendedEmergencyNumberList) SetEmergencyInformation(
+	emergencyInformation []uint8,
+) {
 	copy(a.Buffer, emergencyInformation)
 }

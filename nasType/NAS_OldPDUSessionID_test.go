@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewOldPDUSessionID(t *testing.T) {
-	a := nasType.NewOldPDUSessionID(nasMessage.ULNASTransportOldPDUSessionIDType)
+	a := nasType.NewOldPDUSessionID(
+		nasMessage.ULNASTransportOldPDUSessionIDType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeOldPDUSessionIDULNASTransportOldPDUSessionIDTypeTable = []NasTypeIeiData{
-	{nasMessage.ULNASTransportOldPDUSessionIDType, nasMessage.ULNASTransportOldPDUSessionIDType},
+	{
+		nasMessage.ULNASTransportOldPDUSessionIDType,
+		nasMessage.ULNASTransportOldPDUSessionIDType,
+	},
 }
 
 func TestNasTypeOldPDUSessionIDGetSetIei(t *testing.T) {
-	a := nasType.NewOldPDUSessionID(nasMessage.ULNASTransportOldPDUSessionIDType)
+	a := nasType.NewOldPDUSessionID(
+		nasMessage.ULNASTransportOldPDUSessionIDType,
+	)
 	for _, table := range nasTypeOldPDUSessionIDULNASTransportOldPDUSessionIDTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -42,7 +49,9 @@ var nasTypeOldPDUSessionIDPduSessionIdentity2ValueTable = []nasTypeOldPDUSession
 }
 
 func TestNasTypeOldPDUSessionIDGetSetOldPDUSessionID(t *testing.T) {
-	a := nasType.NewOldPDUSessionID(nasMessage.ULNASTransportOldPDUSessionIDType)
+	a := nasType.NewOldPDUSessionID(
+		nasMessage.ULNASTransportOldPDUSessionIDType,
+	)
 	for _, table := range nasTypeOldPDUSessionIDPduSessionIdentity2ValueTable {
 		a.SetOldPDUSessionID(table.in)
 		assert.Equal(t, table.out, a.GetOldPDUSessionID())
@@ -62,11 +71,17 @@ var nasTypeOldPDUSessionIDTable = []nasTypeOldPDUSessionID{
 }
 
 func TestNasTypeOldPDUSessionID(t *testing.T) {
-	a := nasType.NewOldPDUSessionID(nasMessage.ULNASTransportOldPDUSessionIDType)
+	a := nasType.NewOldPDUSessionID(
+		nasMessage.ULNASTransportOldPDUSessionIDType,
+	)
 	for _, table := range nasTypeOldPDUSessionIDTable {
 		a.SetIei(table.inIei)
 		a.SetOldPDUSessionID(table.inPduSessionIdentity2Value)
 		assert.Equal(t, table.outIei, a.GetIei())
-		assert.Equal(t, table.outPduSessionIdentity2Value, a.GetOldPDUSessionID())
+		assert.Equal(
+			t,
+			table.outPduSessionIdentity2Value,
+			a.GetOldPDUSessionID(),
+		)
 	}
 }

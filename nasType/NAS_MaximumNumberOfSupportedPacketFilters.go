@@ -12,7 +12,9 @@ type MaximumNumberOfSupportedPacketFilters struct {
 	Octet [2]uint8
 }
 
-func NewMaximumNumberOfSupportedPacketFilters(iei uint8) (maximumNumberOfSupportedPacketFilters *MaximumNumberOfSupportedPacketFilters) {
+func NewMaximumNumberOfSupportedPacketFilters(
+	iei uint8,
+) (maximumNumberOfSupportedPacketFilters *MaximumNumberOfSupportedPacketFilters) {
 	maximumNumberOfSupportedPacketFilters = &MaximumNumberOfSupportedPacketFilters{}
 	maximumNumberOfSupportedPacketFilters.SetIei(iei)
 	return maximumNumberOfSupportedPacketFilters
@@ -38,7 +40,14 @@ func (a *MaximumNumberOfSupportedPacketFilters) GetMaximumNumberOfSupportedPacke
 
 // MaximumNumberOfSupportedPacketFilters 9.11.4.9
 // MaximumNumberOfSupportedPacketFilters Row, sBit, len = [0, 1], 8 , 10
-func (a *MaximumNumberOfSupportedPacketFilters) SetMaximumNumberOfSupportedPacketFilters(maximumNumberOfSupportedPacketFilters uint16) {
+func (a *MaximumNumberOfSupportedPacketFilters) SetMaximumNumberOfSupportedPacketFilters(
+	maximumNumberOfSupportedPacketFilters uint16,
+) {
 	a.Octet[0] = uint8((maximumNumberOfSupportedPacketFilters)>>2) & 255
-	a.Octet[1] = a.Octet[1]&GetBitMask(6, 6) + uint8(maximumNumberOfSupportedPacketFilters&3)<<6
+	a.Octet[1] = a.Octet[1]&GetBitMask(
+		6,
+		6,
+	) + uint8(
+		maximumNumberOfSupportedPacketFilters&3,
+	)<<6
 }

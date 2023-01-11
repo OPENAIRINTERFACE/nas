@@ -50,7 +50,9 @@ type ReplayedS1UESecurityCapabilities struct {
 	Buffer []uint8
 }
 
-func NewReplayedS1UESecurityCapabilities(iei uint8) (replayedS1UESecurityCapabilities *ReplayedS1UESecurityCapabilities) {
+func NewReplayedS1UESecurityCapabilities(
+	iei uint8,
+) (replayedS1UESecurityCapabilities *ReplayedS1UESecurityCapabilities) {
 	replayedS1UESecurityCapabilities = &ReplayedS1UESecurityCapabilities{}
 	replayedS1UESecurityCapabilities.SetIei(iei)
 	return replayedS1UESecurityCapabilities

@@ -37,7 +37,10 @@ func UpuInfoToNas(upuInfo models.UpuInfo) []uint8 {
 		if data.SecPacket != "" {
 			buf = append(buf, 0x01)
 			if byteArrayTmp, err := hex.DecodeString(data.SecPacket); err != nil {
-				logger.ConvertLog.Warnf("Decode data.SecPacket failed: %+v", err)
+				logger.ConvertLog.Warnf(
+					"Decode data.SecPacket failed: %+v",
+					err,
+				)
 			} else {
 				byteArray = byteArrayTmp
 			}

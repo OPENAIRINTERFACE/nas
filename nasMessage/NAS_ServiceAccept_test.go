@@ -72,21 +72,37 @@ func TestNasTypeNewServiceAcceptMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.ServiceAcceptMessageIdentity.SetMessageType(table.inServiceAcceptMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.ServiceAcceptMessageIdentity.SetMessageType(
+			table.inServiceAcceptMessageIdentity,
+		)
 
-		a.PDUSessionStatus = nasType.NewPDUSessionStatus(nasMessage.ServiceAcceptPDUSessionStatusType)
+		a.PDUSessionStatus = nasType.NewPDUSessionStatus(
+			nasMessage.ServiceAcceptPDUSessionStatusType,
+		)
 		a.PDUSessionStatus = &table.inPDUSessionStatus
 
-		a.PDUSessionReactivationResult = nasType.NewPDUSessionReactivationResult(nasMessage.ServiceAcceptPDUSessionReactivationResultType)
+		a.PDUSessionReactivationResult = nasType.NewPDUSessionReactivationResult(
+			nasMessage.ServiceAcceptPDUSessionReactivationResultType,
+		)
 		a.PDUSessionReactivationResult = &table.inPDUSessionReactivationResult
 
-		a.PDUSessionReactivationResultErrorCause = nasType.NewPDUSessionReactivationResultErrorCause(nasMessage.ServiceAcceptPDUSessionReactivationResultErrorCauseType)
+		a.PDUSessionReactivationResultErrorCause = nasType.NewPDUSessionReactivationResultErrorCause(
+			nasMessage.ServiceAcceptPDUSessionReactivationResultErrorCauseType,
+		)
 		a.PDUSessionReactivationResultErrorCause = &table.inPDUSessionReactivationResultErrorCause
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.ServiceAcceptEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.ServiceAcceptEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
 		buff := new(bytes.Buffer)

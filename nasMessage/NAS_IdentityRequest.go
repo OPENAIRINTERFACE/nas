@@ -25,18 +25,50 @@ func NewIdentityRequest(iei uint8) (identityRequest *IdentityRequest) {
 }
 
 func (a *IdentityRequest) EncodeIdentityRequest(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.IdentityRequestMessageIdentity.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndIdentityType.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.IdentityRequestMessageIdentity.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndIdentityType.Octet,
+	)
 }
 
 func (a *IdentityRequest) DecodeIdentityRequest(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.IdentityRequestMessageIdentity.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndIdentityType.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.IdentityRequestMessageIdentity.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndIdentityType.Octet,
+	)
 	for buffer.Len() > 0 {
 		var ieiN uint8
 		var tmpIeiN uint8

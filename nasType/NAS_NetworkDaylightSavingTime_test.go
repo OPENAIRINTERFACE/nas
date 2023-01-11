@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewNetworkDaylightSavingTime(t *testing.T) {
-	a := nasType.NewNetworkDaylightSavingTime(nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType)
+	a := nasType.NewNetworkDaylightSavingTime(
+		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeNetworkDaylightSavingTimeConfigurationUpdateCommandNetworkDaylightSavingTimeable = []NasTypeIeiData{
-	{nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType, nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType},
+	{
+		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+	},
 }
 
 func TestNasTypeNetworkDaylightSavingTimeGetSetIei(t *testing.T) {
-	a := nasType.NewNetworkDaylightSavingTime(nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType)
+	a := nasType.NewNetworkDaylightSavingTime(
+		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+	)
 	for _, table := range nasTypeNetworkDaylightSavingTimeConfigurationUpdateCommandNetworkDaylightSavingTimeable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeNetworkDaylightSavingTimeLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeNetworkDaylightSavingTimeGetSetLen(t *testing.T) {
-	a := nasType.NewNetworkDaylightSavingTime(nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType)
+	a := nasType.NewNetworkDaylightSavingTime(
+		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+	)
 	for _, table := range nasTypeNetworkDaylightSavingTimeLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -54,7 +63,9 @@ var nasTypeNetworkDaylightSavingTimevalueTable = []nasTypeNetworkDaylightSavingT
 }
 
 func TestNasTypeNetworkDaylightSavingTimeGetSetvalue(t *testing.T) {
-	a := nasType.NewNetworkDaylightSavingTime(nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType)
+	a := nasType.NewNetworkDaylightSavingTime(
+		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+	)
 	for _, table := range nasTypeNetworkDaylightSavingTimevalueTable {
 		a.Setvalue(table.in)
 		assert.Equal(t, table.out, a.Getvalue())
@@ -71,22 +82,54 @@ type testNetworkDaylightSavingTimeDataTemplate struct {
 }
 
 var testNetworkDaylightSavingTimeTestTable = []testNetworkDaylightSavingTimeDataTemplate{
-	{nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType, 2, 0x03,
-		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType, 2, 0x03},
+	{
+		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+		2,
+		0x03,
+		nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+		2,
+		0x03,
+	},
 }
 
 func TestNasTypeNetworkDaylightSavingTime(t *testing.T) {
 
 	for i, table := range testNetworkDaylightSavingTimeTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewNetworkDaylightSavingTime(nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType)
+		a := nasType.NewNetworkDaylightSavingTime(
+			nasMessage.ConfigurationUpdateCommandNetworkDaylightSavingTimeType,
+		)
 
 		a.SetIei(table.inIei)
 		a.SetLen(table.inLen)
 		a.Setvalue(table.invalue)
 
-		assert.Equalf(t, table.outIei, a.Iei, "in(%v): out %v, actual %x", table.inIei, table.outIei, a.Iei)
-		assert.Equalf(t, table.outLen, a.Len, "in(%v): out %v, actual %x", table.inLen, table.outLen, a.Len)
-		assert.Equalf(t, table.outvalue, a.Getvalue(), "in(%v): out %v, actual %x", table.invalue, table.outvalue, a.Getvalue())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.outLen,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.inLen,
+			table.outLen,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.outvalue,
+			a.Getvalue(),
+			"in(%v): out %v, actual %x",
+			table.invalue,
+			table.outvalue,
+			a.Getvalue(),
+		)
 	}
 }

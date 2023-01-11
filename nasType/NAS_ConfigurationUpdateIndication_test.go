@@ -16,7 +16,9 @@ import (
 var ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput uint8 = 0x0D
 
 func TestNasTypeNewConfigurationUpdateIndication(t *testing.T) {
-	a := nasType.NewConfigurationUpdateIndication(ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput)
+	a := nasType.NewConfigurationUpdateIndication(
+		ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -25,7 +27,9 @@ var nasTypePDUSessionEstablishmentRequestConfigurationUpdateIndicationTable = []
 }
 
 func TestNasTypeConfigurationUpdateIndicationGetSetIei(t *testing.T) {
-	a := nasType.NewConfigurationUpdateIndication(ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput)
+	a := nasType.NewConfigurationUpdateIndication(
+		ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput,
+	)
 	for _, table := range nasTypePDUSessionEstablishmentRequestConfigurationUpdateIndicationTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -42,7 +46,9 @@ var nasTypeConfigurationUpdateIndicationREDTable = []nasTypeConfigurationUpdateI
 }
 
 func TestNasTypeConfigurationUpdateIndicationGetSetRED(t *testing.T) {
-	a := nasType.NewConfigurationUpdateIndication(ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput)
+	a := nasType.NewConfigurationUpdateIndication(
+		ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput,
+	)
 	for _, table := range nasTypeConfigurationUpdateIndicationREDTable {
 		a.SetRED(table.in)
 		assert.Equal(t, table.out, a.GetRED())
@@ -59,7 +65,9 @@ var nasTypeConfigurationUpdateIndicationACKTable = []nasTypeConfigurationUpdateI
 }
 
 func TestNasTypeConfigurationUpdateIndicationGetSetACK(t *testing.T) {
-	a := nasType.NewConfigurationUpdateIndication(ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput)
+	a := nasType.NewConfigurationUpdateIndication(
+		ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput,
+	)
 	for _, table := range nasTypeConfigurationUpdateIndicationACKTable {
 		a.SetACK(table.in)
 		assert.Equal(t, table.out, a.GetACK())
@@ -82,15 +90,24 @@ var configurationUpdateIndicationExpectedData = []nasType.ConfigurationUpdateInd
 }
 
 var configurationUpdateIndicationTestTable = []testConfigurationUpdateIndicationDataTemplate{
-	{0x01, 0x01, configurationUpdateIndicationTestData[0], configurationUpdateIndicationExpectedData[0]},
+	{
+		0x01,
+		0x01,
+		configurationUpdateIndicationTestData[0],
+		configurationUpdateIndicationExpectedData[0],
+	},
 }
 
 func TestNasTypeConfigurationUpdateIndication(t *testing.T) {
 
 	for _, table := range configurationUpdateIndicationTestTable {
-		a := nasType.NewConfigurationUpdateIndication(ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput)
+		a := nasType.NewConfigurationUpdateIndication(
+			ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput,
+		)
 
-		a.SetIei(ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput)
+		a.SetIei(
+			ConfigurationUpdateCommandConfigurationUpdateIndicationTypeIeiInput,
+		)
 		a.SetRED(table.inRED)
 		a.SetACK(table.inACK)
 

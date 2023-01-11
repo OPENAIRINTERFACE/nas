@@ -15,7 +15,9 @@ import (
 )
 
 // TS 24.501 9.11.3.37
-func RequestedNssaiToModels(nasNssai *nasType.RequestedNSSAI) ([]models.MappingOfSnssai, error) {
+func RequestedNssaiToModels(
+	nasNssai *nasType.RequestedNSSAI,
+) ([]models.MappingOfSnssai, error) {
 	var requestNssai []models.MappingOfSnssai
 
 	buf := nasNssai.GetSNSSAIValue()
@@ -36,7 +38,10 @@ func RequestedNssaiToModels(nasNssai *nasType.RequestedNSSAI) ([]models.MappingO
 }
 
 // TS 24.501 9.11.2.8, Length & value part of S-NSSAI IE
-func snssaiToModels(lengthOfSnssaiContents uint8, buf []byte) (models.MappingOfSnssai, error) {
+func snssaiToModels(
+	lengthOfSnssaiContents uint8,
+	buf []byte,
+) (models.MappingOfSnssai, error) {
 
 	snssai := models.MappingOfSnssai{}
 
@@ -80,11 +85,17 @@ func snssaiToModels(lengthOfSnssaiContents uint8, buf []byte) (models.MappingOfS
 		}
 		return snssai, nil
 	default:
-		return snssai, fmt.Errorf("Invalid length of S-NSSAI contents: %d", lengthOfSnssaiContents)
+		return snssai, fmt.Errorf(
+			"Invalid length of S-NSSAI contents: %d",
+			lengthOfSnssaiContents,
+		)
 	}
 }
 
-func RejectedNssaiToNas(rejectedNssaiInPlmn []models.Snssai, rejectedNssaiInTa []models.Snssai) nasType.RejectedNSSAI {
+func RejectedNssaiToNas(
+	rejectedNssaiInPlmn []models.Snssai,
+	rejectedNssaiInTa []models.Snssai,
+) nasType.RejectedNSSAI {
 	var rejectedNssaiNas nasType.RejectedNSSAI
 
 	var byteArray []uint8
@@ -93,8 +104,10 @@ func RejectedNssaiToNas(rejectedNssaiInPlmn []models.Snssai, rejectedNssaiInTa [
 			nasMessage.RejectedSnssaiCauseNotAvailableInCurrentPlmn)...)
 	}
 	for _, rejectedSnssai := range rejectedNssaiInTa {
-		byteArray = append(byteArray, RejectedSnssaiToNas(rejectedSnssai,
-			nasMessage.RejectedSnssaiCauseNotAvailableInCurrentRegistrationArea)...)
+		byteArray = append(byteArray, RejectedSnssaiToNas(
+			rejectedSnssai,
+			nasMessage.RejectedSnssaiCauseNotAvailableInCurrentRegistrationArea,
+		)...)
 	}
 
 	rejectedNssaiNas.SetLen(uint8(len(byteArray)))

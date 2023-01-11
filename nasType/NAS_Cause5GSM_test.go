@@ -21,7 +21,10 @@ func TestNasTypeNewCause5GSM(t *testing.T) {
 }
 
 var nasTypePDUSessionReleaseCompleteCause5GSMTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionReleaseCompleteCause5GSMType, nasMessage.PDUSessionReleaseCompleteCause5GSMType},
+	{
+		nasMessage.PDUSessionReleaseCompleteCause5GSMType,
+		nasMessage.PDUSessionReleaseCompleteCause5GSMType,
+	},
 }
 
 func TestNasTypeCause5GSMGetSetIei(t *testing.T) {
@@ -70,13 +73,31 @@ func TestNasTypeCause5GSM(t *testing.T) {
 
 	for i, table := range cause5GSMTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewCause5GSM(nasMessage.PDUSessionReleaseCompleteCause5GSMType)
+		a := nasType.NewCause5GSM(
+			nasMessage.PDUSessionReleaseCompleteCause5GSMType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetCauseValue(table.in.Octet)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Octet, a.Octet, "in(%v): out %v, actual %x", table.in.Octet, table.out.Octet, a.Octet)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Octet,
+			a.Octet,
+			"in(%v): out %v, actual %x",
+			table.in.Octet,
+			table.out.Octet,
+			a.Octet,
+		)
 
 	}
 }

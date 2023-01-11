@@ -13,7 +13,9 @@ type AuthenticationParameterAUTN struct {
 	Octet [16]uint8
 }
 
-func NewAuthenticationParameterAUTN(iei uint8) (authenticationParameterAUTN *AuthenticationParameterAUTN) {
+func NewAuthenticationParameterAUTN(
+	iei uint8,
+) (authenticationParameterAUTN *AuthenticationParameterAUTN) {
 	authenticationParameterAUTN = &AuthenticationParameterAUTN{}
 	authenticationParameterAUTN.SetIei(iei)
 	return authenticationParameterAUTN

@@ -13,7 +13,9 @@ type PDUSessionReactivationResultErrorCause struct {
 	Buffer []uint8
 }
 
-func NewPDUSessionReactivationResultErrorCause(iei uint8) (pDUSessionReactivationResultErrorCause *PDUSessionReactivationResultErrorCause) {
+func NewPDUSessionReactivationResultErrorCause(
+	iei uint8,
+) (pDUSessionReactivationResultErrorCause *PDUSessionReactivationResultErrorCause) {
 	pDUSessionReactivationResultErrorCause = &PDUSessionReactivationResultErrorCause{}
 	pDUSessionReactivationResultErrorCause.SetIei(iei)
 	return pDUSessionReactivationResultErrorCause
@@ -54,6 +56,8 @@ func (a *PDUSessionReactivationResultErrorCause) GetPDUSessionIDAndCauseValue() 
 
 // PDUSessionReactivationResultErrorCause 9.11.3.43
 // PDUSessionIDAndCauseValue Row, sBit, len = [0, 0], 8 , INF
-func (a *PDUSessionReactivationResultErrorCause) SetPDUSessionIDAndCauseValue(pDUSessionIDAndCauseValue []uint8) {
+func (a *PDUSessionReactivationResultErrorCause) SetPDUSessionIDAndCauseValue(
+	pDUSessionIDAndCauseValue []uint8,
+) {
 	copy(a.Buffer, pDUSessionIDAndCauseValue)
 }

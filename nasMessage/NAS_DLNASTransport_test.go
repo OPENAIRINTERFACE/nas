@@ -80,23 +80,41 @@ func TestNasTypeNewDLNASTransportMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeaderType)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet1)
-		a.DLNASTRANSPORTMessageIdentity.SetMessageType(table.inDLNASTRANSPORTMessageIdentity)
-		a.SpareHalfOctetAndPayloadContainerType.SetPayloadContainerType(table.inPayloadContainerType)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeaderType,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet1,
+		)
+		a.DLNASTRANSPORTMessageIdentity.SetMessageType(
+			table.inDLNASTRANSPORTMessageIdentity,
+		)
+		a.SpareHalfOctetAndPayloadContainerType.SetPayloadContainerType(
+			table.inPayloadContainerType,
+		)
 		a.PayloadContainer = table.inPayloadContainer
 
-		a.PduSessionID2Value = nasType.NewPduSessionID2Value(nasMessage.DLNASTransportPduSessionID2ValueType)
+		a.PduSessionID2Value = nasType.NewPduSessionID2Value(
+			nasMessage.DLNASTransportPduSessionID2ValueType,
+		)
 		a.PduSessionID2Value = &table.inPduSessionID2Value
 
-		a.AdditionalInformation = nasType.NewAdditionalInformation(nasMessage.DLNASTransportAdditionalInformationType)
+		a.AdditionalInformation = nasType.NewAdditionalInformation(
+			nasMessage.DLNASTransportAdditionalInformationType,
+		)
 		a.AdditionalInformation = &table.inAdditionalInformation
 
-		a.Cause5GMM = nasType.NewCause5GMM(nasMessage.DLNASTransportCause5GMMType)
+		a.Cause5GMM = nasType.NewCause5GMM(
+			nasMessage.DLNASTransportCause5GMMType,
+		)
 		a.Cause5GMM = &table.inCause5GMM
 
-		a.BackoffTimerValue = nasType.NewBackoffTimerValue(nasMessage.DLNASTransportBackoffTimerValueType)
+		a.BackoffTimerValue = nasType.NewBackoffTimerValue(
+			nasMessage.DLNASTransportBackoffTimerValueType,
+		)
 		a.BackoffTimerValue = &table.inBackoffTimerValue
 
 		buff := new(bytes.Buffer)

@@ -25,16 +25,32 @@ func NewStatus5GMM(iei uint8) (status5GMM *Status5GMM) {
 }
 
 func (a *Status5GMM) EncodeStatus5GMM(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.STATUSMessageIdentity5GMM.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.Cause5GMM.Octet)
 }
 
 func (a *Status5GMM) DecodeStatus5GMM(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.STATUSMessageIdentity5GMM.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.Cause5GMM.Octet)
 	for buffer.Len() > 0 {

@@ -38,7 +38,9 @@ func (a *SpareHalfOctetAndDeregistrationType) GetReRegistrationRequired() (reReg
 
 // SpareHalfOctetAndDeregistrationType 9.11.3.20 9.5
 // ReRegistrationRequired Row, sBit, len = [0, 0], 3 , 1
-func (a *SpareHalfOctetAndDeregistrationType) SetReRegistrationRequired(reRegistrationRequired uint8) {
+func (a *SpareHalfOctetAndDeregistrationType) SetReRegistrationRequired(
+	reRegistrationRequired uint8,
+) {
 	a.Octet = (a.Octet & 251) + ((reRegistrationRequired & 1) << 2)
 }
 

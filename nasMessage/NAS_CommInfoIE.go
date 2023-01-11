@@ -274,7 +274,7 @@ const (
 	SessionAMBRUnit256Pbps uint8 = 0x19
 )
 
-//TS 24.008 10.5.6.3
+// TS 24.008 10.5.6.3
 const (
 	PCSCFIPv6AddressRequestUL                                     uint16 = 0x0001
 	IMCNSubsystemSignalingFlagUL                                  uint16 = 0x0002
@@ -356,20 +356,35 @@ func Cause5GMMToString(cause uint8) string {
 	case Cause5GMMIllegalME:
 		return fmt.Sprintf("Illegal ME (%d)", Cause5GMMIllegalME)
 	case Cause5GMM5GSServicesNotAllowed:
-		return fmt.Sprintf("5GS services not allowed (%d)", Cause5GMM5GSServicesNotAllowed)
+		return fmt.Sprintf(
+			"5GS services not allowed (%d)",
+			Cause5GMM5GSServicesNotAllowed,
+		)
 	case Cause5GMMUEIdentityCannotBeDerivedByTheNetwork:
 		return fmt.Sprintf("UE identity cannot be derived by the network (%d)",
 			Cause5GMMUEIdentityCannotBeDerivedByTheNetwork)
 	case Cause5GMMImplicitlyDeregistered:
-		return fmt.Sprintf("Implicitly deregistered (%d)", Cause5GMMImplicitlyDeregistered)
+		return fmt.Sprintf(
+			"Implicitly deregistered (%d)",
+			Cause5GMMImplicitlyDeregistered,
+		)
 	case Cause5GMMPLMNNotAllowed:
 		return fmt.Sprintf("PLMN not allowed (%d)", Cause5GMMPLMNNotAllowed)
 	case Cause5GMMTrackingAreaNotAllowed:
-		return fmt.Sprintf("Tracking area not allowed (%d)", Cause5GMMTrackingAreaNotAllowed)
+		return fmt.Sprintf(
+			"Tracking area not allowed (%d)",
+			Cause5GMMTrackingAreaNotAllowed,
+		)
 	case Cause5GMMRoamingNotAllowedInThisTrackingArea:
-		return fmt.Sprintf("Roaming not allowed in this tracking area (%d)", Cause5GMMRoamingNotAllowedInThisTrackingArea)
+		return fmt.Sprintf(
+			"Roaming not allowed in this tracking area (%d)",
+			Cause5GMMRoamingNotAllowedInThisTrackingArea,
+		)
 	case Cause5GMMNoSuitableCellsInTrackingArea:
-		return fmt.Sprintf("No suitable cells in tracking area (%d)", Cause5GMMNoSuitableCellsInTrackingArea)
+		return fmt.Sprintf(
+			"No suitable cells in tracking area (%d)",
+			Cause5GMMNoSuitableCellsInTrackingArea,
+		)
 	case Cause5GMMMACFailure:
 		return fmt.Sprintf("MAC failure (%d)", Cause5GMMMACFailure)
 	case Cause5GMMSynchFailure:
@@ -377,58 +392,115 @@ func Cause5GMMToString(cause uint8) string {
 	case Cause5GMMCongestion:
 		return fmt.Sprintf("Congestion (%d)", Cause5GMMCongestion)
 	case Cause5GMMUESecurityCapabilitiesMismatch:
-		return fmt.Sprintf("UE security capabilities mismatch (%d)", Cause5GMMUESecurityCapabilitiesMismatch)
+		return fmt.Sprintf(
+			"UE security capabilities mismatch (%d)",
+			Cause5GMMUESecurityCapabilitiesMismatch,
+		)
 	case Cause5GMMSecurityModeRejectedUnspecified:
-		return fmt.Sprintf("Security mode rejected, upspecified (%d)", Cause5GMMSecurityModeRejectedUnspecified)
+		return fmt.Sprintf(
+			"Security mode rejected, upspecified (%d)",
+			Cause5GMMSecurityModeRejectedUnspecified,
+		)
 	case Cause5GMMNon5GAuthenticationUnacceptable:
-		return fmt.Sprintf("Non 5G authentication unacceptable (%d)", Cause5GMMNon5GAuthenticationUnacceptable)
+		return fmt.Sprintf(
+			"Non 5G authentication unacceptable (%d)",
+			Cause5GMMNon5GAuthenticationUnacceptable,
+		)
 	case Cause5GMMN1ModeNotAllowed:
-		return fmt.Sprintf("N1 mode not allowed (%d)", Cause5GMMN1ModeNotAllowed)
+		return fmt.Sprintf(
+			"N1 mode not allowed (%d)",
+			Cause5GMMN1ModeNotAllowed,
+		)
 	case Cause5GMMRestrictedServiceArea:
-		return fmt.Sprintf("Restricted service area (%d)", Cause5GMMRestrictedServiceArea)
+		return fmt.Sprintf(
+			"Restricted service area (%d)",
+			Cause5GMMRestrictedServiceArea,
+		)
 	case Cause5GMMLADNNotAvailable:
 		return fmt.Sprintf("LADN not available (%d)", Cause5GMMLADNNotAvailable)
 	case Cause5GMMMaximumNumberOfPDUSessionsReached:
-		return fmt.Sprintf("Maximum number of PDU sessions reached (%d)", Cause5GMMMaximumNumberOfPDUSessionsReached)
+		return fmt.Sprintf(
+			"Maximum number of PDU sessions reached (%d)",
+			Cause5GMMMaximumNumberOfPDUSessionsReached,
+		)
 	case Cause5GMMInsufficientResourcesForSpecificSliceAndDNN:
-		return fmt.Sprintf("Insufficient resources for specific slice and DNN (%d)",
-			Cause5GMMInsufficientResourcesForSpecificSliceAndDNN)
+		return fmt.Sprintf(
+			"Insufficient resources for specific slice and DNN (%d)",
+			Cause5GMMInsufficientResourcesForSpecificSliceAndDNN,
+		)
 	case Cause5GMMInsufficientResourcesForSpecificSlice:
-		return fmt.Sprintf("Insufficient resources for specific slice (%d)", Cause5GMMInsufficientResourcesForSpecificSlice)
+		return fmt.Sprintf(
+			"Insufficient resources for specific slice (%d)",
+			Cause5GMMInsufficientResourcesForSpecificSlice,
+		)
 	case Cause5GMMngKSIAlreadyInUse:
-		return fmt.Sprintf("ngKSI already in use (%d)", Cause5GMMngKSIAlreadyInUse)
+		return fmt.Sprintf(
+			"ngKSI already in use (%d)",
+			Cause5GMMngKSIAlreadyInUse,
+		)
 	case Cause5GMMNon3GPPAccessTo5GCNNotAllowed:
-		return fmt.Sprintf("Non-3GPP access to 5GCN not allowed (%d)", Cause5GMMNon3GPPAccessTo5GCNNotAllowed)
+		return fmt.Sprintf(
+			"Non-3GPP access to 5GCN not allowed (%d)",
+			Cause5GMMNon3GPPAccessTo5GCNNotAllowed,
+		)
 	case Cause5GMMServingNetworkNotAuthorized:
-		return fmt.Sprintf("Serving network not authorized (%d)", Cause5GMMServingNetworkNotAuthorized)
+		return fmt.Sprintf(
+			"Serving network not authorized (%d)",
+			Cause5GMMServingNetworkNotAuthorized,
+		)
 	case Cause5GMMPayloadWasNotForwarded:
-		return fmt.Sprintf("Payload was not forwarded (%d)", Cause5GMMPayloadWasNotForwarded)
+		return fmt.Sprintf(
+			"Payload was not forwarded (%d)",
+			Cause5GMMPayloadWasNotForwarded,
+		)
 	case Cause5GMMDNNNotSupportedOrNotSubscribedInTheSlice:
-		return fmt.Sprintf("DNN not supported or not subscribed in the slice (%d)",
-			Cause5GMMDNNNotSupportedOrNotSubscribedInTheSlice)
+		return fmt.Sprintf(
+			"DNN not supported or not subscribed in the slice (%d)",
+			Cause5GMMDNNNotSupportedOrNotSubscribedInTheSlice,
+		)
 	case Cause5GMMInsufficientUserPlaneResourcesForThePDUSession:
-		return fmt.Sprintf("Insufficient user plane resources for the PDU session (%d)",
-			Cause5GMMInsufficientUserPlaneResourcesForThePDUSession)
+		return fmt.Sprintf(
+			"Insufficient user plane resources for the PDU session (%d)",
+			Cause5GMMInsufficientUserPlaneResourcesForThePDUSession,
+		)
 	case Cause5GMMSemanticallyIncorrectMessage:
-		return fmt.Sprintf("Semantically incorrect message (%d)", Cause5GMMSemanticallyIncorrectMessage)
+		return fmt.Sprintf(
+			"Semantically incorrect message (%d)",
+			Cause5GMMSemanticallyIncorrectMessage,
+		)
 	case Cause5GMMInvalidMandatoryInformation:
-		return fmt.Sprintf("Invalid mandatory information (%d)", Cause5GMMInvalidMandatoryInformation)
+		return fmt.Sprintf(
+			"Invalid mandatory information (%d)",
+			Cause5GMMInvalidMandatoryInformation,
+		)
 	case Cause5GMMMessageTypeNonExistentOrNotImplemented:
 		return fmt.Sprintf("Message type non existent or not implemented (%d)",
 			Cause5GMMMessageTypeNonExistentOrNotImplemented)
 	case Cause5GMMMessageTypeNotCompatibleWithTheProtocolState:
-		return fmt.Sprintf("Message type not compatible with the protocol state (%d)",
-			Cause5GMMMessageTypeNotCompatibleWithTheProtocolState)
+		return fmt.Sprintf(
+			"Message type not compatible with the protocol state (%d)",
+			Cause5GMMMessageTypeNotCompatibleWithTheProtocolState,
+		)
 	case Cause5GMMInformationElementNonExistentOrNotImplemented:
-		return fmt.Sprintf("Information element non existent or not implemented (%d)",
-			Cause5GMMInformationElementNonExistentOrNotImplemented)
+		return fmt.Sprintf(
+			"Information element non existent or not implemented (%d)",
+			Cause5GMMInformationElementNonExistentOrNotImplemented,
+		)
 	case Cause5GMMConditionalIEError:
-		return fmt.Sprintf("Conditional IE error (%d)", Cause5GMMConditionalIEError)
+		return fmt.Sprintf(
+			"Conditional IE error (%d)",
+			Cause5GMMConditionalIEError,
+		)
 	case Cause5GMMMessageNotCompatibleWithTheProtocolState:
-		return fmt.Sprintf("Message not compatible with the protocol state (%d)",
-			Cause5GMMMessageNotCompatibleWithTheProtocolState)
+		return fmt.Sprintf(
+			"Message not compatible with the protocol state (%d)",
+			Cause5GMMMessageNotCompatibleWithTheProtocolState,
+		)
 	case Cause5GMMProtocolErrorUnspecified:
-		return fmt.Sprintf("Protocol error unspecified (%d)", Cause5GMMProtocolErrorUnspecified)
+		return fmt.Sprintf(
+			"Protocol error unspecified (%d)",
+			Cause5GMMProtocolErrorUnspecified,
+		)
 	default:
 		return ""
 	}

@@ -75,22 +75,32 @@ func TestNasTypeNewPDUSessionEstablishmentRejectMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
 		a.PDUSESSIONESTABLISHMENTREJECTMessageIdentity.SetMessageType(0)
 		a.Cause5GSM = table.inCause5GSM
 
-		a.BackoffTimerValue = nasType.NewBackoffTimerValue(nasMessage.PDUSessionEstablishmentRejectBackoffTimerValueType)
+		a.BackoffTimerValue = nasType.NewBackoffTimerValue(
+			nasMessage.PDUSessionEstablishmentRejectBackoffTimerValueType,
+		)
 		a.BackoffTimerValue = &table.inBackoffTimerValue
 
-		a.AllowedSSCMode = nasType.NewAllowedSSCMode(nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType)
+		a.AllowedSSCMode = nasType.NewAllowedSSCMode(
+			nasMessage.PDUSessionEstablishmentRejectAllowedSSCModeType,
+		)
 		a.AllowedSSCMode = &table.inAllowedSSCMode
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.PDUSessionEstablishmentRejectEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.PDUSessionEstablishmentRejectEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionEstablishmentRejectExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionEstablishmentRejectExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

@@ -21,7 +21,9 @@ type PDUSessionAuthenticationResult struct {
 	*nasType.ExtendedProtocolConfigurationOptions
 }
 
-func NewPDUSessionAuthenticationResult(iei uint8) (pDUSessionAuthenticationResult *PDUSessionAuthenticationResult) {
+func NewPDUSessionAuthenticationResult(
+	iei uint8,
+) (pDUSessionAuthenticationResult *PDUSessionAuthenticationResult) {
 	pDUSessionAuthenticationResult = &PDUSessionAuthenticationResult{}
 	return pDUSessionAuthenticationResult
 }
@@ -31,29 +33,61 @@ const (
 	PDUSessionAuthenticationResultExtendedProtocolConfigurationOptionsType uint8 = 0x7B
 )
 
-func (a *PDUSessionAuthenticationResult) EncodePDUSessionAuthenticationResult(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+func (a *PDUSessionAuthenticationResult) EncodePDUSessionAuthenticationResult(
+	buffer *bytes.Buffer,
+) {
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.PTI.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.PDUSESSIONAUTHENTICATIONRESULTMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.PDUSESSIONAUTHENTICATIONRESULTMessageIdentity.Octet,
+	)
 	if a.EAPMessage != nil {
 		binary.Write(buffer, binary.BigEndian, a.EAPMessage.GetIei())
 		binary.Write(buffer, binary.BigEndian, a.EAPMessage.GetLen())
 		binary.Write(buffer, binary.BigEndian, &a.EAPMessage.Buffer)
 	}
 	if a.ExtendedProtocolConfigurationOptions != nil {
-		binary.Write(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolConfigurationOptions.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedProtocolConfigurationOptions.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedProtocolConfigurationOptions.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.ExtendedProtocolConfigurationOptions.Buffer,
+		)
 	}
 }
 
-func (a *PDUSessionAuthenticationResult) DecodePDUSessionAuthenticationResult(byteArray *[]byte) {
+func (a *PDUSessionAuthenticationResult) DecodePDUSessionAuthenticationResult(
+	byteArray *[]byte,
+) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.PTI.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.PDUSESSIONAUTHENTICATIONRESULTMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.PDUSESSIONAUTHENTICATIONRESULTMessageIdentity.Octet,
+	)
 	for buffer.Len() > 0 {
 		var ieiN uint8
 		var tmpIeiN uint8
@@ -70,12 +104,28 @@ func (a *PDUSessionAuthenticationResult) DecodePDUSessionAuthenticationResult(by
 			a.EAPMessage = nasType.NewEAPMessage(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EAPMessage.Len)
 			a.EAPMessage.SetLen(a.EAPMessage.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EAPMessage.Buffer[:a.EAPMessage.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EAPMessage.Buffer[:a.EAPMessage.GetLen()],
+			)
 		case PDUSessionAuthenticationResultExtendedProtocolConfigurationOptionsType:
-			a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolConfigurationOptions.Len)
-			a.ExtendedProtocolConfigurationOptions.SetLen(a.ExtendedProtocolConfigurationOptions.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.Buffer[:a.ExtendedProtocolConfigurationOptions.GetLen()])
+			a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.ExtendedProtocolConfigurationOptions.Len,
+			)
+			a.ExtendedProtocolConfigurationOptions.SetLen(
+				a.ExtendedProtocolConfigurationOptions.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ExtendedProtocolConfigurationOptions.Buffer[:a.ExtendedProtocolConfigurationOptions.GetLen()],
+			)
 		default:
 		}
 	}

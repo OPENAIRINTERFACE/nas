@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewUplinkDataStatus(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeServiceRequestUplinkDataStatusTable = []NasTypeIeiData{
-	{nasMessage.ServiceRequestUplinkDataStatusType, nasMessage.ServiceRequestUplinkDataStatusType},
+	{
+		nasMessage.ServiceRequestUplinkDataStatusType,
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	},
 }
 
 func TestNasTypeUplinkDataStatusGetSetIei(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeServiceRequestUplinkDataStatusTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeServiceRequestUplinkDataStatusLenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeUplinkDataStatusGetSetLen(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeServiceRequestUplinkDataStatusLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypeUplinkDataStatusPSI7Table = []nasTypeUplinkDataStatusPSI7{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI7(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI7Table {
 		a.SetLen(table.inLen)
 		a.SetPSI7(table.in)
@@ -75,7 +86,9 @@ var nasTypeUplinkDataStatusPSI6Table = []nasTypeUplinkDataStatusPSI6{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI6(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI6Table {
 		a.SetLen(table.inLen)
 		a.SetPSI6(table.in)
@@ -95,7 +108,9 @@ var nasTypeUplinkDataStatusPSI5Table = []nasTypeUplinkDataStatusPSI5{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI5(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI5Table {
 		a.SetLen(table.inLen)
 		a.SetPSI5(table.in)
@@ -115,7 +130,9 @@ var nasTypeUplinkDataStatusPSI4Table = []nasTypeUplinkDataStatusPSI4{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI4(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI4Table {
 		a.SetLen(table.inLen)
 		a.SetPSI4(table.in)
@@ -135,7 +152,9 @@ var nasTypeUplinkDataStatusPSI3Table = []nasTypeUplinkDataStatusPSI3{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI3(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI3Table {
 		a.SetLen(table.inLen)
 		a.SetPSI3(table.in)
@@ -155,7 +174,9 @@ var nasTypeUplinkDataStatusPSI2Table = []nasTypeUplinkDataStatusPSI2{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI2(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI2Table {
 		a.SetLen(table.inLen)
 		a.SetPSI2(table.in)
@@ -175,7 +196,9 @@ var nasTypeUplinkDataStatusPSI1Table = []nasTypeUplinkDataStatusPSI1{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI1(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI1Table {
 		a.SetLen(table.inLen)
 		a.SetPSI1(table.in)
@@ -195,7 +218,9 @@ var nasTypeUplinkDataStatusPSI0Table = []nasTypeUplinkDataStatusPSI0{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI0(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI0Table {
 		a.SetLen(table.inLen)
 		a.SetPSI0(table.in)
@@ -215,7 +240,9 @@ var nasTypeUplinkDataStatusPSI15Table = []nasTypeUplinkDataStatusPSI15{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI15(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI15Table {
 		a.SetLen(table.inLen)
 		a.SetPSI15(table.in)
@@ -235,7 +262,9 @@ var nasTypeUplinkDataStatusPSI14Table = []nasTypeUplinkDataStatusPSI14{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI14(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI14Table {
 		a.SetLen(table.inLen)
 		a.SetPSI14(table.in)
@@ -255,7 +284,9 @@ var nasTypeUplinkDataStatusPSI13Table = []nasTypeUplinkDataStatusPSI13{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI13(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI13Table {
 		a.SetLen(table.inLen)
 		a.SetPSI13(table.in)
@@ -275,7 +306,9 @@ var nasTypeUplinkDataStatusPSI12Table = []nasTypeUplinkDataStatusPSI12{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI12(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI12Table {
 		a.SetLen(table.inLen)
 		a.SetPSI12(table.in)
@@ -295,7 +328,9 @@ var nasTypeUplinkDataStatusPSI11Table = []nasTypeUplinkDataStatusPSI11{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI11(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI11Table {
 		a.SetLen(table.inLen)
 		a.SetPSI11(table.in)
@@ -315,7 +350,9 @@ var nasTypeUplinkDataStatusPSI10Table = []nasTypeUplinkDataStatusPSI11{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI10(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI10Table {
 		a.SetLen(table.inLen)
 		a.SetPSI10(table.in)
@@ -335,7 +372,9 @@ var nasTypeUplinkDataStatusPSI9Table = []nasTypeUplinkDataStatusPSI9{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI9(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI9Table {
 		a.SetLen(table.inLen)
 		a.SetPSI9(table.in)
@@ -355,7 +394,9 @@ var nasTypeUplinkDataStatusPSI8Table = []nasTypeUplinkDataStatusPSI8{
 }
 
 func TestNasTypeUplinkDataStatusGetSetPSI8(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusPSI8Table {
 		a.SetLen(table.inLen)
 		a.SetPSI8(table.in)
@@ -377,7 +418,9 @@ var nasTypeUplinkDataStatusSpareTable = []nasTypeUplinkDataStatusSpare{
 }
 
 func TestNasTypeUplinkDataStatusGetSetSpare(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range nasTypeUplinkDataStatusSpareTable {
 		a.SetLen(table.inLen)
 		a.SetSpare(table.in)
@@ -391,11 +434,11 @@ type testUplinkDataStatusDataTemplate struct {
 }
 
 /*
-	For the 1st testcase with len 2, our input for SetSpare function will not be read
-	as the len size is too small(< 3). However, SetSpare function won't raise any error
-	since the "make" function in golang will create a zero-length slice instead of nil slice.
+For the 1st testcase with len 2, our input for SetSpare function will not be read
+as the len size is too small(< 3). However, SetSpare function won't raise any error
+since the "make" function in golang will create a zero-length slice instead of nil slice.
 
-	REFERENCE: https://programming.guide/go/nil-slice-vs-empty-slice.html
+REFERENCE: https://programming.guide/go/nil-slice-vs-empty-slice.html
 */
 var UplinkDataStatusTestData = []nasType.UplinkDataStatus{
 	{nasMessage.ServiceRequestUplinkDataStatusType, 2, []uint8{}},
@@ -406,9 +449,21 @@ var UplinkDataStatusTestData = []nasType.UplinkDataStatus{
 
 var UplinkDataStatusExpectedData = []nasType.UplinkDataStatus{
 	{nasMessage.ServiceRequestUplinkDataStatusType, 2, []uint8{0xFF, 0xFF}},
-	{nasMessage.ServiceRequestUplinkDataStatusType, 3, []uint8{0xFF, 0xFF, 0x14}},
-	{nasMessage.ServiceRequestUplinkDataStatusType, 4, []uint8{0xFF, 0xFF, 0x14, 0x15}},
-	{nasMessage.ServiceRequestUplinkDataStatusType, 5, []uint8{0xFF, 0xFF, 0x14, 0x15, 0x16}},
+	{
+		nasMessage.ServiceRequestUplinkDataStatusType,
+		3,
+		[]uint8{0xFF, 0xFF, 0x14},
+	},
+	{
+		nasMessage.ServiceRequestUplinkDataStatusType,
+		4,
+		[]uint8{0xFF, 0xFF, 0x14, 0x15},
+	},
+	{
+		nasMessage.ServiceRequestUplinkDataStatusType,
+		5,
+		[]uint8{0xFF, 0xFF, 0x14, 0x15, 0x16},
+	},
 }
 
 var UplinkDataStatusTable = []testUplinkDataStatusDataTemplate{
@@ -419,7 +474,9 @@ var UplinkDataStatusTable = []testUplinkDataStatusDataTemplate{
 }
 
 func TestNasTypeUplinkDataStatus(t *testing.T) {
-	a := nasType.NewUplinkDataStatus(nasMessage.ServiceRequestUplinkDataStatusType)
+	a := nasType.NewUplinkDataStatus(
+		nasMessage.ServiceRequestUplinkDataStatusType,
+	)
 	for _, table := range UplinkDataStatusTable {
 		a.SetLen(table.in.Len)
 		a.SetSpare([]uint8{0x14, 0x15, 0x16})

@@ -13,7 +13,9 @@ type AuthorizedQosFlowDescriptions struct {
 	Buffer []uint8
 }
 
-func NewAuthorizedQosFlowDescriptions(iei uint8) (authorizedQosFlowDescriptions *AuthorizedQosFlowDescriptions) {
+func NewAuthorizedQosFlowDescriptions(
+	iei uint8,
+) (authorizedQosFlowDescriptions *AuthorizedQosFlowDescriptions) {
 	authorizedQosFlowDescriptions = &AuthorizedQosFlowDescriptions{}
 	authorizedQosFlowDescriptions.SetIei(iei)
 	return authorizedQosFlowDescriptions
@@ -54,6 +56,8 @@ func (a *AuthorizedQosFlowDescriptions) GetQoSFlowDescriptions() (qoSFlowDescrip
 
 // AuthorizedQosFlowDescriptions 9.11.4.12
 // QoSFlowDescriptions Row, sBit, len = [0, 0], 8 , INF
-func (a *AuthorizedQosFlowDescriptions) SetQoSFlowDescriptions(qoSFlowDescriptions []uint8) {
+func (a *AuthorizedQosFlowDescriptions) SetQoSFlowDescriptions(
+	qoSFlowDescriptions []uint8,
+) {
 	copy(a.Buffer, qoSFlowDescriptions)
 }

@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewPayloadContainer(t *testing.T) {
-	a := nasType.NewPayloadContainer(nasMessage.RegistrationRequestPayloadContainerType)
+	a := nasType.NewPayloadContainer(
+		nasMessage.RegistrationRequestPayloadContainerType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypePayloadContainerRegistrationRequestPayloadContainerTypeTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestPayloadContainerType, nasMessage.RegistrationRequestPayloadContainerType},
+	{
+		nasMessage.RegistrationRequestPayloadContainerType,
+		nasMessage.RegistrationRequestPayloadContainerType,
+	},
 }
 
 func TestNasTypePayloadContainerGetSetIei(t *testing.T) {
-	a := nasType.NewPayloadContainer(nasMessage.RegistrationRequestPayloadContainerType)
+	a := nasType.NewPayloadContainer(
+		nasMessage.RegistrationRequestPayloadContainerType,
+	)
 	for _, table := range nasTypePayloadContainerRegistrationRequestPayloadContainerTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypePayloadContainerLenTable = []NasTypeLenUint16Data{
 }
 
 func TestNasTypePayloadContainerGetSetLen(t *testing.T) {
-	a := nasType.NewPayloadContainer(nasMessage.RegistrationRequestPayloadContainerType)
+	a := nasType.NewPayloadContainer(
+		nasMessage.RegistrationRequestPayloadContainerType,
+	)
 	for _, table := range nasTypePayloadContainerLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypePayloadContainerPayloadContainerContentsTable = []nasTypePayloadConta
 }
 
 func TestNasTypePayloadContainerGetSetPayloadContainerContents(t *testing.T) {
-	a := nasType.NewPayloadContainer(nasMessage.RegistrationRequestPayloadContainerType)
+	a := nasType.NewPayloadContainer(
+		nasMessage.RegistrationRequestPayloadContainerType,
+	)
 	for _, table := range nasTypePayloadContainerPayloadContainerContentsTable {
 		a.SetLen(table.inLen)
 		a.SetPayloadContainerContents(table.in)
@@ -81,14 +92,40 @@ func TestNasTypePayloadContainer(t *testing.T) {
 
 	for i, table := range testPayloadContainerTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewPayloadContainer(nasMessage.RegistrationRequestPayloadContainerType)
+		a := nasType.NewPayloadContainer(
+			nasMessage.RegistrationRequestPayloadContainerType,
+		)
 
 		a.SetIei(table.inIei)
 		a.SetLen(table.inLen)
 		a.SetPayloadContainerContents(table.inPayloadContainerContents)
 
-		assert.Equalf(t, table.outIei, a.Iei, "in(%v): out %v, actual %x", table.inIei, table.outIei, a.Iei)
-		assert.Equalf(t, table.outLen, a.Len, "in(%v): out %v, actual %x", table.inLen, table.outLen, a.Len)
-		assert.Equalf(t, table.outPayloadContainerContents, a.GetPayloadContainerContents(), "in(%v): out %v, actual %x", table.inPayloadContainerContents, table.outPayloadContainerContents, a.GetPayloadContainerContents())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.outLen,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.inLen,
+			table.outLen,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.outPayloadContainerContents,
+			a.GetPayloadContainerContents(),
+			"in(%v): out %v, actual %x",
+			table.inPayloadContainerContents,
+			table.outPayloadContainerContents,
+			a.GetPayloadContainerContents(),
+		)
 	}
 }

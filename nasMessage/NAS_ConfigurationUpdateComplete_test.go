@@ -47,10 +47,18 @@ func TestNasTypeNewConfigurationUpdateCompleteMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeaderType)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.ConfigurationUpdateCompleteMessageIdentity.SetMessageType(table.inConfigurationUpdateCompleteMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeaderType,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.ConfigurationUpdateCompleteMessageIdentity.SetMessageType(
+			table.inConfigurationUpdateCompleteMessageIdentity,
+		)
 
 		buff := new(bytes.Buffer)
 		a.EncodeConfigurationUpdateComplete(buff)

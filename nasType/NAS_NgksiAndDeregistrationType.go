@@ -40,7 +40,9 @@ func (a *NgksiAndDeregistrationType) GetNasKeySetIdentifiler() (nasKeySetIdentif
 
 // NgksiAndDeregistrationType 9.11.3.20 9.11.3.32
 // NasKeySetIdentifiler Row, sBit, len = [0, 0], 7 , 3
-func (a *NgksiAndDeregistrationType) SetNasKeySetIdentifiler(nasKeySetIdentifiler uint8) {
+func (a *NgksiAndDeregistrationType) SetNasKeySetIdentifiler(
+	nasKeySetIdentifiler uint8,
+) {
 	a.Octet = (a.Octet & 143) + ((nasKeySetIdentifiler & 7) << 4)
 }
 
@@ -64,7 +66,9 @@ func (a *NgksiAndDeregistrationType) GetReRegistrationRequired() (reRegistration
 
 // NgksiAndDeregistrationType 9.11.3.20 9.11.3.32
 // ReRegistrationRequired Row, sBit, len = [0, 0], 3 , 1
-func (a *NgksiAndDeregistrationType) SetReRegistrationRequired(reRegistrationRequired uint8) {
+func (a *NgksiAndDeregistrationType) SetReRegistrationRequired(
+	reRegistrationRequired uint8,
+) {
 	a.Octet = (a.Octet & 251) + ((reRegistrationRequired & 1) << 2)
 }
 

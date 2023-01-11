@@ -21,7 +21,9 @@ type NetworkFeatureSupport5GS struct {
 	Octet [3]uint8
 }
 
-func NewNetworkFeatureSupport5GS(iei uint8) (networkFeatureSupport5GS *NetworkFeatureSupport5GS) {
+func NewNetworkFeatureSupport5GS(
+	iei uint8,
+) (networkFeatureSupport5GS *NetworkFeatureSupport5GS) {
 	networkFeatureSupport5GS = &NetworkFeatureSupport5GS{}
 	networkFeatureSupport5GS.SetIei(iei)
 	return networkFeatureSupport5GS

@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewIntegrityProtectionMaximumDataRate(t *testing.T) {
-	a := nasType.NewIntegrityProtectionMaximumDataRate(nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType)
+	a := nasType.NewIntegrityProtectionMaximumDataRate(
+		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypePDUSessionModificationRequestIntegrityProtectionMaximumDataRateTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType, nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType},
+	{
+		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+	},
 }
 
 func TestNasTypeIntegrityProtectionMaximumDataRateGetSetIei(t *testing.T) {
-	a := nasType.NewIntegrityProtectionMaximumDataRate(nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType)
+	a := nasType.NewIntegrityProtectionMaximumDataRate(
+		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+	)
 	for _, table := range nasTypePDUSessionModificationRequestIntegrityProtectionMaximumDataRateTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -41,11 +48,21 @@ var nasTypeIntegrityProtectionMaximumDataRateMaximumDataRatePerUEForUserPlaneInt
 	{0xff, 0xff},
 }
 
-func TestNasTypeIntegrityProtectionMaximumDataRateGetSetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(t *testing.T) {
-	a := nasType.NewIntegrityProtectionMaximumDataRate(nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType)
+func TestNasTypeIntegrityProtectionMaximumDataRateGetSetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(
+	t *testing.T,
+) {
+	a := nasType.NewIntegrityProtectionMaximumDataRate(
+		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+	)
 	for _, table := range nasTypeIntegrityProtectionMaximumDataRateMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLinkTable {
-		a.SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(table.in)
-		assert.Equal(t, table.out, a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink())
+		a.SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(
+			table.in,
+		)
+		assert.Equal(
+			t,
+			table.out,
+			a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(),
+		)
 	}
 }
 
@@ -58,11 +75,21 @@ var nasTypeIntegrityProtectionMaximumDataRateMaximumDataRatePerUEForUserPlaneInt
 	{0xff, 0xff},
 }
 
-func TestNasTypeIntegrityProtectionMaximumDataRateGetSetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(t *testing.T) {
-	a := nasType.NewIntegrityProtectionMaximumDataRate(nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType)
+func TestNasTypeIntegrityProtectionMaximumDataRateGetSetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(
+	t *testing.T,
+) {
+	a := nasType.NewIntegrityProtectionMaximumDataRate(
+		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+	)
 	for _, table := range nasTypeIntegrityProtectionMaximumDataRateMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLinkTable {
-		a.SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(table.in)
-		assert.Equal(t, table.out, a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink())
+		a.SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(
+			table.in,
+		)
+		assert.Equal(
+			t,
+			table.out,
+			a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(),
+		)
 	}
 }
 
@@ -76,23 +103,59 @@ type testIntegrityProtectionMaximumDataRateDataTemplate struct {
 }
 
 var integrityProtectionMaximumDataRateTestTable = []testIntegrityProtectionMaximumDataRateDataTemplate{
-	{nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType, 0xff, 0x11,
-		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType, 0xff, 0x11},
+	{
+		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+		0xff,
+		0x11,
+		nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+		0xff,
+		0x11,
+	},
 }
 
 func TestNasTypeIntegrityProtectionMaximumDataRate(t *testing.T) {
 
 	for i, table := range integrityProtectionMaximumDataRateTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewIntegrityProtectionMaximumDataRate(nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType)
+		a := nasType.NewIntegrityProtectionMaximumDataRate(
+			nasMessage.PDUSessionModificationRequestIntegrityProtectionMaximumDataRateType,
+		)
 
 		a.SetIei(table.inIei)
-		a.SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(table.inMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink)
-		a.SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(table.inMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink)
+		a.SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(
+			table.inMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink,
+		)
+		a.SetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(
+			table.inMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink,
+		)
 
-		assert.Equalf(t, table.outIei, a.Iei, "in(%v): out %v, actual %x", table.inIei, table.outIei, a.Iei)
-		assert.Equalf(t, table.outMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink, a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(), "in(%v): out %v, actual %x", table.inMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink, table.outMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink, a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink())
-		assert.Equalf(t, table.outMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink, a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(), "in(%v): out %v, actual %x", table.inMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink, table.outMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink, a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.outMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink,
+			a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(),
+			"in(%v): out %v, actual %x",
+			table.inMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink,
+			table.outMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink,
+			a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForUpLink(),
+		)
+		assert.Equalf(
+			t,
+			table.outMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink,
+			a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(),
+			"in(%v): out %v, actual %x",
+			table.inMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink,
+			table.outMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink,
+			a.GetMaximumDataRatePerUEForUserPlaneIntegrityProtectionForDownLink(),
+		)
 
 	}
 }

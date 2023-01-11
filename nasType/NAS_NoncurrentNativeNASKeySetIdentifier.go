@@ -13,7 +13,9 @@ type NoncurrentNativeNASKeySetIdentifier struct {
 	Octet uint8
 }
 
-func NewNoncurrentNativeNASKeySetIdentifier(iei uint8) (noncurrentNativeNASKeySetIdentifier *NoncurrentNativeNASKeySetIdentifier) {
+func NewNoncurrentNativeNASKeySetIdentifier(
+	iei uint8,
+) (noncurrentNativeNASKeySetIdentifier *NoncurrentNativeNASKeySetIdentifier) {
 	noncurrentNativeNASKeySetIdentifier = &NoncurrentNativeNASKeySetIdentifier{}
 	noncurrentNativeNASKeySetIdentifier.SetIei(iei)
 	return noncurrentNativeNASKeySetIdentifier
@@ -51,6 +53,8 @@ func (a *NoncurrentNativeNASKeySetIdentifier) GetNasKeySetIdentifiler() (nasKeyS
 
 // NoncurrentNativeNASKeySetIdentifier 9.11.3.32
 // NasKeySetIdentifiler Row, sBit, len = [0, 0], 3 , 3
-func (a *NoncurrentNativeNASKeySetIdentifier) SetNasKeySetIdentifiler(nasKeySetIdentifiler uint8) {
+func (a *NoncurrentNativeNASKeySetIdentifier) SetNasKeySetIdentifiler(
+	nasKeySetIdentifiler uint8,
+) {
 	a.Octet = (a.Octet & 248) + (nasKeySetIdentifiler & 7)
 }

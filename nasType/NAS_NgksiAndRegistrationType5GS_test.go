@@ -34,7 +34,9 @@ var RegistrationType5GSAndNgksiRegistrationType5GSTable = []NasTypeLenuint8Data{
 	{0x07, 0x7},
 }
 
-func TestNasTypeRegistrationType5GSAndNgksiGetSetRegistrationType5GS(t *testing.T) {
+func TestNasTypeRegistrationType5GSAndNgksiGetSetRegistrationType5GS(
+	t *testing.T,
+) {
 	a := nasType.NewNgksiAndRegistrationType5GS()
 	for _, table := range RegistrationType5GSAndNgksiRegistrationType5GSTable {
 		a.SetRegistrationType5GS(table.in)
@@ -58,7 +60,9 @@ var RegistrationType5GSAndNgksiNasKeySetIdentifilerTable = []NasTypeLenuint8Data
 	{0x04, 0x04},
 }
 
-func TestNasTypeRegistrationType5GSAndNgksiGetSetNasKeySetIdentifiler(t *testing.T) {
+func TestNasTypeRegistrationType5GSAndNgksiGetSetNasKeySetIdentifiler(
+	t *testing.T,
+) {
 	a := nasType.NewNgksiAndRegistrationType5GS()
 	for _, table := range RegistrationType5GSAndNgksiNasKeySetIdentifilerTable {
 		a.SetNasKeySetIdentifiler(table.in)
@@ -84,7 +88,14 @@ var registrationType5GSAndNgksiExpectedTestData = []nasType.NgksiAndRegistration
 }
 
 var registrationType5GSAndNgksiTestTable = []testRegistrationType5GSAndNgksiDataTemplate{
-	{0x1, 0x1, 0x1, 0x1, registrationType5GSAndNgksiTestData[0], registrationType5GSAndNgksiExpectedTestData[0]},
+	{
+		0x1,
+		0x1,
+		0x1,
+		0x1,
+		registrationType5GSAndNgksiTestData[0],
+		registrationType5GSAndNgksiExpectedTestData[0],
+	},
 }
 
 func TestNasTypeRegistrationType5GSAndNgksi(t *testing.T) {

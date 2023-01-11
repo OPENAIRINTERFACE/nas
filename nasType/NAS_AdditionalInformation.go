@@ -13,7 +13,9 @@ type AdditionalInformation struct {
 	Buffer []uint8
 }
 
-func NewAdditionalInformation(iei uint8) (additionalInformation *AdditionalInformation) {
+func NewAdditionalInformation(
+	iei uint8,
+) (additionalInformation *AdditionalInformation) {
 	additionalInformation = &AdditionalInformation{}
 	additionalInformation.SetIei(iei)
 	return additionalInformation
@@ -54,6 +56,8 @@ func (a *AdditionalInformation) GetAdditionalInformationValue() (additionalInfor
 
 // AdditionalInformation 9.11.2.1
 // AdditionalInformationValue Row, sBit, len = [0, 0], 8 , INF
-func (a *AdditionalInformation) SetAdditionalInformationValue(additionalInformationValue []uint8) {
+func (a *AdditionalInformation) SetAdditionalInformationValue(
+	additionalInformationValue []uint8,
+) {
 	copy(a.Buffer, additionalInformationValue)
 }

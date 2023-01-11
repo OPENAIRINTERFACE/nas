@@ -20,7 +20,10 @@ func TestNasTypeNewUEStatus(t *testing.T) {
 }
 
 var nasTypeUEStatusIeiTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestUEStatusType, nasMessage.RegistrationRequestUEStatusType},
+	{
+		nasMessage.RegistrationRequestUEStatusType,
+		nasMessage.RegistrationRequestUEStatusType,
+	},
 }
 
 func TestNasTypeUEStatusGetSetIei(t *testing.T) {

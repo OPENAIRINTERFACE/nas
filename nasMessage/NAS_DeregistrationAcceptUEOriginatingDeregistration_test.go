@@ -33,12 +33,16 @@ var nasMessageDeregistrationAcceptUEOriginatingDeregistrationTable = []nasMessag
 	},
 }
 
-func TestNasTypeNewDeregistrationAcceptUEOriginatingDeregistration(t *testing.T) {
+func TestNasTypeNewDeregistrationAcceptUEOriginatingDeregistration(
+	t *testing.T,
+) {
 	a := nasMessage.NewDeregistrationAcceptUEOriginatingDeregistration(0)
 	assert.NotNil(t, a)
 }
 
-func TestNasTypeNewDeregistrationAcceptUEOriginatingDeregistrationMessage(t *testing.T) {
+func TestNasTypeNewDeregistrationAcceptUEOriginatingDeregistrationMessage(
+	t *testing.T,
+) {
 
 	for i, table := range nasMessageDeregistrationAcceptUEOriginatingDeregistrationTable {
 		logger.NasMsgLog.Infoln("Test Cnt:", i)
@@ -47,10 +51,18 @@ func TestNasTypeNewDeregistrationAcceptUEOriginatingDeregistrationMessage(t *tes
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeaderType)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.DeregistrationAcceptMessageIdentity.SetMessageType(table.inDeregistrationAcceptMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeaderType,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.DeregistrationAcceptMessageIdentity.SetMessageType(
+			table.inDeregistrationAcceptMessageIdentity,
+		)
 
 		buff := new(bytes.Buffer)
 		a.EncodeDeregistrationAcceptUEOriginatingDeregistration(buff)

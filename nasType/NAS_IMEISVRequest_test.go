@@ -65,12 +65,30 @@ var iMEISVRequestTestTable = []testIMEISVRequestDataTemplate{
 func TestNasTypeIMEISVRequest(t *testing.T) {
 
 	for _, table := range iMEISVRequestTestTable {
-		a := nasType.NewIMEISVRequest(SecurityModeCommandIMEISVRequestTypeIeiInput)
+		a := nasType.NewIMEISVRequest(
+			SecurityModeCommandIMEISVRequestTypeIeiInput,
+		)
 
 		a.SetIei(table.inIei)
 		a.SetIMEISVRequestValue(table.inIMEISVRequestValue)
 
-		assert.Equalf(t, table.outIei, a.GetIei(), "in(%v): out %v, actual %x", table.inIei, table.outIei, a.GetIei())
-		assert.Equalf(t, table.outIMEISVRequestValue, a.GetIMEISVRequestValue(), "in(%v): out %v, actual %x", table.inIMEISVRequestValue, table.outIMEISVRequestValue, a.GetIMEISVRequestValue())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.GetIei(),
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.GetIei(),
+		)
+		assert.Equalf(
+			t,
+			table.outIMEISVRequestValue,
+			a.GetIMEISVRequestValue(),
+			"in(%v): out %v, actual %x",
+			table.inIMEISVRequestValue,
+			table.outIMEISVRequestValue,
+			a.GetIMEISVRequestValue(),
+		)
 	}
 }

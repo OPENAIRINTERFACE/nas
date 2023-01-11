@@ -34,9 +34,21 @@ const (
 )
 
 func (a *ServiceReject) EncodeServiceReject(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.ServiceRejectMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ServiceRejectMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.Cause5GMM.Octet)
 	if a.PDUSessionStatus != nil {
 		binary.Write(buffer, binary.BigEndian, a.PDUSessionStatus.GetIei())
@@ -57,8 +69,16 @@ func (a *ServiceReject) EncodeServiceReject(buffer *bytes.Buffer) {
 
 func (a *ServiceReject) DecodeServiceReject(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.ServiceRejectMessageIdentity.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.Cause5GMM.Octet)
 	for buffer.Len() > 0 {
@@ -77,7 +97,11 @@ func (a *ServiceReject) DecodeServiceReject(byteArray *[]byte) {
 			a.PDUSessionStatus = nasType.NewPDUSessionStatus(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.PDUSessionStatus.Len)
 			a.PDUSessionStatus.SetLen(a.PDUSessionStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()],
+			)
 		case ServiceRejectT3346ValueType:
 			a.T3346Value = nasType.NewT3346Value(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.T3346Value.Len)
@@ -87,7 +111,11 @@ func (a *ServiceReject) DecodeServiceReject(byteArray *[]byte) {
 			a.EAPMessage = nasType.NewEAPMessage(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EAPMessage.Len)
 			a.EAPMessage.SetLen(a.EAPMessage.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EAPMessage.Buffer[:a.EAPMessage.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EAPMessage.Buffer[:a.EAPMessage.GetLen()],
+			)
 		default:
 		}
 	}

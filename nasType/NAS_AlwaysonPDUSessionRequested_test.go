@@ -17,7 +17,9 @@ import (
 var AlwaysonPDUSessionRequestedIeiInput uint8 = 0x0B
 
 func TestNasTypeNewAlwaysonPDUSessionRequested(t *testing.T) {
-	a := nasType.NewAlwaysonPDUSessionRequested(AlwaysonPDUSessionRequestedIeiInput)
+	a := nasType.NewAlwaysonPDUSessionRequested(
+		AlwaysonPDUSessionRequestedIeiInput,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -26,7 +28,9 @@ var nasTypePDUSessionEstablishmentRequestAlwaysonPDUSessionRequestedTable = []Na
 }
 
 func TestNasTypeAlwaysonPDUSessionRequestedGetSetIei(t *testing.T) {
-	a := nasType.NewAlwaysonPDUSessionRequested(AlwaysonPDUSessionRequestedIeiInput)
+	a := nasType.NewAlwaysonPDUSessionRequested(
+		AlwaysonPDUSessionRequestedIeiInput,
+	)
 	for _, table := range nasTypePDUSessionEstablishmentRequestAlwaysonPDUSessionRequestedTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -43,7 +47,9 @@ var nasTypeAlwaysonPDUSessionRequestedAPSRTable = []nasTypeAlwaysonPDUSessionReq
 }
 
 func TestNasTypeAlwaysonPDUSessionRequestedGetSetAPSR(t *testing.T) {
-	a := nasType.NewAlwaysonPDUSessionRequested(nasMessage.PDUSessionEstablishmentRequestAlwaysonPDUSessionRequestedType)
+	a := nasType.NewAlwaysonPDUSessionRequested(
+		nasMessage.PDUSessionEstablishmentRequestAlwaysonPDUSessionRequestedType,
+	)
 	for _, table := range nasTypeAlwaysonPDUSessionRequestedAPSRTable {
 		a.SetAPSR(table.in)
 		assert.Equal(t, table.out, a.GetAPSR())
@@ -64,13 +70,18 @@ var alwaysonPDUSessionRequestedExpectedTestData = []nasType.AlwaysonPDUSessionRe
 }
 
 var alwaysonPDUSessionRequestedTestTable = []testAlwaysonPDUSessionRequestedDataTemplate{
-	{alwaysonPDUSessionRequestedTestData[0], alwaysonPDUSessionRequestedExpectedTestData[0]},
+	{
+		alwaysonPDUSessionRequestedTestData[0],
+		alwaysonPDUSessionRequestedExpectedTestData[0],
+	},
 }
 
 func TestNasTypeAlwaysonPDUSessionRequested(t *testing.T) {
 
 	for _, table := range alwaysonPDUSessionRequestedTestTable {
-		a := nasType.NewAlwaysonPDUSessionRequested(AlwaysonPDUSessionRequestedIeiInput)
+		a := nasType.NewAlwaysonPDUSessionRequested(
+			AlwaysonPDUSessionRequestedIeiInput,
+		)
 
 		a.SetIei(AlwaysonPDUSessionRequestedIeiInput)
 		a.SetAPSR(table.in.GetAPSR())

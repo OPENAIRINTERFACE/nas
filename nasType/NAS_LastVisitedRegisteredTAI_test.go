@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewLastVisitedRegisteredTAI(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeRegistrationRequestLastVisitedRegisteredTAITable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestLastVisitedRegisteredTAIType, nasMessage.RegistrationRequestLastVisitedRegisteredTAIType},
+	{
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	},
 }
 
 func TestNasTypeLastVisitedRegisteredTAIGetSetIei(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	for _, table := range nasTypeRegistrationRequestLastVisitedRegisteredTAITable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -42,7 +49,9 @@ var nasTypeLastVisitedRegisteredTAIMCCDigit2Table = []nasTypeLastVisitedRegister
 }
 
 func TestNasTypeLastVisitedRegisteredTAIGetSetMCCDigit2(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	for _, table := range nasTypeLastVisitedRegisteredTAIMCCDigit2Table {
 		a.SetMCCDigit2(table.in)
 		assert.Equal(t, table.out, a.GetMCCDigit2())
@@ -59,7 +68,9 @@ var nasTypeLastVisitedRegisteredTAIMCCDigit1Table = []nasTypeLastVisitedRegister
 }
 
 func TestNasTypeLastVisitedRegisteredTAIGetSetMCCDigit1(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	for _, table := range nasTypeLastVisitedRegisteredTAIMCCDigit1Table {
 		a.SetMCCDigit1(table.in)
 		assert.Equal(t, table.out, a.GetMCCDigit1())
@@ -76,7 +87,9 @@ var nasTypeLastVisitedRegisteredTAIMNCDigit3Table = []nasTypeLastVisitedRegister
 }
 
 func TestNasTypeLastVisitedRegisteredTAIGetSetMNCDigit3(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	for _, table := range nasTypeLastVisitedRegisteredTAIMNCDigit3Table {
 		a.SetMNCDigit3(table.in)
 		assert.Equal(t, table.out, a.GetMNCDigit3())
@@ -93,7 +106,9 @@ var nasTypeLastVisitedRegisteredTAIMCCDigit3Table = []nasTypeLastVisitedRegister
 }
 
 func TestNasTypeLastVisitedRegisteredTAIGetSetMCCDigit3(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	for _, table := range nasTypeLastVisitedRegisteredTAIMCCDigit3Table {
 		a.SetMCCDigit3(table.in)
 		assert.Equal(t, table.out, a.GetMCCDigit3())
@@ -110,7 +125,9 @@ var nasTypeLastVisitedRegisteredTAIMNCDigit2Table = []nasTypeLastVisitedRegister
 }
 
 func TestNasTypeLastVisitedRegisteredTAIGetSetMNCDigit2(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	for _, table := range nasTypeLastVisitedRegisteredTAIMNCDigit2Table {
 		a.SetMNCDigit2(table.in)
 		assert.Equal(t, table.out, a.GetMNCDigit2())
@@ -127,7 +144,9 @@ var nasTypeLastVisitedRegisteredTAIMNCDigit1Table = []nasTypeLastVisitedRegister
 }
 
 func TestNasTypeLastVisitedRegisteredTAIGetSetMNCDigit1(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	for _, table := range nasTypeLastVisitedRegisteredTAIMNCDigit1Table {
 		a.SetMNCDigit1(table.in)
 		assert.Equal(t, table.out, a.GetMNCDigit1())
@@ -144,7 +163,9 @@ var nasTypeLastVisitedRegisteredTAITACTable = []nasTypeLastVisitedRegisteredTAIT
 }
 
 func TestNasTypeLastVisitedRegisteredTAIGetSetTAC(t *testing.T) {
-	a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+	a := nasType.NewLastVisitedRegisteredTAI(
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+	)
 	for _, table := range nasTypeLastVisitedRegisteredTAITACTable {
 		a.SetTAC(table.in)
 		assert.Equal(t, table.out, a.GetTAC())
@@ -172,15 +193,33 @@ type testLastVisitedRegisteredTAIDataTemplate struct {
 }
 
 var testLastVisitedRegisteredTAITestTable = []testLastVisitedRegisteredTAIDataTemplate{
-	{nasMessage.RegistrationRequestLastVisitedRegisteredTAIType, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, [3]uint8{0x01, 0x01, 0x01},
-		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, [3]uint8{0x01, 0x01, 0x01}},
+	{
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		[3]uint8{0x01, 0x01, 0x01},
+		nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		0x01,
+		[3]uint8{0x01, 0x01, 0x01},
+	},
 }
 
 func TestNasTypeLastVisitedRegisteredTAI(t *testing.T) {
 
 	for i, table := range testLastVisitedRegisteredTAITestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+		a := nasType.NewLastVisitedRegisteredTAI(
+			nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+		)
 
 		a.SetIei(table.inIei)
 		a.SetMCCDigit2(table.inMCCDigit2)
@@ -191,13 +230,77 @@ func TestNasTypeLastVisitedRegisteredTAI(t *testing.T) {
 		a.SetMNCDigit1(table.inMNCDigit1)
 		a.SetTAC(table.inTAC)
 
-		assert.Equalf(t, table.outIei, a.Iei, "in(%v): out %v, actual %x", table.inIei, table.outIei, a.Iei)
-		assert.Equalf(t, table.outMCCDigit2, a.GetMCCDigit2(), "in(%v): out %v, actual %x", table.inMCCDigit2, table.outMCCDigit2, a.GetMCCDigit2())
-		assert.Equalf(t, table.outMCCDigit1, a.GetMCCDigit1(), "in(%v): out %v, actual %x", table.inMCCDigit1, table.outMCCDigit1, a.GetMCCDigit1())
-		assert.Equalf(t, table.outMNCDigit3, a.GetMNCDigit3(), "in(%v): out %v, actual %x", table.inMNCDigit3, table.outMNCDigit3, a.GetMNCDigit3())
-		assert.Equalf(t, table.outMCCDigit3, a.GetMCCDigit3(), "in(%v): out %v, actual %x", table.inMCCDigit3, table.outMCCDigit3, a.GetMCCDigit3())
-		assert.Equalf(t, table.outMNCDigit2, a.GetMNCDigit2(), "in(%v): out %v, actual %x", table.inMNCDigit2, table.outMNCDigit2, a.GetMNCDigit2())
-		assert.Equalf(t, table.outMNCDigit1, a.GetMNCDigit1(), "in(%v): out %v, actual %x", table.inMNCDigit1, table.outMNCDigit1, a.GetMNCDigit1())
-		assert.Equalf(t, table.outTAC, a.GetTAC(), "in(%v): out %v, actual %x", table.inTAC, table.outTAC, a.GetTAC())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.outMCCDigit2,
+			a.GetMCCDigit2(),
+			"in(%v): out %v, actual %x",
+			table.inMCCDigit2,
+			table.outMCCDigit2,
+			a.GetMCCDigit2(),
+		)
+		assert.Equalf(
+			t,
+			table.outMCCDigit1,
+			a.GetMCCDigit1(),
+			"in(%v): out %v, actual %x",
+			table.inMCCDigit1,
+			table.outMCCDigit1,
+			a.GetMCCDigit1(),
+		)
+		assert.Equalf(
+			t,
+			table.outMNCDigit3,
+			a.GetMNCDigit3(),
+			"in(%v): out %v, actual %x",
+			table.inMNCDigit3,
+			table.outMNCDigit3,
+			a.GetMNCDigit3(),
+		)
+		assert.Equalf(
+			t,
+			table.outMCCDigit3,
+			a.GetMCCDigit3(),
+			"in(%v): out %v, actual %x",
+			table.inMCCDigit3,
+			table.outMCCDigit3,
+			a.GetMCCDigit3(),
+		)
+		assert.Equalf(
+			t,
+			table.outMNCDigit2,
+			a.GetMNCDigit2(),
+			"in(%v): out %v, actual %x",
+			table.inMNCDigit2,
+			table.outMNCDigit2,
+			a.GetMNCDigit2(),
+		)
+		assert.Equalf(
+			t,
+			table.outMNCDigit1,
+			a.GetMNCDigit1(),
+			"in(%v): out %v, actual %x",
+			table.inMNCDigit1,
+			table.outMNCDigit1,
+			a.GetMNCDigit1(),
+		)
+		assert.Equalf(
+			t,
+			table.outTAC,
+			a.GetTAC(),
+			"in(%v): out %v, actual %x",
+			table.inTAC,
+			table.outTAC,
+			a.GetTAC(),
+		)
 	}
 }

@@ -106,9 +106,21 @@ var nasMessageRegistrationRequestTable = []nasMessageRegistrationRequestData{
 			Octet: 0x01,
 		},
 		inAdditionalGUTI: nasType.AdditionalGUTI{
-			Iei:   nasMessage.RegistrationRequestAdditionalGUTIType,
-			Len:   11,
-			Octet: [11]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01},
+			Iei: nasMessage.RegistrationRequestAdditionalGUTIType,
+			Len: 11,
+			Octet: [11]uint8{
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+			},
 		},
 		inAllowedPDUSessionStatus: nasType.AllowedPDUSessionStatus{
 			Iei:    nasMessage.RegistrationRequestAllowedPDUSessionStatusType,
@@ -170,72 +182,122 @@ func TestNasTypeNewRegistrationRequestMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.RegistrationRequestMessageIdentity.SetMessageType(table.inRegistrationRequestMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.RegistrationRequestMessageIdentity.SetMessageType(
+			table.inRegistrationRequestMessageIdentity,
+		)
 		a.NgksiAndRegistrationType5GS.SetNasKeySetIdentifiler(table.inNgksi)
-		a.NgksiAndRegistrationType5GS.SetRegistrationType5GS(table.inRegistrationType5GS)
+		a.NgksiAndRegistrationType5GS.SetRegistrationType5GS(
+			table.inRegistrationType5GS,
+		)
 		a.MobileIdentity5GS = table.inMobileIdentity5GS
 
-		a.NoncurrentNativeNASKeySetIdentifier = nasType.NewNoncurrentNativeNASKeySetIdentifier(nasMessage.RegistrationRequestNoncurrentNativeNASKeySetIdentifierType)
+		a.NoncurrentNativeNASKeySetIdentifier = nasType.NewNoncurrentNativeNASKeySetIdentifier(
+			nasMessage.RegistrationRequestNoncurrentNativeNASKeySetIdentifierType,
+		)
 		a.NoncurrentNativeNASKeySetIdentifier = &table.inNoncurrentNativeNASKeySetIdentifier
 
-		a.Capability5GMM = nasType.NewCapability5GMM(nasMessage.RegistrationRequestCapability5GMMType)
+		a.Capability5GMM = nasType.NewCapability5GMM(
+			nasMessage.RegistrationRequestCapability5GMMType,
+		)
 		a.Capability5GMM = &table.inCapability5GMM
 
-		a.UESecurityCapability = nasType.NewUESecurityCapability(nasMessage.RegistrationRequestUESecurityCapabilityType)
+		a.UESecurityCapability = nasType.NewUESecurityCapability(
+			nasMessage.RegistrationRequestUESecurityCapabilityType,
+		)
 		a.UESecurityCapability = &table.inUESecurityCapability
 
-		a.RequestedNSSAI = nasType.NewRequestedNSSAI(nasMessage.RegistrationRequestRequestedNSSAIType)
+		a.RequestedNSSAI = nasType.NewRequestedNSSAI(
+			nasMessage.RegistrationRequestRequestedNSSAIType,
+		)
 		a.RequestedNSSAI = &table.inRequestedNSSAI
 
-		a.LastVisitedRegisteredTAI = nasType.NewLastVisitedRegisteredTAI(nasMessage.RegistrationRequestLastVisitedRegisteredTAIType)
+		a.LastVisitedRegisteredTAI = nasType.NewLastVisitedRegisteredTAI(
+			nasMessage.RegistrationRequestLastVisitedRegisteredTAIType,
+		)
 		a.LastVisitedRegisteredTAI = &table.inLastVisitedRegisteredTAI
 
-		a.S1UENetworkCapability = nasType.NewS1UENetworkCapability(nasMessage.RegistrationRequestS1UENetworkCapabilityType)
+		a.S1UENetworkCapability = nasType.NewS1UENetworkCapability(
+			nasMessage.RegistrationRequestS1UENetworkCapabilityType,
+		)
 		a.S1UENetworkCapability = &table.inS1UENetworkCapability
 
-		a.UplinkDataStatus = nasType.NewUplinkDataStatus(nasMessage.RegistrationRequestUplinkDataStatusType)
+		a.UplinkDataStatus = nasType.NewUplinkDataStatus(
+			nasMessage.RegistrationRequestUplinkDataStatusType,
+		)
 		a.UplinkDataStatus = &table.inUplinkDataStatus
 
-		a.PDUSessionStatus = nasType.NewPDUSessionStatus(nasMessage.RegistrationRequestPDUSessionStatusType)
+		a.PDUSessionStatus = nasType.NewPDUSessionStatus(
+			nasMessage.RegistrationRequestPDUSessionStatusType,
+		)
 		a.PDUSessionStatus = &table.inPDUSessionStatus
 
-		a.MICOIndication = nasType.NewMICOIndication(nasMessage.RegistrationRequestMICOIndicationType)
+		a.MICOIndication = nasType.NewMICOIndication(
+			nasMessage.RegistrationRequestMICOIndicationType,
+		)
 		a.MICOIndication = &table.inMICOIndication
 
-		a.UEStatus = nasType.NewUEStatus(nasMessage.RegistrationRequestUEStatusType)
+		a.UEStatus = nasType.NewUEStatus(
+			nasMessage.RegistrationRequestUEStatusType,
+		)
 		a.UEStatus = &table.inUEStatus
 
-		a.AdditionalGUTI = nasType.NewAdditionalGUTI(nasMessage.RegistrationRequestAdditionalGUTIType)
+		a.AdditionalGUTI = nasType.NewAdditionalGUTI(
+			nasMessage.RegistrationRequestAdditionalGUTIType,
+		)
 		a.AdditionalGUTI = &table.inAdditionalGUTI
 
-		a.AllowedPDUSessionStatus = nasType.NewAllowedPDUSessionStatus(nasMessage.RegistrationRequestAllowedPDUSessionStatusType)
+		a.AllowedPDUSessionStatus = nasType.NewAllowedPDUSessionStatus(
+			nasMessage.RegistrationRequestAllowedPDUSessionStatusType,
+		)
 		a.AllowedPDUSessionStatus = &table.inAllowedPDUSessionStatus
 
-		a.UesUsageSetting = nasType.NewUesUsageSetting(nasMessage.RegistrationRequestUesUsageSettingType)
+		a.UesUsageSetting = nasType.NewUesUsageSetting(
+			nasMessage.RegistrationRequestUesUsageSettingType,
+		)
 		a.UesUsageSetting = &table.inUesUsageSetting
 
-		a.RequestedDRXParameters = nasType.NewRequestedDRXParameters(nasMessage.RegistrationRequestRequestedDRXParametersType)
+		a.RequestedDRXParameters = nasType.NewRequestedDRXParameters(
+			nasMessage.RegistrationRequestRequestedDRXParametersType,
+		)
 		a.RequestedDRXParameters = &table.inRequestedDRXParameters
 
-		a.EPSNASMessageContainer = nasType.NewEPSNASMessageContainer(nasMessage.RegistrationRequestEPSNASMessageContainerType)
+		a.EPSNASMessageContainer = nasType.NewEPSNASMessageContainer(
+			nasMessage.RegistrationRequestEPSNASMessageContainerType,
+		)
 		a.EPSNASMessageContainer = &table.inEPSNASMessageContainer
 
-		a.LADNIndication = nasType.NewLADNIndication(nasMessage.RegistrationRequestLADNIndicationType)
+		a.LADNIndication = nasType.NewLADNIndication(
+			nasMessage.RegistrationRequestLADNIndicationType,
+		)
 		a.LADNIndication = &table.inLADNIndication
 
-		a.PayloadContainer = nasType.NewPayloadContainer(nasMessage.RegistrationRequestPayloadContainerType)
+		a.PayloadContainer = nasType.NewPayloadContainer(
+			nasMessage.RegistrationRequestPayloadContainerType,
+		)
 		a.PayloadContainer = &table.inPayloadContainer
 
-		a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(nasMessage.RegistrationRequestNetworkSlicingIndicationType)
+		a.NetworkSlicingIndication = nasType.NewNetworkSlicingIndication(
+			nasMessage.RegistrationRequestNetworkSlicingIndicationType,
+		)
 		a.NetworkSlicingIndication = &table.inNetworkSlicingIndication
 
-		a.UpdateType5GS = nasType.NewUpdateType5GS(nasMessage.RegistrationRequestUpdateType5GSType)
+		a.UpdateType5GS = nasType.NewUpdateType5GS(
+			nasMessage.RegistrationRequestUpdateType5GSType,
+		)
 		a.UpdateType5GS = &table.inUpdateType5GS
 
-		a.NASMessageContainer = nasType.NewNASMessageContainer(nasMessage.RegistrationRequestNASMessageContainerType)
+		a.NASMessageContainer = nasType.NewNASMessageContainer(
+			nasMessage.RegistrationRequestNASMessageContainerType,
+		)
 		a.NASMessageContainer = &table.inNASMessageContainer
 
 		buff := new(bytes.Buffer)

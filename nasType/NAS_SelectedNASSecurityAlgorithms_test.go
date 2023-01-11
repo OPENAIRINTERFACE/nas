@@ -15,16 +15,23 @@ import (
 )
 
 func TestNasTypeNewSelectedNASSecurityAlgorithms(t *testing.T) {
-	a := nasType.NewSelectedNASSecurityAlgorithms(nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType)
+	a := nasType.NewSelectedNASSecurityAlgorithms(
+		nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType,
+	)
 	assert.NotNil(t, a)
 }
 
 var nasTypePDUSessionReleaseCompleteSelectedNASSecurityAlgorithmsTable = []NasTypeIeiData{
-	{nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType, nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType},
+	{
+		nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType,
+		nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType,
+	},
 }
 
 func TestNasTypeSelectedNASSecurityAlgorithmsGetSetIei(t *testing.T) {
-	a := nasType.NewSelectedNASSecurityAlgorithms(nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType)
+	a := nasType.NewSelectedNASSecurityAlgorithms(
+		nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType,
+	)
 	for _, table := range nasTypePDUSessionReleaseCompleteSelectedNASSecurityAlgorithmsTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -35,8 +42,12 @@ var nasTypeSelectedNASSecurityAlgorithmsTypeOfCipheringAlgorithmTable = []NasTyp
 	{0x01, 0x01},
 }
 
-func TestNasTypeSelectedNASSecurityAlgorithmsGetSetTypeOfCipheringAlgorithm(t *testing.T) {
-	a := nasType.NewSelectedNASSecurityAlgorithms(nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType)
+func TestNasTypeSelectedNASSecurityAlgorithmsGetSetTypeOfCipheringAlgorithm(
+	t *testing.T,
+) {
+	a := nasType.NewSelectedNASSecurityAlgorithms(
+		nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType,
+	)
 	for _, table := range nasTypeSelectedNASSecurityAlgorithmsTypeOfCipheringAlgorithmTable {
 		a.SetTypeOfCipheringAlgorithm(table.in)
 		assert.Equal(t, table.out, a.GetTypeOfCipheringAlgorithm())
@@ -52,8 +63,12 @@ var nasTypeSelectedNASSecurityAlgorithmsTypeOfIntegrityProtectionAlgorithmTable 
 	{0x01, 0x01},
 }
 
-func TestNasTypeSelectedNASSecurityAlgorithmsGetSetTypeOfIntegrityProtectionAlgorithm(t *testing.T) {
-	a := nasType.NewSelectedNASSecurityAlgorithms(nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType)
+func TestNasTypeSelectedNASSecurityAlgorithmsGetSetTypeOfIntegrityProtectionAlgorithm(
+	t *testing.T,
+) {
+	a := nasType.NewSelectedNASSecurityAlgorithms(
+		nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType,
+	)
 	for _, table := range nasTypeSelectedNASSecurityAlgorithmsTypeOfIntegrityProtectionAlgorithmTable {
 		a.SetTypeOfIntegrityProtectionAlgorithm(table.in)
 		assert.Equal(t, table.out, a.GetTypeOfIntegrityProtectionAlgorithm())
@@ -76,20 +91,45 @@ var SelectedNASSecurityAlgorithmsExpectedTestData = []nasType.SelectedNASSecurit
 }
 
 var SelectedNASSecurityAlgorithmsTestTable = []testSelectedNASSecurityAlgorithmsDataTemplate{
-	{0x01, 0x01, SelectedNASSecurityAlgorithmsTestData[0], SelectedNASSecurityAlgorithmsExpectedTestData[0]},
+	{
+		0x01,
+		0x01,
+		SelectedNASSecurityAlgorithmsTestData[0],
+		SelectedNASSecurityAlgorithmsExpectedTestData[0],
+	},
 }
 
 func TestNasTypeSelectedNASSecurityAlgorithms(t *testing.T) {
 
 	for _, table := range SelectedNASSecurityAlgorithmsTestTable {
-		a := nasType.NewSelectedNASSecurityAlgorithms(nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType)
+		a := nasType.NewSelectedNASSecurityAlgorithms(
+			nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetTypeOfCipheringAlgorithm(table.inTypeOfCipheringAlgorithm)
-		a.SetTypeOfIntegrityProtectionAlgorithm(table.inTypeOfIntegrityProtectionAlgorithm)
+		a.SetTypeOfIntegrityProtectionAlgorithm(
+			table.inTypeOfIntegrityProtectionAlgorithm,
+		)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Octet, a.Octet, "in(%v): out %v, actual %x", table.in.Octet, table.out.Octet, a.Octet)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Octet,
+			a.Octet,
+			"in(%v): out %v, actual %x",
+			table.in.Octet,
+			table.out.Octet,
+			a.Octet,
+		)
 
 	}
 }

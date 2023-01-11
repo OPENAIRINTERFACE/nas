@@ -20,7 +20,10 @@ func TestNasTypeNewT3502Value(t *testing.T) {
 }
 
 var nasTypeT3502ValueIeiTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRejectT3502ValueType, nasMessage.RegistrationRejectT3502ValueType},
+	{
+		nasMessage.RegistrationRejectT3502ValueType,
+		nasMessage.RegistrationRejectT3502ValueType,
+	},
 }
 
 func TestNasTypeT3502ValueGetSetIei(t *testing.T) {

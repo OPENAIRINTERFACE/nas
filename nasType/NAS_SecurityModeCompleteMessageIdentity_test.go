@@ -27,7 +27,9 @@ var nasTypeSecurityModeCompleteMessageIdentityTable = []nasTypeSecurityModeCompl
 	{0x03, 0x03},
 }
 
-func TestNasTypeSecurityModeCompleteMessageIdentityGetSetMessageType(t *testing.T) {
+func TestNasTypeSecurityModeCompleteMessageIdentityGetSetMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewSecurityModeCompleteMessageIdentity()
 	for _, table := range nasTypeSecurityModeCompleteMessageIdentityTable {
 		a.SetMessageType(table.in)
@@ -49,7 +51,10 @@ var SecurityModeCompleteMessageIdentityExpectedTestData = []nasType.SecurityMode
 }
 
 var SecurityModeCompleteMessageIdentityTable = []SecurityModeCompleteMessageIdentityTestDataTemplate{
-	{SecurityModeCompleteMessageIdentityTestData[0], SecurityModeCompleteMessageIdentityExpectedTestData[0]},
+	{
+		SecurityModeCompleteMessageIdentityTestData[0],
+		SecurityModeCompleteMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypeSecurityModeCompleteMessageIdentity(t *testing.T) {

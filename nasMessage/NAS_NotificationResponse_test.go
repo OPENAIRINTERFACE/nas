@@ -56,12 +56,22 @@ func TestNasTypeNewNotificationResponseMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.NotificationResponseMessageIdentity.SetMessageType(table.inNotificationResponseMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.NotificationResponseMessageIdentity.SetMessageType(
+			table.inNotificationResponseMessageIdentity,
+		)
 
-		a.PDUSessionStatus = nasType.NewPDUSessionStatus(nasMessage.NotificationResponsePDUSessionStatusType)
+		a.PDUSessionStatus = nasType.NewPDUSessionStatus(
+			nasMessage.NotificationResponsePDUSessionStatusType,
+		)
 		a.PDUSessionStatus = &table.inPDUSessionStatus
 
 		buff := new(bytes.Buffer)

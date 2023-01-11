@@ -20,7 +20,10 @@ type nasTypeResponseMessageIdentityData struct {
 }
 
 var nasTypeResponseMessageIdentityTable = []nasTypeResponseMessageIdentityData{
-	{nasMessage.AuthenticationResponseEAPMessageType, nasMessage.AuthenticationResponseEAPMessageType},
+	{
+		nasMessage.AuthenticationResponseEAPMessageType,
+		nasMessage.AuthenticationResponseEAPMessageType,
+	},
 }
 
 func TestNasTypeNewAuthenticationResponseMessageIdentity(t *testing.T) {

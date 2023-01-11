@@ -12,7 +12,9 @@ type AlwaysonPDUSessionIndication struct {
 	Octet uint8
 }
 
-func NewAlwaysonPDUSessionIndication(iei uint8) (alwaysonPDUSessionIndication *AlwaysonPDUSessionIndication) {
+func NewAlwaysonPDUSessionIndication(
+	iei uint8,
+) (alwaysonPDUSessionIndication *AlwaysonPDUSessionIndication) {
 	alwaysonPDUSessionIndication = &AlwaysonPDUSessionIndication{}
 	alwaysonPDUSessionIndication.SetIei(iei)
 	return alwaysonPDUSessionIndication

@@ -54,7 +54,9 @@ func (a *SessionAMBR) GetUnitForSessionAMBRForDownlink() (unitForSessionAMBRForD
 
 // SessionAMBR 9.11.4.14
 // UnitForSessionAMBRForDownlink Row, sBit, len = [0, 0], 8 , 8
-func (a *SessionAMBR) SetUnitForSessionAMBRForDownlink(unitForSessionAMBRForDownlink uint8) {
+func (a *SessionAMBR) SetUnitForSessionAMBRForDownlink(
+	unitForSessionAMBRForDownlink uint8,
+) {
 	a.Octet[0] = unitForSessionAMBRForDownlink
 }
 
@@ -67,7 +69,9 @@ func (a *SessionAMBR) GetSessionAMBRForDownlink() (sessionAMBRForDownlink [2]uin
 
 // SessionAMBR 9.11.4.14
 // SessionAMBRForDownlink Row, sBit, len = [1, 2], 8 , 16
-func (a *SessionAMBR) SetSessionAMBRForDownlink(sessionAMBRForDownlink [2]uint8) {
+func (a *SessionAMBR) SetSessionAMBRForDownlink(
+	sessionAMBRForDownlink [2]uint8,
+) {
 	copy(a.Octet[1:3], sessionAMBRForDownlink[:])
 }
 
@@ -79,7 +83,9 @@ func (a *SessionAMBR) GetUnitForSessionAMBRForUplink() (unitForSessionAMBRForUpl
 
 // SessionAMBR 9.11.4.14
 // UnitForSessionAMBRForUplink Row, sBit, len = [3, 3], 8 , 8
-func (a *SessionAMBR) SetUnitForSessionAMBRForUplink(unitForSessionAMBRForUplink uint8) {
+func (a *SessionAMBR) SetUnitForSessionAMBRForUplink(
+	unitForSessionAMBRForUplink uint8,
+) {
 	a.Octet[3] = unitForSessionAMBRForUplink
 }
 

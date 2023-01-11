@@ -10,7 +10,9 @@ import (
 )
 
 // TS 24.501 9.11.3.35, TS 24.008 10.5.3.5a
-func FullNetworkNameToNas(name string) (fullNetworkName nasType.FullNameForNetwork) {
+func FullNetworkNameToNas(
+	name string,
+) (fullNetworkName nasType.FullNameForNetwork) {
 
 	asciiArray := []byte(name)
 	numOfSpareBits := 8 - ((7 * len(asciiArray)) % 8)
@@ -40,7 +42,9 @@ func FullNetworkNameToNas(name string) (fullNetworkName nasType.FullNameForNetwo
 	return
 }
 
-func ShortNetworkNameToNas(name string) (shortNetworkName nasType.ShortNameForNetwork) {
+func ShortNetworkNameToNas(
+	name string,
+) (shortNetworkName nasType.ShortNameForNetwork) {
 
 	asciiArray := []byte(name)
 	numOfSpareBits := 8 - ((7 * len(asciiArray)) % 8)

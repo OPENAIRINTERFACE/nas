@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewRequestedQosRules(t *testing.T) {
-	a := nasType.NewRequestedQosRules(nasMessage.PDUSessionModificationRequestRequestedQosRulesType)
+	a := nasType.NewRequestedQosRules(
+		nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeAuthenticationResultRequestedQosRulesTable = []NasTypeIeiData{
-	{nasMessage.PDUSessionModificationRequestRequestedQosRulesType, nasMessage.PDUSessionModificationRequestRequestedQosRulesType},
+	{
+		nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+		nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+	},
 }
 
 func TestNasTypeRequestedQosRulesGetSetIei(t *testing.T) {
-	a := nasType.NewRequestedQosRules(nasMessage.PDUSessionModificationRequestRequestedQosRulesType)
+	a := nasType.NewRequestedQosRules(
+		nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+	)
 	for _, table := range nasTypeAuthenticationResultRequestedQosRulesTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeAuthenticationResultRequestedQosRulesLenTable = []NasTypeLenUint16Dat
 }
 
 func TestNasTypeRequestedQosRulesGetSetLen(t *testing.T) {
-	a := nasType.NewRequestedQosRules(nasMessage.PDUSessionModificationRequestRequestedQosRulesType)
+	a := nasType.NewRequestedQosRules(
+		nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+	)
 	for _, table := range nasTypeAuthenticationResultRequestedQosRulesLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,11 +64,21 @@ var nasTypeRequestedQosRulesTable = []nasTypeRequestedQosRulesData{
 }
 
 func TestNasTypeRequestedQosRulesGetSetContent(t *testing.T) {
-	a := nasType.NewRequestedQosRules(nasMessage.PDUSessionModificationRequestRequestedQosRulesType)
+	a := nasType.NewRequestedQosRules(
+		nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+	)
 	for _, table := range nasTypeRequestedQosRulesTable {
 		a.SetLen(table.inLen)
 		a.SetQoSRules(table.in)
-		assert.Equalf(t, table.out, a.GetQoSRules(), "in(%v): out %v, actual %x", table.in, table.out, a.GetQoSRules())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetQoSRules(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetQoSRules(),
+		)
 	}
 }
 
@@ -69,11 +88,19 @@ type testRequestedQosRulesDataTemplate struct {
 }
 
 var RequestedQosRulesTestData = []nasType.RequestedQosRules{
-	{nasMessage.PDUSessionModificationRequestRequestedQosRulesType, 2, []byte{0x01, 0x02}},
+	{
+		nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+		2,
+		[]byte{0x01, 0x02},
+	},
 }
 
 var RequestedQosRulesExpectedTestData = []nasType.RequestedQosRules{
-	{nasMessage.PDUSessionModificationRequestRequestedQosRulesType, 2, []byte{0x01, 0x02}},
+	{
+		nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+		2,
+		[]byte{0x01, 0x02},
+	},
 }
 
 var RequestedQosRulesTestTable = []testRequestedQosRulesDataTemplate{
@@ -84,15 +111,41 @@ func TestNasTypeRequestedQosRules(t *testing.T) {
 
 	for i, table := range RequestedQosRulesTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewRequestedQosRules(nasMessage.PDUSessionModificationRequestRequestedQosRulesType)
+		a := nasType.NewRequestedQosRules(
+			nasMessage.PDUSessionModificationRequestRequestedQosRulesType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetLen(table.in.Len)
 		a.SetQoSRules(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

@@ -76,10 +76,18 @@ func s1(w uint32) uint32 {
 	w2 := (w >> 8) & 0xff
 	w3 := w & 0xff
 
-	r0 := uint32(mulx(sr[w0], 0x1b) ^ sr[w1] ^ sr[w2] ^ mulx(sr[w3], 0x1b) ^ sr[w3])
-	r1 := uint32(mulx(sr[w0], 0x1b) ^ sr[w0] ^ mulx(sr[w1], 0x1b) ^ sr[w2] ^ sr[w3])
-	r2 := uint32(sr[w0] ^ mulx(sr[w1], 0x1b) ^ sr[w1] ^ mulx(sr[w2], 0x1b) ^ sr[w3])
-	r3 := uint32(sr[w0] ^ sr[w1] ^ mulx(sr[w2], 0x1b) ^ sr[w2] ^ mulx(sr[w3], 0x1b))
+	r0 := uint32(
+		mulx(sr[w0], 0x1b) ^ sr[w1] ^ sr[w2] ^ mulx(sr[w3], 0x1b) ^ sr[w3],
+	)
+	r1 := uint32(
+		mulx(sr[w0], 0x1b) ^ sr[w0] ^ mulx(sr[w1], 0x1b) ^ sr[w2] ^ sr[w3],
+	)
+	r2 := uint32(
+		sr[w0] ^ mulx(sr[w1], 0x1b) ^ sr[w1] ^ mulx(sr[w2], 0x1b) ^ sr[w3],
+	)
+	r3 := uint32(
+		sr[w0] ^ sr[w1] ^ mulx(sr[w2], 0x1b) ^ sr[w2] ^ mulx(sr[w3], 0x1b),
+	)
 	return (r0 << 24) | (r1 << 16) | (r2 << 8) | r3
 }
 
@@ -89,10 +97,18 @@ func s2(w uint32) uint32 {
 	w2 := (w >> 8) & 0xff
 	w3 := w & 0xff
 
-	r0 := uint32(mulx(sq[w0], 0x69) ^ sq[w1] ^ sq[w2] ^ mulx(sq[w3], 0x69) ^ sq[w3])
-	r1 := uint32(mulx(sq[w0], 0x69) ^ sq[w0] ^ mulx(sq[w1], 0x69) ^ sq[w2] ^ sq[w3])
-	r2 := uint32(sq[w0] ^ mulx(sq[w1], 0x69) ^ sq[w1] ^ mulx(sq[w2], 0x69) ^ sq[w3])
-	r3 := uint32(sq[w0] ^ sq[w1] ^ mulx(sq[w2], 0x69) ^ sq[w2] ^ mulx(sq[w3], 0x69))
+	r0 := uint32(
+		mulx(sq[w0], 0x69) ^ sq[w1] ^ sq[w2] ^ mulx(sq[w3], 0x69) ^ sq[w3],
+	)
+	r1 := uint32(
+		mulx(sq[w0], 0x69) ^ sq[w0] ^ mulx(sq[w1], 0x69) ^ sq[w2] ^ sq[w3],
+	)
+	r2 := uint32(
+		sq[w0] ^ mulx(sq[w1], 0x69) ^ sq[w1] ^ mulx(sq[w2], 0x69) ^ sq[w3],
+	)
+	r3 := uint32(
+		sq[w0] ^ sq[w1] ^ mulx(sq[w2], 0x69) ^ sq[w2] ^ mulx(sq[w3], 0x69),
+	)
 	return (r0 << 24) | (r1 << 16) | (r2 << 8) | r3
 }
 
@@ -113,8 +129,12 @@ func divAlpha(c byte) uint32 {
 }
 
 func lfsrInitialisationMode(F uint32) {
-	v := (lfsr.s[0] << 8) ^ mulAlpha(byte(lfsr.s[0]>>24)&0xff) ^ lfsr.s[2] ^ (lfsr.s[11] >> 8) ^
-		divAlpha(byte(lfsr.s[11]&0xff)) ^ F
+	v := (lfsr.s[0] << 8) ^ mulAlpha(
+		byte(lfsr.s[0]>>24)&0xff,
+	) ^ lfsr.s[2] ^ (lfsr.s[11] >> 8) ^
+		divAlpha(
+			byte(lfsr.s[11]&0xff),
+		) ^ F
 	for i := 0; i < 15; i++ {
 		lfsr.s[i] = lfsr.s[i+1]
 	}
@@ -122,8 +142,12 @@ func lfsrInitialisationMode(F uint32) {
 }
 
 func lfsrKeystreamMode() {
-	v := (lfsr.s[0] << 8) ^ mulAlpha(byte(lfsr.s[0]>>24)&0xff) ^ lfsr.s[2] ^ (lfsr.s[11] >> 8) ^
-		divAlpha(byte(lfsr.s[11]&0xff))
+	v := (lfsr.s[0] << 8) ^ mulAlpha(
+		byte(lfsr.s[0]>>24)&0xff,
+	) ^ lfsr.s[2] ^ (lfsr.s[11] >> 8) ^
+		divAlpha(
+			byte(lfsr.s[11]&0xff),
+		)
 	for i := 0; i < 15; i++ {
 		lfsr.s[i] = lfsr.s[i+1]
 	}

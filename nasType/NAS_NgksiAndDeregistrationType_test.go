@@ -44,7 +44,9 @@ var nasTypeNgksiAndDeregistrationTypeNasKeySetIdentifilerTable = []nasTypeNgksiA
 	{0x07, 0x07},
 }
 
-func TestNasTypeNgksiAndDeregistrationTypeGetSetNasKeySetIdentifiler(t *testing.T) {
+func TestNasTypeNgksiAndDeregistrationTypeGetSetNasKeySetIdentifiler(
+	t *testing.T,
+) {
 	a := nasType.NewNgksiAndDeregistrationType()
 	for _, table := range nasTypeNgksiAndDeregistrationTypeNasKeySetIdentifilerTable {
 		a.SetNasKeySetIdentifiler(table.in)
@@ -78,7 +80,9 @@ var nasTypeNgksiAndDeregistrationTypeReRegistrationRequiredTable = []nasTypeNgks
 	{0x01, 0x01},
 }
 
-func TestNasTypeNgksiAndDeregistrationTypeGetSetReRegistrationRequired(t *testing.T) {
+func TestNasTypeNgksiAndDeregistrationTypeGetSetReRegistrationRequired(
+	t *testing.T,
+) {
 	a := nasType.NewNgksiAndDeregistrationType()
 	for _, table := range nasTypeNgksiAndDeregistrationTypeReRegistrationRequiredTable {
 		a.SetReRegistrationRequired(table.in)
@@ -133,9 +137,17 @@ func TestNasTypeNgksiAndDeregistrationType(t *testing.T) {
 		a.SetAccessType(table.inAccessType)
 
 		assert.Equal(t, table.outTSC, a.GetTSC())
-		assert.Equal(t, table.outNasKeySetIdentifiler, a.GetNasKeySetIdentifiler())
+		assert.Equal(
+			t,
+			table.outNasKeySetIdentifiler,
+			a.GetNasKeySetIdentifiler(),
+		)
 		assert.Equal(t, table.outSwitchOff, a.GetSwitchOff())
-		assert.Equal(t, table.outReRegistrationRequired, a.GetReRegistrationRequired())
+		assert.Equal(
+			t,
+			table.outReRegistrationRequired,
+			a.GetReRegistrationRequired(),
+		)
 		assert.Equal(t, table.outAccessType, a.GetAccessType())
 	}
 }

@@ -92,10 +92,18 @@ func TestNasTypeNewSecurityModeCommandMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.SecurityModeCommandMessageIdentity.SetMessageType(table.inSecurityModeCommandMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.SecurityModeCommandMessageIdentity.SetMessageType(
+			table.inSecurityModeCommandMessageIdentity,
+		)
 
 		a.SelectedNASSecurityAlgorithms = table.inSelectedNASSecurityAlgorithms
 		a.SpareHalfOctetAndNgksi.SetSpareHalfOctet(table.inSpareHalfOctet)
@@ -103,22 +111,32 @@ func TestNasTypeNewSecurityModeCommandMessage(t *testing.T) {
 
 		a.ReplayedUESecurityCapabilities = table.inReplayedUESecurityCapabilities
 
-		a.IMEISVRequest = nasType.NewIMEISVRequest(nasMessage.SecurityModeCommandIMEISVRequestType)
+		a.IMEISVRequest = nasType.NewIMEISVRequest(
+			nasMessage.SecurityModeCommandIMEISVRequestType,
+		)
 		a.IMEISVRequest = &table.inIMEISVRequest
 
-		a.SelectedEPSNASSecurityAlgorithms = nasType.NewSelectedEPSNASSecurityAlgorithms(nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType)
+		a.SelectedEPSNASSecurityAlgorithms = nasType.NewSelectedEPSNASSecurityAlgorithms(
+			nasMessage.SecurityModeCommandSelectedEPSNASSecurityAlgorithmsType,
+		)
 		a.SelectedEPSNASSecurityAlgorithms = &table.inSelectedEPSNASSecurityAlgorithms
 
-		a.Additional5GSecurityInformation = nasType.NewAdditional5GSecurityInformation(nasMessage.SecurityModeCommandAdditional5GSecurityInformationType)
+		a.Additional5GSecurityInformation = nasType.NewAdditional5GSecurityInformation(
+			nasMessage.SecurityModeCommandAdditional5GSecurityInformationType,
+		)
 		a.Additional5GSecurityInformation = &table.inAdditional5GSecurityInformation
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.SecurityModeCommandEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.SecurityModeCommandEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
 		a.ABBA = nasType.NewABBA(nasMessage.SecurityModeCommandABBAType)
 		a.ABBA = &table.inABBA
 
-		a.ReplayedS1UESecurityCapabilities = nasType.NewReplayedS1UESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+		a.ReplayedS1UESecurityCapabilities = nasType.NewReplayedS1UESecurityCapabilities(
+			nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+		)
 		a.ReplayedS1UESecurityCapabilities = &table.inReplayedS1UESecurityCapabilities
 
 		buff := new(bytes.Buffer)

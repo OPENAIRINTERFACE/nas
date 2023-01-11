@@ -17,7 +17,9 @@ import (
 var PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput uint8 = 0x09
 
 func TestNasTypeNewPDUSessionType(t *testing.T) {
-	a := nasType.NewPDUSessionType(PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput)
+	a := nasType.NewPDUSessionType(
+		PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput,
+	)
 	assert.NotNil(t, a)
 }
 
@@ -26,7 +28,9 @@ var nasTypePDUSessionEstablishmentRequestPDUSessionTypeTable = []NasTypeIeiData{
 }
 
 func TestNasTypePDUSessionTypeGetSetIei(t *testing.T) {
-	a := nasType.NewPDUSessionType(PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput)
+	a := nasType.NewPDUSessionType(
+		PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput,
+	)
 	for _, table := range nasTypePDUSessionEstablishmentRequestPDUSessionTypeTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -38,7 +42,9 @@ var nasTypePDUSessionEstablishmentRequestPDUSessionTypeSpareTable = []NasTypeLen
 }
 
 func TestNasTypePDUSessionTypeGetSetSpare(t *testing.T) {
-	a := nasType.NewPDUSessionType(PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput)
+	a := nasType.NewPDUSessionType(
+		PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput,
+	)
 	for _, table := range nasTypePDUSessionEstablishmentRequestPDUSessionTypeSpareTable {
 		a.SetSpare(table.in)
 		assert.Equal(t, table.out, a.GetSpare())
@@ -55,7 +61,9 @@ var nasTypePDUSessionTypeValue = []NasTypeLenuint8Data{
 }
 
 func TestNasTypePDUSessionTypeGetSetPDUSessionTypeValue(t *testing.T) {
-	a := nasType.NewPDUSessionType(PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput)
+	a := nasType.NewPDUSessionType(
+		PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput,
+	)
 	for _, table := range nasTypePDUSessionTypeValue {
 		a.SetPDUSessionTypeValue(table.in)
 		assert.Equal(t, table.out, a.GetPDUSessionTypeValue())
@@ -83,7 +91,9 @@ var pDUSessionTypeTestTable = []testPDUSessionTypeDataTemplate{
 func TestNasTypePDUSessionType(t *testing.T) {
 
 	for _, table := range pDUSessionTypeTestTable {
-		a := nasType.NewPDUSessionType(PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput)
+		a := nasType.NewPDUSessionType(
+			PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput,
+		)
 
 		a.SetIei(PDUSessionEstablishmentRequestPDUSessionTypeTypeIeiInput)
 		a.SetPDUSessionTypeValue(table.inPDUSessionTypeValue)

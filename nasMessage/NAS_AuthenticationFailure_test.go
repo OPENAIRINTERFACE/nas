@@ -40,7 +40,25 @@ var nasMessageAuthenticationFailureTable = []nasMessageAuthenticationFailureData
 		inSpareHalfOctet:                       0x01,
 		inAuthenticationFailureMessageIdentity: 0x01,
 		in5GMMCause:                            nasType.Cause5GMM{0, 0xff},
-		inAuthenticationFailureParameter:       nasType.AuthenticationFailureParameter{nasMessage.AuthenticationFailureAuthenticationFailureParameterType, 14, [14]uint8{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}},
+		inAuthenticationFailureParameter: nasType.AuthenticationFailureParameter{
+			nasMessage.AuthenticationFailureAuthenticationFailureParameterType,
+			14,
+			[14]uint8{
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+			},
+		},
 	},
 	{
 		inExtendedProtocolDiscriminator:        0x01,
@@ -48,7 +66,25 @@ var nasMessageAuthenticationFailureTable = []nasMessageAuthenticationFailureData
 		inSpareHalfOctet:                       0x01,
 		inAuthenticationFailureMessageIdentity: 0x01,
 		in5GMMCause:                            nasType.Cause5GMM{0, 0xff},
-		inAuthenticationFailureParameter:       nasType.AuthenticationFailureParameter{0x30, 14, [14]uint8{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}},
+		inAuthenticationFailureParameter: nasType.AuthenticationFailureParameter{
+			0x30,
+			14,
+			[14]uint8{
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+				0xFF,
+			},
+		},
 	},
 }
 
@@ -58,7 +94,9 @@ func TestNasTypeNewAuthenticationFailure(t *testing.T) {
 }
 
 func TestNasTypeNewAuthenticationFailureMessage(t *testing.T) {
-	logger.NasMsgLog.Infoln("---Test NAS Message: AuthenticationFailureMessage---")
+	logger.NasMsgLog.Infoln(
+		"---Test NAS Message: AuthenticationFailureMessage---",
+	)
 	for i, table := range nasMessageAuthenticationFailureTable {
 		t.Logf("Test Cnt:%d", i)
 		a := nasMessage.NewAuthenticationFailure(0)
@@ -66,12 +104,22 @@ func TestNasTypeNewAuthenticationFailureMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.AuthenticationFailureMessageIdentity.SetMessageType(table.inAuthenticationFailureMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.AuthenticationFailureMessageIdentity.SetMessageType(
+			table.inAuthenticationFailureMessageIdentity,
+		)
 		a.Cause5GMM = table.in5GMMCause
-		a.AuthenticationFailureParameter = nasType.NewAuthenticationFailureParameter(nasMessage.AuthenticationFailureAuthenticationFailureParameterType)
+		a.AuthenticationFailureParameter = nasType.NewAuthenticationFailureParameter(
+			nasMessage.AuthenticationFailureAuthenticationFailureParameterType,
+		)
 		a.AuthenticationFailureParameter = &table.inAuthenticationFailureParameter
 
 		buff := new(bytes.Buffer)

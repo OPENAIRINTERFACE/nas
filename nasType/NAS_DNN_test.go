@@ -49,7 +49,11 @@ type nasTypetDNNData struct {
 }
 
 var nasTypeDNNTable = []nasTypetDNNData{
-	{8, []uint8{0x07, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74}, []uint8{0x07, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74}},
+	{
+		8,
+		[]uint8{0x07, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74},
+		[]uint8{0x07, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74},
+	},
 }
 
 func TestNasTypeDNNGetSetDNNValue(t *testing.T) {
@@ -57,7 +61,15 @@ func TestNasTypeDNNGetSetDNNValue(t *testing.T) {
 	for _, table := range nasTypeDNNTable {
 		a.SetLen(table.inLen)
 		a.SetDNN(table.in)
-		assert.Equalf(t, table.out, a.GetDNN(), "in(%v): out %v, actual %x", table.in, table.out, a.GetDNN())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetDNN(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetDNN(),
+		)
 	}
 }
 
@@ -67,11 +79,19 @@ type testDNNDataTemplate struct {
 }
 
 var DNNTestData = []nasType.DNN{
-	{0, 7, []byte{0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74}}, //AuthenticationResult
+	{
+		0,
+		7,
+		[]byte{0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74},
+	}, //AuthenticationResult
 }
 
 var DNNExpectedTestData = []nasType.DNN{
-	{0, 8, []byte{0x07, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74}}, //AuthenticationResult
+	{
+		0,
+		8,
+		[]byte{0x07, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74},
+	}, //AuthenticationResult
 }
 
 var DNNTestTable = []testDNNDataTemplate{
@@ -88,10 +108,41 @@ func TestNasTypeDNN(t *testing.T) {
 		a.SetLen(table.in.Len)
 		a.SetDNN(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
-		t.Log(table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
+		t.Log(
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 		t.Log(a.Len)
 
 	}

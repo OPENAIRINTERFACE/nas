@@ -25,10 +25,15 @@ type nasTypePDUSESSIONESTABLISHMENTREJECTMessageIdentityMessageType struct {
 }
 
 var nasTypePDUSESSIONESTABLISHMENTREJECTMessageIdentityMessageTypeTable = []nasTypePDUSESSIONESTABLISHMENTREJECTMessageIdentityMessageType{
-	{nas.MsgTypePDUSessionEstablishmentReject, nas.MsgTypePDUSessionEstablishmentReject},
+	{
+		nas.MsgTypePDUSessionEstablishmentReject,
+		nas.MsgTypePDUSessionEstablishmentReject,
+	},
 }
 
-func TestNasTypeGetSetPDUSESSIONESTABLISHMENTREJECTMessageIdentityMessageType(t *testing.T) {
+func TestNasTypeGetSetPDUSESSIONESTABLISHMENTREJECTMessageIdentityMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONESTABLISHMENTREJECTMessageIdentity()
 	for _, table := range nasTypePDUSESSIONESTABLISHMENTREJECTMessageIdentityMessageTypeTable {
 		a.SetMessageType(table.in)

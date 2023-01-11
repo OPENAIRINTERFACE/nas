@@ -54,6 +54,8 @@ func (a *PayloadContainer) GetPayloadContainerContents() (payloadContainerConten
 
 // PayloadContainer 9.11.3.39
 // PayloadContainerContents Row, sBit, len = [0, 0], 8 , INF
-func (a *PayloadContainer) SetPayloadContainerContents(payloadContainerContents []uint8) {
+func (a *PayloadContainer) SetPayloadContainerContents(
+	payloadContainerContents []uint8,
+) {
 	copy(a.Buffer, payloadContainerContents)
 }

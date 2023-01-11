@@ -13,7 +13,9 @@ type SMPDUDNRequestContainer struct {
 	Buffer []uint8
 }
 
-func NewSMPDUDNRequestContainer(iei uint8) (sMPDUDNRequestContainer *SMPDUDNRequestContainer) {
+func NewSMPDUDNRequestContainer(
+	iei uint8,
+) (sMPDUDNRequestContainer *SMPDUDNRequestContainer) {
 	sMPDUDNRequestContainer = &SMPDUDNRequestContainer{}
 	sMPDUDNRequestContainer.SetIei(iei)
 	return sMPDUDNRequestContainer
@@ -54,6 +56,8 @@ func (a *SMPDUDNRequestContainer) GetDNSpecificIdentity() (dNSpecificIdentity []
 
 // SMPDUDNRequestContainer 9.11.4.15
 // DNSpecificIdentity Row, sBit, len = [0, 0], 8 , INF
-func (a *SMPDUDNRequestContainer) SetDNSpecificIdentity(dNSpecificIdentity []uint8) {
+func (a *SMPDUDNRequestContainer) SetDNSpecificIdentity(
+	dNSpecificIdentity []uint8,
+) {
 	copy(a.Buffer, dNSpecificIdentity)
 }

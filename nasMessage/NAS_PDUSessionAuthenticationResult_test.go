@@ -60,15 +60,23 @@ func TestNasTypeNewPDUSessionAuthenticationResultMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
 		a.PDUSessionID.SetPDUSessionID(table.inPDUSessionID)
 		a.PTI.SetPTI(table.inPTI)
-		a.PDUSESSIONAUTHENTICATIONRESULTMessageIdentity.SetMessageType(table.inPDUSESSIONAUTHENTICATIONRESULTMessageIdentity)
+		a.PDUSESSIONAUTHENTICATIONRESULTMessageIdentity.SetMessageType(
+			table.inPDUSESSIONAUTHENTICATIONRESULTMessageIdentity,
+		)
 
-		a.EAPMessage = nasType.NewEAPMessage(nasMessage.PDUSessionAuthenticationResultEAPMessageType)
+		a.EAPMessage = nasType.NewEAPMessage(
+			nasMessage.PDUSessionAuthenticationResultEAPMessageType,
+		)
 		a.EAPMessage = &table.inEAPMessage
 
-		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(nasMessage.PDUSessionAuthenticationResultExtendedProtocolConfigurationOptionsType)
+		a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+			nasMessage.PDUSessionAuthenticationResultExtendedProtocolConfigurationOptionsType,
+		)
 		a.ExtendedProtocolConfigurationOptions = &table.inExtendedProtocolConfigurationOptions
 
 		buff := new(bytes.Buffer)

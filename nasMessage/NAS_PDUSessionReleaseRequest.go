@@ -21,7 +21,9 @@ type PDUSessionReleaseRequest struct {
 	*nasType.ExtendedProtocolConfigurationOptions
 }
 
-func NewPDUSessionReleaseRequest(iei uint8) (pDUSessionReleaseRequest *PDUSessionReleaseRequest) {
+func NewPDUSessionReleaseRequest(
+	iei uint8,
+) (pDUSessionReleaseRequest *PDUSessionReleaseRequest) {
 	pDUSessionReleaseRequest = &PDUSessionReleaseRequest{}
 	return pDUSessionReleaseRequest
 }
@@ -31,28 +33,60 @@ const (
 	PDUSessionReleaseRequestExtendedProtocolConfigurationOptionsType uint8 = 0x7B
 )
 
-func (a *PDUSessionReleaseRequest) EncodePDUSessionReleaseRequest(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+func (a *PDUSessionReleaseRequest) EncodePDUSessionReleaseRequest(
+	buffer *bytes.Buffer,
+) {
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.PTI.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.PDUSESSIONRELEASEREQUESTMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.PDUSESSIONRELEASEREQUESTMessageIdentity.Octet,
+	)
 	if a.Cause5GSM != nil {
 		binary.Write(buffer, binary.BigEndian, a.Cause5GSM.GetIei())
 		binary.Write(buffer, binary.BigEndian, &a.Cause5GSM.Octet)
 	}
 	if a.ExtendedProtocolConfigurationOptions != nil {
-		binary.Write(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolConfigurationOptions.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedProtocolConfigurationOptions.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedProtocolConfigurationOptions.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.ExtendedProtocolConfigurationOptions.Buffer,
+		)
 	}
 }
 
-func (a *PDUSessionReleaseRequest) DecodePDUSessionReleaseRequest(byteArray *[]byte) {
+func (a *PDUSessionReleaseRequest) DecodePDUSessionReleaseRequest(
+	byteArray *[]byte,
+) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.PTI.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.PDUSESSIONRELEASEREQUESTMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.PDUSESSIONRELEASEREQUESTMessageIdentity.Octet,
+	)
 	for buffer.Len() > 0 {
 		var ieiN uint8
 		var tmpIeiN uint8
@@ -69,10 +103,22 @@ func (a *PDUSessionReleaseRequest) DecodePDUSessionReleaseRequest(byteArray *[]b
 			a.Cause5GSM = nasType.NewCause5GSM(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.Cause5GSM.Octet)
 		case PDUSessionReleaseRequestExtendedProtocolConfigurationOptionsType:
-			a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolConfigurationOptions.Len)
-			a.ExtendedProtocolConfigurationOptions.SetLen(a.ExtendedProtocolConfigurationOptions.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.Buffer[:a.ExtendedProtocolConfigurationOptions.GetLen()])
+			a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.ExtendedProtocolConfigurationOptions.Len,
+			)
+			a.ExtendedProtocolConfigurationOptions.SetLen(
+				a.ExtendedProtocolConfigurationOptions.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ExtendedProtocolConfigurationOptions.Buffer[:a.ExtendedProtocolConfigurationOptions.GetLen()],
+			)
 		default:
 		}
 	}

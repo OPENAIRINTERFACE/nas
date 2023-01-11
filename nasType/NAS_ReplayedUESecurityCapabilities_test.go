@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewReplayedUESecurityCapabilities(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeServiceRequestReplayedUESecurityCapabilitiesTable = []NasTypeIeiData{
-	{nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType, nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType},
+	{
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	},
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIei(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeServiceRequestReplayedUESecurityCapabilitiesTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeServiceRequestReplayedUESecurityCapabilitiesLenTable = []NasTypeLenui
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetLen(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeServiceRequestReplayedUESecurityCapabilitiesLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypeReplayedUESecurityCapabilitiesEA0_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEA0_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEA0_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA0_5G(table.in)
@@ -75,7 +86,9 @@ var nasTypeReplayedUESecurityCapabilitiesEA1_128_5GTable = []nasTypeReplayedUESe
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEA1_128_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEA1_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA1_128_5G(table.in)
@@ -95,7 +108,9 @@ var nasTypeReplayedUESecurityCapabilitiesEA2_128_5GTable = []nasTypeReplayedUESe
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEA2_128_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEA2_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA2_128_5G(table.in)
@@ -115,7 +130,9 @@ var nasTypeReplayedUESecurityCapabilitiesEA3_128_5GTable = []nasTypeReplayedUESe
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEA3_128_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEA3_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA3_128_5G(table.in)
@@ -135,7 +152,9 @@ var nasTypeReplayedUESecurityCapabilitiesEA4_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEA4_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEA4_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA4_5G(table.in)
@@ -155,7 +174,9 @@ var nasTypeReplayedUESecurityCapabilitiesEA5_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEA5_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEA5_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA5_5G(table.in)
@@ -175,7 +196,9 @@ var nasTypeReplayedUESecurityCapabilitiesEA6_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEA6_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEA6_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA6_5G(table.in)
@@ -195,7 +218,9 @@ var nasTypeReplayedUESecurityCapabilitiesEA7_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEA7_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEA7_5GTable {
 		a.SetLen(table.inLen)
 		a.SetEA7_5G(table.in)
@@ -215,7 +240,9 @@ var nasTypeReplayedUESecurityCapabilitiesIA0_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIA0_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesIA0_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA0_5G(table.in)
@@ -235,7 +262,9 @@ var nasTypeReplayedUESecurityCapabilitiesIA1_128_5GTable = []nasTypeReplayedUESe
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIA1_128_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesIA1_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA1_128_5G(table.in)
@@ -255,7 +284,9 @@ var nasTypeReplayedUESecurityCapabilitiesIA2_128_5GTable = []nasTypeReplayedUESe
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIA2_128_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesIA2_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA2_128_5G(table.in)
@@ -275,7 +306,9 @@ var nasTypeReplayedUESecurityCapabilitiesIA3_128_5GTable = []nasTypeReplayedUESe
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIA3_128_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesIA3_128_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA3_128_5G(table.in)
@@ -295,7 +328,9 @@ var nasTypeReplayedUESecurityCapabilitiesIA4_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIA4_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesIA4_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA4_5G(table.in)
@@ -315,7 +350,9 @@ var nasTypeReplayedUESecurityCapabilitiesIA5_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIA5_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesIA5_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA5_5G(table.in)
@@ -335,7 +372,9 @@ var nasTypeReplayedUESecurityCapabilitiesIA6_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIA6_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesIA6_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA6_5G(table.in)
@@ -355,7 +394,9 @@ var nasTypeReplayedUESecurityCapabilitiesIA7_5GTable = []nasTypeReplayedUESecuri
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetIA7_5G(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesIA7_5GTable {
 		a.SetLen(table.inLen)
 		a.SetIA7_5G(table.in)
@@ -375,7 +416,9 @@ var nasTypeReplayedUESecurityCapabilitiesEEA0Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEEA0(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEEA0Table {
 		a.SetLen(table.inLen)
 		a.SetEEA0(table.in)
@@ -395,7 +438,9 @@ var nasTypeReplayedUESecurityCapabilitiesEEA1_128Table = []nasTypeReplayedUESecu
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEEA1_128(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEEA1_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA1_128(table.in)
@@ -415,7 +460,9 @@ var nasTypeReplayedUESecurityCapabilitiesEEA2_128Table = []nasTypeReplayedUESecu
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEEA2_128(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEEA2_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA2_128(table.in)
@@ -435,7 +482,9 @@ var nasTypeReplayedUESecurityCapabilitiesEEA3_128Table = []nasTypeReplayedUESecu
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEEA3_128(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEEA3_128Table {
 		a.SetLen(table.inLen)
 		a.SetEEA3_128(table.in)
@@ -455,7 +504,9 @@ var nasTypeReplayedUESecurityCapabilitiesEEA4Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEEA4(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEEA4Table {
 		a.SetLen(table.inLen)
 		a.SetEEA4(table.in)
@@ -475,7 +526,9 @@ var nasTypeReplayedUESecurityCapabilitiesEEA5Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEEA5(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEEA5Table {
 		a.SetLen(table.inLen)
 		a.SetEEA5(table.in)
@@ -495,7 +548,9 @@ var nasTypeReplayedUESecurityCapabilitiesEEA6Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEEA6(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEEA6Table {
 		a.SetLen(table.inLen)
 		a.SetEEA6(table.in)
@@ -515,7 +570,9 @@ var nasTypeReplayedUESecurityCapabilitiesEEA7Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEEA7(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEEA7Table {
 		a.SetLen(table.inLen)
 		a.SetEEA7(table.in)
@@ -535,7 +592,9 @@ var nasTypeReplayedUESecurityCapabilitiesEIA0Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEIA0(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEIA0Table {
 		a.SetLen(table.inLen)
 		a.SetEIA0(table.in)
@@ -555,7 +614,9 @@ var nasTypeReplayedUESecurityCapabilitiesEIA1_128Table = []nasTypeReplayedUESecu
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEIA1_128(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEIA1_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA1_128(table.in)
@@ -575,7 +636,9 @@ var nasTypeReplayedUESecurityCapabilitiesEIA2_128Table = []nasTypeReplayedUESecu
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEIA2_128(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEIA2_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA2_128(table.in)
@@ -595,7 +658,9 @@ var nasTypeReplayedUESecurityCapabilitiesEIA3_128Table = []nasTypeReplayedUESecu
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEIA3_128(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEIA3_128Table {
 		a.SetLen(table.inLen)
 		a.SetEIA3_128(table.in)
@@ -615,7 +680,9 @@ var nasTypeReplayedUESecurityCapabilitiesEIA4Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEIA4(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEIA4Table {
 		a.SetLen(table.inLen)
 		a.SetEIA4(table.in)
@@ -635,7 +702,9 @@ var nasTypeReplayedUESecurityCapabilitiesEIA5Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEIA5(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEIA5Table {
 		a.SetLen(table.inLen)
 		a.SetEIA5(table.in)
@@ -655,7 +724,9 @@ var nasTypeReplayedUESecurityCapabilitiesEIA6Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEIA6(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEIA6Table {
 		a.SetLen(table.inLen)
 		a.SetEIA6(table.in)
@@ -675,7 +746,9 @@ var nasTypeReplayedUESecurityCapabilitiesEIA7Table = []nasTypeReplayedUESecurity
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetEIA7(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesEIA7Table {
 		a.SetLen(table.inLen)
 		a.SetEIA7(table.in)
@@ -695,7 +768,9 @@ var nasTypeReplayedUESecurityCapabilitiesSpareTable = []nasTypeReplayedUESecurit
 }
 
 func TestNasTypeReplayedUESecurityCapabilitiesGetSetSpare(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range nasTypeReplayedUESecurityCapabilitiesSpareTable {
 		a.SetLen(8)
 		a.SetSpare(table.in)
@@ -709,19 +784,32 @@ type testReplayedUESecurityCapabilitiesDataTemplate struct {
 }
 
 var replayedUESecurityCapabilitiesTestData = []nasType.ReplayedUESecurityCapabilities{
-	{nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType, 8, []uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01}},
+	{
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+		8,
+		[]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01},
+	},
 }
 
 var replayedUESecurityCapabilitiesExpectedData = []nasType.ReplayedUESecurityCapabilities{
-	{nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType, 8, []uint8{0xff, 0xff, 0xff, 0xff, 0x11, 0x12, 0x13, 0x14}},
+	{
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+		8,
+		[]uint8{0xff, 0xff, 0xff, 0xff, 0x11, 0x12, 0x13, 0x14},
+	},
 }
 
 var replayedUESecurityCapabilitiesTable = []testReplayedUESecurityCapabilitiesDataTemplate{
-	{replayedUESecurityCapabilitiesTestData[0], replayedUESecurityCapabilitiesExpectedData[0]},
+	{
+		replayedUESecurityCapabilitiesTestData[0],
+		replayedUESecurityCapabilitiesExpectedData[0],
+	},
 }
 
 func TestNasTypeReplayedUESecurityCapabilities(t *testing.T) {
-	a := nasType.NewReplayedUESecurityCapabilities(nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType)
+	a := nasType.NewReplayedUESecurityCapabilities(
+		nasMessage.SecurityModeCommandReplayedS1UESecurityCapabilitiesType,
+	)
 	for _, table := range replayedUESecurityCapabilitiesTable {
 		a.SetLen(table.in.Len)
 		a.SetEA0_5G(0x01)

@@ -23,7 +23,9 @@ type PDUSessionReleaseCommand struct {
 	*nasType.ExtendedProtocolConfigurationOptions
 }
 
-func NewPDUSessionReleaseCommand(iei uint8) (pDUSessionReleaseCommand *PDUSessionReleaseCommand) {
+func NewPDUSessionReleaseCommand(
+	iei uint8,
+) (pDUSessionReleaseCommand *PDUSessionReleaseCommand) {
 	pDUSessionReleaseCommand = &PDUSessionReleaseCommand{}
 	return pDUSessionReleaseCommand
 }
@@ -34,11 +36,21 @@ const (
 	PDUSessionReleaseCommandExtendedProtocolConfigurationOptionsType uint8 = 0x7B
 )
 
-func (a *PDUSessionReleaseCommand) EncodePDUSessionReleaseCommand(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+func (a *PDUSessionReleaseCommand) EncodePDUSessionReleaseCommand(
+	buffer *bytes.Buffer,
+) {
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Write(buffer, binary.BigEndian, &a.PTI.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.PDUSESSIONRELEASECOMMANDMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.PDUSESSIONRELEASECOMMANDMessageIdentity.Octet,
+	)
 	binary.Write(buffer, binary.BigEndian, &a.Cause5GSM.Octet)
 	if a.BackoffTimerValue != nil {
 		binary.Write(buffer, binary.BigEndian, a.BackoffTimerValue.GetIei())
@@ -51,18 +63,40 @@ func (a *PDUSessionReleaseCommand) EncodePDUSessionReleaseCommand(buffer *bytes.
 		binary.Write(buffer, binary.BigEndian, &a.EAPMessage.Buffer)
 	}
 	if a.ExtendedProtocolConfigurationOptions != nil {
-		binary.Write(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolConfigurationOptions.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedProtocolConfigurationOptions.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.ExtendedProtocolConfigurationOptions.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.ExtendedProtocolConfigurationOptions.Buffer,
+		)
 	}
 }
 
-func (a *PDUSessionReleaseCommand) DecodePDUSessionReleaseCommand(byteArray *[]byte) {
+func (a *PDUSessionReleaseCommand) DecodePDUSessionReleaseCommand(
+	byteArray *[]byte,
+) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.PDUSessionID.Octet)
 	binary.Read(buffer, binary.BigEndian, &a.PTI.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.PDUSESSIONRELEASECOMMANDMessageIdentity.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.PDUSESSIONRELEASECOMMANDMessageIdentity.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.Cause5GSM.Octet)
 	for buffer.Len() > 0 {
 		var ieiN uint8
@@ -85,12 +119,28 @@ func (a *PDUSessionReleaseCommand) DecodePDUSessionReleaseCommand(byteArray *[]b
 			a.EAPMessage = nasType.NewEAPMessage(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EAPMessage.Len)
 			a.EAPMessage.SetLen(a.EAPMessage.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EAPMessage.Buffer[:a.EAPMessage.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EAPMessage.Buffer[:a.EAPMessage.GetLen()],
+			)
 		case PDUSessionReleaseCommandExtendedProtocolConfigurationOptionsType:
-			a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolConfigurationOptions.Len)
-			a.ExtendedProtocolConfigurationOptions.SetLen(a.ExtendedProtocolConfigurationOptions.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.ExtendedProtocolConfigurationOptions.Buffer[:a.ExtendedProtocolConfigurationOptions.GetLen()])
+			a.ExtendedProtocolConfigurationOptions = nasType.NewExtendedProtocolConfigurationOptions(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.ExtendedProtocolConfigurationOptions.Len,
+			)
+			a.ExtendedProtocolConfigurationOptions.SetLen(
+				a.ExtendedProtocolConfigurationOptions.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.ExtendedProtocolConfigurationOptions.Buffer[:a.ExtendedProtocolConfigurationOptions.GetLen()],
+			)
 		default:
 		}
 	}

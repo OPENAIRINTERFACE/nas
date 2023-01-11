@@ -49,7 +49,10 @@ var authenticationFailureMessageIdentityExpectedTestData = []nasType.Authenticat
 }
 
 var authenticationFailureMessageIdentityTable = []AuthenticationFailureMessageIdentityTestDataTemplate{
-	{authenticationFailureMessageIdentityTestData[0], authenticationFailureMessageIdentityExpectedTestData[0]},
+	{
+		authenticationFailureMessageIdentityTestData[0],
+		authenticationFailureMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypeAuthenticationFailureMessageIdentity(t *testing.T) {

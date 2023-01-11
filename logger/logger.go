@@ -34,20 +34,36 @@ func init() {
 		FieldsOrder:     []string{"component", "category"},
 	}
 
-	free5gcLogHook, err := logger_util.NewFileHook(logger_conf.Free5gcLogFile, os.O_CREATE|os.O_APPEND|os.O_RDWR, 0666)
+	free5gcLogHook, err := logger_util.NewFileHook(
+		logger_conf.Free5gcLogFile,
+		os.O_CREATE|os.O_APPEND|os.O_RDWR,
+		0666,
+	)
 	if err == nil {
 		log.Hooks.Add(free5gcLogHook)
 	}
 
-	selfLogHook, err := logger_util.NewFileHook(logger_conf.LibLogDir+"nas.log", os.O_CREATE|os.O_APPEND|os.O_RDWR, 0666)
+	selfLogHook, err := logger_util.NewFileHook(
+		logger_conf.LibLogDir+"nas.log",
+		os.O_CREATE|os.O_APPEND|os.O_RDWR,
+		0666,
+	)
 	if err == nil {
 		log.Hooks.Add(selfLogHook)
 	}
 
-	NasLog = log.WithFields(logrus.Fields{"component": "LIB", "category": "NAS"})
-	NasMsgLog = log.WithFields(logrus.Fields{"component": "NAS", "category": "Message"})
-	ConvertLog = log.WithFields(logrus.Fields{"component": "NAS", "category": "Convert"})
-	SecurityLog = log.WithFields(logrus.Fields{"component": "NAS", "category": "Security"})
+	NasLog = log.WithFields(
+		logrus.Fields{"component": "LIB", "category": "NAS"},
+	)
+	NasMsgLog = log.WithFields(
+		logrus.Fields{"component": "NAS", "category": "Message"},
+	)
+	ConvertLog = log.WithFields(
+		logrus.Fields{"component": "NAS", "category": "Convert"},
+	)
+	SecurityLog = log.WithFields(
+		logrus.Fields{"component": "NAS", "category": "Security"},
+	)
 }
 
 func SetLogLevel(level logrus.Level) {

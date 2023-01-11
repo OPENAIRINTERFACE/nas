@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewLADNIndication(t *testing.T) {
-	a := nasType.NewLADNIndication(nasMessage.RegistrationRequestLADNIndicationType)
+	a := nasType.NewLADNIndication(
+		nasMessage.RegistrationRequestLADNIndicationType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeRegistrationRequestLADNIndicationTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestLADNIndicationType, nasMessage.RegistrationRequestLADNIndicationType},
+	{
+		nasMessage.RegistrationRequestLADNIndicationType,
+		nasMessage.RegistrationRequestLADNIndicationType,
+	},
 }
 
 func TestNasTypeLADNIndicationGetSetIei(t *testing.T) {
-	a := nasType.NewLADNIndication(nasMessage.RegistrationRequestLADNIndicationType)
+	a := nasType.NewLADNIndication(
+		nasMessage.RegistrationRequestLADNIndicationType,
+	)
 	for _, table := range nasTypeRegistrationRequestLADNIndicationTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeLADNIndicationLenTable = []NasTypeLenUint16Data{
 }
 
 func TestNasTypeLADNIndicationGetSetLen(t *testing.T) {
-	a := nasType.NewLADNIndication(nasMessage.RegistrationRequestLADNIndicationType)
+	a := nasType.NewLADNIndication(
+		nasMessage.RegistrationRequestLADNIndicationType,
+	)
 	for _, table := range nasTypeLADNIndicationLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,7 +64,9 @@ var nasTypeLADNIndicationLADNDNNValueTable = []nasTypeLADNIndicationLADNDNNValue
 }
 
 func TestNasTypeLADNIndicationGetSetLADNDNNValue(t *testing.T) {
-	a := nasType.NewLADNIndication(nasMessage.RegistrationRequestLADNIndicationType)
+	a := nasType.NewLADNIndication(
+		nasMessage.RegistrationRequestLADNIndicationType,
+	)
 	for _, table := range nasTypeLADNIndicationLADNDNNValueTable {
 		a.SetLen(table.inLen)
 		a.SetLADNDNNValue(table.in)
@@ -81,14 +92,40 @@ func TestNasTypeLADNIndication(t *testing.T) {
 
 	for i, table := range testLADNIndicationTestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewLADNIndication(nasMessage.RegistrationRequestLADNIndicationType)
+		a := nasType.NewLADNIndication(
+			nasMessage.RegistrationRequestLADNIndicationType,
+		)
 
 		a.SetIei(table.inIei)
 		a.SetLen(table.inLen)
 		a.SetLADNDNNValue(table.inLADNDNNValue)
 
-		assert.Equalf(t, table.outIei, a.Iei, "in(%v): out %v, actual %x", table.inIei, table.outIei, a.Iei)
-		assert.Equalf(t, table.outLen, a.Len, "in(%v): out %v, actual %x", table.inLen, table.outLen, a.Len)
-		assert.Equalf(t, table.outLADNDNNValue, a.GetLADNDNNValue(), "in(%v): out %v, actual %x", table.inLADNDNNValue, table.outLADNDNNValue, a.GetLADNDNNValue())
+		assert.Equalf(
+			t,
+			table.outIei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.inIei,
+			table.outIei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.outLen,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.inLen,
+			table.outLen,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.outLADNDNNValue,
+			a.GetLADNDNNValue(),
+			"in(%v): out %v, actual %x",
+			table.inLADNDNNValue,
+			table.outLADNDNNValue,
+			a.GetLADNDNNValue(),
+		)
 	}
 }

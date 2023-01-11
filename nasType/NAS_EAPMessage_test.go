@@ -58,7 +58,15 @@ func TestNasTypeEAPMessageGetSetEAPMessage(t *testing.T) {
 	for _, table := range nasTypeEAPMessageTable {
 		a.SetLen(table.inLen)
 		a.SetEAPMessage(table.in)
-		assert.Equalf(t, table.out, a.GetEAPMessage(), "in(%v): out %v, actual %x", table.in, table.out, a.GetEAPMessage())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetEAPMessage(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetEAPMessage(),
+		)
 	}
 }
 
@@ -89,9 +97,33 @@ func TestNasTypeEAPMessage(t *testing.T) {
 		a.SetLen(table.in.Len)
 		a.SetEAPMessage(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

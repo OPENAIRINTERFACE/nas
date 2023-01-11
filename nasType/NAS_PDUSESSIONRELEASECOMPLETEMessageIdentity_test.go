@@ -27,7 +27,9 @@ var nasTypePDUSESSIONRELEASECOMPLETEMessageIdentityTable = []nasTypePDUSESSIONRE
 	{0x03, 0x03},
 }
 
-func TestNasTypePDUSESSIONRELEASECOMPLETEMessageIdentityGetSetMessageType(t *testing.T) {
+func TestNasTypePDUSESSIONRELEASECOMPLETEMessageIdentityGetSetMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONRELEASECOMPLETEMessageIdentity()
 	for _, table := range nasTypePDUSESSIONRELEASECOMPLETEMessageIdentityTable {
 		a.SetMessageType(table.in)
@@ -49,7 +51,10 @@ var PDUSESSIONRELEASECOMPLETEMessageIdentityExpectedTestData = []nasType.PDUSESS
 }
 
 var PDUSESSIONRELEASECOMPLETEMessageIdentityTable = []PDUSESSIONRELEASECOMPLETEMessageIdentityTestDataTemplate{
-	{PDUSESSIONRELEASECOMPLETEMessageIdentityTestData[0], PDUSESSIONRELEASECOMPLETEMessageIdentityExpectedTestData[0]},
+	{
+		PDUSESSIONRELEASECOMPLETEMessageIdentityTestData[0],
+		PDUSESSIONRELEASECOMPLETEMessageIdentityExpectedTestData[0],
+	},
 }
 
 func TestNasTypePDUSESSIONRELEASECOMPLETEMessageIdentity(t *testing.T) {

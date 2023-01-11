@@ -35,7 +35,14 @@ func NASEncrypt(AlgoID uint8, KnasEnc [16]byte, Count uint32, Bearer uint8,
 		return nil
 	case AlgCiphering128NEA1:
 		logger.SecurityLog.Debugln("Use NEA1")
-		output, err := NEA1(KnasEnc, Count, uint32(Bearer), uint32(Direction), payload, uint32(len(payload))*8)
+		output, err := NEA1(
+			KnasEnc,
+			Count,
+			uint32(Bearer),
+			uint32(Direction),
+			payload,
+			uint32(len(payload))*8,
+		)
 		if err != nil {
 			return err
 		}
@@ -77,7 +84,14 @@ func NASMacCalculate(AlgoID uint8, KnasInt [16]uint8, Count uint32,
 		return nil, nil
 	case AlgIntegrity128NIA1:
 		logger.SecurityLog.Debugf("Use NIA1")
-		return NIA1(KnasInt, Count, Bearer, uint32(Direction), msg, uint64(len(msg))*8)
+		return NIA1(
+			KnasInt,
+			Count,
+			Bearer,
+			uint32(Direction),
+			msg,
+			uint64(len(msg))*8,
+		)
 	case AlgIntegrity128NIA2:
 		logger.SecurityLog.Debugf("Use NIA2")
 		return NIA2(KnasInt, Count, Bearer, Direction, msg)
@@ -90,12 +104,22 @@ func NASMacCalculate(AlgoID uint8, KnasInt [16]uint8, Count uint32,
 
 }
 
-func NEA1(ck [16]byte, countC, bearer, direction uint32, ibs []byte, length uint32) (obs []byte, err error) {
+func NEA1(
+	ck [16]byte,
+	countC, bearer, direction uint32,
+	ibs []byte,
+	length uint32,
+) (obs []byte, err error) {
 	var k [4]uint32
 	for i := uint32(0); i < 4; i++ {
 		k[i] = binary.BigEndian.Uint32(ck[4*(3-i) : 4*(3-i+1)])
 	}
-	iv := [4]uint32{(bearer << 27) | (direction << 26), countC, (bearer << 27) | (direction << 26), countC}
+	iv := [4]uint32{
+		(bearer << 27) | (direction << 26),
+		countC,
+		(bearer << 27) | (direction << 26),
+		countC,
+	}
 	snow3g.InitSnow3g(k, iv)
 
 	l := (length + 31) / 32
@@ -176,14 +200,26 @@ func mul(V, P, c uint64) uint64 {
 	return rst
 }
 
-func NIA1(ik [16]byte, countI uint32, bearer byte, direction uint32, msg []byte, length uint64) (
+func NIA1(
+	ik [16]byte,
+	countI uint32,
+	bearer byte,
+	direction uint32,
+	msg []byte,
+	length uint64,
+) (
 	mac []byte, err error) {
 	fresh := uint32(bearer) << 27
 	var k [4]uint32
 	for i := uint32(0); i < 4; i++ {
 		k[i] = binary.BigEndian.Uint32(ik[4*(3-i) : 4*(3-i+1)])
 	}
-	iv := [4]uint32{fresh ^ (direction << 15), countI ^ (direction << 31), fresh, countI}
+	iv := [4]uint32{
+		fresh ^ (direction << 15),
+		countI ^ (direction << 31),
+		fresh,
+		countI,
+	}
 	D := ((length + 63) / 64) + 1
 	var z = make([]uint32, 5)
 	snow3g.InitSnow3g(k, iv)
@@ -211,7 +247,13 @@ func NIA1(ik [16]byte, countI uint32, bearer byte, direction uint32, msg []byte,
 	return b, nil
 }
 
-func NIA2(key [16]byte, count uint32, bearer uint8, direction uint8, msg []byte) (mac []byte, err error) {
+func NIA2(
+	key [16]byte,
+	count uint32,
+	bearer uint8,
+	direction uint8,
+	msg []byte,
+) (mac []byte, err error) {
 	// Couter[0..32] | BEARER[0..4] | DIRECTION[0] | 0^26
 	m := make([]byte, len(msg)+8)
 	//First 32 bits are count

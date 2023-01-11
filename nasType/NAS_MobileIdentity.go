@@ -54,6 +54,8 @@ func (a *MobileIdentity) GetMobileIdentityContents() (mobileIdentityContents []u
 
 // MobileIdentity 9.11.3.4
 // MobileIdentityContents Row, sBit, len = [0, 0], 8 , INF
-func (a *MobileIdentity) SetMobileIdentityContents(mobileIdentityContents []uint8) {
+func (a *MobileIdentity) SetMobileIdentityContents(
+	mobileIdentityContents []uint8,
+) {
 	copy(a.Buffer, mobileIdentityContents)
 }

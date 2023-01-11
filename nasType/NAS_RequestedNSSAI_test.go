@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewRequestedNSSAI(t *testing.T) {
-	a := nasType.NewRequestedNSSAI(nasMessage.RegistrationRequestRequestedNSSAIType)
+	a := nasType.NewRequestedNSSAI(
+		nasMessage.RegistrationRequestRequestedNSSAIType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeAuthenticationResultRequestedNSSAITable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestRequestedNSSAIType, nasMessage.RegistrationRequestRequestedNSSAIType},
+	{
+		nasMessage.RegistrationRequestRequestedNSSAIType,
+		nasMessage.RegistrationRequestRequestedNSSAIType,
+	},
 }
 
 func TestNasTypeRequestedNSSAIGetSetIei(t *testing.T) {
-	a := nasType.NewRequestedNSSAI(nasMessage.RegistrationRequestRequestedNSSAIType)
+	a := nasType.NewRequestedNSSAI(
+		nasMessage.RegistrationRequestRequestedNSSAIType,
+	)
 	for _, table := range nasTypeAuthenticationResultRequestedNSSAITable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeAuthenticationResultRequestedNSSAILenTable = []NasTypeLenuint8Data{
 }
 
 func TestNasTypeRequestedNSSAIGetSetLen(t *testing.T) {
-	a := nasType.NewRequestedNSSAI(nasMessage.RegistrationRequestRequestedNSSAIType)
+	a := nasType.NewRequestedNSSAI(
+		nasMessage.RegistrationRequestRequestedNSSAIType,
+	)
 	for _, table := range nasTypeAuthenticationResultRequestedNSSAILenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -55,11 +64,21 @@ var nasTypeRequestedNSSAITable = []nasTypeRequestedNSSAIData{
 }
 
 func TestNasTypeRequestedNSSAIGetSetContent(t *testing.T) {
-	a := nasType.NewRequestedNSSAI(nasMessage.RegistrationRequestRequestedNSSAIType)
+	a := nasType.NewRequestedNSSAI(
+		nasMessage.RegistrationRequestRequestedNSSAIType,
+	)
 	for _, table := range nasTypeRequestedNSSAITable {
 		a.SetLen(table.inLen)
 		a.SetSNSSAIValue(table.in)
-		assert.Equalf(t, table.out, a.GetSNSSAIValue(), "in(%v): out %v, actual %x", table.in, table.out, a.GetSNSSAIValue())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetSNSSAIValue(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetSNSSAIValue(),
+		)
 	}
 }
 
@@ -84,15 +103,41 @@ func TestNasTypeRequestedNSSAI(t *testing.T) {
 
 	for i, table := range RequestedNSSAITestTable {
 		t.Logf("Test Cnt:%d", i)
-		a := nasType.NewRequestedNSSAI(nasMessage.RegistrationRequestRequestedNSSAIType)
+		a := nasType.NewRequestedNSSAI(
+			nasMessage.RegistrationRequestRequestedNSSAIType,
+		)
 
 		a.SetIei(table.in.GetIei())
 		a.SetLen(table.in.Len)
 		a.SetSNSSAIValue(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

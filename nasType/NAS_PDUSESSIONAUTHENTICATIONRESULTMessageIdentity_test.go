@@ -25,10 +25,15 @@ type nasTypePDUSESSIONAUTHENTICATIONRESULTMessageIdentityMessageType struct {
 }
 
 var nasTypePDUSESSIONAUTHENTICATIONRESULTMessageIdentityMessageTypeTable = []nasTypePDUSESSIONAUTHENTICATIONRESULTMessageIdentityMessageType{
-	{nas.MsgTypePDUSessionAuthenticationResult, nas.MsgTypePDUSessionAuthenticationResult},
+	{
+		nas.MsgTypePDUSessionAuthenticationResult,
+		nas.MsgTypePDUSessionAuthenticationResult,
+	},
 }
 
-func TestNasTypeGetSetPDUSESSIONAUTHENTICATIONRESULTMessageIdentityMessageType(t *testing.T) {
+func TestNasTypeGetSetPDUSESSIONAUTHENTICATIONRESULTMessageIdentityMessageType(
+	t *testing.T,
+) {
 	a := nasType.NewPDUSESSIONAUTHENTICATIONRESULTMessageIdentity()
 	for _, table := range nasTypePDUSESSIONAUTHENTICATIONRESULTMessageIdentityMessageTypeTable {
 		a.SetMessageType(table.in)

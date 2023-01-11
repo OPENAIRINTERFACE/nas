@@ -35,23 +35,59 @@ const (
 )
 
 func (a *ServiceAccept) EncodeServiceAccept(buffer *bytes.Buffer) {
-	binary.Write(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
-	binary.Write(buffer, binary.BigEndian, &a.ServiceAcceptMessageIdentity.Octet)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
+	binary.Write(
+		buffer,
+		binary.BigEndian,
+		&a.ServiceAcceptMessageIdentity.Octet,
+	)
 	if a.PDUSessionStatus != nil {
 		binary.Write(buffer, binary.BigEndian, a.PDUSessionStatus.GetIei())
 		binary.Write(buffer, binary.BigEndian, a.PDUSessionStatus.GetLen())
 		binary.Write(buffer, binary.BigEndian, &a.PDUSessionStatus.Buffer)
 	}
 	if a.PDUSessionReactivationResult != nil {
-		binary.Write(buffer, binary.BigEndian, a.PDUSessionReactivationResult.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.PDUSessionReactivationResult.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.PDUSessionReactivationResult.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.PDUSessionReactivationResult.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.PDUSessionReactivationResult.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.PDUSessionReactivationResult.Buffer,
+		)
 	}
 	if a.PDUSessionReactivationResultErrorCause != nil {
-		binary.Write(buffer, binary.BigEndian, a.PDUSessionReactivationResultErrorCause.GetIei())
-		binary.Write(buffer, binary.BigEndian, a.PDUSessionReactivationResultErrorCause.GetLen())
-		binary.Write(buffer, binary.BigEndian, &a.PDUSessionReactivationResultErrorCause.Buffer)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.PDUSessionReactivationResultErrorCause.GetIei(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			a.PDUSessionReactivationResultErrorCause.GetLen(),
+		)
+		binary.Write(
+			buffer,
+			binary.BigEndian,
+			&a.PDUSessionReactivationResultErrorCause.Buffer,
+		)
 	}
 	if a.EAPMessage != nil {
 		binary.Write(buffer, binary.BigEndian, a.EAPMessage.GetIei())
@@ -62,8 +98,16 @@ func (a *ServiceAccept) EncodeServiceAccept(buffer *bytes.Buffer) {
 
 func (a *ServiceAccept) DecodeServiceAccept(byteArray *[]byte) {
 	buffer := bytes.NewBuffer(*byteArray)
-	binary.Read(buffer, binary.BigEndian, &a.ExtendedProtocolDiscriminator.Octet)
-	binary.Read(buffer, binary.BigEndian, &a.SpareHalfOctetAndSecurityHeaderType.Octet)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.ExtendedProtocolDiscriminator.Octet,
+	)
+	binary.Read(
+		buffer,
+		binary.BigEndian,
+		&a.SpareHalfOctetAndSecurityHeaderType.Octet,
+	)
 	binary.Read(buffer, binary.BigEndian, &a.ServiceAcceptMessageIdentity.Octet)
 	for buffer.Len() > 0 {
 		var ieiN uint8
@@ -81,22 +125,54 @@ func (a *ServiceAccept) DecodeServiceAccept(byteArray *[]byte) {
 			a.PDUSessionStatus = nasType.NewPDUSessionStatus(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.PDUSessionStatus.Len)
 			a.PDUSessionStatus.SetLen(a.PDUSessionStatus.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionStatus.Buffer[:a.PDUSessionStatus.GetLen()],
+			)
 		case ServiceAcceptPDUSessionReactivationResultType:
-			a.PDUSessionReactivationResult = nasType.NewPDUSessionReactivationResult(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.PDUSessionReactivationResult.Len)
-			a.PDUSessionReactivationResult.SetLen(a.PDUSessionReactivationResult.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionReactivationResult.Buffer[:a.PDUSessionReactivationResult.GetLen()])
+			a.PDUSessionReactivationResult = nasType.NewPDUSessionReactivationResult(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.PDUSessionReactivationResult.Len,
+			)
+			a.PDUSessionReactivationResult.SetLen(
+				a.PDUSessionReactivationResult.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionReactivationResult.Buffer[:a.PDUSessionReactivationResult.GetLen()],
+			)
 		case ServiceAcceptPDUSessionReactivationResultErrorCauseType:
-			a.PDUSessionReactivationResultErrorCause = nasType.NewPDUSessionReactivationResultErrorCause(ieiN)
-			binary.Read(buffer, binary.BigEndian, &a.PDUSessionReactivationResultErrorCause.Len)
-			a.PDUSessionReactivationResultErrorCause.SetLen(a.PDUSessionReactivationResultErrorCause.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.PDUSessionReactivationResultErrorCause.Buffer[:a.PDUSessionReactivationResultErrorCause.GetLen()])
+			a.PDUSessionReactivationResultErrorCause = nasType.NewPDUSessionReactivationResultErrorCause(
+				ieiN,
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				&a.PDUSessionReactivationResultErrorCause.Len,
+			)
+			a.PDUSessionReactivationResultErrorCause.SetLen(
+				a.PDUSessionReactivationResultErrorCause.GetLen(),
+			)
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.PDUSessionReactivationResultErrorCause.Buffer[:a.PDUSessionReactivationResultErrorCause.GetLen()],
+			)
 		case ServiceAcceptEAPMessageType:
 			a.EAPMessage = nasType.NewEAPMessage(ieiN)
 			binary.Read(buffer, binary.BigEndian, &a.EAPMessage.Len)
 			a.EAPMessage.SetLen(a.EAPMessage.GetLen())
-			binary.Read(buffer, binary.BigEndian, a.EAPMessage.Buffer[:a.EAPMessage.GetLen()])
+			binary.Read(
+				buffer,
+				binary.BigEndian,
+				a.EAPMessage.Buffer[:a.EAPMessage.GetLen()],
+			)
 		default:
 		}
 	}

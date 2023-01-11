@@ -15,17 +15,24 @@ import (
 )
 
 func TestNasTypeNewEPSNASMessageContainer(t *testing.T) {
-	a := nasType.NewEPSNASMessageContainer(nasMessage.RegistrationRequestEPSNASMessageContainerType)
+	a := nasType.NewEPSNASMessageContainer(
+		nasMessage.RegistrationRequestEPSNASMessageContainerType,
+	)
 	assert.NotNil(t, a)
 
 }
 
 var nasTypeRegistrationRequestEPSNASMessageContainerIeiTable = []NasTypeIeiData{
-	{nasMessage.RegistrationRequestEPSNASMessageContainerType, nasMessage.RegistrationRequestEPSNASMessageContainerType},
+	{
+		nasMessage.RegistrationRequestEPSNASMessageContainerType,
+		nasMessage.RegistrationRequestEPSNASMessageContainerType,
+	},
 }
 
 func TestNasTypeEPSNASMessageContainerGetSetIei(t *testing.T) {
-	a := nasType.NewEPSNASMessageContainer(nasMessage.RegistrationRequestEPSNASMessageContainerType)
+	a := nasType.NewEPSNASMessageContainer(
+		nasMessage.RegistrationRequestEPSNASMessageContainerType,
+	)
 	for _, table := range nasTypeRegistrationRequestEPSNASMessageContainerIeiTable {
 		a.SetIei(table.in)
 		assert.Equal(t, table.out, a.GetIei())
@@ -37,7 +44,9 @@ var nasTypeEPSNASMessageContainerLenTable = []NasTypeLenUint16Data{
 }
 
 func TestNasTypeEPSNASMessageContainerGetSetLen(t *testing.T) {
-	a := nasType.NewEPSNASMessageContainer(nasMessage.RegistrationRequestEPSNASMessageContainerType)
+	a := nasType.NewEPSNASMessageContainer(
+		nasMessage.RegistrationRequestEPSNASMessageContainerType,
+	)
 	for _, table := range nasTypeEPSNASMessageContainerLenTable {
 		a.SetLen(table.in)
 		assert.Equal(t, table.out, a.GetLen())
@@ -54,12 +63,24 @@ var nasTypeEPSNASMessageContainerEPANASMessageContainerTable = []nasTypeEPSNASMe
 	{2, []uint8{0x01, 0x01}, []uint8{0x01, 0x01}},
 }
 
-func TestNasTypeEPSNASMessageContainerGetSetEPANASMessageContainer(t *testing.T) {
-	a := nasType.NewEPSNASMessageContainer(nasMessage.RegistrationRequestEPSNASMessageContainerType)
+func TestNasTypeEPSNASMessageContainerGetSetEPANASMessageContainer(
+	t *testing.T,
+) {
+	a := nasType.NewEPSNASMessageContainer(
+		nasMessage.RegistrationRequestEPSNASMessageContainerType,
+	)
 	for _, table := range nasTypeEPSNASMessageContainerEPANASMessageContainerTable {
 		a.SetLen(table.inLen)
 		a.SetEPANASMessageContainer(table.in)
-		assert.Equalf(t, table.out, a.GetEPANASMessageContainer(), "in(%v): out %v, actual %x", table.in, table.out, a.GetEPANASMessageContainer())
+		assert.Equalf(
+			t,
+			table.out,
+			a.GetEPANASMessageContainer(),
+			"in(%v): out %v, actual %x",
+			table.in,
+			table.out,
+			a.GetEPANASMessageContainer(),
+		)
 	}
 }
 
@@ -69,11 +90,19 @@ type testEPSNASMessageContainerDataTemplate struct {
 }
 
 var ePSNASMessageContainerTestData = []nasType.EPSNASMessageContainer{
-	{nasMessage.RegistrationRequestEPSNASMessageContainerType, 3, []byte{0x02, 0x1f, 0x22}},
+	{
+		nasMessage.RegistrationRequestEPSNASMessageContainerType,
+		3,
+		[]byte{0x02, 0x1f, 0x22},
+	},
 }
 
 var ePSNASMessageContainerExpectedData = []nasType.EPSNASMessageContainer{
-	{nasMessage.RegistrationRequestEPSNASMessageContainerType, 3, []byte{0x02, 0x1f, 0x22}},
+	{
+		nasMessage.RegistrationRequestEPSNASMessageContainerType,
+		3,
+		[]byte{0x02, 0x1f, 0x22},
+	},
 }
 
 var ePSNASMessageContainerTestTable = []testEPSNASMessageContainerDataTemplate{
@@ -90,9 +119,33 @@ func TestNasTypeEPSNASMessageContainer(t *testing.T) {
 		a.SetLen(table.in.Len)
 		a.SetEPANASMessageContainer(table.in.Buffer)
 
-		assert.Equalf(t, table.out.Iei, a.Iei, "in(%v): out %v, actual %x", table.in.Iei, table.out.Iei, a.Iei)
-		assert.Equalf(t, table.out.Len, a.Len, "in(%v): out %v, actual %x", table.in.Len, table.out.Len, a.Len)
-		assert.Equalf(t, table.out.Buffer, a.Buffer, "in(%v): out %v, actual %x", table.in.Buffer, table.out.Buffer, a.Buffer)
+		assert.Equalf(
+			t,
+			table.out.Iei,
+			a.Iei,
+			"in(%v): out %v, actual %x",
+			table.in.Iei,
+			table.out.Iei,
+			a.Iei,
+		)
+		assert.Equalf(
+			t,
+			table.out.Len,
+			a.Len,
+			"in(%v): out %v, actual %x",
+			table.in.Len,
+			table.out.Len,
+			a.Len,
+		)
+		assert.Equalf(
+			t,
+			table.out.Buffer,
+			a.Buffer,
+			"in(%v): out %v, actual %x",
+			table.in.Buffer,
+			table.out.Buffer,
+			a.Buffer,
+		)
 
 	}
 }

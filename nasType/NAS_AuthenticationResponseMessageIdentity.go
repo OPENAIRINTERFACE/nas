@@ -24,6 +24,8 @@ func (a *AuthenticationResponseMessageIdentity) GetMessageType() (messageType ui
 
 // AuthenticationResponseMessageIdentity 9.7
 // MessageType Row, sBit, len = [0, 0], 8 , 8
-func (a *AuthenticationResponseMessageIdentity) SetMessageType(messageType uint8) {
+func (a *AuthenticationResponseMessageIdentity) SetMessageType(
+	messageType uint8,
+) {
 	a.Octet = messageType
 }

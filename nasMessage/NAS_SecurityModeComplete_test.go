@@ -34,9 +34,19 @@ var nasMessageSecurityModeCompleteTable = []nasMessageSecurityModeCompleteData{
 		inSpareHalfOctet:                      0x01,
 		inSecurityModeCompleteMessageIdentity: nas.MsgTypeSecurityModeComplete,
 		inIMEISV: nasType.IMEISV{
-			Iei:   nasMessage.SecurityModeCompleteIMEISVType,
-			Len:   9,
-			Octet: [9]uint8{0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01},
+			Iei: nasMessage.SecurityModeCompleteIMEISVType,
+			Len: 9,
+			Octet: [9]uint8{
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+				0x01,
+			},
 		},
 		inNASMessageContainer: nasType.NASMessageContainer{
 			Iei:    nasMessage.SecurityModeCompleteNASMessageContainerType,
@@ -60,15 +70,25 @@ func TestNasTypeNewSecurityModeCompleteMessage(t *testing.T) {
 		assert.NotNil(t, a)
 		assert.NotNil(t, b)
 
-		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(table.inExtendedProtocolDiscriminator)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(table.inSecurityHeader)
-		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(table.inSpareHalfOctet)
-		a.SecurityModeCompleteMessageIdentity.SetMessageType(table.inSecurityModeCompleteMessageIdentity)
+		a.ExtendedProtocolDiscriminator.SetExtendedProtocolDiscriminator(
+			table.inExtendedProtocolDiscriminator,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSecurityHeaderType(
+			table.inSecurityHeader,
+		)
+		a.SpareHalfOctetAndSecurityHeaderType.SetSpareHalfOctet(
+			table.inSpareHalfOctet,
+		)
+		a.SecurityModeCompleteMessageIdentity.SetMessageType(
+			table.inSecurityModeCompleteMessageIdentity,
+		)
 
 		a.IMEISV = nasType.NewIMEISV(nasMessage.SecurityModeCompleteIMEISVType)
 		a.IMEISV = &table.inIMEISV
 
-		a.NASMessageContainer = nasType.NewNASMessageContainer(nasMessage.SecurityModeCompleteNASMessageContainerType)
+		a.NASMessageContainer = nasType.NewNASMessageContainer(
+			nasMessage.SecurityModeCompleteNASMessageContainerType,
+		)
 		a.NASMessageContainer = &table.inNASMessageContainer
 
 		buff := new(bytes.Buffer)
